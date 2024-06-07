@@ -1,8 +1,7 @@
-import {css, html, TemplateResult} from "lit"
+import {html, TemplateResult} from "lit"
 import {LitElementWw} from "@webwriter/lit"
 import {customElement, query} from "lit/decorators.js"
 import * as Blockly from "blockly";
-
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -63,8 +62,16 @@ export class WebwriterBlocks extends LitElementWw {
         ]
       }
     });
-    this.shadowRoot.appendChild(document.getElementById("blockly-common-style"));
-    this.shadowRoot.appendChild(document.getElementById("blockly-renderer-style-zelos-classic"))
+    DEV: console.log(Blockly);
+    DEV: console.log(this.workspace);
+
+    ["blockly-common-style", "blockly-renderer-style-zelos-classic"].forEach((styleElementId) => {
+      const styleElement = <HTMLStyleElement>document.getElementById(styleElementId);
+      if(!styleElement) {
+        DEV: console.error(`Style element with id ${styleElementId} not found`);
+      }
+      this.shadowRoot.appendChild(styleElement.cloneNode(true));
+    })
     Blockly.svgResize(this.workspace);
   }
 }
