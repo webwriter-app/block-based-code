@@ -4,6 +4,7 @@
   "license": "MIT",
   "author": "@philipplentzen",
   "dependencies": {
+    "@shoelace-style/shoelace": "^2.15.1",
     "@webwriter/lit": "^1.6.3",
     "blockly": "^11.1.0",
     "lit": "^3.1.3"
