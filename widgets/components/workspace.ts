@@ -1,9 +1,10 @@
-import { customElement, query } from "lit/decorators.js";
+import { customElement, query } from "lit/decorators";
 import { LitElementWw } from "@webwriter/lit";
 import { html, TemplateResult } from "lit";
 import * as Blockly from "blockly";
 import * as De from "blockly/msg/de";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
+import { Logger } from "../utils";
 
 @customElement("webwriter-blocks-workspace")
 export class Workspace extends LitElementWw {
@@ -24,7 +25,6 @@ export class Workspace extends LitElementWw {
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
-    console.log(Blockly.Msg);
     Blockly.setLocale(De);
 
     this.workspace = Blockly.inject(this.blockCanvas, {
@@ -73,13 +73,11 @@ export class Workspace extends LitElementWw {
         metricsManager: ContinuousMetrics,
       },
     });
-    console.log(Blockly);
-    console.log(this.workspace);
 
     ["blockly-common-style", "blockly-renderer-style-zelos-zelos"].forEach((styleElementId) => {
       const styleElement = <HTMLStyleElement>document.getElementById(styleElementId);
       if (!styleElement) {
-        console.error(`Style element with id ${styleElementId} not found`);
+        Logger.error(`Style element with id ${styleElementId} not found`);
       }
       this.shadowRoot.appendChild(styleElement.cloneNode(true));
     });

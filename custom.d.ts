@@ -1,3 +1,5 @@
+/* eslint-disable import/no-default-export */
+
 declare module "*.apng" {
   const content: string;
   export default content;
@@ -147,11 +149,11 @@ declare module "*.pdf" {
   export default content;
 }
 declare module "*.json" {
-  const content: { [key: string]: any };
+  const content: { [key: string]: unknown };
   export default content;
 }
 declare module "*.jsonld" {
-  const content: { [key: string]: any };
+  const content: { [key: string]: unknown };
   export default content;
 }
 declare module "*.txt" {

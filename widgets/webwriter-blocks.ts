@@ -1,13 +1,14 @@
 import {
-  css, CSSResult, html, TemplateResult,
+  css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, query } from "lit/decorators.js";
+import { customElement, query } from "lit/decorators";
+import SlButton from "@shoelace-style/shoelace/dist/components/button/button";
+import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel";
 import { Workspace } from "./components/workspace";
+import { Logger } from "./utils";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
-import SlButton from "@shoelace-style/shoelace/dist/components/button/button.js";
-import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -17,14 +18,13 @@ export class WebwriterBlocks extends LitElementWw {
   constructor() {
     super();
     this.addEventListener("fullscreenchange", () => this.requestUpdate());
-    this.addEventListener("fullscreenerror", console.log);
   }
 
-  public static get scopedElements(): any {
+  public static get scopedElements(): Record<string, LitElement> {
     return {
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
-      "webwriter-blocks-workspace": Workspace,
+      "webwriter-blocks-workspace": Workspace as unknown as LitElement,
     };
   }
 
@@ -49,11 +49,11 @@ export class WebwriterBlocks extends LitElementWw {
   public render(): TemplateResult {
     return html`
       <div>
-        <sl-button @click="${this._handleFullscreenClick}">
+        <sl-button @click="${this.handleFullscreenClick}">
           F
         </sl-button>
       </div>
-      <sl-split-panel style="--min: 150px; --max: calc(100% - 150px);" @sl-reposition="${this._handleSplitPanelResize}">
+      <sl-split-panel style="--min: 150px; --max: calc(100% - 150px);" @sl-reposition="${this.handleSplitPanelResize}">
         <div slot="start">
           <webwriter-blocks-workspace id="workspace"></webwriter-blocks-workspace>
         </div>
@@ -64,19 +64,19 @@ export class WebwriterBlocks extends LitElementWw {
     `;
   }
 
-  private _handleFullscreenClick() {
+  private handleFullscreenClick(): void {
     if (this.isFullscreen) {
       this.ownerDocument.exitFullscreen();
     } else {
       try {
         this.requestFullscreen();
       } catch {
-        console.error("Failed to enter fullscreen mode.");
+        Logger.error("Failed to enter fullscreen mode.");
       }
     }
   }
 
-  private _handleSplitPanelResize() {
+  private handleSplitPanelResize(): void {
     this.workspace.resize();
   }
 }
