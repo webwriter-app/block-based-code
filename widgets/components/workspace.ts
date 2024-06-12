@@ -20,6 +20,7 @@ export class Workspace extends LitElementWw {
         super.firstUpdated(_changedProperties);
         this.workspace = Blockly.inject(this.blockCanvas, {
             renderer: "zelos",
+            theme: "zelos",
             toolbox: {
                 kind: 'categoryToolbox',
                 contents: [
@@ -58,7 +59,7 @@ export class Workspace extends LitElementWw {
         DEV: console.log(Blockly);
         DEV: console.log(this.workspace);
 
-        ["blockly-common-style", "blockly-renderer-style-zelos-classic"].forEach((styleElementId) => {
+        ["blockly-common-style", "blockly-renderer-style-zelos-zelos"].forEach((styleElementId) => {
             const styleElement = <HTMLStyleElement>document.getElementById(styleElementId);
             if (!styleElement) {
                 DEV: console.error(`Style element with id ${styleElementId} not found`);
