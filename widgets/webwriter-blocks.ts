@@ -11,6 +11,20 @@ export class WebwriterBlocks extends LitElementWw {
     }
   }
 
+  public static get styles(): CSSResult[] {
+    return [
+      css`
+        :host {
+          background-color: white;
+          display: block;
+          width: 100%;
+          height: auto;
+          user-select: none;
+        }
+      `
+    ]
+  }
+
   public render(): TemplateResult {
     return html`
       <div>
