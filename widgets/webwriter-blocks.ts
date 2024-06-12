@@ -3,10 +3,18 @@ import {LitElementWw} from "@webwriter/lit"
 import {customElement} from "lit/decorators.js"
 import {Workspace} from "./components/workspace";
 
+import "@shoelace-style/shoelace/dist/themes/light.css";
+import SlButton from "@shoelace-style/shoelace/dist/components/button/button.js";
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
+  constructor() {
+    super();
+    this.addEventListener("fullscreenchange", () => this.requestUpdate());
+  }
+
   public static get scopedElements(): any {
     return {
+      "sl-button": SlButton,
       "webwriter-blocks-workspace": Workspace
     }
   }
@@ -25,11 +33,30 @@ export class WebwriterBlocks extends LitElementWw {
     ]
   }
 
+  public get isFullscreen(): boolean {
+    return this.ownerDocument.fullscreenElement === this;
+  }
+
   public render(): TemplateResult {
     return html`
       <div>
-        <webwriter-blocks-workspace></webwriter-blocks-workspace>
+        <sl-button @click="${this._handleFullscreenClick}">
+          F
+        </sl-button>
       </div>
+      <webwriter-blocks-workspace id="workspace"></webwriter-blocks-workspace>
     `
+  }
+
+  private _handleFullscreenClick() {
+    if (this.isFullscreen) {
+        this.ownerDocument.exitFullscreen();
+    } else {
+      try {
+        this.requestFullscreen();
+      } catch {
+        console.error("Failed to enter fullscreen mode.");
+      }
+    }
   }
 }
