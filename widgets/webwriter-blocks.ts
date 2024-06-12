@@ -1,7 +1,9 @@
-import {css, CSSResult, html, TemplateResult} from "lit"
-import {LitElementWw} from "@webwriter/lit"
-import {customElement, query} from "lit/decorators.js"
-import {Workspace} from "./components/workspace";
+import {
+  css, CSSResult, html, TemplateResult,
+} from "lit";
+import { LitElementWw } from "@webwriter/lit";
+import { customElement, query } from "lit/decorators.js";
+import { Workspace } from "./components/workspace";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import SlButton from "@shoelace-style/shoelace/dist/components/button/button.js";
@@ -22,8 +24,8 @@ export class WebwriterBlocks extends LitElementWw {
     return {
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
-      "webwriter-blocks-workspace": Workspace
-    }
+      "webwriter-blocks-workspace": Workspace,
+    };
   }
 
   public static get styles(): CSSResult[] {
@@ -36,8 +38,8 @@ export class WebwriterBlocks extends LitElementWw {
           height: auto;
           user-select: none;
         }
-      `
-    ]
+      `,
+    ];
   }
 
   public get isFullscreen(): boolean {
@@ -59,12 +61,12 @@ export class WebwriterBlocks extends LitElementWw {
           
         </div>
       </sl-split-panel>
-    `
+    `;
   }
 
   private _handleFullscreenClick() {
     if (this.isFullscreen) {
-        this.ownerDocument.exitFullscreen();
+      this.ownerDocument.exitFullscreen();
     } else {
       try {
         this.requestFullscreen();

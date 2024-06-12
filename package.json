@@ -7,7 +7,7 @@
     "webwriter-widget"
   ],
   "scripts": {
-    "lint": "eslint --fix"
+    "lint": "eslint --fix ."
   },
   "exports": {
     "./widgets/webwriter-blocks": "./widgets/webwriter-blocks.ts"
