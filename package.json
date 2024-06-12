@@ -6,6 +6,9 @@
   "keywords": [
     "webwriter-widget"
   ],
+  "scripts": {
+    "lint": "eslint --fix"
+  },
   "exports": {
     "./widgets/webwriter-blocks": "./widgets/webwriter-blocks.ts"
   },
@@ -15,5 +18,11 @@
     "@webwriter/lit": "^1.6.3",
     "blockly": "^11.1.0",
     "lit": "^3.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "^2.29.1"
   }
 }
