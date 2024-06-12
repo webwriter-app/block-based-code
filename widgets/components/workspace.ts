@@ -2,6 +2,7 @@ import {customElement, query} from "lit/decorators.js";
 import {LitElementWw} from "@webwriter/lit";
 import {html, TemplateResult} from "lit";
 import * as Blockly from "blockly";
+import {ContinuousFlyout, ContinuousMetrics, ContinuousToolbox,} from '@blockly/continuous-toolbox';
 
 @customElement("webwriter-blocks-workspace")
 export class Workspace extends LitElementWw {
@@ -54,6 +55,11 @@ export class Workspace extends LitElementWw {
                     }
                     // You can add more blocks to this array.
                 ]
+            },
+            plugins: {
+                toolbox: ContinuousToolbox,
+                flyoutsVerticalToolbox: ContinuousFlyout,
+                metricsManager: ContinuousMetrics,
             }
         });
         DEV: console.log(Blockly);

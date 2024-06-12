@@ -10,6 +10,7 @@
     "./widgets/webwriter-blocks": "./widgets/webwriter-blocks.ts"
   },
   "dependencies": {
+    "@blockly/continuous-toolbox": "^6.0.2",
     "@shoelace-style/shoelace": "^2.15.1",
     "@webwriter/lit": "^1.6.3",
     "blockly": "^11.1.0",
