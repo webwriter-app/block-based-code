@@ -2,6 +2,7 @@ import {customElement, query} from "lit/decorators.js";
 import {LitElementWw} from "@webwriter/lit";
 import {html, TemplateResult} from "lit";
 import * as Blockly from "blockly";
+import * as De from "blockly/msg/de";
 import {ContinuousFlyout, ContinuousMetrics, ContinuousToolbox,} from '@blockly/continuous-toolbox';
 
 @customElement("webwriter-blocks-workspace")
@@ -13,21 +14,30 @@ export class Workspace extends LitElementWw {
 
     public render(): TemplateResult {
         return html`
-            <div id="block-canvas" style="width: 100%; height: 500px;"></div>
+            <div id="block-canvas" style="min-width: 100%; height: 500px;"></div>
         `;
+    }
+
+    public resize(): void {
+        Blockly.svgResize(this.workspace);
     }
 
     protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
         super.firstUpdated(_changedProperties);
+        console.log(Blockly.Msg)
+        Blockly.setLocale(De)
+
         this.workspace = Blockly.inject(this.blockCanvas, {
             renderer: "zelos",
             theme: "zelos",
+            sounds: false,
             toolbox: {
                 kind: 'categoryToolbox',
                 contents: [
                     {
                         "kind": "category",
                         "name": "Control",
+                        "categoryStyle": "logic_category",
                         "contents": [
                             {
                                 "kind": "block",
@@ -38,6 +48,7 @@ export class Workspace extends LitElementWw {
                     {
                         "kind": "category",
                         "name": "Logic",
+                        "categoryStyle": "",
                         "contents": [
                             {
                                 "kind": "block",
