@@ -1,10 +1,12 @@
 import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
-import { html, TemplateResult } from "lit";
+import {
+  css, CSSResult, html, TemplateResult,
+} from "lit";
 import * as Blockly from "blockly";
 import * as De from "blockly/msg/de";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
-import { Logger } from "../utils";
+import { APPLICATION_HEIGHT, Logger } from "../utils";
 
 @customElement("webwriter-blocks-workspace")
 export class Workspace extends LitElementWw {
@@ -13,9 +15,31 @@ export class Workspace extends LitElementWw {
 
   private workspace: Blockly.WorkspaceSvg;
 
+  public static get styles(): CSSResult[] {
+    return [
+      css`
+          :host {
+            display: block;
+          }
+        
+          #block-canvas {
+            height: ${APPLICATION_HEIGHT}px;
+          }
+        
+          .blocklyToolboxDiv {
+            padding: 0;
+          }
+        
+          .blocklyWorkspace rect {
+            stroke: none;
+          }
+        `,
+    ];
+  }
+
   public render(): TemplateResult {
     return html`
-            <div id="block-canvas" style="height: 500px;"></div>
+            <div id="block-canvas"></div>
         `;
   }
 

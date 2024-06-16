@@ -4,7 +4,7 @@ import {
   css, CSSResult, html, TemplateResult,
 } from "lit";
 import * as Pixi from "pixi.js";
-import { Logger } from "../utils";
+import { APPLICATION_HEIGHT, Logger } from "../utils";
 import bunny from "../assets/bunny.png";
 
 @customElement("webwriter-blocks-canvas")
@@ -38,7 +38,7 @@ export class Canvas extends LitElementWw {
       .init({
         resizeTo: this,
         width: 150,
-        height: 500,
+        height: APPLICATION_HEIGHT,
         background: "#fff",
       })
       .then(this.handlePixiReady.bind(this))

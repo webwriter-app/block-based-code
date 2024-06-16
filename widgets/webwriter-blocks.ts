@@ -37,11 +37,32 @@ export class WebwriterBlocks extends LitElementWw {
     return [
       css`
         :host {
-          background-color: white;
           display: block;
           width: 100%;
           height: auto;
+          
+          background-color: white;
+          
           user-select: none;
+        }
+        
+        .toolbar {
+          margin-bottom: 4px;
+        }
+        
+        .application {
+          --min: 150px;
+          --max: calc(100% - 150px);
+          
+          outline: 1px solid var(--sl-color-gray-300);
+          border-radius: var(--sl-border-radius-medium);
+          
+          overflow: hidden;
+        }
+        
+        .application > div {
+          min-width: 0;
+          min-height: 0;
         }
       `,
     ];
@@ -53,30 +74,32 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-      <div>
-        <sl-button @click="${this.handleFullscreenClick}">
+      <div class="toolbar">
+        <sl-button @click="${this.handleFullscreenClick.bind(this)}">
           F
         </sl-button>
       </div>
-      <sl-split-panel style="--min: 150px; --max: calc(100% - 150px);" @sl-reposition="${this.handleSplitPanelResize}">
+      <sl-split-panel class="application" style="" @sl-reposition="${this.handleSplitPanelResize}">
         <div slot="start">
           <webwriter-blocks-workspace id="workspace"></webwriter-blocks-workspace>
         </div>
-        <div slot="end" style="min-width: 0">
+        <div slot="end">
           <webwriter-blocks-canvas id="canvas"></webwriter-blocks-canvas>
         </div>
       </sl-split-panel>
     `;
   }
 
-  private handleFullscreenClick(): void {
+  private handleFullscreenClick(event: Event): void {
+    event.preventDefault();
     if (this.isFullscreen) {
       this.ownerDocument.exitFullscreen();
     } else {
       try {
         this.requestFullscreen();
-      } catch {
+      } catch (error) {
         Logger.error("Failed to enter fullscreen mode.");
+        Logger.log(error);
       }
     }
   }
