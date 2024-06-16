@@ -109,6 +109,13 @@ export class WebwriterBlocks extends LitElementWw {
     ];
   }
 
+  public static get shadowRootOptions(): ShadowRootInit {
+    return {
+      ...LitElement.shadowRootOptions,
+      delegatesFocus: true,
+    };
+  }
+
   constructor() {
     super();
     setLocale(this.ownerDocument.documentElement.lang);
