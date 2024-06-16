@@ -6,7 +6,7 @@ import {
 import * as Blockly from "blockly";
 import * as De from "blockly/msg/de";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
-import { APPLICATION_HEIGHT, Logger } from "../utils";
+import { Logger } from "../utils";
 
 @customElement("webwriter-blocks-workspace")
 export class Workspace extends LitElementWw {
@@ -20,10 +20,16 @@ export class Workspace extends LitElementWw {
       css`
         :host {
           display: block;
-        }
+          height: calc(100% - 16px);
+          padding: 8px 0 8px 8px;
 
+          background-color: var(--sl-color-gray-100);
+        }
+        
         #block-canvas {
-          height: ${APPLICATION_HEIGHT}px;
+          border: 1px solid var(--sl-color-gray-300);
+          border-radius: var(--sl-border-radius-medium);
+          overflow: hidden;
         }
 
         .blocklyToolboxDiv {
@@ -105,6 +111,7 @@ export class Workspace extends LitElementWw {
         spacing: 20,
         length: 1,
         snap: true,
+        colour: "var(--sl-color-gray-500)",
       },
       toolbox: {
         kind: "categoryToolbox",

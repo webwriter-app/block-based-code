@@ -6,15 +6,19 @@ import { customElement, query } from "lit/decorators.js";
 import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
 import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js";
 import SlIconButton from "@shoelace-style/shoelace/dist/components/icon-button/icon-button.component.js";
+import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js";
 import GripVerticalIcon from "bootstrap-icons/icons/grip-vertical.svg";
 import FullscreenIcon from "bootstrap-icons/icons/fullscreen.svg";
 import FullscreenExitIcon from "bootstrap-icons/icons/fullscreen-exit.svg";
+import PlayIcon from "bootstrap-icons/icons/play.svg";
+import StopIcon from "bootstrap-icons/icons/stop.svg";
 import { Workspace } from "./components/workspace";
 import { Logger } from "./utils";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { Canvas } from "./components/canvas";
 import { Options } from "./components/options";
+import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -31,9 +35,11 @@ export class WebwriterBlocks extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
+      "sl-checkbox": SlCheckbox,
       "sl-icon": SlIcon,
       "sl-icon-button": SlIconButton,
       "sl-split-panel": SlSplitPanel,
+      "sl-tooltip": SlTooltip,
       "webwriter-blocks-workspace": Workspace,
       "webwriter-blocks-canvas": Canvas,
       "webwriter-blocks-options": Options,
@@ -45,8 +51,6 @@ export class WebwriterBlocks extends LitElementWw {
       css`
         :host {
           display: block;
-          width: calc(100% - 16px);
-          height: auto;
 
           user-select: none;
 
@@ -61,15 +65,33 @@ export class WebwriterBlocks extends LitElementWw {
 
         .toolbar {
           display: flex;
-          justify-content: flex-end;
+          justify-content: space-between;
           
           padding: 8px 12px;
+        }
+        
+        .toolbar .actions {
+          display: flex;
+          
+          border: 1px solid var(--sl-color-gray-300);
+          border-radius: var(--sl-border-radius-medium);
+          overflow: hidden;
+        }
+        
+        .toolbar .actions sl-icon-button::part(base) {
+          border-radius: 0;
+        }
+        
+        .toolbar .actions sl-tooltip:not(:first-child) sl-icon-button::part(base) {
+          border-left: 1px solid var(--sl-color-gray-300);
         }
 
         .application {
           --min: 150px;
           --max: calc(100% - 150px);
           --divider-width: 16px;
+          
+          height: 500px;
 
           border-top: 1px solid var(--sl-color-gray-300);
         }
@@ -80,7 +102,8 @@ export class WebwriterBlocks extends LitElementWw {
         }
         
         .application::part(divider) {
-          background-color: var(--sl-color-gray-300);
+          background-color: var(--sl-color-gray-100);
+          color: var(--sl-color-gray-500);
         }
       `,
     ];
@@ -89,10 +112,17 @@ export class WebwriterBlocks extends LitElementWw {
   public render(): TemplateResult {
     return html`
       <div class="toolbar">
-        <sl-icon-button src="${this.isFullscreen ? FullscreenExitIcon : FullscreenIcon}"> @click="${this.handleFullscreenClick.bind(this)}">
-        </sl-icon-button>
+        <sl-icon-button src="${this.isFullscreen ? FullscreenExitIcon : FullscreenIcon}"> @click="${this.handleFullscreenClick.bind(this)}"></sl-icon-button>
+        <div class="actions">
+          <sl-tooltip content="Stop Execution">
+            <sl-icon-button src="${StopIcon}" label="Stop Execution"></sl-icon-button>
+          </sl-tooltip>
+          <sl-tooltip content="Start Execution">
+            <sl-icon-button src="${PlayIcon}" label="Start Execution"></sl-icon-button>
+          </sl-tooltip>
+        </div>
       </div>
-      <sl-split-panel class="application" @sl-reposition="${this.handleSplitPanelResize}">
+      <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
         <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
         <div slot="start">
           <webwriter-blocks-workspace id="workspace"></webwriter-blocks-workspace>

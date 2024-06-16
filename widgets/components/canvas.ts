@@ -1,32 +1,66 @@
-import { customElement } from "lit/decorators.js";
+import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   css, CSSResult, html, TemplateResult,
 } from "lit";
 import * as Pixi from "pixi.js";
-import { APPLICATION_HEIGHT, Logger } from "../utils";
+import { Logger } from "../utils";
 import bunny from "../assets/bunny.png";
 
 @customElement("webwriter-blocks-canvas")
 export class Canvas extends LitElementWw {
+  @query("#canvas")
+  private canvas!: HTMLDivElement;
+
   private app: Pixi.Application;
 
   public static get styles(): CSSResult[] {
     return [
       css`
         :host {
-            display: block;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          
+          height: calc(100% - 16px);
+
+          padding: 8px 8px 8px 0;
+          
+          background-color: var(--sl-color-gray-100);
         }
-        `,
+        
+        #canvas {
+          position: relative;
+          width: 100%;
+          margin: 0 auto;
+          height: 0;
+
+          padding-top: calc(100% * 3 / 4);
+          
+          border: 1px solid var(--sl-color-gray-300);
+          border-radius: var(--sl-border-radius-medium);
+          overflow: hidden;
+        }
+        
+        #canvas canvas {
+          position: absolute;
+          top: 0;
+          left: 0;
+          
+          transform-origin: top left;
+        }
+      `,
     ];
   }
 
   public render(): TemplateResult {
-    return html``;
+    return html`
+      <div id="canvas"></div>
+    `;
   }
 
   public resize(): void {
-    this.app.resize();
+    this.app.canvas.style.transform = `scale(${this.canvas.clientWidth / this.app.canvas.width})`;
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
@@ -36,17 +70,17 @@ export class Canvas extends LitElementWw {
 
     this.app
       .init({
-        resizeTo: this,
-        width: 150,
-        height: APPLICATION_HEIGHT,
-        background: "#fff",
+        width: 800,
+        height: 600,
+        background: "white",
       })
       .then(this.handlePixiReady.bind(this))
       .catch(this.handlePixiError.bind(this));
   }
 
   private handlePixiReady(): void {
-    this.shadowRoot.appendChild(this.app.canvas);
+    this.canvas.appendChild(this.app.canvas);
+    this.resize();
 
     this.loadAssets().then(() => {
       const filter = new Pixi.ColorMatrixFilter();
