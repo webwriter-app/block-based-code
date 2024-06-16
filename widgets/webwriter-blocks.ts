@@ -9,11 +9,15 @@ import { Workspace } from "./components/workspace";
 import { Logger } from "./utils";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
+import { Canvas } from "./components/canvas";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
   @query("#workspace")
   private workspace!: Workspace;
+
+  @query("#canvas")
+  private canvas!: Canvas;
 
   constructor() {
     super();
@@ -25,6 +29,7 @@ export class WebwriterBlocks extends LitElementWw {
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
       "webwriter-blocks-workspace": Workspace,
+      "webwriter-blocks-canvas": Canvas,
     };
   }
 
@@ -57,8 +62,8 @@ export class WebwriterBlocks extends LitElementWw {
         <div slot="start">
           <webwriter-blocks-workspace id="workspace"></webwriter-blocks-workspace>
         </div>
-        <div slot="end">
-          
+        <div slot="end" style="min-width: 0">
+          <webwriter-blocks-canvas id="canvas"></webwriter-blocks-canvas>
         </div>
       </sl-split-panel>
     `;
@@ -78,5 +83,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   private handleSplitPanelResize(): void {
     this.workspace.resize();
+    this.canvas.resize();
   }
 }
