@@ -5,7 +5,6 @@ import { LitElementWw } from "@webwriter/lit";
 import { customElement, query } from "lit/decorators.js";
 import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
 import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js";
-import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js";
 import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js";
 import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js";
 import GripVerticalIcon from "bootstrap-icons/icons/grip-vertical.svg";
@@ -19,6 +18,7 @@ import { Logger } from "./utils";
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { Canvas } from "./components/canvas";
 import { Options } from "./components/options";
+import { msg, setLocale } from "./locales";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -28,14 +28,8 @@ export class WebwriterBlocks extends LitElementWw {
   @query("#canvas")
   private canvas!: Canvas;
 
-  constructor() {
-    super();
-    this.addEventListener("fullscreenchange", () => this.requestUpdate());
-  }
-
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
-      "sl-checkbox": SlCheckbox,
       "sl-icon": SlIcon,
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
@@ -115,23 +109,36 @@ export class WebwriterBlocks extends LitElementWw {
     ];
   }
 
+  public static get shadowRootOptions(): ShadowRootInit {
+    return {
+      ...LitElement.shadowRootOptions,
+      delegatesFocus: true,
+    };
+  }
+
+  constructor() {
+    super();
+    setLocale(this.ownerDocument.documentElement.lang);
+    this.addEventListener("fullscreenchange", () => this.requestUpdate());
+  }
+
   public render(): TemplateResult {
     return html`
       <div class="toolbar">
         <div class="actions">
-          <sl-tooltip content="Stop Execution" content="${this.isFullscreen ? "Leave Fullscreen" : "Enter Fullscreen"}">
+          <sl-tooltip content="${msg(this.isFullscreen ? "fullscreenExit" : "fullscreen")}">
             <sl-button @click="${this.handleFullscreenClick}">
               <sl-icon src="${this.isFullscreen ? FullscreenExitIcon : FullscreenIcon}"></sl-icon>
             </sl-button>
           <sl-tooltip>
         </div>
         <div class="actions">
-          <sl-tooltip content="Stop Execution">
+          <sl-tooltip content="${msg("stop")}">
             <sl-button>
                 <sl-icon src="${StopIcon}" label="Stop Execution"></sl-icon>
             </sl-button>
           </sl-tooltip>
-          <sl-tooltip content="Start Execution">
+          <sl-tooltip content="${msg("start")}">
             <sl-button>
                 <sl-icon src="${PlayIcon}" label="Start Execution"></sl-icon>
             </sl-button>

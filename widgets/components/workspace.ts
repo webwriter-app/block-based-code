@@ -4,7 +4,8 @@ import {
   css, CSSResult, html, TemplateResult,
 } from "lit";
 import * as Blockly from "blockly";
-import * as De from "blockly/msg/de";
+import * as de from "blockly/msg/de";
+import * as en from "blockly/msg/en";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { Logger } from "../utils";
 
@@ -101,7 +102,11 @@ export class Workspace extends LitElementWw {
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
-    Blockly.setLocale(De);
+
+    Blockly.setLocale({
+      de,
+      en,
+    }[this.ownerDocument.documentElement.lang as "de" | "en"]);
 
     this.workspace = Blockly.inject(this.blockCanvas, {
       renderer: "zelos",
