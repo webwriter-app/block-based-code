@@ -1,176 +1,178 @@
-declare module '*.apng' {
+/* eslint-disable import/no-default-export */
+
+declare module "*.apng" {
   const content: string;
   export default content;
 }
-declare module '*.jpg' {
+declare module "*.jpg" {
   const content: string;
   export default content;
 }
-declare module '*.jpeg' {
+declare module "*.jpeg" {
   const content: string;
   export default content;
 }
-declare module '*.jfif' {
+declare module "*.jfif" {
   const content: string;
   export default content;
 }
-declare module '*.pjpeg' {
+declare module "*.pjpeg" {
   const content: string;
   export default content;
 }
-declare module '*.pjp' {
+declare module "*.pjp" {
   const content: string;
   export default content;
 }
-declare module '*.png' {
+declare module "*.png" {
   const content: string;
   export default content;
 }
-declare module '*.svg' {
+declare module "*.svg" {
   const content: string;
   export default content;
 }
-declare module '*.webp' {
+declare module "*.webp" {
   const content: string;
   export default content;
 }
-declare module '*.bmp' {
+declare module "*.bmp" {
   const content: string;
   export default content;
 }
-declare module '*.ico' {
+declare module "*.ico" {
   const content: string;
   export default content;
 }
-declare module '*.cur' {
+declare module "*.cur" {
   const content: string;
   export default content;
 }
-declare module '*.tif' {
+declare module "*.tif" {
   const content: string;
   export default content;
 }
-declare module '*.tiff' {
+declare module "*.tiff" {
   const content: string;
   export default content;
 }
-declare module '*.wav' {
+declare module "*.wav" {
   const content: string;
   export default content;
 }
-declare module '*.wave' {
+declare module "*.wave" {
   const content: string;
   export default content;
 }
-declare module '*.mp3' {
+declare module "*.mp3" {
   const content: string;
   export default content;
 }
-declare module '*.aac' {
+declare module "*.aac" {
   const content: string;
   export default content;
 }
-declare module '*.aacp' {
+declare module "*.aacp" {
   const content: string;
   export default content;
 }
-declare module '*.oga' {
+declare module "*.oga" {
   const content: string;
   export default content;
 }
-declare module '*.flac' {
+declare module "*.flac" {
   const content: string;
   export default content;
 }
-declare module '*.weba' {
+declare module "*.weba" {
   const content: string;
   export default content;
 }
-declare module '*.mp4' {
+declare module "*.mp4" {
   const content: string;
   export default content;
 }
-declare module '*.webm' {
+declare module "*.webm" {
   const content: string;
   export default content;
 }
-declare module '*.avif' {
+declare module "*.avif" {
   const content: string;
   export default content;
 }
-declare module '*.gif' {
+declare module "*.gif" {
   const content: string;
   export default content;
 }
-declare module '*.mov' {
+declare module "*.mov" {
   const content: string;
   export default content;
 }
-declare module '*.avi' {
+declare module "*.avi" {
   const content: string;
   export default content;
 }
-declare module '*.ogv' {
+declare module "*.ogv" {
   const content: string;
   export default content;
 }
-declare module '*.mkv' {
+declare module "*.mkv" {
   const content: string;
   export default content;
 }
-declare module '*.opus' {
+declare module "*.opus" {
   const content: string;
   export default content;
 }
-declare module '*.mpeg' {
+declare module "*.mpeg" {
   const content: string;
   export default content;
 }
-declare module '*.woff' {
+declare module "*.woff" {
   const content: string;
   export default content;
 }
-declare module '*.woff2' {
+declare module "*.woff2" {
   const content: string;
   export default content;
 }
-declare module '*.ttf' {
+declare module "*.ttf" {
   const content: string;
   export default content;
 }
-declare module '*.otf' {
+declare module "*.otf" {
   const content: string;
   export default content;
 }
-declare module '*.pdf' {
+declare module "*.pdf" {
   const content: string;
   export default content;
 }
-declare module '*.json' {
-  const content: {[key: string]: any};
+declare module "*.json" {
+  const content: { [key: string]: unknown };
   export default content;
 }
-declare module '*.jsonld' {
-  const content: {[key: string]: any};
+declare module "*.jsonld" {
+  const content: { [key: string]: unknown };
   export default content;
 }
-declare module '*.txt' {
+declare module "*.txt" {
   const content: string;
   export default content;
 }
-declare module '*.csv' {
+declare module "*.csv" {
   const content: string;
   export default content;
 }
-declare module '*.htm' {
+declare module "*.htm" {
   const content: string;
   export default content;
 }
-declare module '*.html' {
+declare module "*.html" {
   const content: string;
   export default content;
 }
-declare module '*.xml' {
+declare module "*.xml" {
   const content: string;
   export default content;
 }
