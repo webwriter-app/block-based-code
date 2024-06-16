@@ -113,6 +113,9 @@ export class Workspace extends LitElementWw {
         snap: true,
         colour: "var(--sl-color-gray-500)",
       },
+      move: {
+        wheel: true,
+      },
       toolbox: {
         kind: "categoryToolbox",
         contents: [
