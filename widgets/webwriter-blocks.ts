@@ -151,15 +151,11 @@ export class WebwriterBlocks extends LitElementWw {
     `;
   }
 
-  public focus(): void {
-    console.log("FOCUS");
-  }
-
   private get isFullscreen(): boolean {
     return this.ownerDocument.fullscreenElement === this;
   }
 
-  private handleFullscreenClick(e: Event): void {
+  private handleFullscreenClick(): void {
     if (this.isFullscreen) {
       this.ownerDocument.exitFullscreen();
     } else {
