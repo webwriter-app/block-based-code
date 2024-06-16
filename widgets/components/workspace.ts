@@ -15,7 +15,7 @@ export class Workspace extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-            <div id="block-canvas" style="min-width: 100%; height: 500px;"></div>
+            <div id="block-canvas" style="height: 500px;"></div>
         `;
   }
 
