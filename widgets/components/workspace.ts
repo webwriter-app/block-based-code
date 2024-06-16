@@ -18,31 +18,68 @@ export class Workspace extends LitElementWw {
   public static get styles(): CSSResult[] {
     return [
       css`
-          :host {
-            display: block;
-          }
-        
-          #block-canvas {
-            height: ${APPLICATION_HEIGHT}px;
-          }
-        
-          .blocklyToolboxDiv {
-            padding: 0;
-          }
+        :host {
+          display: block;
+        }
 
-          .blocklyFlyout {
-            border-right: 1px solid var(--sl-color-gray-300);
-          }
+        #block-canvas {
+          height: ${APPLICATION_HEIGHT}px;
+        }
+
+        .blocklyToolboxDiv {
+          padding: 0;
+          
+          //background-color: var(--sl-color-gray-100);
+          background-color: white;
+          border-right: 1px solid var(--sl-color-gray-300);
+          
+          overflow-y: visible;
+        }
+
+        .blocklyTreeRow {
+          margin-bottom: 0;
+          padding: 8px 12px !important;
+          
+          transition: var(--sl-transition-medium);
+          
+          cursor: pointer;
+        }
+
+        .blocklyTreeRow:first-child {
+          border-top: none;
+        }
         
-         .blocklyFlyoutBackground {
-            fill: var(--sl-color-gray-100);
-            fill-opacity: 1;
-          } 
+        .categoryBubble {
+          border-color: var(--sl-color-gray-300);
+          margin-bottom: 0;
+        }
         
-          .blocklyWorkspace rect {
-            stroke: none;
-          }
-        `,
+        .blocklyTreeLabel {
+          margin-top: 4px;
+          font-size: 14px;
+        }
+
+        .blocklyTreeSelected {
+          background-color: var(--sl-color-primary-100) !important;
+        }
+
+        .blocklyTreeSelected .blocklyTreeLabel {
+          color: black !important;
+        }
+
+        .blocklyFlyout {
+          border-right: 1px solid var(--sl-color-gray-300);
+        }
+      
+        .blocklyFlyoutBackground {
+          fill: white;
+          fill-opacity: 1;
+        } 
+      
+        .blocklyWorkspace rect {
+          stroke: none;
+        }
+      `,
     ];
   }
 
