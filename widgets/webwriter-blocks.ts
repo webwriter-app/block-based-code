@@ -5,7 +5,6 @@ import { LitElementWw } from "@webwriter/lit";
 import { customElement, query } from "lit/decorators.js";
 import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
 import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js";
-import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js";
 import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js";
 import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js";
 import GripVerticalIcon from "bootstrap-icons/icons/grip-vertical.svg";
@@ -31,7 +30,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
-      "sl-checkbox": SlCheckbox,
       "sl-icon": SlIcon,
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
