@@ -14,6 +14,7 @@ import { Logger } from "./utils";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { Canvas } from "./components/canvas";
+import { Options } from "./components/options";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -35,6 +36,7 @@ export class WebwriterBlocks extends LitElementWw {
       "sl-split-panel": SlSplitPanel,
       "webwriter-blocks-workspace": Workspace,
       "webwriter-blocks-canvas": Canvas,
+      "webwriter-blocks-options": Options,
     };
   }
 
@@ -94,6 +96,7 @@ export class WebwriterBlocks extends LitElementWw {
           <webwriter-blocks-canvas id="canvas"></webwriter-blocks-canvas>
         </div>
       </sl-split-panel>
+      <webwriter-blocks-options part="options"></webwriter-blocks-options>
     `;
   }
 
