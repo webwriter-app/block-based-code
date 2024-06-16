@@ -1,1 +1,1 @@
-export const Logger = console;
+export * from "./logger";
