@@ -62,7 +62,7 @@ export class WebwriterBlocks extends LitElementWw {
         .application {
           --min: 150px;
           --max: calc(100% - 150px);
-          --divider-width: 20px;
+          --divider-width: 16px;
           
           outline: 1px solid var(--sl-color-gray-300);
           border-radius: var(--sl-border-radius-medium);

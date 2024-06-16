@@ -36,6 +36,7 @@ export class Workspace extends LitElementWw {
         
          .blocklyFlyoutBackground {
             fill: var(--sl-color-gray-100);
+            fill-opacity: 1;
           } 
         
           .blocklyWorkspace rect {
@@ -63,6 +64,11 @@ export class Workspace extends LitElementWw {
       renderer: "zelos",
       theme: "zelos",
       sounds: false,
+      grid: {
+        spacing: 20,
+        length: 1,
+        snap: true,
+      },
       toolbox: {
         kind: "categoryToolbox",
         contents: [
