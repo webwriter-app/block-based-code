@@ -29,6 +29,14 @@ export class Workspace extends LitElementWw {
           .blocklyToolboxDiv {
             padding: 0;
           }
+
+          .blocklyFlyout {
+            border-right: 1px solid var(--sl-color-gray-300);
+          }
+        
+         .blocklyFlyoutBackground {
+            fill: var(--sl-color-gray-100);
+          } 
         
           .blocklyWorkspace rect {
             stroke: none;
