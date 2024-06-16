@@ -5,10 +5,10 @@ import { LitElementWw } from "@webwriter/lit";
 import { customElement, query } from "lit/decorators.js";
 import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
 import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js";
+import SlIconButton from "@shoelace-style/shoelace/dist/components/icon-button/icon-button.component.js";
 import GripVerticalIcon from "bootstrap-icons/icons/grip-vertical.svg";
 import FullscreenIcon from "bootstrap-icons/icons/fullscreen.svg";
 import FullscreenExitIcon from "bootstrap-icons/icons/fullscreen-exit.svg";
-import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js";
 import { Workspace } from "./components/workspace";
 import { Logger } from "./utils";
 
@@ -32,7 +32,7 @@ export class WebwriterBlocks extends LitElementWw {
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-icon": SlIcon,
-      "sl-button": SlButton,
+      "sl-icon-button": SlIconButton,
       "sl-split-panel": SlSplitPanel,
       "webwriter-blocks-workspace": Workspace,
       "webwriter-blocks-canvas": Canvas,
@@ -45,36 +45,42 @@ export class WebwriterBlocks extends LitElementWw {
       css`
         :host {
           display: block;
-          width: 100%;
+          width: calc(100% - 16px);
           height: auto;
-          
-          background-color: white;
-          
+
+          user-select: none;
+
+          border: 1px solid var(--sl-color-gray-300);
+          border-radius: var(--sl-border-radius-medium);
+          overflow: hidden;
+        }
+
+        :host * {
           user-select: none;
         }
-        
+
         .toolbar {
-          margin-bottom: 4px;
+          display: flex;
+          justify-content: flex-end;
+          
+          padding: 8px 12px;
         }
-        
-        .toolbar .icon-button::part(label) {
-          padding: 0 12px;
-        }
-        
+
         .application {
           --min: 150px;
           --max: calc(100% - 150px);
           --divider-width: 16px;
-          
-          outline: 1px solid var(--sl-color-gray-300);
-          border-radius: var(--sl-border-radius-medium);
-          
-          overflow: hidden;
+
+          border-top: 1px solid var(--sl-color-gray-300);
         }
-        
+
         .application > div {
           min-width: 0;
           min-height: 0;
+        }
+        
+        .application::part(divider) {
+          background-color: var(--sl-color-gray-300);
         }
       `,
     ];
@@ -83,9 +89,8 @@ export class WebwriterBlocks extends LitElementWw {
   public render(): TemplateResult {
     return html`
       <div class="toolbar">
-        <sl-button class="icon-button" @click="${this.handleFullscreenClick.bind(this)}" style="">
-          <sl-icon src="${this.isFullscreen ? FullscreenExitIcon : FullscreenIcon}"></sl-icon>
-        </sl-button>
+        <sl-icon-button src="${this.isFullscreen ? FullscreenExitIcon : FullscreenIcon}"> @click="${this.handleFullscreenClick.bind(this)}">
+        </sl-icon-button>
       </div>
       <sl-split-panel class="application" @sl-reposition="${this.handleSplitPanelResize}">
         <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
