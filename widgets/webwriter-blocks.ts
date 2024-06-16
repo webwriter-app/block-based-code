@@ -2,9 +2,9 @@ import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, query } from "lit/decorators";
-import SlButton from "@shoelace-style/shoelace/dist/components/button/button";
-import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel";
+import { customElement, query } from "lit/decorators.js";
+import SlButton from "@shoelace-style/shoelace/dist/components/button/button.js";
+import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
 import { Workspace } from "./components/workspace";
 import { Logger } from "./utils";
 
@@ -20,11 +20,11 @@ export class WebwriterBlocks extends LitElementWw {
     this.addEventListener("fullscreenchange", () => this.requestUpdate());
   }
 
-  public static get scopedElements(): Record<string, LitElement> {
+  public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
-      "webwriter-blocks-workspace": Workspace as unknown as LitElement,
+      "webwriter-blocks-workspace": Workspace,
     };
   }
 

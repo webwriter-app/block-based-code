@@ -1,4 +1,4 @@
-import { customElement, query } from "lit/decorators";
+import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import { html, TemplateResult } from "lit";
 import * as Blockly from "blockly";
