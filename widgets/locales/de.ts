@@ -4,4 +4,5 @@ export default {
   stop: "Stoppe Ausführung",
   fullscreen: "Vollbildmodus",
   fullscreenExit: "Vollbildmodus verlassen",
+  error: "Es ist ein Fehler aufgetreten!",
 };

@@ -11,7 +11,7 @@ export const styles = css`
         padding: 8px 8px 8px 0;
     }
 
-    #canvas {
+    #stage {
         position: relative;
         width: 100%;
         margin: 0 auto;
@@ -24,11 +24,32 @@ export const styles = css`
         overflow: hidden;
     }
 
-    #canvas canvas {
+    #stage * {
         position: absolute;
+    }
+
+    canvas {
         top: 0;
         left: 0;
 
         transform-origin: top left;
+    }
+
+    sl-spinner {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+    
+    div.error {
+        inset: 0;
+        font-size: 14px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        
+        background-color: var(--sl-color-danger-50);
+        color: var(--sl-color-danger-500);
     }
 `;

@@ -34,7 +34,7 @@ export class Application extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
+        <sl-split-panel position="66" @sl-reposition="${this.handleSplitPanelResize}">
             <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
             <webwriter-blocks-editor slot="start" id="editor"></webwriter-blocks-editor>
             <webwriter-blocks-stage slot="end" id="stage"></webwriter-blocks-stage>

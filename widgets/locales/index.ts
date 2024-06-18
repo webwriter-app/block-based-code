@@ -10,6 +10,7 @@ type Dictionary = {
   stop: string;
   fullscreen: string;
   fullscreenExit: string;
+  error: string;
 };
 type Dictionaries = Record<Lang, Dictionary>;
 
