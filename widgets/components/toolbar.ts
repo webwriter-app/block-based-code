@@ -58,6 +58,8 @@ export class Toolbar extends LitElementWw {
           padding: 6px;
           
           box-sizing: border-box;
+          
+          color: var(--sl-color-gray-700);
         }
 
         sl-button#stop::part(base) {

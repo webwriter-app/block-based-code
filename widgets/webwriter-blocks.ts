@@ -87,6 +87,7 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
+      <webwriter-blocks-options part="options"></webwriter-blocks-options>
       <webwriter-blocks-toolbar></webwriter-blocks-toolbar>
       <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
         <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
@@ -97,7 +98,6 @@ export class WebwriterBlocks extends LitElementWw {
           <webwriter-blocks-stage id="stage"></webwriter-blocks-stage>
         </div>
       </sl-split-panel>
-      <webwriter-blocks-options part="options"></webwriter-blocks-options>
     `;
   }
 
