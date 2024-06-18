@@ -14,7 +14,7 @@ export class Editor extends LitElementWw {
   @query("#block-canvas")
   private blockCanvas!: HTMLDivElement;
 
-  private workspace: Blockly.WorkspaceSvg;
+  private workspace?: Blockly.WorkspaceSvg;
 
   public static get styles(): CSSResult[] {
     return [

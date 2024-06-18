@@ -12,7 +12,7 @@ export class Stage extends LitElementWw {
   @query("#canvas")
   private canvas!: HTMLDivElement;
 
-  private app: Pixi.Application;
+  private app?: Pixi.Application;
 
   public static get styles(): CSSResult[] {
     return [
