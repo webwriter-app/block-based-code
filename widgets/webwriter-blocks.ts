@@ -8,17 +8,13 @@ import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component
 import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js";
 import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js";
 import GripVerticalIcon from "bootstrap-icons/icons/grip-vertical.svg";
-import FullscreenIcon from "bootstrap-icons/icons/fullscreen.svg";
-import FullscreenExitIcon from "bootstrap-icons/icons/fullscreen-exit.svg";
-import PlayIcon from "bootstrap-icons/icons/play.svg";
-import StopIcon from "bootstrap-icons/icons/stop.svg";
 import { Editor } from "./components/editor";
-import { Logger } from "./utils";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { Stage } from "./components/stage";
 import { Options } from "./components/options";
-import { msg, setLocale } from "./locales";
+import { setLocale } from "./locales";
+import { Toolbar } from "./components/toolbar";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -34,6 +30,7 @@ export class WebwriterBlocks extends LitElementWw {
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
       "sl-tooltip": SlTooltip,
+      "webwriter-blocks-toolbar": Toolbar,
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
       "webwriter-blocks-options": Options,
@@ -57,43 +54,12 @@ export class WebwriterBlocks extends LitElementWw {
           user-select: none;
         }
 
-        .toolbar {
-          display: flex;
-          justify-content: space-between;
-          
-          padding: 8px 12px;
-        }
-        
-        .toolbar sl-button::part(label) {
-          padding: 0 11px;
-          font-size: 16px;
-        }
-
-        .toolbar sl-button::part(base) {
-          border-color: transparent;
-          border-radius: 0;
-        }
-
-        .toolbar sl-tooltip:not(:first-child) sl-button {
-          border-left: 1px solid var(--sl-color-gray-300);
-        }
-        
-        .toolbar .actions {
-          display: flex;
-          
-          border: 1px solid var(--sl-color-gray-300);
-          border-radius: var(--sl-border-radius-medium);
-          overflow: hidden;
-        }
-
         .application {
           --min: 150px;
           --max: calc(100% - 150px);
           --divider-width: 16px;
           
           height: 500px;
-
-          border-top: 1px solid var(--sl-color-gray-300);
         }
 
         .application > div {
@@ -124,27 +90,7 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-      <div class="toolbar">
-        <div class="actions">
-          <sl-tooltip content="${msg(this.isFullscreen ? "fullscreenExit" : "fullscreen")}">
-            <sl-button @click="${this.handleFullscreenClick}">
-              <sl-icon src="${this.isFullscreen ? FullscreenExitIcon : FullscreenIcon}"></sl-icon>
-            </sl-button>
-          <sl-tooltip>
-        </div>
-        <div class="actions">
-          <sl-tooltip content="${msg("stop")}">
-            <sl-button>
-                <sl-icon src="${StopIcon}" label="Stop Execution"></sl-icon>
-            </sl-button>
-          </sl-tooltip>
-          <sl-tooltip content="${msg("start")}">
-            <sl-button>
-                <sl-icon src="${PlayIcon}" label="Start Execution"></sl-icon>
-            </sl-button>
-          </sl-tooltip>
-        </div>
-      </div>
+      <webwriter-blocks-toolbar></webwriter-blocks-toolbar>
       <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
         <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
         <div slot="start">
@@ -156,23 +102,6 @@ export class WebwriterBlocks extends LitElementWw {
       </sl-split-panel>
       <webwriter-blocks-options part="options"></webwriter-blocks-options>
     `;
-  }
-
-  private get isFullscreen(): boolean {
-    return this.ownerDocument.fullscreenElement === this;
-  }
-
-  private handleFullscreenClick(): void {
-    if (this.isFullscreen) {
-      this.ownerDocument.exitFullscreen();
-    } else {
-      try {
-        this.requestFullscreen();
-      } catch (error) {
-        Logger.error("Failed to enter fullscreen mode.");
-        Logger.log(error);
-      }
-    }
   }
 
   private handleSplitPanelResize(): void {
