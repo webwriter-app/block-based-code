@@ -90,6 +90,12 @@ export class Editor extends LitElementWw {
     ];
   }
 
+  constructor() {
+    super();
+
+    this.configureBlockly();
+  }
+
   public render(): TemplateResult {
     return html`
             <div id="block-canvas"></div>
@@ -105,14 +111,11 @@ export class Editor extends LitElementWw {
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
 
-    Blockly.setLocale({
-      de,
-      en,
-    }[this.ownerDocument.documentElement.lang as "de" | "en"]);
-
+    const renderer = "zelos";
+    const theme = "zelos";
     this.workspace = Blockly.inject(this.blockCanvas, {
-      renderer: "zelos",
-      theme: "zelos",
+      renderer,
+      theme,
       sounds: false,
       grid: {
         spacing: 20,
@@ -166,7 +169,7 @@ export class Editor extends LitElementWw {
       },
     });
 
-    ["blockly-common-style", "blockly-renderer-style-zelos-zelos"].forEach((styleElementId) => {
+    ["blockly-common-style", `blockly-renderer-style-${renderer}-${theme}`].forEach((styleElementId) => {
       const styleElement = <HTMLStyleElement>document.getElementById(styleElementId);
       if (!styleElement) {
         Logger.error(`Style element with id ${styleElementId} not found`);
@@ -174,5 +177,13 @@ export class Editor extends LitElementWw {
       this.shadowRoot.appendChild(styleElement.cloneNode(true));
     });
     this.resize();
+    console.log(this.workspace.getRenderer());
+  }
+
+  private configureBlockly(): void {
+    Blockly.setLocale({
+      de,
+      en,
+    }[this.ownerDocument.documentElement.lang as "de" | "en"]);
   }
 }
