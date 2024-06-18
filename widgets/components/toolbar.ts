@@ -3,14 +3,11 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import StopIcon from "bootstrap-icons/icons/stop.svg";
-import PlayIcon from "bootstrap-icons/icons/play.svg";
-import FullscreenIcon from "bootstrap-icons/icons/fullscreen.svg";
-import FullscreenExitIcon from "bootstrap-icons/icons/fullscreen-exit.svg";
-import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js";
-import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js";
-import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
-import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js";
+import { SlButton, SlIcon, SlTooltip } from "@shoelace-style/shoelace";
+import ArrowsMaximizeIcon from "@tabler/icons/outline/arrows-maximize.svg";
+import ArrowsMinimizeIcon from "@tabler/icons/outline/arrows-minimize.svg";
+import PlayerStopIcon from "@tabler/icons/outline/player-stop.svg";
+import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
 import { Logger } from "../utils";
 import { msg } from "../locales";
 
@@ -20,7 +17,6 @@ export class Toolbar extends LitElementWw {
     return {
       "sl-icon": SlIcon,
       "sl-button": SlButton,
-      "sl-split-panel": SlSplitPanel,
       "sl-tooltip": SlTooltip,
     };
   }
@@ -32,31 +28,58 @@ export class Toolbar extends LitElementWw {
           display: flex;
           justify-content: space-between;
     
-          padding: 8px 12px;
+          padding: 8px;
 
           border-bottom: 1px solid var(--sl-color-gray-300);
         }
-        
-        sl-button::part(label) {
-          padding: 0 11px;
-          font-size: 16px;
+
+        div.actions {
+          display: flex;
+
+          border: 1px solid var(--sl-color-gray-300);
+          border-radius: var(--sl-border-radius-medium);
+          overflow: hidden;
         }
-        
-        sl-button::part(base) {
-          border-color: transparent;
-          border-radius: 0;
-        }
-        
+
         sl-tooltip:not(:first-child) sl-button {
           border-left: 1px solid var(--sl-color-gray-300);
         }
         
-        .actions {
+        sl-button {
           display: flex;
+          align-content: center;
+          justify-content: center;
+          
+        }
         
-          border: 1px solid var(--sl-color-gray-300);
-          border-radius: var(--sl-border-radius-medium);
-          overflow: hidden;
+        sl-button::part(base) {
+          min-height: unset;
+          
+          padding-inline-start: 0;
+          padding: 6px;
+          
+          border: none;
+          border-radius: 0;
+          box-sizing: border-box;
+        }
+
+        sl-button#stop::part(base) {
+          background-color: var(--sl-color-danger-50);
+          color: var(--sl-color-danger-500);
+        }
+
+        sl-button#play::part(base) {
+          background-color: var(--sl-color-success-50);
+          color: var(--sl-color-success-500);
+        }
+        
+        sl-button::part(label) {
+          padding: 0;
+          line-height: 1;
+        }
+        
+        sl-icon {
+          font-size: 18px;
         }
       `,
     ];
@@ -67,19 +90,19 @@ export class Toolbar extends LitElementWw {
       <div class="actions">
         <sl-tooltip content="${msg(this.isFullscreen ? "fullscreenExit" : "fullscreen")}">
           <sl-button @click="${this.handleFullscreenClick}">
-            <sl-icon src="${this.isFullscreen ? FullscreenExitIcon : FullscreenIcon}"></sl-icon>
+            <sl-icon src="${this.isFullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}"></sl-icon>
           </sl-button>
         <sl-tooltip>
       </div>
       <div class="actions">
         <sl-tooltip content="${msg("stop")}">
-          <sl-button>
-              <sl-icon src="${StopIcon}" label="Stop Execution"></sl-icon>
+          <sl-button id="stop">
+              <sl-icon src="${PlayerStopIcon}" label="Stop Execution"></sl-icon>
           </sl-button>
         </sl-tooltip>
         <sl-tooltip content="${msg("start")}">
-          <sl-button>
-              <sl-icon src="${PlayIcon}" label="Start Execution"></sl-icon>
+          <sl-button id="play">
+              <sl-icon src="${PlayerPlayIcon}" label="Start Execution"></sl-icon>
           </sl-button>
         </sl-tooltip>
       </div>

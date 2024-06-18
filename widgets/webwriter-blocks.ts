@@ -3,11 +3,8 @@ import {
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement, query } from "lit/decorators.js";
-import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.js";
-import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js";
-import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js";
-import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js";
-import GripVerticalIcon from "bootstrap-icons/icons/grip-vertical.svg";
+import { SlIcon, SlSplitPanel } from "@shoelace-style/shoelace";
+import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
 import { Editor } from "./components/editor";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
@@ -26,10 +23,8 @@ export class WebwriterBlocks extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
-      "sl-icon": SlIcon,
-      "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
-      "sl-tooltip": SlTooltip,
+      "sl-icon": SlIcon,
       "webwriter-blocks-toolbar": Toolbar,
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
