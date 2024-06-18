@@ -7,13 +7,13 @@ export const Logger: Console = {
     DEV: console.log(base, ...args);
   },
   error: (...args: any[]) => {
-    console.error(base, ...args);
+    console.error(...args);
   },
   warn: (...args: any[]) => {
-    console.warn(base, ...args);
+    console.warn(...args);
   },
   info: (...args: any[]) => {
-    console.info(base, ...args);
+    console.info(...args);
   },
   debug: (...args: any[]) => {
     console.debug(base, ...args);
