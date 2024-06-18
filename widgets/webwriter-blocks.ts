@@ -43,6 +43,8 @@ export class WebwriterBlocks extends LitElementWw {
           border: 1px solid var(--sl-color-gray-300);
           border-radius: var(--sl-border-radius-medium);
           overflow: hidden;
+
+          background-color: var(--sl-color-gray-50);
         }
 
         :host * {
@@ -63,7 +65,7 @@ export class WebwriterBlocks extends LitElementWw {
         }
         
         .application::part(divider) {
-          background-color: var(--sl-color-gray-100);
+          background-color: transparent;
           color: var(--sl-color-gray-500);
         }
       `,

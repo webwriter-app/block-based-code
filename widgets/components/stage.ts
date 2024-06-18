@@ -25,8 +25,6 @@ export class Stage extends LitElementWw {
           height: calc(100% - 16px);
 
           padding: 8px 8px 8px 0;
-          
-          background-color: var(--sl-color-gray-100);
         }
         
         #canvas {

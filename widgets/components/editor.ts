@@ -23,8 +23,6 @@ export class Editor extends LitElementWw {
           display: block;
           height: calc(100% - 16px);
           padding: 8px 0 8px 8px;
-
-          background-color: var(--sl-color-gray-100);
         }
         
         #block-canvas {
