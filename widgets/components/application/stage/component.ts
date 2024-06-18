@@ -2,8 +2,8 @@ import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import { CSSResult, html, TemplateResult } from "lit";
 import * as Pixi from "pixi.js";
-import { Logger } from "../../utils";
-import bunny from "../../assets/bunny.png";
+import { Logger } from "../../../utils";
+import bunny from "../../../assets/bunny.png";
 import { styles } from "./styles";
 
 @customElement("webwriter-blocks-stage")

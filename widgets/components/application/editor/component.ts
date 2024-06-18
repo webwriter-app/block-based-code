@@ -5,7 +5,7 @@ import * as Blockly from "blockly";
 import * as de from "blockly/msg/de";
 import * as en from "blockly/msg/en";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
-import { Logger } from "../../utils";
+import { Logger } from "../../../utils";
 import { styles } from "./styles";
 
 @customElement("webwriter-blocks-editor")

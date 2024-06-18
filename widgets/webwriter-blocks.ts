@@ -2,31 +2,18 @@ import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, query } from "lit/decorators.js";
-import { SlIcon, SlSplitPanel } from "@shoelace-style/shoelace";
-import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
-import {
-  Editor, Options, Stage, Toolbar,
-} from "./components";
+import { customElement } from "lit/decorators.js";
+import { Application, Options, Toolbar } from "./components";
 import { setLocale } from "./locales";
 import "@shoelace-style/shoelace/dist/themes/light.css";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
-  @query("#editor")
-  private editor!: Editor;
-
-  @query("#stage")
-  private stage!: Stage;
-
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
-      "sl-split-panel": SlSplitPanel,
-      "sl-icon": SlIcon,
       "webwriter-blocks-toolbar": Toolbar,
-      "webwriter-blocks-editor": Editor,
-      "webwriter-blocks-stage": Stage,
       "webwriter-blocks-options": Options,
+      "webwriter-blocks-application": Application,
     };
   }
 
@@ -47,24 +34,6 @@ export class WebwriterBlocks extends LitElementWw {
 
           :host * {
               user-select: none;
-          }
-
-          .application {
-              --min: 150px;
-              --max: calc(100% - 150px);
-              --divider-width: 16px;
-
-              height: 500px;
-          }
-
-          .application > div {
-              min-width: 0;
-              min-height: 0;
-          }
-
-          .application::part(divider) {
-              background-color: transparent;
-              color: var(--sl-color-gray-500);
           }
       `,
     ];
@@ -87,20 +56,7 @@ export class WebwriterBlocks extends LitElementWw {
     return html`
         <webwriter-blocks-options part="options"></webwriter-blocks-options>
         <webwriter-blocks-toolbar></webwriter-blocks-toolbar>
-        <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
-            <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
-            <div slot="start">
-                <webwriter-blocks-editor id="editor"></webwriter-blocks-editor>
-            </div>
-            <div slot="end">
-                <webwriter-blocks-stage id="stage"></webwriter-blocks-stage>
-            </div>
-        </sl-split-panel>
+        <webwriter-blocks-application id="application"></webwriter-blocks-application>
     `;
-  }
-
-  private handleSplitPanelResize(): void {
-    this.editor.resize();
-    this.stage.resize();
   }
 }
