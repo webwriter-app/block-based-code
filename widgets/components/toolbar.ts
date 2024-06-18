@@ -38,7 +38,6 @@ export class Toolbar extends LitElementWw {
 
           border: 1px solid var(--sl-color-gray-300);
           border-radius: var(--sl-border-radius-medium);
-          overflow: hidden;
         }
 
         sl-tooltip:not(:first-child) sl-button {
@@ -58,8 +57,6 @@ export class Toolbar extends LitElementWw {
           padding-inline-start: 0;
           padding: 6px;
           
-          border: none;
-          border-radius: 0;
           box-sizing: border-box;
         }
 
@@ -89,19 +86,19 @@ export class Toolbar extends LitElementWw {
     return html`
       <div class="actions">
         <sl-tooltip content="${msg(this.isFullscreen ? "fullscreenExit" : "fullscreen")}">
-          <sl-button @click="${this.handleFullscreenClick}">
+          <sl-button variant="text" @click="${this.handleFullscreenClick}">
             <sl-icon src="${this.isFullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}"></sl-icon>
           </sl-button>
         <sl-tooltip>
       </div>
       <div class="actions">
         <sl-tooltip content="${msg("stop")}">
-          <sl-button id="stop">
+          <sl-button id="stop" variant="text">
               <sl-icon src="${PlayerStopIcon}" label="Stop Execution"></sl-icon>
           </sl-button>
         </sl-tooltip>
         <sl-tooltip content="${msg("start")}">
-          <sl-button id="play">
+          <sl-button id="play" variant="text">
               <sl-icon src="${PlayerPlayIcon}" label="Start Execution"></sl-icon>
           </sl-button>
         </sl-tooltip>
