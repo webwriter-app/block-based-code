@@ -7,8 +7,8 @@ import * as Pixi from "pixi.js";
 import { Logger } from "../utils";
 import bunny from "../assets/bunny.png";
 
-@customElement("webwriter-blocks-canvas")
-export class Canvas extends LitElementWw {
+@customElement("webwriter-blocks-stage")
+export class Stage extends LitElementWw {
   @query("#canvas")
   private canvas!: HTMLDivElement;
 

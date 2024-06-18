@@ -16,7 +16,7 @@ import { Editor } from "./components/editor";
 import { Logger } from "./utils";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
-import { Canvas } from "./components/canvas";
+import { Stage } from "./components/stage";
 import { Options } from "./components/options";
 import { msg, setLocale } from "./locales";
 
@@ -25,8 +25,8 @@ export class WebwriterBlocks extends LitElementWw {
   @query("#editor")
   private editor!: Editor;
 
-  @query("#canvas")
-  private canvas!: Canvas;
+  @query("#stage")
+  private stage!: Stage;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -35,7 +35,7 @@ export class WebwriterBlocks extends LitElementWw {
       "sl-split-panel": SlSplitPanel,
       "sl-tooltip": SlTooltip,
       "webwriter-blocks-editor": Editor,
-      "webwriter-blocks-canvas": Canvas,
+      "webwriter-blocks-stage": Stage,
       "webwriter-blocks-options": Options,
     };
   }
@@ -151,7 +151,7 @@ export class WebwriterBlocks extends LitElementWw {
           <webwriter-blocks-editor id="editor"></webwriter-blocks-editor>
         </div>
         <div slot="end">
-          <webwriter-blocks-canvas id="canvas"></webwriter-blocks-canvas>
+          <webwriter-blocks-stage id="stage"></webwriter-blocks-stage>
         </div>
       </sl-split-panel>
       <webwriter-blocks-options part="options"></webwriter-blocks-options>
@@ -176,7 +176,7 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private handleSplitPanelResize(): void {
-    this.canvas.resize();
     this.editor.resize();
+    this.stage.resize();
   }
 }
