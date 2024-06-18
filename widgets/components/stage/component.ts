@@ -1,11 +1,10 @@
 import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
-import {
-  css, CSSResult, html, TemplateResult,
-} from "lit";
+import { CSSResult, html, TemplateResult } from "lit";
 import * as Pixi from "pixi.js";
-import { Logger } from "../utils";
-import bunny from "../assets/bunny.png";
+import { Logger } from "../../utils";
+import bunny from "../../assets/bunny.png";
+import { styles } from "./styles";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
@@ -16,38 +15,7 @@ export class Stage extends LitElementWw {
 
   public static get styles(): CSSResult[] {
     return [
-      css`
-        :host {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          
-          height: calc(100% - 16px);
-
-          padding: 8px 8px 8px 0;
-        }
-        
-        #canvas {
-          position: relative;
-          width: 100%;
-          margin: 0 auto;
-          height: 0;
-
-          padding-top: calc(100% * 3 / 4);
-          
-          border: 1px solid var(--sl-color-gray-300);
-          border-radius: var(--sl-border-radius-medium);
-          overflow: hidden;
-        }
-        
-        #canvas canvas {
-          position: absolute;
-          top: 0;
-          left: 0;
-          
-          transform-origin: top left;
-        }
-      `,
+      styles,
     ];
   }
 

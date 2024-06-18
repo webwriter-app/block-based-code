@@ -1,15 +1,16 @@
 import { customElement } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
-  css, CSSResult, html, LitElement, TemplateResult,
+  CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { SlButton, SlIcon, SlTooltip } from "@shoelace-style/shoelace";
 import ArrowsMaximizeIcon from "@tabler/icons/outline/arrows-maximize.svg";
 import ArrowsMinimizeIcon from "@tabler/icons/outline/arrows-minimize.svg";
 import PlayerStopIcon from "@tabler/icons/outline/player-stop.svg";
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
-import { Logger } from "../utils";
-import { msg } from "../locales";
+import { Logger } from "../../utils";
+import { msg } from "../../locales";
+import { styles } from "./styles";
 
 @customElement("webwriter-blocks-toolbar")
 export class Toolbar extends LitElementWw {
@@ -23,64 +24,7 @@ export class Toolbar extends LitElementWw {
 
   public static get styles(): CSSResult[] {
     return [
-      css`
-        :host {
-          display: flex;
-          justify-content: space-between;
-    
-          padding: 8px;
-
-          border-bottom: 1px solid var(--sl-color-gray-300);
-        }
-
-        div.actions {
-          display: flex;
-
-          border: 1px solid var(--sl-color-gray-300);
-          border-radius: var(--sl-border-radius-medium);
-        }
-
-        sl-tooltip:not(:first-child) sl-button {
-          border-left: 1px solid var(--sl-color-gray-300);
-        }
-        
-        sl-button {
-          display: flex;
-          align-content: center;
-          justify-content: center;
-          
-        }
-        
-        sl-button::part(base) {
-          min-height: unset;
-          
-          padding-inline-start: 0;
-          padding: 6px;
-          
-          box-sizing: border-box;
-          
-          color: var(--sl-color-gray-700);
-        }
-
-        sl-button#stop::part(base) {
-          background-color: var(--sl-color-danger-50);
-          color: var(--sl-color-danger-500);
-        }
-
-        sl-button#play::part(base) {
-          background-color: var(--sl-color-success-50);
-          color: var(--sl-color-success-500);
-        }
-        
-        sl-button::part(label) {
-          padding: 0;
-          line-height: 1;
-        }
-        
-        sl-icon {
-          font-size: 18px;
-        }
-      `,
+      styles,
     ];
   }
 

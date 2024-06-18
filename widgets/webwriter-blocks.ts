@@ -5,13 +5,11 @@ import { LitElementWw } from "@webwriter/lit";
 import { customElement, query } from "lit/decorators.js";
 import { SlIcon, SlSplitPanel } from "@shoelace-style/shoelace";
 import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
-import { Editor } from "./components/editor";
-
-import "@shoelace-style/shoelace/dist/themes/light.css";
-import { Stage } from "./components/stage";
-import { Options } from "./components/options";
+import {
+  Editor, Options, Stage, Toolbar,
+} from "./components";
 import { setLocale } from "./locales";
-import { Toolbar } from "./components/toolbar";
+import "@shoelace-style/shoelace/dist/themes/light.css";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -35,39 +33,39 @@ export class WebwriterBlocks extends LitElementWw {
   public static get styles(): CSSResult[] {
     return [
       css`
-        :host {
-          display: block;
+          :host {
+              display: block;
 
-          user-select: none;
+              user-select: none;
 
-          border: 1px solid var(--sl-color-gray-300);
-          border-radius: var(--sl-border-radius-medium);
-          overflow: hidden;
+              border: 1px solid var(--sl-color-gray-300);
+              border-radius: var(--sl-border-radius-medium);
+              overflow: hidden;
 
-          background-color: var(--sl-color-gray-50);
-        }
+              background-color: var(--sl-color-gray-50);
+          }
 
-        :host * {
-          user-select: none;
-        }
+          :host * {
+              user-select: none;
+          }
 
-        .application {
-          --min: 150px;
-          --max: calc(100% - 150px);
-          --divider-width: 16px;
-          
-          height: 500px;
-        }
+          .application {
+              --min: 150px;
+              --max: calc(100% - 150px);
+              --divider-width: 16px;
 
-        .application > div {
-          min-width: 0;
-          min-height: 0;
-        }
-        
-        .application::part(divider) {
-          background-color: transparent;
-          color: var(--sl-color-gray-500);
-        }
+              height: 500px;
+          }
+
+          .application > div {
+              min-width: 0;
+              min-height: 0;
+          }
+
+          .application::part(divider) {
+              background-color: transparent;
+              color: var(--sl-color-gray-500);
+          }
       `,
     ];
   }
@@ -87,17 +85,17 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-      <webwriter-blocks-options part="options"></webwriter-blocks-options>
-      <webwriter-blocks-toolbar></webwriter-blocks-toolbar>
-      <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
-        <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
-        <div slot="start">
-          <webwriter-blocks-editor id="editor"></webwriter-blocks-editor>
-        </div>
-        <div slot="end">
-          <webwriter-blocks-stage id="stage"></webwriter-blocks-stage>
-        </div>
-      </sl-split-panel>
+        <webwriter-blocks-options part="options"></webwriter-blocks-options>
+        <webwriter-blocks-toolbar></webwriter-blocks-toolbar>
+        <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
+            <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
+            <div slot="start">
+                <webwriter-blocks-editor id="editor"></webwriter-blocks-editor>
+            </div>
+            <div slot="end">
+                <webwriter-blocks-stage id="stage"></webwriter-blocks-stage>
+            </div>
+        </sl-split-panel>
     `;
   }
 

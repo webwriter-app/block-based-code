@@ -1,13 +1,12 @@
 import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
-import {
-  css, CSSResult, html, TemplateResult,
-} from "lit";
+import { CSSResult, html, TemplateResult } from "lit";
 import * as Blockly from "blockly";
 import * as de from "blockly/msg/de";
 import * as en from "blockly/msg/en";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
-import { Logger } from "../utils";
+import { Logger } from "../../utils";
+import { styles } from "./styles";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -18,73 +17,7 @@ export class Editor extends LitElementWw {
 
   public static get styles(): CSSResult[] {
     return [
-      css`
-        :host {
-          display: block;
-          height: calc(100% - 16px);
-          padding: 8px 0 8px 8px;
-        }
-        
-        #block-canvas {
-          border: 1px solid var(--sl-color-gray-300);
-          border-radius: var(--sl-border-radius-medium);
-          overflow: hidden;
-        }
-
-        .blocklyToolboxDiv {
-          padding: 0;
-          
-          //background-color: var(--sl-color-gray-100);
-          background-color: white;
-          border-right: 1px solid var(--sl-color-gray-300);
-          
-          overflow-y: visible;
-        }
-
-        .blocklyTreeRow {
-          margin-bottom: 0;
-          padding: 8px 12px !important;
-          
-          transition: var(--sl-transition-medium);
-          
-          cursor: pointer;
-        }
-
-        .blocklyTreeRow:first-child {
-          border-top: none;
-        }
-        
-        .categoryBubble {
-          border-color: var(--sl-color-gray-300);
-          margin-bottom: 0;
-        }
-        
-        .blocklyTreeLabel {
-          margin-top: 4px;
-          font-size: 14px;
-        }
-
-        .blocklyTreeSelected {
-          background-color: var(--sl-color-primary-100) !important;
-        }
-
-        .blocklyTreeSelected .blocklyTreeLabel {
-          color: black !important;
-        }
-
-        .blocklyFlyout {
-          border-right: 1px solid var(--sl-color-gray-300);
-        }
-      
-        .blocklyFlyoutBackground {
-          fill: white;
-          fill-opacity: 1;
-        } 
-      
-        .blocklyWorkspace rect {
-          stroke: none;
-        }
-      `,
+      styles,
     ];
   }
 
@@ -96,8 +29,8 @@ export class Editor extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-            <div id="block-canvas"></div>
-        `;
+        <div id="block-canvas"></div>
+    `;
   }
 
   public resize(): void {
@@ -168,14 +101,14 @@ export class Editor extends LitElementWw {
     });
 
     ["blockly-common-style", `blockly-renderer-style-${renderer}-${theme}`].forEach((styleElementId) => {
-      const styleElement = <HTMLStyleElement>document.getElementById(styleElementId);
+      const styleElement = <HTMLStyleElement>document.querySelector(`#${styleElementId}`);
       if (!styleElement) {
         Logger.error(`Style element with id ${styleElementId} not found`);
+        return;
       }
       this.shadowRoot.appendChild(styleElement.cloneNode(true));
     });
     this.resize();
-    console.log(this.workspace.getRenderer());
   }
 
   private configureBlockly(): void {
