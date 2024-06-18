@@ -60,7 +60,9 @@ export class Stage extends LitElementWw {
   }
 
   public resize(): void {
-    this.app.canvas.style.transform = `scale(${this.canvas.clientWidth / this.app.canvas.width})`;
+    if (this.app) {
+      this.app.canvas.style.transform = `scale(${this.canvas.clientWidth / this.app.canvas.width})`;
+    }
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {

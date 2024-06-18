@@ -97,7 +97,9 @@ export class Editor extends LitElementWw {
   }
 
   public resize(): void {
-    Blockly.svgResize(this.workspace);
+    if (this.workspace) {
+      Blockly.svgResize(this.workspace);
+    }
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
@@ -171,6 +173,6 @@ export class Editor extends LitElementWw {
       }
       this.shadowRoot.appendChild(styleElement.cloneNode(true));
     });
-    Blockly.svgResize(this.workspace);
+    this.resize();
   }
 }
