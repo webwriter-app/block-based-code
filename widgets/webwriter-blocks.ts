@@ -12,7 +12,7 @@ import FullscreenIcon from "bootstrap-icons/icons/fullscreen.svg";
 import FullscreenExitIcon from "bootstrap-icons/icons/fullscreen-exit.svg";
 import PlayIcon from "bootstrap-icons/icons/play.svg";
 import StopIcon from "bootstrap-icons/icons/stop.svg";
-import { Workspace } from "./components/workspace";
+import { Editor } from "./components/editor";
 import { Logger } from "./utils";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
@@ -22,8 +22,8 @@ import { msg, setLocale } from "./locales";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
-  @query("#workspace")
-  private workspace!: Workspace;
+  @query("#editor")
+  private editor!: Editor;
 
   @query("#canvas")
   private canvas!: Canvas;
@@ -34,7 +34,7 @@ export class WebwriterBlocks extends LitElementWw {
       "sl-button": SlButton,
       "sl-split-panel": SlSplitPanel,
       "sl-tooltip": SlTooltip,
-      "webwriter-blocks-workspace": Workspace,
+      "webwriter-blocks-editor": Editor,
       "webwriter-blocks-canvas": Canvas,
       "webwriter-blocks-options": Options,
     };
@@ -148,7 +148,7 @@ export class WebwriterBlocks extends LitElementWw {
       <sl-split-panel class="application" position="66" @sl-reposition="${this.handleSplitPanelResize}">
         <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
         <div slot="start">
-          <webwriter-blocks-workspace id="workspace"></webwriter-blocks-workspace>
+          <webwriter-blocks-editor id="editor"></webwriter-blocks-editor>
         </div>
         <div slot="end">
           <webwriter-blocks-canvas id="canvas"></webwriter-blocks-canvas>
@@ -176,7 +176,7 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private handleSplitPanelResize(): void {
-    this.workspace.resize();
     this.canvas.resize();
+    this.editor.resize();
   }
 }

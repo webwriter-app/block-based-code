@@ -9,8 +9,8 @@ import * as en from "blockly/msg/en";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { Logger } from "../utils";
 
-@customElement("webwriter-blocks-workspace")
-export class Workspace extends LitElementWw {
+@customElement("webwriter-blocks-editor")
+export class Editor extends LitElementWw {
   @query("#block-canvas")
   private blockCanvas!: HTMLDivElement;
 
