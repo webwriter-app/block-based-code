@@ -87,6 +87,13 @@ export class Stage extends LitElementWw {
     this.readyTask.run();
   }
 
+  public disconnectedCallback() {
+    super.disconnectedCallback();
+
+    this.resizeObserver.disconnect();
+    this.readyTask.abort();
+  }
+
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
   }

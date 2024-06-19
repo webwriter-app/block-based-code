@@ -41,6 +41,12 @@ export class Editor extends LitElementWw {
     this.resizeObserver.observe(this);
   }
 
+  public disconnectedCallback() {
+    super.disconnectedCallback();
+
+    this.resizeObserver.disconnect();
+  }
+
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
 
