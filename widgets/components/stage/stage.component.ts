@@ -16,6 +16,8 @@ export class Stage extends LitElementWw {
   @query("#stage")
   private canvas!: HTMLDivElement;
 
+  private resizeObserver: ResizeObserver;
+
   private application: Pixi.Application;
 
   private readyTask: Task;
@@ -76,25 +78,17 @@ export class Stage extends LitElementWw {
     `;
   }
 
-  public resize(): void {
-    if (this.application.renderer) {
-      this.application.canvas.style.transform = `scale(${this.canvas.clientWidth / this.application.canvas.width})`;
-    }
-  }
-
   public connectedCallback() {
     super.connectedCallback();
+
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
+    this.resizeObserver.observe(this);
 
     this.readyTask.run();
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
-  }
-
-  private handlePixiReady(): void {
-    this.canvas.appendChild(this.application.canvas);
-    this.resize();
   }
 
   private addSprite(): void {
@@ -131,5 +125,16 @@ export class Stage extends LitElementWw {
         sprite.filters[0].hue(Math.random() * 360, true);
       }
     });
+  }
+
+  private handlePixiReady(): void {
+    this.canvas.appendChild(this.application.canvas);
+    this.handleResize();
+  }
+
+  private handleResize(): void {
+    if (this.application.renderer) {
+      this.application.canvas.style.transform = `scale(${this.canvas.clientWidth / this.application.canvas.width})`;
+    }
   }
 }

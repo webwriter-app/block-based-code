@@ -13,6 +13,8 @@ export class Editor extends LitElementWw {
   @query("#block-canvas")
   private blockCanvas!: HTMLDivElement;
 
+  private resizeObserver: ResizeObserver;
+
   private workspace?: Blockly.WorkspaceSvg;
 
   public static get styles(): CSSResult[] {
@@ -23,7 +25,6 @@ export class Editor extends LitElementWw {
 
   constructor() {
     super();
-
     this.configureBlockly();
   }
 
@@ -33,10 +34,11 @@ export class Editor extends LitElementWw {
     `;
   }
 
-  public resize(): void {
-    if (this.workspace) {
-      Blockly.svgResize(this.workspace);
-    }
+  public connectedCallback() {
+    super.connectedCallback();
+
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
+    this.resizeObserver.observe(this);
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
@@ -108,7 +110,7 @@ export class Editor extends LitElementWw {
       }
       this.shadowRoot.appendChild(styleElement.cloneNode(true));
     });
-    this.resize();
+    this.handleResize();
   }
 
   private configureBlockly(): void {
@@ -116,5 +118,11 @@ export class Editor extends LitElementWw {
       de,
       en,
     }[this.ownerDocument.documentElement.lang as "de" | "en"]);
+  }
+
+  private handleResize(): void {
+    if (this.workspace) {
+      Blockly.svgResize(this.workspace);
+    }
   }
 }

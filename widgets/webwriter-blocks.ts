@@ -3,7 +3,9 @@ import {
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { customElement } from "lit/decorators.js";
-import { Application, Options, Toolbar } from "./components";
+import {
+  Application, Editor, Options, Stage, Toolbar,
+} from "./components";
 import { setLocale } from "./locales";
 import "@shoelace-style/shoelace/dist/themes/light.css";
 
@@ -14,6 +16,8 @@ export class WebwriterBlocks extends LitElementWw {
       "webwriter-blocks-toolbar": Toolbar,
       "webwriter-blocks-options": Options,
       "webwriter-blocks-application": Application,
+      "webwriter-blocks-editor": Editor,
+      "webwriter-blocks-stage": Stage,
     };
   }
 
@@ -62,7 +66,10 @@ export class WebwriterBlocks extends LitElementWw {
     return html`
         <webwriter-blocks-options part="options"></webwriter-blocks-options>
         <webwriter-blocks-toolbar></webwriter-blocks-toolbar>
-        <webwriter-blocks-application id="application"></webwriter-blocks-application>
+        <webwriter-blocks-application id="application">
+            <webwriter-blocks-editor slot="editor"></webwriter-blocks-editor>
+            <webwriter-blocks-stage slot="stage"></webwriter-blocks-stage>
+        </webwriter-blocks-application>
     `;
   }
 }
