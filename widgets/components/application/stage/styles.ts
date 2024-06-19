@@ -5,10 +5,6 @@ export const styles = css`
         display: flex;
         flex-direction: column;
         gap: 8px;
-
-        height: calc(100% - 16px);
-
-        padding: 8px 8px 8px 0;
     }
 
     #stage {
@@ -22,26 +18,30 @@ export const styles = css`
         border: 1px solid var(--sl-color-gray-300);
         border-radius: var(--sl-border-radius-medium);
         overflow: hidden;
+        
+        box-sizing: border-box;
+        
+        background-color: var(--sl-color-neutral-0);
     }
 
     #stage * {
         position: absolute;
     }
 
-    canvas {
+    #stage canvas {
         top: 0;
         left: 0;
 
         transform-origin: top left;
     }
 
-    sl-spinner {
+    #stage sl-spinner {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%)
     }
-    
-    div.error {
+
+    #stage div.error {
         inset: 0;
         font-size: 14px;
         

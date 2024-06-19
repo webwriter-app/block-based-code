@@ -21,10 +21,16 @@ export class WebwriterBlocks extends LitElementWw {
     return [
       css`
           :host {
-              display: block;
+              display: flex !important;
+              flex-direction: column;
+              gap: 8px;
+              
+              padding: 8px;
 
               user-select: none;
 
+
+              box-sizing: border-box;
               border: 1px solid var(--sl-color-gray-300);
               border-radius: var(--sl-border-radius-medium);
               overflow: hidden;

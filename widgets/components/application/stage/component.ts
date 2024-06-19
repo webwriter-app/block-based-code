@@ -48,7 +48,6 @@ export class Stage extends LitElementWw {
           }),
           await Pixi.Assets.load(bunny),
         ]);
-        throw new Error("TEST");
       },
       autoRun: false,
       onComplete: () => {

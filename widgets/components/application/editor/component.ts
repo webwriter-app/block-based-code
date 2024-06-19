@@ -49,7 +49,7 @@ export class Editor extends LitElementWw {
       theme,
       sounds: false,
       grid: {
-        spacing: 20,
+        spacing: 16,
         length: 1,
         snap: true,
         colour: "var(--sl-color-gray-500)",

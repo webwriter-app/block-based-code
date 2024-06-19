@@ -12,6 +12,8 @@ export const styles = css`
     sl-split-panel > * {
         min-width: 0;
         min-height: 0;
+        
+        box-sizing: border-box;
     }
 
     sl-split-panel::part(divider) {

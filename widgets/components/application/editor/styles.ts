@@ -3,8 +3,7 @@ import { css } from "lit";
 export const styles = css`
     :host {
         display: block;
-        height: calc(100% - 16px);
-        padding: 8px 0 8px 8px;
+        height: 100%;
     }
 
     #block-canvas {
@@ -16,8 +15,7 @@ export const styles = css`
     .blocklyToolboxDiv {
         padding: 0;
 
-        //background-color: var(--sl-color-gray-100);
-        background-color: white;
+        background-color: var(--sl-color-neutral-0);
         border-right: 1px solid var(--sl-color-gray-300);
 
         overflow-y: visible;
@@ -59,7 +57,7 @@ export const styles = css`
     }
 
     .blocklyFlyoutBackground {
-        fill: white;
+        fill: var(--sl-color-neutral-0);
         fill-opacity: 1;
     }
 

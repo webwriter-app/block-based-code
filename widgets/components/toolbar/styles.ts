@@ -5,9 +5,7 @@ export const styles = css`
         display: flex;
         justify-content: space-between;
 
-        padding: 8px;
-
-        border-bottom: 1px solid var(--sl-color-gray-300);
+        //border-bottom: 1px solid var(--sl-color-gray-300);
     }
 
     div.actions {
