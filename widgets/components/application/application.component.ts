@@ -28,7 +28,7 @@ export class Application extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <sl-split-panel position="66">
+        <sl-split-panel position="66" primary="start">
             <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
             <slot name="editor" slot="start"></slot>
             <slot name="stage" slot="end" id="stage"></slot>

@@ -2,8 +2,7 @@ import { css } from "lit";
 
 export const styles = css`
     sl-split-panel {
-        --min: 150px;
-        --max: calc(100% - 150px);
+        --min: 50%;
         --divider-width: 16px;
 
         height: 500px;
