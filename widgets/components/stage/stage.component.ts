@@ -6,10 +6,10 @@ import {
 import * as Pixi from "pixi.js";
 import { Task } from "@lit/task";
 import { SlSpinner } from "@shoelace-style/shoelace";
-import bunny from "../../../assets/bunny.png";
-import { styles } from "./styles";
-import { Logger } from "../../../utils";
-import { msg } from "../../../locales";
+import bunny from "../../assets/bunny.png";
+import { styles } from "./stage.styles";
+import { Logger } from "../../utils";
+import { msg } from "../../locales";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {

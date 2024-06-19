@@ -5,9 +5,9 @@ import {
 } from "lit";
 import { SlIcon, SlSplitPanel } from "@shoelace-style/shoelace";
 import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
-import { Editor } from "./editor/component";
-import { Stage } from "./stage/component";
-import { styles } from "./styles";
+import { Editor } from "../editor";
+import { Stage } from "../stage";
+import { styles } from "./application.styles";
 
 @customElement("webwriter-blocks-application")
 export class Application extends LitElementWw {

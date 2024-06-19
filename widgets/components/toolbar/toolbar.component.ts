@@ -10,7 +10,7 @@ import PlayerStopIcon from "@tabler/icons/outline/player-stop.svg";
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
-import { styles } from "./styles";
+import { styles } from "./toolbar.styles";
 
 @customElement("webwriter-blocks-toolbar")
 export class Toolbar extends LitElementWw {

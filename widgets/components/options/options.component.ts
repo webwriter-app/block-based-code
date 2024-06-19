@@ -4,7 +4,7 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js";
-import { styles } from "./styles";
+import { styles } from "./options.styles";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
