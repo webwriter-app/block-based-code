@@ -1,9 +1,10 @@
 import { customElement } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
-  css, CSSResult, html, LitElement, TemplateResult,
+  CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js";
+import { styles } from "./options.styles";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
@@ -15,12 +16,7 @@ export class Options extends LitElementWw {
 
   public static get styles(): CSSResult[] {
     return [
-      css`
-        :host {
-            display: block;
-            padding-left: 10px;
-        }
-      `,
+      styles,
     ];
   }
 

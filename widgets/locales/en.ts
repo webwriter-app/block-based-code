@@ -4,4 +4,5 @@ export default {
   stop: "Stop Execution",
   fullscreen: "Enter Fullscreen",
   fullscreenExit: "Leave Fullscreen",
+  error: "An error occurred!",
 };
