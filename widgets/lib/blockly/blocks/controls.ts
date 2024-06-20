@@ -16,7 +16,7 @@ const ifBlock = generateBlockDefinition({
   check: "Boolean",
 }, {
   type: "input_dummy",
-  text: "then",
+  text: "SUBSTACK",
 }, {
   type: "input_statement",
   name: "if",
@@ -34,20 +34,20 @@ const ifElseBlock = generateBlockDefinition({
   text: "if",
 }, {
   type: "input_value",
-  name: "condition",
+  name: "CONDITION",
   check: "Boolean",
 }, {
   type: "input_dummy",
   text: "then",
 }, {
   type: "input_statement",
-  name: "if",
+  name: "SUBSTACK",
 }, {
   type: "input_dummy",
   text: "else",
 }, {
   type: "input_statement",
-  name: "else",
+  name: "SUBSTACK2",
 }]);
 
 const waitBlock = generateBlockDefinition({
@@ -62,7 +62,7 @@ const waitBlock = generateBlockDefinition({
   text: "wait",
 }, {
   type: "input_value",
-  name: "wait",
+  name: "DURATION",
   check: "Number",
 }]);
 
@@ -78,7 +78,7 @@ const repeatBlock = generateBlockDefinition({
   text: "repeat",
 }, {
   type: "input_value",
-  name: "repeat",
+  name: "TIMES",
   check: "Number",
 }, {
   type: "input_statement",

@@ -13,6 +13,12 @@ import { settingsContext } from "../../context";
 import { Settings } from "../../types";
 import "../../lib/blockly";
 
+const shadowMathInput = {
+  shadow: {
+    type: "math_number",
+  },
+};
+
 const toolbox = {
   kind: "categoryToolbox",
   contents: [
@@ -35,10 +41,16 @@ const toolbox = {
         {
           kind: "block",
           type: "wait",
+          inputs: {
+            DURATION: shadowMathInput,
+          },
         },
         {
           kind: "block",
           type: "repeat",
+          inputs: {
+            TIMES: shadowMathInput,
+          },
         },
         {
           kind: "block",
@@ -56,6 +68,41 @@ const toolbox = {
           kind: "block",
           type: "stop",
         },
+      ],
+    },
+    {
+      kind: "category",
+      name: "Operators",
+      categoryStyle: "operators_category",
+      contents: [
+        ...["sum", "subtract", "multiply", "divide"].map((type) => ({
+          kind: "block",
+          type,
+          inputs: {
+            A: shadowMathInput,
+            B: shadowMathInput,
+          },
+        })),
+        {
+          kind: "sep",
+          gap: 64,
+        },
+        ...["smaller", "greater", "equals"].map((type) => ({
+          kind: "block",
+          type,
+          inputs: {
+            A: shadowMathInput,
+            B: shadowMathInput,
+          },
+        })),
+        {
+          kind: "sep",
+          gap: 64,
+        },
+        ...["and", "or"].map((type) => ({
+          kind: "block",
+          type,
+        })),
       ],
     },
   ],

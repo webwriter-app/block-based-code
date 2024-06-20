@@ -16,8 +16,8 @@ const whenStartClickedBlock = generateBlockDefinition({
   {
     type: "field_image",
     src: PlayerPlayIcon,
-    width: 15,
-    height: 15,
+    width: 24,
+    height: 24,
     alt: "*",
     flipRtl: false,
   },

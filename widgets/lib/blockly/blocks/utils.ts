@@ -1,3 +1,5 @@
+type Types = "Number" | "Boolean";
+
 export const generateBlockDefinition = (def: {
   name: string,
   category: string,
@@ -6,11 +8,13 @@ export const generateBlockDefinition = (def: {
   tooltip?: string,
   helpUrl?: string,
   hat?: "cap",
+  inputsInline?: boolean,
+  output?: Types,
 }, inputs: {
   type: string,
   text?: string,
-  name?: string,
-  check?: string,
+  name?: Uppercase<string>,
+  check?: Types | Types[]
   src?: string,
   width?: number,
   height?: number,
@@ -26,7 +30,7 @@ export const generateBlockDefinition = (def: {
   const args0 = inputs;
 
   const {
-    name: type, category, prev: previousStatement, next: nextStatement, tooltip, helpUrl,
+    name: type, category, prev: previousStatement, next: nextStatement, inputsInline = true,
   } = def;
 
   return {
@@ -35,9 +39,8 @@ export const generateBlockDefinition = (def: {
     args0,
     previousStatement,
     nextStatement,
-    tooltip,
-    helpUrl,
     style: `${category}_blocks`,
-    inputsInline: true,
+    inputsInline,
+    ...def,
   };
 };
