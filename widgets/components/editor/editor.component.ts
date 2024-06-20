@@ -34,11 +34,27 @@ const toolbox = {
       contents: [
         {
           kind: "block",
+          type: "wait",
+        },
+        {
+          kind: "block",
+          type: "repeat",
+        },
+        {
+          kind: "block",
+          type: "forever",
+        },
+        {
+          kind: "block",
           type: "if",
         },
         {
           kind: "block",
           type: "if_else",
+        },
+        {
+          kind: "block",
+          type: "stop",
         },
       ],
     },

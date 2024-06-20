@@ -1,31 +1,31 @@
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
+import { generateBlockDefinition } from "./utils";
 
-const whenStartClickedBlock = {
-  type: "when_start_clicked",
-  message0: "When %1 %2 %3 clicked",
-  args0: [
-    {
-      type: "input_dummy",
-    },
-    {
-      type: "field_image",
-      src: PlayerPlayIcon,
-      width: 15,
-      height: 15,
-      alt: "*",
-      flipRtl: false,
-    },
-    {
-      type: "input_dummy",
-    },
-  ],
-  style: "event_blocks",
-  inputsInline: true,
-  nextStatement: null,
+const whenStartClickedBlock = generateBlockDefinition({
+  name: "when_start_clicked",
+  category: "event",
+  next: null,
   tooltip: "",
   helpUrl: "",
   hat: "cap",
-};
+}, [
+  {
+    type: "input_dummy",
+    text: "when",
+  },
+  {
+    type: "field_image",
+    src: PlayerPlayIcon,
+    width: 15,
+    height: 15,
+    alt: "*",
+    flipRtl: false,
+  },
+  {
+    type: "input_dummy",
+    text: "clicked",
+  },
+]);
 
 export const eventBlocks = [
   whenStartClickedBlock,
