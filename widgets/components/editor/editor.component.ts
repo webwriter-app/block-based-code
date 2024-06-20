@@ -11,6 +11,7 @@ import { Logger } from "../../utils";
 import { styles } from "./editor.styles";
 import { settingsContext } from "../../context";
 import { Settings } from "../../types";
+import "../../lib/blockly";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -58,7 +59,7 @@ export class Editor extends LitElementWw {
     super.firstUpdated(_changedProperties);
 
     const renderer = "zelos";
-    const theme = "zelos";
+    const theme = "webwriter";
     this.workspace = Blockly.inject(this.blockCanvas, {
       renderer,
       theme,
