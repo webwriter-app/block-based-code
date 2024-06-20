@@ -2,15 +2,22 @@ import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, state } from "lit/decorators.js";
 import {
   Application, Editor, Options, Stage, Toolbar,
 } from "./components";
 import { setLocale } from "./locales";
 import "@shoelace-style/shoelace/dist/themes/light.css";
+import { provide } from "@lit/context";
+import { fullscreenContext } from "./context/fullscreen.context";
+import { Logger } from "./utils";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
+  @provide({ context: fullscreenContext })
+  @state()
+  private fullscreen: boolean;
+
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "webwriter-blocks-toolbar": Toolbar,
@@ -59,17 +66,45 @@ export class WebwriterBlocks extends LitElementWw {
   constructor() {
     super();
     setLocale(this.ownerDocument.documentElement.lang);
-    this.addEventListener("fullscreenchange", () => this.requestUpdate());
+
+    this.fullscreen = false;
+  }
+
+  public connectedCallback() {
+    super.connectedCallback();
+
+    this.addEventListener("fullscreenchange", () => this.handleFullscreenChange());
   }
 
   public render(): TemplateResult {
     return html`
         <webwriter-blocks-options part="options"></webwriter-blocks-options>
-        <webwriter-blocks-toolbar></webwriter-blocks-toolbar>
+        <webwriter-blocks-toolbar @fullscreentoggle="${this.handleFullscreenToggle}"></webwriter-blocks-toolbar>
         <webwriter-blocks-application id="application">
             <webwriter-blocks-editor slot="editor"></webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
     `;
+  }
+
+  private get isFullscreen(): boolean {
+    return this.ownerDocument.fullscreenElement === this;
+  }
+
+  private handleFullscreenChange(): void {
+    this.fullscreen = this.isFullscreen;
+  }
+
+  private handleFullscreenToggle(): void {
+    if (this.isFullscreen) {
+      this.ownerDocument.exitFullscreen();
+    } else {
+      try {
+        this.requestFullscreen();
+      } catch (error) {
+        Logger.error("Failed to enter fullscreen mode.");
+        Logger.log(error);
+      }
+    }
   }
 }

@@ -8,12 +8,16 @@ import ArrowsMaximizeIcon from "@tabler/icons/outline/arrows-maximize.svg";
 import ArrowsMinimizeIcon from "@tabler/icons/outline/arrows-minimize.svg";
 import PlayerStopIcon from "@tabler/icons/outline/player-stop.svg";
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
-import { Logger } from "../../utils";
+import { consume } from "@lit/context";
 import { msg } from "../../locales";
 import { styles } from "./toolbar.styles";
+import { fullscreenContext } from "../../context/fullscreen.context";
 
 @customElement("webwriter-blocks-toolbar")
 export class Toolbar extends LitElementWw {
+  @consume({ context: fullscreenContext, subscribe: true })
+  private fullscreen?: boolean;
+
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-icon": SlIcon,
@@ -31,9 +35,9 @@ export class Toolbar extends LitElementWw {
   public render(): TemplateResult {
     return html`
       <div class="actions">
-        <sl-tooltip content="${msg(this.isFullscreen ? "fullscreenExit" : "fullscreen")}">
-          <sl-button variant="text" @click="${this.handleFullscreenClick}">
-            <sl-icon src="${this.isFullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}"></sl-icon>
+        <sl-tooltip content="${msg(this.fullscreen ? "fullscreenExit" : "fullscreen")}">
+          <sl-button variant="text" @click="${this.handleFullscreenToggle}">
+            <sl-icon src="${this.fullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}"></sl-icon>
           </sl-button>
         <sl-tooltip>
       </div>
@@ -52,20 +56,11 @@ export class Toolbar extends LitElementWw {
     `;
   }
 
-  private get isFullscreen(): boolean {
-    return this.ownerDocument.fullscreenElement === this;
-  }
-
-  private handleFullscreenClick(): void {
-    if (this.isFullscreen) {
-      this.ownerDocument.exitFullscreen();
-    } else {
-      try {
-        this.requestFullscreen();
-      } catch (error) {
-        Logger.error("Failed to enter fullscreen mode.");
-        Logger.log(error);
-      }
-    }
+  private handleFullscreenToggle(): void {
+    const event = new CustomEvent("fullscreentoggle", {
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(event);
   }
 }
