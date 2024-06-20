@@ -11,7 +11,7 @@ import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
 import { consume } from "@lit/context";
 import { msg } from "../../locales";
 import { styles } from "./toolbar.styles";
-import { fullscreenContext } from "../../context/fullscreen.context";
+import { fullscreenContext } from "../../context";
 
 @customElement("webwriter-blocks-toolbar")
 export class Toolbar extends LitElementWw {
