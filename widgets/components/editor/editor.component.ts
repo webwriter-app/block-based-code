@@ -65,6 +65,7 @@ export class Editor extends LitElementWw {
       move: {
         wheel: true,
       },
+      maxTrashcanContents: 0,
       toolbox: {
         kind: "categoryToolbox",
         contents: [
