@@ -13,6 +13,38 @@ import { settingsContext } from "../../context";
 import { Settings } from "../../types";
 import "../../lib/blockly";
 
+const toolbox = {
+  kind: "categoryToolbox",
+  contents: [
+    {
+      kind: "category",
+      name: "Events",
+      categoryStyle: "events_category",
+      contents: [
+        {
+          kind: "block",
+          type: "when_start_clicked",
+        },
+      ],
+    },
+    {
+      kind: "category",
+      name: "Controls",
+      categoryStyle: "controls_category",
+      contents: [
+        {
+          kind: "block",
+          type: "if",
+        },
+        {
+          kind: "block",
+          type: "if_else",
+        },
+      ],
+    },
+  ],
+};
+
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
   @query("#block-canvas")
@@ -75,23 +107,7 @@ export class Editor extends LitElementWw {
         wheel: true,
       },
       maxTrashcanContents: 0,
-      toolbox: {
-        kind: "categoryToolbox",
-        contents: [
-          {
-            kind: "category",
-            name: "Events",
-            categoryStyle: "text_category",
-            contents: [
-              {
-                kind: "block",
-                type: "when_start_clicked",
-              },
-            ],
-          },
-          // You can add more blocks to this array.
-        ],
-      },
+      toolbox,
       plugins: {
         toolbox: ContinuousToolbox,
         flyoutsVerticalToolbox: ContinuousFlyout,

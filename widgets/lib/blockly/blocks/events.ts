@@ -1,6 +1,6 @@
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
 
-const whenStartClicked = {
+const whenStartClickedBlock = {
   type: "when_start_clicked",
   message0: "When %1 %2 %3 clicked",
   args0: [
@@ -19,7 +19,7 @@ const whenStartClicked = {
       type: "input_dummy",
     },
   ],
-  style: "text_blocks",
+  style: "event_blocks",
   inputsInline: true,
   nextStatement: null,
   tooltip: "",
@@ -28,5 +28,5 @@ const whenStartClicked = {
 };
 
 export const eventBlocks = [
-  whenStartClicked,
+  whenStartClickedBlock,
 ];
