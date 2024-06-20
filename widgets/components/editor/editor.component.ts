@@ -5,13 +5,20 @@ import * as Blockly from "blockly";
 import * as de from "blockly/msg/de";
 import * as en from "blockly/msg/en";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
+import { consume } from "@lit/context";
+import { PropertyValues } from "@lit/reactive-element";
 import { Logger } from "../../utils";
 import { styles } from "./editor.styles";
+import { settingsContext } from "../../context";
+import { Settings } from "../../types";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
   @query("#block-canvas")
   private blockCanvas!: HTMLDivElement;
+
+  @consume({ context: settingsContext, subscribe: true })
+  private settings: Settings;
 
   private resizeObserver: ResizeObserver;
 
@@ -28,12 +35,6 @@ export class Editor extends LitElementWw {
     this.configureBlockly();
   }
 
-  public render(): TemplateResult {
-    return html`
-        <div id="block-canvas"></div>
-    `;
-  }
-
   public connectedCallback() {
     super.connectedCallback();
 
@@ -47,7 +48,13 @@ export class Editor extends LitElementWw {
     this.resizeObserver.disconnect();
   }
 
-  protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
+  public render(): TemplateResult {
+    return html`
+        <div id="block-canvas"></div>
+    `;
+  }
+
+  protected firstUpdated(_changedProperties: PropertyValues): void {
     super.firstUpdated(_changedProperties);
 
     const renderer = "zelos";
@@ -55,6 +62,7 @@ export class Editor extends LitElementWw {
     this.workspace = Blockly.inject(this.blockCanvas, {
       renderer,
       theme,
+      readOnly: !this.settings.contentEditable && this.settings.readonly,
       sounds: false,
       grid: {
         spacing: 16,
