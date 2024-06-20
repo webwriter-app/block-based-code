@@ -10,9 +10,10 @@ import bunny from "../../assets/bunny.png";
 import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
+import { IStage } from "../../types/stage";
 
 @customElement("webwriter-blocks-stage")
-export class Stage extends LitElementWw {
+export class Stage extends LitElementWw implements IStage {
   @query("#stage")
   private canvas!: HTMLDivElement;
 
@@ -41,12 +42,13 @@ export class Stage extends LitElementWw {
 
     this.readyTask = new Task(this, {
       task: async () => {
-        await new Promise((resolve) => { setTimeout(resolve, 3e3); });
+        await new Promise((resolve) => { setTimeout(resolve, 1e3); });
         await Promise.all([
           await this.application.init({
             width: 800,
             height: 600,
             background: "white",
+            autoStart: false,
           }),
           await Pixi.Assets.load(bunny),
         ]);
@@ -57,8 +59,25 @@ export class Stage extends LitElementWw {
         this.handlePixiReady();
         this.addSprite();
         this.dummyAnimation();
+        this.application.render();
       },
     });
+  }
+
+  public connectedCallback() {
+    super.connectedCallback();
+
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
+    this.resizeObserver.observe(this);
+
+    this.readyTask.run();
+  }
+
+  public disconnectedCallback() {
+    super.disconnectedCallback();
+
+    this.resizeObserver.disconnect();
+    this.readyTask.abort();
   }
 
   public render(): TemplateResult {
@@ -78,20 +97,12 @@ export class Stage extends LitElementWw {
     `;
   }
 
-  public connectedCallback() {
-    super.connectedCallback();
-
-    this.resizeObserver = new ResizeObserver(() => this.handleResize());
-    this.resizeObserver.observe(this);
-
-    this.readyTask.run();
+  public start(): void {
+    this.application.ticker.start();
   }
 
-  public disconnectedCallback() {
-    super.disconnectedCallback();
-
-    this.resizeObserver.disconnect();
-    this.readyTask.abort();
+  public stop(): void {
+    this.application.ticker.stop();
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {

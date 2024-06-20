@@ -2,7 +2,9 @@ import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { LitElementWw, option } from "@webwriter/lit";
-import { customElement, property, state } from "lit/decorators.js";
+import {
+  customElement, property, query, state,
+} from "lit/decorators.js";
 import { PropertyValues } from "@lit/reactive-element";
 import {
   Application, Editor, Stage, Toolbar,
@@ -13,6 +15,7 @@ import { provide } from "@lit/context";
 import { fullscreenContext, settingsContext } from "./context";
 import { Logger } from "./utils";
 import type { Settings } from "./types";
+import { IStage } from "./types/stage";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -23,6 +26,9 @@ export class WebwriterBlocks extends LitElementWw {
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean = false;
+
+  @query("#stage")
+  private stage!: IStage;
 
   @provide({ context: settingsContext })
   private settings: Settings;
@@ -90,10 +96,10 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <webwriter-blocks-toolbar @fullscreentoggle="${this.handleFullscreenToggle}"></webwriter-blocks-toolbar>
+        <webwriter-blocks-toolbar @fullscreentoggle="${this.handleFullscreenToggle}" @start="${this.handleStart}" @stop="${this.handleStop}"></webwriter-blocks-toolbar>
         <webwriter-blocks-application id="application">
             <webwriter-blocks-editor slot="editor"></webwriter-blocks-editor>
-            <webwriter-blocks-stage slot="stage"></webwriter-blocks-stage>
+            <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
     `;
   }
@@ -132,6 +138,18 @@ export class WebwriterBlocks extends LitElementWw {
         Logger.error("Failed to enter fullscreen mode.");
         Logger.log(error);
       }
+    }
+  }
+
+  private handleStart(): void {
+    if (this.stage) {
+      this.stage.start();
+    }
+  }
+
+  private handleStop(): void {
+    if (this.stage) {
+      this.stage.stop();
     }
   }
 }
