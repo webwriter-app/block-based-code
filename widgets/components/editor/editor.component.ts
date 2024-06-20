@@ -80,31 +80,12 @@ export class Editor extends LitElementWw {
         contents: [
           {
             kind: "category",
-            name: "Control",
-            categoryStyle: "logic_category",
+            name: "Events",
+            categoryStyle: "text_category",
             contents: [
               {
                 kind: "block",
-                type: "controls_if",
-              },
-            ],
-          },
-          {
-            kind: "category",
-            name: "Logic",
-            categoryStyle: "",
-            contents: [
-              {
-                kind: "block",
-                type: "logic_compare",
-              },
-              {
-                kind: "block",
-                type: "logic_operation",
-              },
-              {
-                kind: "block",
-                type: "logic_boolean",
+                type: "when_start_clicked",
               },
             ],
           },
