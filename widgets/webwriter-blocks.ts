@@ -2,18 +2,23 @@ import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 import {
-  Application, Editor, Options, Stage, Toolbar,
+  Application, Editor, Stage, Toolbar,
 } from "./components";
 import { setLocale } from "./locales";
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { provide } from "@lit/context";
-import { fullscreenContext } from "./context/fullscreen.context";
+import { fullscreenContext, settingsContext } from "./context";
 import { Logger } from "./utils";
+import type { Settings } from "./types";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
+  @provide({ context: settingsContext })
+  @property({})
+  public settings: Settings;
+
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean;
@@ -21,7 +26,6 @@ export class WebwriterBlocks extends LitElementWw {
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "webwriter-blocks-toolbar": Toolbar,
-      "webwriter-blocks-options": Options,
       "webwriter-blocks-application": Application,
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
@@ -78,7 +82,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <webwriter-blocks-options part="options"></webwriter-blocks-options>
         <webwriter-blocks-toolbar @fullscreentoggle="${this.handleFullscreenToggle}"></webwriter-blocks-toolbar>
         <webwriter-blocks-application id="application">
             <webwriter-blocks-editor slot="editor"></webwriter-blocks-editor>
