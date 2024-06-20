@@ -43,12 +43,12 @@ export class Toolbar extends LitElementWw {
       </div>
       <div class="actions">
         <sl-tooltip content="${msg("stop")}">
-          <sl-button id="stop" variant="text">
+          <sl-button id="stop" variant="text" @click="${this.handleStopClick}">
               <sl-icon src="${PlayerStopIcon}" label="Stop Execution"></sl-icon>
           </sl-button>
         </sl-tooltip>
         <sl-tooltip content="${msg("start")}">
-          <sl-button id="play" variant="text">
+          <sl-button id="play" variant="text" @click="${this.handleStartClick}">
               <sl-icon src="${PlayerPlayIcon}" label="Start Execution"></sl-icon>
           </sl-button>
         </sl-tooltip>
@@ -58,6 +58,22 @@ export class Toolbar extends LitElementWw {
 
   private handleFullscreenToggle(): void {
     const event = new CustomEvent("fullscreentoggle", {
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(event);
+  }
+
+  private handleStartClick(): void {
+    const event = new CustomEvent("start", {
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(event);
+  }
+
+  private handleStopClick(): void {
+    const event = new CustomEvent("stop", {
       bubbles: true,
       composed: true,
     });
