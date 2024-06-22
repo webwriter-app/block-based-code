@@ -2,8 +2,6 @@ import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import { CSSResult, html, TemplateResult } from "lit";
 import * as Blockly from "blockly";
-import * as de from "blockly/msg/de";
-import * as en from "blockly/msg/en";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { consume } from "@lit/context";
 import { PropertyValues } from "@lit/reactive-element";
@@ -128,13 +126,12 @@ export class Editor extends LitElementWw {
 
   constructor() {
     super();
-    this.configureBlockly();
+
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
 
   public connectedCallback() {
     super.connectedCallback();
-
-    this.resizeObserver = new ResizeObserver(() => this.handleResize());
     this.resizeObserver.observe(this);
   }
 
@@ -187,13 +184,6 @@ export class Editor extends LitElementWw {
       this.shadowRoot.appendChild(styleElement.cloneNode(true));
     });
     this.handleResize();
-  }
-
-  private configureBlockly(): void {
-    Blockly.setLocale({
-      de,
-      en,
-    }[this.ownerDocument.documentElement.lang as "de" | "en"]);
   }
 
   private handleResize(): void {
