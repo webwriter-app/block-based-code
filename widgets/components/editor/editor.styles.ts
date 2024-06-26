@@ -70,4 +70,12 @@ export const styles = css`
     .blocklyWidgetDiv, .blocklyDropDownDiv, .blocklyTooltipDiv {
         position: fixed;
     }
+    
+    sl-dialog::part(base) {
+        position: absolute !important;
+    }
+
+    sl-dialog::part(overlay) {
+        position: absolute !important;
+    }
 `;

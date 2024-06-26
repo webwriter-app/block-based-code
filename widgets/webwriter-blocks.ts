@@ -6,12 +6,11 @@ import {
   customElement, property, query, state,
 } from "lit/decorators.js";
 import { PropertyValues } from "@lit/reactive-element";
+import { provide } from "@lit/context";
 import {
   Application, Editor, Stage, Toolbar,
 } from "./components";
 import { setLocale } from "./locales";
-import "@shoelace-style/shoelace/dist/themes/light.css";
-import { provide } from "@lit/context";
 import { fullscreenContext, settingsContext } from "./context";
 import { Logger } from "./utils";
 import type { Settings } from "./types";
@@ -46,7 +45,6 @@ export class WebwriterBlocks extends LitElementWw {
     return [
       css`
           :host {
-              position: unset !important;
               display: flex !important;
               flex-direction: column;
               gap: 8px;
@@ -93,6 +91,9 @@ export class WebwriterBlocks extends LitElementWw {
     super.connectedCallback();
 
     this.addEventListener("fullscreenchange", () => this.handleFullscreenChange());
+    const styleElement = this.ownerDocument.createElement("style");
+    styleElement.textContent = ".sl-scroll-lock {--sl-scroll-lock-size: 0!important; overflow-x: hidden!important; overflow-y: scroll!important}";
+    this.ownerDocument.head.appendChild(styleElement);
   }
 
   public render(): TemplateResult {
