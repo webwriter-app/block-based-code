@@ -12,14 +12,11 @@ const ifBlock = generateBlockDefinition({
   text: "if",
 }, {
   type: "input_value",
-  name: "condition",
+  name: "CONDITION",
   check: "Boolean",
 }, {
-  type: "input_dummy",
-  text: "SUBSTACK",
-}, {
   type: "input_statement",
-  name: "if",
+  name: "SUBSTACK",
 }]);
 
 const ifElseBlock = generateBlockDefinition({
@@ -82,7 +79,7 @@ const repeatBlock = generateBlockDefinition({
   check: "Number",
 }, {
   type: "input_statement",
-  name: "repeat",
+  name: "SUBSTACK",
 }]);
 
 const foreverBlock = generateBlockDefinition({
@@ -97,7 +94,7 @@ const foreverBlock = generateBlockDefinition({
   text: "forever",
 }, {
   type: "input_statement",
-  name: "forever",
+  name: "SUBSTACK",
 }]);
 
 const stopBlock = generateBlockDefinition({
