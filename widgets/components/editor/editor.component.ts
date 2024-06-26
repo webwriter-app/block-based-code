@@ -28,6 +28,57 @@ const toolbox = {
   contents: [
     {
       kind: "category",
+      name: "Motions",
+      categoryStyle: "motions_category",
+      contents: [
+        {
+          kind: "block",
+          type: "move",
+          inputs: {
+            STEPS: shadowMathInput,
+          },
+        },
+        {
+          kind: "block",
+          type: "rotate",
+          inputs: {
+            DEGREES: shadowMathInput,
+          },
+        },
+        {
+          kind: "block",
+          type: "go_to_x",
+          inputs: {
+            X: shadowMathInput,
+          },
+        },
+        {
+          kind: "block",
+          type: "go_to_y",
+          inputs: {
+            Y: shadowMathInput,
+          },
+        },
+        {
+          kind: "block",
+          type: "go_to_xy",
+          inputs: {
+            X: shadowMathInput,
+            Y: shadowMathInput,
+          },
+        },
+        {
+          kind: "block",
+          type: "x_position",
+        },
+        {
+          kind: "block",
+          type: "y_position",
+        },
+      ],
+    },
+    {
+      kind: "category",
       name: "Events",
       categoryStyle: "events_category",
       contents: [
