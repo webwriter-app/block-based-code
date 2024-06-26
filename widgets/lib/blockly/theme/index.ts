@@ -8,6 +8,7 @@ const categoryStyles = {
   events_category: { colour: "#ffbf00" },
   motions_category: { colour: "#4c97ff" },
   operators_category: { colour: "#59c059" },
+  variables_category: { colour: "#ff8c1a" },
 };
 
 const blockStyles = {
@@ -30,6 +31,11 @@ const blockStyles = {
     colourPrimary: "#59c059",
     colourSecondary: "#46b946",
     colourTertiary: "#389438",
+  },
+  variable_blocks: {
+    colourPrimary: "#ff8c1a",
+    colourSecondary: "#ff8000",
+    colourTertiary: "#db6e00",
   },
 };
 

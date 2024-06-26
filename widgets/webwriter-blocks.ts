@@ -46,6 +46,7 @@ export class WebwriterBlocks extends LitElementWw {
     return [
       css`
           :host {
+              position: unset !important;
               display: flex !important;
               flex-direction: column;
               gap: 8px;
@@ -137,6 +138,7 @@ export class WebwriterBlocks extends LitElementWw {
       } catch (error) {
         Logger.error("Failed to enter fullscreen mode.");
         Logger.log(error);
+        console.dir(this);
       }
     }
   }

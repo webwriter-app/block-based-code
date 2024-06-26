@@ -8,3 +8,5 @@ Blockly.defineBlocksWithJsonArray([
   ...controlBlocks,
   ...operatorBlocks,
 ]);
+
+delete Blockly.Blocks.math_change;
