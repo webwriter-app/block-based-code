@@ -1,126 +1,106 @@
-import { generateBlockDefinition } from "./utils";
+import * as Blockly from "blockly";
 
-const move = generateBlockDefinition({
-  name: "move",
-  category: "motion",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "move",
-}, {
-  type: "input_value",
-  name: "STEPS",
-  check: "Number",
-}, {
-  type: "input_dummy",
-  text: "steps",
-}]);
+enum MotionTypes {
+  MOVE = "move",
+  ROTATE = "rotate",
+  GO_TO_X = "go_to_x",
+  GO_TO_Y = "go_to_y",
+  GO_TO_XY = "go_to_xy",
+  X_POSITION = "x_position",
+  Y_POSITION = "y_position",
 
-const rotate = generateBlockDefinition({
-  name: "rotate",
-  category: "motion",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "rotate",
-}, {
-  type: "input_value",
-  name: "DEGREES",
-  check: "Number",
-}, {
-  type: "input_dummy",
-  text: "degrees",
-}]);
+}
 
-const goToX = generateBlockDefinition({
-  name: "go_to_x",
-  category: "motion",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "go to x:",
-}, {
-  type: "input_value",
-  name: "X",
-  check: "Number",
-}]);
+export class MotionBlocks {
+  private static readonly style = "motion_blocks";
 
-const goToY = generateBlockDefinition({
-  name: "go_to_y",
-  category: "motion",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "go to y:",
-}, {
-  type: "input_value",
-  name: "Y",
-  check: "Number",
-}]);
+  public static defineBlocks() {
+    MotionBlocks.move();
+    MotionBlocks.rotate();
+    MotionBlocks.goToX();
+    MotionBlocks.goToY();
+    MotionBlocks.goToXY();
+    MotionBlocks.xPosition();
+    MotionBlocks.yPosition();
+  }
 
-const goToXY = generateBlockDefinition({
-  name: "go_to_xy",
-  category: "motion",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "go to x:",
-}, {
-  type: "input_value",
-  name: "X",
-  check: "Number",
-}, {
-  type: "input_dummy",
-  text: "y:",
-}, {
-  type: "input_value",
-  name: "Y",
-  check: "Number",
-}]);
+  private static move() {
+    Blockly.Blocks[MotionTypes.MOVE] = {
+      init(this: Blockly.Block) {
+        this.setStyle(MotionBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("STEPS").setCheck("Number").appendField("move");
+        this.appendDummyInput().appendField("steps");
+      },
+    };
+  }
 
-const xPosition = generateBlockDefinition({
-  name: "x_position",
-  category: "motion",
-  output: "Number",
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "x position",
-}]);
+  private static rotate() {
+    Blockly.Blocks[MotionTypes.ROTATE] = {
+      init(this: Blockly.Block) {
+        this.setStyle(MotionBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("DEGREES").setCheck("Number").appendField("rotate");
+        this.appendDummyInput().appendField("degrees");
+      },
+    };
+  }
 
-const yPosition = generateBlockDefinition({
-  name: "y_position",
-  category: "motion",
-  output: "Number",
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "y position",
-}]);
+  private static goToX() {
+    Blockly.Blocks[MotionTypes.GO_TO_X] = {
+      init(this: Blockly.Block) {
+        this.setStyle(MotionBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("X").setCheck("Number").appendField("go to x:");
+      },
+    };
+  }
 
-export const motionBlocks = [
-  move,
-  rotate,
-  goToX,
-  goToY,
-  goToXY,
-  xPosition,
-  yPosition,
-];
+  private static goToY() {
+    Blockly.Blocks[MotionTypes.GO_TO_Y] = {
+      init(this: Blockly.Block) {
+        this.setStyle(MotionBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("Y").setCheck("Number").appendField("go to y:");
+      },
+    };
+  }
+
+  private static goToXY() {
+    Blockly.Blocks[MotionTypes.GO_TO_XY] = {
+      init(this: Blockly.Block) {
+        this.setStyle(MotionBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendDummyInput().appendField("go to x:");
+        this.appendValueInput("X").setCheck("Number");
+        this.appendDummyInput().appendField("y:");
+        this.appendValueInput("Y").setCheck("Number");
+      },
+    };
+  }
+
+  private static xPosition() {
+    Blockly.Blocks[MotionTypes.X_POSITION] = {
+      init(this: Blockly.Block) {
+        this.setStyle(MotionBlocks.style);
+        this.setOutput(true, "Number");
+        this.appendDummyInput().appendField("x position");
+      },
+    };
+  }
+
+  private static yPosition() {
+    Blockly.Blocks[MotionTypes.Y_POSITION] = {
+      init(this: Blockly.Block) {
+        this.setStyle(MotionBlocks.style);
+        this.setOutput(true, "Number");
+        this.appendDummyInput().appendField("y position");
+      },
+    };
+  }
+}

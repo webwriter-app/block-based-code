@@ -1,118 +1,94 @@
-import { generateBlockDefinition } from "./utils";
+import * as Blockly from "blockly";
 
-const ifBlock = generateBlockDefinition({
-  name: "if",
-  category: "control",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "if",
-}, {
-  type: "input_value",
-  name: "CONDITION",
-  check: "Boolean",
-}, {
-  type: "input_statement",
-  name: "SUBSTACK",
-}]);
+enum ControlType {
+  WAIT = "wait",
+  REPEAT = "repeat",
+  FOREVER = "forever",
+  IF = "if",
+  IF_ELSE = "if_else",
+  STOP = "stop",
+}
 
-const ifElseBlock = generateBlockDefinition({
-  name: "if_else",
-  category: "control",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "if",
-}, {
-  type: "input_value",
-  name: "CONDITION",
-  check: "Boolean",
-}, {
-  type: "input_dummy",
-  text: "then",
-}, {
-  type: "input_statement",
-  name: "SUBSTACK",
-}, {
-  type: "input_dummy",
-  text: "else",
-}, {
-  type: "input_statement",
-  name: "SUBSTACK2",
-}]);
+export class ControlBlocks {
+  private static readonly style = "control_blocks";
 
-const waitBlock = generateBlockDefinition({
-  name: "wait",
-  category: "control",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "wait",
-}, {
-  type: "input_value",
-  name: "DURATION",
-  check: "Number",
-}]);
+  public static defineBlocks() {
+    ControlBlocks.wait();
+    ControlBlocks.repeat();
+    ControlBlocks.forever();
+    ControlBlocks.if();
+    ControlBlocks.ifElse();
+    ControlBlocks.stop();
+  }
 
-const repeatBlock = generateBlockDefinition({
-  name: "repeat",
-  category: "control",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "repeat",
-}, {
-  type: "input_value",
-  name: "TIMES",
-  check: "Number",
-}, {
-  type: "input_statement",
-  name: "SUBSTACK",
-}]);
+  private static wait() {
+    Blockly.Blocks[ControlType.WAIT] = {
+      init(this: Blockly.Block) {
+        this.setStyle(ControlBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("DURATION").setCheck("Number").appendField("wait");
+      },
+    };
+  }
 
-const foreverBlock = generateBlockDefinition({
-  name: "forever",
-  category: "control",
-  prev: null,
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "forever",
-}, {
-  type: "input_statement",
-  name: "SUBSTACK",
-}]);
+  private static repeat() {
+    Blockly.Blocks[ControlType.REPEAT] = {
+      init(this: Blockly.Block) {
+        this.setStyle(ControlBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("TIMES").setCheck("Number").appendField("repeat");
+        this.appendStatementInput("SUBSTACK");
+      },
+    };
+  }
 
-const stopBlock = generateBlockDefinition({
-  name: "stop",
-  category: "control",
-  prev: null,
-  tooltip: "",
-  helpUrl: "",
-}, [{
-  type: "input_dummy",
-  text: "stop",
-}]);
+  private static forever() {
+    Blockly.Blocks[ControlType.FOREVER] = {
+      init(this: Blockly.Block) {
+        this.setStyle(ControlBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendDummyInput().appendField("forever");
+        this.appendStatementInput("SUBSTACK");
+      },
+    };
+  }
 
-export const controlBlocks = [
-  ifBlock,
-  ifElseBlock,
-  waitBlock,
-  repeatBlock,
-  foreverBlock,
-  stopBlock,
-];
+  private static if() {
+    Blockly.Blocks[ControlType.IF] = {
+      init(this: Blockly.Block) {
+        this.setStyle(ControlBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("CONDITION").setCheck("Boolean").appendField("if");
+        this.appendStatementInput("SUBSTACK");
+      },
+    };
+  }
+
+  private static ifElse() {
+    Blockly.Blocks[ControlType.IF_ELSE] = {
+      init(this: Blockly.Block) {
+        this.setStyle(ControlBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.appendValueInput("CONDITION").setCheck("Boolean").appendField("if");
+        this.appendStatementInput("SUBSTACK");
+        this.appendDummyInput().appendField("else");
+        this.appendStatementInput("SUBSTACK2");
+      },
+    };
+  }
+
+  private static stop() {
+    Blockly.Blocks[ControlType.STOP] = {
+      init(this: Blockly.Block) {
+        this.setStyle(ControlBlocks.style);
+        this.setPreviousStatement(true, null);
+        this.appendDummyInput().appendField("stop");
+      },
+    };
+  }
+}

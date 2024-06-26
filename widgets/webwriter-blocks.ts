@@ -16,6 +16,8 @@ import { Logger } from "./utils";
 import type { Settings } from "./types";
 import { IStage } from "./types/stage";
 
+import "@shoelace-style/shoelace/dist/themes/light.css";
+
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
   @property({ type: Boolean, attribute: true, reflect: true })

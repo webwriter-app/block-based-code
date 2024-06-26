@@ -1,32 +1,24 @@
-import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
-import { generateBlockDefinition } from "./utils";
+import * as Blockly from "blockly";
 
-const whenStartClickedBlock = generateBlockDefinition({
-  name: "when_start_clicked",
-  category: "event",
-  next: null,
-  tooltip: "",
-  helpUrl: "",
-  hat: "cap",
-}, [
-  {
-    type: "input_dummy",
-    text: "when",
-  },
-  {
-    type: "field_image",
-    src: PlayerPlayIcon,
-    width: 24,
-    height: 24,
-    alt: "*",
-    flipRtl: false,
-  },
-  {
-    type: "input_dummy",
-    text: "clicked",
-  },
-]);
+enum EventType {
+  WHEN_START_CLICKED = "when_start_clicked",
+}
 
-export const eventBlocks = [
-  whenStartClickedBlock,
-];
+export class EventBlocks {
+  private static readonly style = "event_blocks";
+
+  public static defineBlocks() {
+    EventBlocks.whenStartClicked();
+  }
+
+  private static whenStartClicked() {
+    Blockly.Blocks[EventType.WHEN_START_CLICKED] = {
+      init(this: Blockly.Block) {
+        this.setStyle(EventBlocks.style);
+        this.setNextStatement(true, null);
+        this.appendDummyInput().appendField("when");
+        this.appendDummyInput().appendField("clicked");
+      },
+    };
+  }
+}
