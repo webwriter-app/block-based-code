@@ -1,28 +1,35 @@
 import { customElement, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
-import { CSSResult, html, TemplateResult } from "lit";
-import * as Blockly from "blockly";
-import * as de from "blockly/msg/de";
-import * as en from "blockly/msg/en";
-import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
+import {
+  CSSResult, html, LitElement, TemplateResult,
+} from "lit";
 import { consume } from "@lit/context";
 import { PropertyValues } from "@lit/reactive-element";
-import { Logger } from "../../utils";
+import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
 import { settingsContext } from "../../context";
 import { Settings } from "../../types";
+import { BlocklyWorkspace } from "../../lib/blockly/blockly-workspace";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
-  @query("#block-canvas")
-  private blockCanvas!: HTMLDivElement;
+  @query("#new-variable-dialog")
+  private newVariableDialog!: SlDialog;
 
   @consume({ context: settingsContext, subscribe: true })
   private settings: Settings;
 
   private resizeObserver: ResizeObserver;
 
-  private workspace?: Blockly.WorkspaceSvg;
+  private workspace: BlocklyWorkspace;
+
+  public static get scopedElements(): Record<string, typeof LitElement> {
+    return {
+      "sl-dialog": SlDialog,
+      "sl-input": SlInput,
+      "sl-button": SlButton,
+    };
+  }
 
   public static get styles(): CSSResult[] {
     return [
@@ -32,112 +39,58 @@ export class Editor extends LitElementWw {
 
   constructor() {
     super();
-    this.configureBlockly();
+
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
+    this.workspace = new BlocklyWorkspace();
   }
 
   public connectedCallback() {
     super.connectedCallback();
-
-    this.resizeObserver = new ResizeObserver(() => this.handleResize());
     this.resizeObserver.observe(this);
+    this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
   }
 
   public disconnectedCallback() {
     super.disconnectedCallback();
-
     this.resizeObserver.disconnect();
   }
 
   public render(): TemplateResult {
     return html`
-        <div id="block-canvas"></div>
+        <sl-dialog label="New Variable" id="new-variable-dialog">
+            <sl-input autofocus label="New variable name" placeholder=""></sl-input>
+            <sl-button slot="footer" @click="${() => this.newVariableDialog.hide()}">Close</sl-button>
+            <sl-button slot="footer" variant="primary" @click="${this.handleCreateVariable}">Create</sl-button>
+        </sl-dialog>
     `;
   }
 
   protected firstUpdated(_changedProperties: PropertyValues): void {
     super.firstUpdated(_changedProperties);
-
-    const renderer = "zelos";
-    const theme = "zelos";
-    this.workspace = Blockly.inject(this.blockCanvas, {
-      renderer,
-      theme,
-      readOnly: !this.settings.contentEditable && this.settings.readonly,
-      sounds: false,
-      grid: {
-        spacing: 16,
-        length: 1,
-        snap: true,
-        colour: "var(--sl-color-gray-500)",
-      },
-      move: {
-        wheel: true,
-      },
-      maxTrashcanContents: 0,
-      toolbox: {
-        kind: "categoryToolbox",
-        contents: [
-          {
-            kind: "category",
-            name: "Control",
-            categoryStyle: "logic_category",
-            contents: [
-              {
-                kind: "block",
-                type: "controls_if",
-              },
-            ],
-          },
-          {
-            kind: "category",
-            name: "Logic",
-            categoryStyle: "",
-            contents: [
-              {
-                kind: "block",
-                type: "logic_compare",
-              },
-              {
-                kind: "block",
-                type: "logic_operation",
-              },
-              {
-                kind: "block",
-                type: "logic_boolean",
-              },
-            ],
-          },
-          // You can add more blocks to this array.
-        ],
-      },
-      plugins: {
-        toolbox: ContinuousToolbox,
-        flyoutsVerticalToolbox: ContinuousFlyout,
-        metricsManager: ContinuousMetrics,
-      },
-    });
-
-    ["blockly-common-style", `blockly-renderer-style-${renderer}-${theme}`].forEach((styleElementId) => {
-      const styleElement = <HTMLStyleElement>document.querySelector(`#${styleElementId}`);
-      if (!styleElement) {
-        Logger.error(`Style element with id ${styleElementId} not found`);
-        return;
-      }
-      this.shadowRoot.appendChild(styleElement.cloneNode(true));
-    });
-    this.handleResize();
-  }
-
-  private configureBlockly(): void {
-    Blockly.setLocale({
-      de,
-      en,
-    }[this.ownerDocument.documentElement.lang as "de" | "en"]);
+    this.shadowRoot.appendChild(this.workspace.container);
   }
 
   private handleResize(): void {
-    if (this.workspace) {
-      Blockly.svgResize(this.workspace);
+    this.workspace.resize();
+  }
+
+  private handleCreateVariableClick(): void {
+    this.newVariableDialog.show().catch();
+  }
+
+  private handleCreateVariable(): void {
+    const input = this.newVariableDialog.querySelector("sl-input");
+    const variableName = input.value;
+    try {
+      this.workspace.createVariable(variableName);
+    } catch (error) {
+      if (error instanceof Error) {
+        input.setCustomValidity(error.message);
+        input.reportValidity();
+      }
+      return;
     }
+    input.value = "";
+    this.newVariableDialog.hide().catch();
   }
 }
