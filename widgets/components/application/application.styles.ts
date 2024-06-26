@@ -4,8 +4,6 @@ export const styles = css`
     sl-split-panel {
         --min: 50%;
         --divider-width: 16px;
-
-        height: 500px;
     }
 
     sl-split-panel > * {
