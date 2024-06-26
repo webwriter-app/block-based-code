@@ -1,14 +1,11 @@
-import { customElement, query } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { consume } from "@lit/context";
 import { PropertyValues } from "@lit/reactive-element";
 import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
-import { settingsContext } from "../../context";
-import { Settings } from "../../types";
 import { BlocklyWorkspace } from "../../lib/blockly/blockly-workspace";
 
 @customElement("webwriter-blocks-editor")
@@ -16,8 +13,10 @@ export class Editor extends LitElementWw {
   @query("#new-variable-dialog")
   private newVariableDialog!: SlDialog;
 
-  @consume({ context: settingsContext, subscribe: true })
-  private settings: Settings;
+  public readonly: boolean;
+
+  @property({ type: String })
+  public availableBlocks: string;
 
   private resizeObserver: ResizeObserver;
 
@@ -41,18 +40,20 @@ export class Editor extends LitElementWw {
     super();
 
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
-    this.workspace = new BlocklyWorkspace();
   }
 
   public connectedCallback() {
     super.connectedCallback();
     this.resizeObserver.observe(this);
+    console.log(this.readonly);
+    this.workspace = new BlocklyWorkspace(this.readonly);
     this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
   }
 
   public disconnectedCallback() {
     super.disconnectedCallback();
     this.resizeObserver.disconnect();
+    this.workspace.disconnect();
   }
 
   public render(): TemplateResult {

@@ -10,16 +10,17 @@ export class BlocklyWorkspace {
 
   private static readonly theme = "webwriter";
 
-  public container: Element;
+  public container: HTMLDivElement;
 
   private workspace: WorkspaceSvg;
 
-  constructor() {
+  constructor(readonly: boolean = false) {
     BlocklyInitializer.define();
-    this.container = document.createElement("div");
-    setParentContainer(this.container);
-    this.injectWorkspace();
-    this.registerVariablesCategory();
+    this.createContainer();
+    this.injectWorkspace(readonly);
+    if (!readonly) {
+      this.registerVariablesCategory();
+    }
     this.moveStyleElementsToContainer();
   }
 
@@ -44,10 +45,22 @@ export class BlocklyWorkspace {
     this.workspace.createVariable(name);
   }
 
-  private injectWorkspace(): void {
+  public disconnect(): void {
+    this.workspace.dispose();
+  }
+
+  private createContainer(): void {
+    this.container = document.createElement("div");
+    this.container.style.width = "100%";
+    this.container.style.height = "100%";
+    setParentContainer(this.container);
+  }
+
+  private injectWorkspace(readonly: boolean): void {
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,
+      readOnly: readonly,
       sounds: false,
       collapse: false,
       comments: false,

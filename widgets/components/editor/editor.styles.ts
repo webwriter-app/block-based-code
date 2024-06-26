@@ -8,6 +8,8 @@ export const styles = css`
         border: 1px solid var(--sl-color-gray-300);
         border-radius: var(--sl-border-radius-medium);
         overflow: hidden;
+        
+        box-sizing: border-box;
     }
 
     .blocklyToolboxDiv {

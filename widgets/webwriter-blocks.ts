@@ -5,15 +5,13 @@ import { LitElementWw, option } from "@webwriter/lit";
 import {
   customElement, property, query, state,
 } from "lit/decorators.js";
-import { PropertyValues } from "@lit/reactive-element";
 import { provide } from "@lit/context";
 import {
   Application, Editor, Stage, Toolbar,
 } from "./components";
 import { setLocale } from "./locales";
-import { fullscreenContext, settingsContext } from "./context";
+import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
-import type { Settings } from "./types";
 import { IStage } from "./types/stage";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
@@ -24,15 +22,19 @@ export class WebwriterBlocks extends LitElementWw {
   @option({ type: "boolean", label: { en: "Readonly", de: "Schreibgeschützt" } })
   public readonly: boolean = false;
 
+  @property({ type: String, attribute: true, reflect: true })
+  @option({ type: "string", label: { en: "Available blocks", de: "Verfügbare Blöcke" } })
+  public availableBlocks: string = "*";
+
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean = false;
 
+  @query("#editor")
+  private editor!: Editor;
+
   @query("#stage")
   private stage!: IStage;
-
-  @provide({ context: settingsContext })
-  private settings: Settings;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -83,10 +85,6 @@ export class WebwriterBlocks extends LitElementWw {
     setLocale(this.ownerDocument.documentElement.lang);
 
     this.fullscreen = false;
-    this.settings = {
-      contentEditable: this.contentEditable === "true" || this.contentEditable === "",
-      readonly: this.readonly,
-    };
   }
 
   public connectedCallback() {
@@ -102,26 +100,10 @@ export class WebwriterBlocks extends LitElementWw {
     return html`
         <webwriter-blocks-toolbar @fullscreentoggle="${this.handleFullscreenToggle}" @start="${this.handleStart}" @stop="${this.handleStop}"></webwriter-blocks-toolbar>
         <webwriter-blocks-application id="application">
-            <webwriter-blocks-editor slot="editor"></webwriter-blocks-editor>
+            <webwriter-blocks-editor slot="editor" id="editor" .availableBlocks=${this.availableBlocks} .readonly=${this.readonly && !(this.contentEditable === "true" || this.contentEditable === "")}></webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
     `;
-  }
-
-  protected updated(changedProperties: PropertyValues): void {
-    super.updated(changedProperties);
-
-    const settings: Partial<Settings> = {};
-    if (changedProperties.has("readonly")) {
-      settings.readonly = this.readonly;
-    }
-    if (changedProperties.has("contentEditable")) {
-      settings.contentEditable = this.contentEditable === "true" || this.contentEditable === "";
-    }
-    this.settings = {
-      ...this.settings,
-      ...settings,
-    };
   }
 
   private get isFullscreen(): boolean {
@@ -141,7 +123,6 @@ export class WebwriterBlocks extends LitElementWw {
       } catch (error) {
         Logger.error("Failed to enter fullscreen mode.");
         Logger.log(error);
-        console.dir(this);
       }
     }
   }

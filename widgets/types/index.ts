@@ -1,1 +1,1 @@
-export type * from "./settings";
+export * from "./stage";
