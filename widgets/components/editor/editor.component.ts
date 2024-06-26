@@ -21,7 +21,7 @@ export class Editor extends LitElementWw {
 
   private resizeObserver: ResizeObserver;
 
-  private blockly: BlocklyWorkspace;
+  private workspace: BlocklyWorkspace;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -41,12 +41,13 @@ export class Editor extends LitElementWw {
     super();
 
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
-    this.blockly = new BlocklyWorkspace();
+    this.workspace = new BlocklyWorkspace();
   }
 
   public connectedCallback() {
     super.connectedCallback();
     this.resizeObserver.observe(this);
+    this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
   }
 
   public disconnectedCallback() {
@@ -66,33 +67,30 @@ export class Editor extends LitElementWw {
 
   protected firstUpdated(_changedProperties: PropertyValues): void {
     super.firstUpdated(_changedProperties);
-    this.shadowRoot.appendChild(this.blockly.container);
+    this.shadowRoot.appendChild(this.workspace.container);
   }
 
   private handleResize(): void {
-    this.blockly.resize();
+    this.workspace.resize();
   }
 
   private handleCreateVariableClick(): void {
     this.newVariableDialog.show().catch();
   }
 
-  // private handleCreateVariable(): void {
-  //   const input = this.newVariableDialog.querySelector("sl-input");
-  //   const variableName = input.value;
-  //   if (!variableName) {
-  //     input.setCustomValidity("Please enter a variable name");
-  //     input.reportValidity();
-  //     return;
-  //   }
-  //   const existingVariable = this.workspace.getVariable(variableName);
-  //   if (existingVariable) {
-  //     input.setCustomValidity("Variable already exists");
-  //     input.reportValidity();
-  //     return;
-  //   }
-  //   this.workspace.createVariable(variableName);
-  //   input.value = "";
-  //   this.newVariableDialog.hide().catch();
-  // }
+  private handleCreateVariable(): void {
+    const input = this.newVariableDialog.querySelector("sl-input");
+    const variableName = input.value;
+    try {
+      this.workspace.createVariable(variableName);
+    } catch (error) {
+      if (error instanceof Error) {
+        input.setCustomValidity(error.message);
+        input.reportValidity();
+      }
+      return;
+    }
+    input.value = "";
+    this.newVariableDialog.hide().catch();
+  }
 }

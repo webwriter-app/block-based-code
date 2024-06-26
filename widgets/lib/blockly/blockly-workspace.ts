@@ -1,8 +1,7 @@
 import {
-  BlocklyOptions, inject, setParentContainer, svgResize, WorkspaceSvg,
+  FlyoutButton, inject, setParentContainer, svgResize, WorkspaceSvg,
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
-import { variablesCategoryCallback } from "./toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
 import { WebWriterToolbox } from "./toolbox/toolbox";
 
@@ -19,7 +18,7 @@ export class BlocklyWorkspace {
     BlocklyInitializer.define();
     this.container = document.createElement("div");
     setParentContainer(this.container);
-    this.injectWorkspace({ readOnly: false });
+    this.injectWorkspace();
     this.registerVariablesCategory();
     this.moveStyleElementsToContainer();
   }
@@ -28,12 +27,27 @@ export class BlocklyWorkspace {
     svgResize(this.workspace);
   }
 
-  private injectWorkspace(options: Pick<BlocklyOptions, "readOnly">): void {
-    const { readOnly } = options;
+  public addEventListener(key: "CREATE_VARIABLE", callback: (button: FlyoutButton) => void): void;
+  public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
+    if (key === "CREATE_VARIABLE") {
+      this.workspace.registerButtonCallback(WebWriterToolbox.CREATE_VARIABLE_CALLBACK_KEY, callback);
+    }
+  }
+
+  public createVariable(name: string): void | never {
+    if (!name) {
+      throw new Error("Please enter a variable name");
+    }
+    if (this.workspace.getVariable(name)) {
+      throw new Error("Variable already exists");
+    }
+    this.workspace.createVariable(name);
+  }
+
+  private injectWorkspace(): void {
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,
-      readOnly,
       sounds: false,
       collapse: false,
       comments: false,
@@ -52,7 +66,7 @@ export class BlocklyWorkspace {
   }
 
   private registerVariablesCategory(): void {
-    this.workspace.registerToolboxCategoryCallback("VARIABLE", variablesCategoryCallback);
+    this.workspace.registerToolboxCategoryCallback("VARIABLE", WebWriterToolbox.variablesCategoryCallback);
     this.workspace.getToolbox().refreshSelection();
   }
 

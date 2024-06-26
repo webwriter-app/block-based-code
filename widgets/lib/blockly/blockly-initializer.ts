@@ -1,4 +1,4 @@
-import * as Blockly from "blockly";
+import { Blocks, ContextMenuRegistry } from "blockly";
 import {
   ControlBlocks, EventBlocks, MotionBlocks, OperatorBlocks,
 } from "./blocks";
@@ -25,11 +25,12 @@ export class BlocklyInitializer {
     EventBlocks.defineBlocks();
     ControlBlocks.defineBlocks();
     OperatorBlocks.defineBlocks();
+    delete Blocks.math_change;
   }
 
   private static defineContextMenu(): void {
-    Blockly.ContextMenuRegistry.registry.unregister("undoWorkspace");
-    Blockly.ContextMenuRegistry.registry.unregister("redoWorkspace");
-    Blockly.ContextMenuRegistry.registry.unregister("blockInline");
+    ContextMenuRegistry.registry.unregister("undoWorkspace");
+    ContextMenuRegistry.registry.unregister("redoWorkspace");
+    ContextMenuRegistry.registry.unregister("blockInline");
   }
 }
