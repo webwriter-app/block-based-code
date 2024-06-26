@@ -4,11 +4,7 @@ export const styles = css`
     :host {
         display: block;
         height: 100%;
-    }
 
-    #block-canvas {
-        height: 100%;
-        
         border: 1px solid var(--sl-color-gray-300);
         border-radius: var(--sl-border-radius-medium);
         overflow: hidden;
