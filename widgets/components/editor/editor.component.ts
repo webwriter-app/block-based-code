@@ -152,11 +152,15 @@ export class Editor extends LitElementWw {
 
     const renderer = "zelos";
     const theme = "webwriter";
+    Blockly.setParentContainer(this.shadowRoot as unknown as Element);
     this.workspace = Blockly.inject(this.blockCanvas, {
       renderer,
       theme,
       readOnly: !this.settings.contentEditable && this.settings.readonly,
       sounds: false,
+      collapse: false,
+      comments: false,
+      disable: false,
       grid: {
         spacing: 16,
         length: 1,

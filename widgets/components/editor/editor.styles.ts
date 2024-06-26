@@ -66,4 +66,8 @@ export const styles = css`
     .blocklyWorkspace rect {
         stroke: none;
     }
+
+    .blocklyWidgetDiv, .blocklyDropDownDiv, .blocklyTooltipDiv {
+        position: fixed;
+    }
 `;
