@@ -3,7 +3,7 @@ import {
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
-import { WebWriterToolbox } from "./toolbox/toolbox";
+import { WebWriterToolbox } from "./toolbox";
 
 export class BlocklyWorkspace {
   private static readonly renderer = "zelos";
@@ -84,7 +84,7 @@ export class BlocklyWorkspace {
       move: {
         wheel: true,
       },
-      toolbox: WebWriterToolbox.default,
+      toolbox: WebWriterToolbox.empty,
       maxTrashcanContents: 0,
       plugins: {
         toolbox: ContinuousToolbox,
