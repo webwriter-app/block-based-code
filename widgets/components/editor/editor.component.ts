@@ -1,4 +1,4 @@
-import { customElement, query } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
@@ -10,6 +10,7 @@ import { styles } from "./editor.styles";
 import { settingsContext } from "../../context";
 import { Settings } from "../../types";
 import { BlocklyWorkspace } from "../../lib/blockly/blockly-workspace";
+import { EditorChangeEvent } from "../../types/events";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -18,6 +19,9 @@ export class Editor extends LitElementWw {
 
   @consume({ context: settingsContext, subscribe: true })
   private settings: Settings;
+
+  @property({ type: String, attribute: true })
+  public initialState: string;
 
   private resizeObserver: ResizeObserver;
 
@@ -47,6 +51,9 @@ export class Editor extends LitElementWw {
   public connectedCallback() {
     super.connectedCallback();
     this.resizeObserver.observe(this);
+
+    this.workspace.load(this.initialState);
+    this.workspace.addEventListener("CHANGE", this.handleChange.bind(this));
     this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
   }
 
@@ -92,5 +99,10 @@ export class Editor extends LitElementWw {
     }
     input.value = "";
     this.newVariableDialog.hide().catch();
+  }
+
+  private handleChange(): void {
+    const changeEvent = new EditorChangeEvent(this.workspace.save());
+    this.dispatchEvent(changeEvent);
   }
 }
