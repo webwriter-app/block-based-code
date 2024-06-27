@@ -21,11 +21,14 @@ export class BlocklyInitializer {
   }
 
   private static defineBlocks(): void {
+    Object.keys(Blocks).forEach((key) => {
+      if (key === "math_number" || key === "variables_get" || key === "variables_set") return;
+      delete Blocks[key];
+    });
     MotionBlocks.defineBlocks();
     EventBlocks.defineBlocks();
     ControlBlocks.defineBlocks();
     OperatorBlocks.defineBlocks();
-    delete Blocks.math_change;
   }
 
   private static defineContextMenu(): void {
