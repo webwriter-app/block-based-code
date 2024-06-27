@@ -7,6 +7,7 @@ import { PropertyValues } from "@lit/reactive-element";
 import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
 import { BlocklyWorkspace } from "../../lib/blockly/blockly-workspace";
+import { EditorChangeEvent } from "../../types/events";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -17,6 +18,9 @@ export class Editor extends LitElementWw {
 
   @property({ type: String })
   public availableBlocks: string;
+
+  @property({ type: String, attribute: true })
+  public initialState: string;
 
   private resizeObserver: ResizeObserver;
 
@@ -45,8 +49,10 @@ export class Editor extends LitElementWw {
   public connectedCallback() {
     super.connectedCallback();
     this.resizeObserver.observe(this);
-    console.log(this.readonly);
+
     this.workspace = new BlocklyWorkspace(this.readonly);
+    this.workspace.load(this.initialState);
+    this.workspace.addEventListener("CHANGE", this.handleChange.bind(this));
     this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
   }
 
@@ -93,5 +99,10 @@ export class Editor extends LitElementWw {
     }
     input.value = "";
     this.newVariableDialog.hide().catch();
+  }
+
+  private handleChange(): void {
+    const changeEvent = new EditorChangeEvent(this.workspace.save());
+    this.dispatchEvent(changeEvent);
   }
 }

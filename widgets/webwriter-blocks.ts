@@ -15,6 +15,7 @@ import { Logger } from "./utils";
 import { IStage } from "./types/stage";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
+import { EditorChangeEvent } from "./types/events";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -25,6 +26,9 @@ export class WebwriterBlocks extends LitElementWw {
   @property({ type: String, attribute: true, reflect: true })
   @option({ type: "string", label: { en: "Available blocks", de: "Verfügbare Blöcke" } })
   public availableBlocks: string = "*";
+
+  @property({ type: String, attribute: true, reflect: true })
+  public editorState: string = "{}";
 
   @provide({ context: fullscreenContext })
   @state()
@@ -98,9 +102,18 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <webwriter-blocks-toolbar @fullscreentoggle="${this.handleFullscreenToggle}" @start="${this.handleStart}" @stop="${this.handleStop}"></webwriter-blocks-toolbar>
+        <webwriter-blocks-toolbar @fullscreentoggle=${this.handleFullscreenToggle}
+                                  @start=${this.handleStart}
+                                  @stop=${this.handleStop}>
+        </webwriter-blocks-toolbar>
         <webwriter-blocks-application id="application">
-            <webwriter-blocks-editor slot="editor" id="editor" .availableBlocks=${this.availableBlocks} .readonly=${this.readonly && !(this.contentEditable === "true" || this.contentEditable === "")}></webwriter-blocks-editor>
+            <webwriter-blocks-editor slot="editor"
+                                     id="editor"
+                                     initialState=${this.editorState}
+                                     .availableBlocks=${this.availableBlocks}
+                                     .readonly=${this.readonly && !(this.contentEditable === "true" || this.contentEditable === "")}
+                                     @change=${this.handleEditorChange}>
+            </webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
     `;
@@ -137,5 +150,9 @@ export class WebwriterBlocks extends LitElementWw {
     if (this.stage) {
       this.stage.stop();
     }
+  }
+
+  private handleEditorChange(event: EditorChangeEvent): void {
+    this.editorState = event.detail.workspace;
   }
 }

@@ -1,5 +1,5 @@
 import {
-  FlyoutButton, inject, setParentContainer, svgResize, WorkspaceSvg,
+  FlyoutButton, inject, serialization, setParentContainer, svgResize, WorkspaceSvg,
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
@@ -28,10 +28,26 @@ export class BlocklyWorkspace {
     svgResize(this.workspace);
   }
 
+  public save(): string {
+    return JSON.stringify(serialization.workspaces.save(this.workspace));
+  }
+
+  public load(workspace: string): void {
+    serialization.workspaces.load(JSON.parse(workspace), this.workspace);
+  }
+
   public addEventListener(key: "CREATE_VARIABLE", callback: (button: FlyoutButton) => void): void;
+  public addEventListener(key: "CHANGE", callback: (event: any) => void): void;
   public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
-    if (key === "CREATE_VARIABLE") {
-      this.workspace.registerButtonCallback(WebWriterToolbox.CREATE_VARIABLE_CALLBACK_KEY, callback);
+    switch (key) {
+      case "CREATE_VARIABLE":
+        this.workspace.registerButtonCallback(WebWriterToolbox.CREATE_VARIABLE_CALLBACK_KEY, callback);
+        break;
+      case "CHANGE":
+        this.workspace.addChangeListener(callback);
+        break;
+      default:
+        throw new Error(`Event ${key} not supported`);
     }
   }
 
