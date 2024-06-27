@@ -34,6 +34,35 @@ export class Options extends LitElementWw {
           BlockKey.STOP,
         ],
       ],
+      [
+        CategoryKey.EVENT, [
+          BlockKey.WHEN_START_CLICKED,
+        ],
+      ],
+      [
+        CategoryKey.MOTION, [
+          BlockKey.MOVE,
+          BlockKey.ROTATE,
+          BlockKey.GO_TO_X,
+          BlockKey.GO_TO_Y,
+          BlockKey.GO_TO_XY,
+          BlockKey.X_POSITION,
+          BlockKey.Y_POSITION,
+        ],
+      ],
+      [
+        CategoryKey.OPERATOR, [
+          BlockKey.SUM,
+          BlockKey.SUBTRACT,
+          BlockKey.MULTIPLY,
+          BlockKey.DIVIDE,
+          BlockKey.SMALLER,
+          BlockKey.GREATER,
+          BlockKey.EQUAL,
+          BlockKey.AND,
+          BlockKey.OR,
+        ],
+      ],
     ];
 
     return html`

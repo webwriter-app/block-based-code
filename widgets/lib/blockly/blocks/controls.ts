@@ -1,11 +1,11 @@
-import { Block as BlocklyBlock, Blocks } from "blockly";
+import { Block, Blocks } from "blockly";
 import { BlockStyle } from "../theme";
 import { BlockDefinition, BlockKey } from "../types";
 
 export class ControlBlocks {
   public static wait(): BlockDefinition {
     Blocks[BlockKey.WAIT] = {
-      init(this: BlocklyBlock) {
+      init(this: Block) {
         this.setStyle(BlockStyle.CONTROL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -20,7 +20,7 @@ export class ControlBlocks {
 
   public static repeat(): BlockDefinition {
     Blocks[BlockKey.REPEAT] = {
-      init(this: BlocklyBlock) {
+      init(this: Block) {
         this.setStyle(BlockStyle.CONTROL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -36,7 +36,7 @@ export class ControlBlocks {
 
   public static forever(): BlockDefinition {
     Blocks[BlockKey.FOREVER] = {
-      init(this: BlocklyBlock) {
+      init(this: Block) {
         this.setStyle(BlockStyle.CONTROL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -52,7 +52,7 @@ export class ControlBlocks {
 
   public static if(): BlockDefinition {
     Blocks[BlockKey.IF] = {
-      init(this: BlocklyBlock) {
+      init(this: Block) {
         this.setStyle(BlockStyle.CONTROL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -68,7 +68,7 @@ export class ControlBlocks {
 
   public static ifElse(): BlockDefinition {
     Blocks[BlockKey.IF_ELSE] = {
-      init(this: BlocklyBlock) {
+      init(this: Block) {
         this.setStyle(BlockStyle.CONTROL);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -86,7 +86,7 @@ export class ControlBlocks {
 
   public static stop(): BlockDefinition {
     Blocks[BlockKey.STOP] = {
-      init(this: BlocklyBlock) {
+      init(this: Block) {
         this.setStyle(BlockStyle.CONTROL);
         this.setPreviousStatement(true, null);
         this.appendDummyInput().appendField("stop");

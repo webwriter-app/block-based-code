@@ -1,138 +1,149 @@
-import * as Blockly from "blockly";
-
-enum OperatorType {
-  SUM = "sum",
-  SUBTRACT = "subtract",
-  MULTIPLY = "multiply",
-  DIVIDE = "divide",
-  SMALLER = "smaller",
-  GREATER = "greater",
-  EQUALS = "equals",
-  AND = "and",
-  OR = "or",
-
-}
+import { Block, Blocks } from "blockly";
+import { BlockDefinition, BlockKey } from "../types";
+import { BlockStyle } from "../theme";
 
 export class OperatorBlocks {
-  private static readonly style = "operator_blocks";
-
-  public static defineBlocks() {
-    OperatorBlocks.sum();
-    OperatorBlocks.subtract();
-    OperatorBlocks.multiply();
-    OperatorBlocks.divide();
-    OperatorBlocks.smaller();
-    OperatorBlocks.greater();
-    OperatorBlocks.equals();
-    OperatorBlocks.and();
-    OperatorBlocks.or();
-  }
-
-  private static sum() {
-    Blockly.Blocks[OperatorType.SUM] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static sum(): BlockDefinition {
+    Blocks[BlockKey.SUM] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Number");
         this.appendValueInput("A").setCheck("Number");
         this.appendDummyInput().appendField("+");
         this.appendValueInput("B").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.SUM,
+    };
   }
 
-  private static subtract() {
-    Blockly.Blocks[OperatorType.SUBTRACT] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static subtract(): BlockDefinition {
+    Blocks[BlockKey.SUBTRACT] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Number");
         this.appendValueInput("A").setCheck("Number");
         this.appendDummyInput().appendField("-");
         this.appendValueInput("B").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.SUBTRACT,
+    };
   }
 
-  private static multiply() {
-    Blockly.Blocks[OperatorType.MULTIPLY] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static multiply(): BlockDefinition {
+    Blocks[BlockKey.MULTIPLY] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Number");
         this.appendValueInput("A").setCheck("Number");
         this.appendDummyInput().appendField("*");
         this.appendValueInput("B").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.MULTIPLY,
+    };
   }
 
-  private static divide() {
-    Blockly.Blocks[OperatorType.DIVIDE] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static divide(): BlockDefinition {
+    Blocks[BlockKey.DIVIDE] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Number");
         this.appendValueInput("A").setCheck("Number");
         this.appendDummyInput().appendField("/");
         this.appendValueInput("B").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.DIVIDE,
+    };
   }
 
-  private static smaller() {
-    Blockly.Blocks[OperatorType.SMALLER] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static smaller(): BlockDefinition {
+    Blocks[BlockKey.SMALLER] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Boolean");
         this.appendValueInput("A").setCheck("Number");
         this.appendDummyInput().appendField("<");
         this.appendValueInput("B").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.SMALLER,
+    };
   }
 
-  private static greater() {
-    Blockly.Blocks[OperatorType.GREATER] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static greater(): BlockDefinition {
+    Blocks[BlockKey.GREATER] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Boolean");
         this.appendValueInput("A").setCheck("Number");
         this.appendDummyInput().appendField(">");
         this.appendValueInput("B").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.GREATER,
+    };
   }
 
-  private static equals() {
-    Blockly.Blocks[OperatorType.EQUALS] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static equal(): BlockDefinition {
+    Blocks[BlockKey.EQUAL] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Boolean");
         this.appendValueInput("A").setCheck("Number");
         this.appendDummyInput().appendField("=");
         this.appendValueInput("B").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.EQUAL,
+    };
   }
 
-  private static and() {
-    Blockly.Blocks[OperatorType.AND] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static and(): BlockDefinition {
+    Blocks[BlockKey.AND] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Boolean");
         this.appendValueInput("A").setCheck("Boolean");
         this.appendDummyInput().appendField("and");
         this.appendValueInput("B").setCheck("Boolean");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.AND,
+    };
   }
 
-  private static or() {
-    Blockly.Blocks[OperatorType.OR] = {
-      init(this: Blockly.Block) {
-        this.setStyle(OperatorBlocks.style);
+  public static or(): BlockDefinition {
+    Blocks[BlockKey.OR] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.OPERATOR);
         this.setOutput(true, "Boolean");
         this.appendValueInput("A").setCheck("Boolean");
         this.appendDummyInput().appendField("or");
         this.appendValueInput("B").setCheck("Boolean");
       },
+    };
+    return {
+      kind: "block",
+      type: BlockKey.OR,
     };
   }
 }

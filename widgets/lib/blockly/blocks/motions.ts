@@ -1,79 +1,74 @@
-import * as Blockly from "blockly";
-
-enum MotionTypes {
-  MOVE = "move",
-  ROTATE = "rotate",
-  GO_TO_X = "go_to_x",
-  GO_TO_Y = "go_to_y",
-  GO_TO_XY = "go_to_xy",
-  X_POSITION = "x_position",
-  Y_POSITION = "y_position",
-
-}
+import { Block, Blocks } from "blockly";
+import { BlockDefinition, BlockKey } from "../types";
+import { BlockStyle } from "../theme";
 
 export class MotionBlocks {
-  private static readonly style = "motion_blocks";
-
-  public static defineBlocks() {
-    MotionBlocks.move();
-    MotionBlocks.rotate();
-    MotionBlocks.goToX();
-    MotionBlocks.goToY();
-    MotionBlocks.goToXY();
-    MotionBlocks.xPosition();
-    MotionBlocks.yPosition();
-  }
-
-  private static move() {
-    Blockly.Blocks[MotionTypes.MOVE] = {
-      init(this: Blockly.Block) {
-        this.setStyle(MotionBlocks.style);
+  public static move(): BlockDefinition {
+    Blocks[BlockKey.MOVE] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.MOTION);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("STEPS").setCheck("Number").appendField("move");
         this.appendDummyInput().appendField("steps");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.MOVE,
+    };
   }
 
-  private static rotate() {
-    Blockly.Blocks[MotionTypes.ROTATE] = {
-      init(this: Blockly.Block) {
-        this.setStyle(MotionBlocks.style);
+  public static rotate(): BlockDefinition {
+    Blocks[BlockKey.ROTATE] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.MOTION);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("DEGREES").setCheck("Number").appendField("rotate");
         this.appendDummyInput().appendField("degrees");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.ROTATE,
+    };
   }
 
-  private static goToX() {
-    Blockly.Blocks[MotionTypes.GO_TO_X] = {
-      init(this: Blockly.Block) {
-        this.setStyle(MotionBlocks.style);
+  public static goToX(): BlockDefinition {
+    Blocks[BlockKey.GO_TO_X] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.MOTION);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("X").setCheck("Number").appendField("go to x:");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.GO_TO_X,
+    };
   }
 
-  private static goToY() {
-    Blockly.Blocks[MotionTypes.GO_TO_Y] = {
-      init(this: Blockly.Block) {
-        this.setStyle(MotionBlocks.style);
+  public static goToY(): BlockDefinition {
+    Blocks[BlockKey.GO_TO_Y] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.MOTION);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("Y").setCheck("Number").appendField("go to y:");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.GO_TO_Y,
+    };
   }
 
-  private static goToXY() {
-    Blockly.Blocks[MotionTypes.GO_TO_XY] = {
-      init(this: Blockly.Block) {
-        this.setStyle(MotionBlocks.style);
+  public static goToXY(): BlockDefinition {
+    Blocks[BlockKey.GO_TO_XY] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.MOTION);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendDummyInput().appendField("go to x:");
@@ -82,25 +77,37 @@ export class MotionBlocks {
         this.appendValueInput("Y").setCheck("Number");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.GO_TO_XY,
+    };
   }
 
-  private static xPosition() {
-    Blockly.Blocks[MotionTypes.X_POSITION] = {
-      init(this: Blockly.Block) {
-        this.setStyle(MotionBlocks.style);
+  public static xPosition(): BlockDefinition {
+    Blocks[BlockKey.X_POSITION] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.MOTION);
         this.setOutput(true, "Number");
         this.appendDummyInput().appendField("x position");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.X_POSITION,
+    };
   }
 
-  private static yPosition() {
-    Blockly.Blocks[MotionTypes.Y_POSITION] = {
-      init(this: Blockly.Block) {
-        this.setStyle(MotionBlocks.style);
+  public static yPosition(): BlockDefinition {
+    Blocks[BlockKey.Y_POSITION] = {
+      init(this: Block) {
+        this.setStyle(BlockStyle.MOTION);
         this.setOutput(true, "Number");
         this.appendDummyInput().appendField("y position");
       },
+    };
+    return {
+      kind: "block",
+      type: BlockKey.Y_POSITION,
     };
   }
 }
