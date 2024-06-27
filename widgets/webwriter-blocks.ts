@@ -17,6 +17,7 @@ import type { Settings } from "./types";
 import { IStage } from "./types/stage";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
+import { EditorChangeEvent } from "./types/events";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -24,15 +25,21 @@ export class WebwriterBlocks extends LitElementWw {
   @option({ type: "boolean", label: { en: "Readonly", de: "Schreibgeschützt" } })
   public readonly: boolean = false;
 
+  @property({ type: String, attribute: true, reflect: true })
+  public editorState: string = "{}";
+
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean = false;
 
+  @provide({ context: settingsContext })
+  private settings: Settings;
+
   @query("#stage")
   private stage!: IStage;
 
-  @provide({ context: settingsContext })
-  private settings: Settings;
+  @query("#editor")
+  private editor!: Editor;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -100,9 +107,9 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <webwriter-blocks-toolbar @fullscreentoggle="${this.handleFullscreenToggle}" @start="${this.handleStart}" @stop="${this.handleStop}"></webwriter-blocks-toolbar>
+        <webwriter-blocks-toolbar @fullscreentoggle=${this.handleFullscreenToggle} @start=${this.handleStart} @stop=${this.handleStop}></webwriter-blocks-toolbar>
         <webwriter-blocks-application id="application">
-            <webwriter-blocks-editor slot="editor"></webwriter-blocks-editor>
+            <webwriter-blocks-editor slot="editor" id="editor" initialState=${this.editorState} @change=${this.handleEditorChange}></webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
     `;
@@ -156,5 +163,9 @@ export class WebwriterBlocks extends LitElementWw {
     if (this.stage) {
       this.stage.stop();
     }
+  }
+
+  private handleEditorChange(event: EditorChangeEvent): void {
+    this.editorState = event.detail.workspace;
   }
 }
