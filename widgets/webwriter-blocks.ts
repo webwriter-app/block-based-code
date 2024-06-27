@@ -7,12 +7,12 @@ import {
 } from "lit/decorators.js";
 import { provide } from "@lit/context";
 import {
-  Application, Editor, Stage, Toolbar,
+  Application, Editor, Options, Stage, Toolbar,
 } from "./components";
 import { setLocale } from "./locales";
 import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
-import { IStage } from "./types/stage";
+import { IStage } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent } from "./types/events";
@@ -46,6 +46,7 @@ export class WebwriterBlocks extends LitElementWw {
       "webwriter-blocks-application": Application,
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
+      "webwriter-blocks-options": Options,
     };
   }
 
@@ -116,6 +117,7 @@ export class WebwriterBlocks extends LitElementWw {
             </webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
+        <webwriter-blocks-options part="options"></webwriter-blocks-options>
     `;
   }
 
