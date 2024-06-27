@@ -10,13 +10,15 @@ export class BlocklyWorkspace {
 
   private static readonly theme = "webwriter";
 
-  public container: Element;
+  public container: HTMLDivElement;
 
   private workspace: WorkspaceSvg;
 
   constructor() {
     BlocklyInitializer.define();
     this.container = document.createElement("div");
+    this.container.style.width = "100%";
+    this.container.style.height = "100%";
     setParentContainer(this.container);
     this.injectWorkspace();
     this.registerVariablesCategory();
