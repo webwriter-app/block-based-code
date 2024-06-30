@@ -1,23 +1,14 @@
 import * as Blockly from "blockly";
 import * as blocklyDe from "blockly/msg/de";
 import * as blocklyEn from "blockly/msg/en";
+import { Logger } from "../utils";
+import { Dictionary, Lang, languages } from "../types";
+import { Dictionaries } from "../types/locales";
+
 import de from "./de";
 import en from "./en";
-import { Logger } from "../utils";
 
-const languages = ["en", "de"] as const;
-
-type Lang = typeof languages[number];
-type Dictionary = {
-  start: string;
-  stop: string;
-  fullscreen: string;
-  fullscreenExit: string;
-  error: string;
-};
-type Dictionaries = Record<Lang, Dictionary>;
-
-const dictionaries: Dictionaries = {
+export const dictionaries: Dictionaries = {
   de,
   en,
 };
