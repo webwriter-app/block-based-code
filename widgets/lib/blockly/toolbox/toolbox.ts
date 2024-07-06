@@ -1,13 +1,10 @@
 import { Variables, WorkspaceSvg } from "blockly";
 import { BlockKey, CategoryKey } from "../types";
 import { WebWriterBlocks } from "../blocks";
+import { CategoryStyle } from "../theme";
 
 export class WebWriterToolbox {
   public static readonly CREATE_VARIABLE_CALLBACK_KEY = "ofkjffejkeff";
-
-  public static get empty() {
-    return WebWriterToolbox.generateToolbox();
-  }
 
   public static generateToolbox(blocks: BlockKey[] = []) {
     WebWriterBlocks.clearBlocks();
@@ -28,6 +25,7 @@ export class WebWriterToolbox {
         kind: "category",
         name: category,
         contents: toolbox[category],
+        categoryStyle: CategoryStyle[category],
       })),
     };
   }

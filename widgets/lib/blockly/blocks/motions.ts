@@ -1,12 +1,14 @@
 import { Block, Blocks } from "blockly";
-import { BlockDefinition, BlockKey } from "../types";
+import { BlockDefinition, BlockKey, CategoryKey } from "../types";
 import { BlockStyle } from "../theme";
 
 export class MotionBlocks {
+  private static readonly style = BlockStyle[CategoryKey.MOTIONS];
+
   public static move(): BlockDefinition {
     Blocks[BlockKey.MOVE] = {
       init(this: Block) {
-        this.setStyle(BlockStyle.MOTION);
+        this.setStyle(MotionBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("STEPS").setCheck("Number").appendField("move");
@@ -22,7 +24,7 @@ export class MotionBlocks {
   public static rotate(): BlockDefinition {
     Blocks[BlockKey.ROTATE] = {
       init(this: Block) {
-        this.setStyle(BlockStyle.MOTION);
+        this.setStyle(MotionBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("DEGREES").setCheck("Number").appendField("rotate");
@@ -38,7 +40,7 @@ export class MotionBlocks {
   public static goToX(): BlockDefinition {
     Blocks[BlockKey.GO_TO_X] = {
       init(this: Block) {
-        this.setStyle(BlockStyle.MOTION);
+        this.setStyle(MotionBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("X").setCheck("Number").appendField("go to x:");
@@ -53,7 +55,7 @@ export class MotionBlocks {
   public static goToY(): BlockDefinition {
     Blocks[BlockKey.GO_TO_Y] = {
       init(this: Block) {
-        this.setStyle(BlockStyle.MOTION);
+        this.setStyle(MotionBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("Y").setCheck("Number").appendField("go to y:");
@@ -68,7 +70,7 @@ export class MotionBlocks {
   public static goToXY(): BlockDefinition {
     Blocks[BlockKey.GO_TO_XY] = {
       init(this: Block) {
-        this.setStyle(BlockStyle.MOTION);
+        this.setStyle(MotionBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendDummyInput().appendField("go to x:");
@@ -86,7 +88,7 @@ export class MotionBlocks {
   public static xPosition(): BlockDefinition {
     Blocks[BlockKey.X_POSITION] = {
       init(this: Block) {
-        this.setStyle(BlockStyle.MOTION);
+        this.setStyle(MotionBlocks.style);
         this.setOutput(true, "Number");
         this.appendDummyInput().appendField("x position");
       },
@@ -100,7 +102,7 @@ export class MotionBlocks {
   public static yPosition(): BlockDefinition {
     Blocks[BlockKey.Y_POSITION] = {
       init(this: Block) {
-        this.setStyle(BlockStyle.MOTION);
+        this.setStyle(MotionBlocks.style);
         this.setOutput(true, "Number");
         this.appendDummyInput().appendField("y position");
       },

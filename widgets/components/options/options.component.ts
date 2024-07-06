@@ -6,6 +6,7 @@ import {
 import { SlTree, SlTreeItem } from "@shoelace-style/shoelace";
 import { styles } from "./options.styles";
 import { BlockKey, CategoryKey } from "../../lib/blockly";
+import { msg } from "../../locales";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
@@ -25,7 +26,7 @@ export class Options extends LitElementWw {
   public render(): TemplateResult {
     const blocks: [CategoryKey, BlockKey[]][] = [
       [
-        CategoryKey.CONTROL, [
+        CategoryKey.CONTROLS, [
           BlockKey.WAIT,
           BlockKey.REPEAT,
           BlockKey.FOREVER,
@@ -35,12 +36,12 @@ export class Options extends LitElementWw {
         ],
       ],
       [
-        CategoryKey.EVENT, [
+        CategoryKey.EVENTS, [
           BlockKey.WHEN_START_CLICKED,
         ],
       ],
       [
-        CategoryKey.MOTION, [
+        CategoryKey.MOTIONS, [
           BlockKey.MOVE,
           BlockKey.ROTATE,
           BlockKey.GO_TO_X,
@@ -51,7 +52,7 @@ export class Options extends LitElementWw {
         ],
       ],
       [
-        CategoryKey.OPERATOR, [
+        CategoryKey.OPERATORS, [
           BlockKey.SUM,
           BlockKey.SUBTRACT,
           BlockKey.MULTIPLY,
@@ -67,25 +68,27 @@ export class Options extends LitElementWw {
 
     return html`
         <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectionChange}>
-            ${blocks.map(([category, blockKeys]) => html`
-                <sl-tree-item>
-                    ${category}
-                    ${blockKeys.map((blockKey) => html`
-                        <sl-tree-item data-block-key="${blockKey}">
-                            ${blockKey}
-                        </sl-tree-item>
-                    `)}
-                </sl-tree-item>
-            `)}
+            <sl-tree-item>
+                ${msg("availableBlocks")}
+                ${blocks.map(([category, blockKeys]) => html`
+                    <sl-tree-item>
+                        ${category}
+                        ${blockKeys.map((blockKey) => html`
+                            <sl-tree-item data-block-key="${blockKey}" selected="">
+                                ${blockKey}
+                            </sl-tree-item>
+                        `)}
+                    </sl-tree-item>
+              `)}
+            </sl-tree-item>
         </sl-tree>
     `;
   }
 
   private handleSelectionChange(event: CustomEvent<{ selection: SlTreeItem[] }>): void {
-    console.log(event.detail.selection);
-    event.detail.selection
+    const selected = event.detail.selection
       .filter((item) => item.getAttribute("data-block-key"))
-      .map((item) => item.getAttribute("data-block-key"))
-      .forEach(console.log);
+      .map((item) => item.getAttribute("data-block-key"));
+    console.log(selected);
   }
 }

@@ -16,6 +16,7 @@ import { IStage } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent } from "./types/events";
+import { BlockKey } from "./lib/blockly";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -24,8 +25,7 @@ export class WebwriterBlocks extends LitElementWw {
   public readonly: boolean = false;
 
   @property({ type: String, attribute: true, reflect: true })
-  @option({ type: "string", label: { en: "Available blocks", de: "Verfügbare Blöcke" } })
-  public availableBlocks: string = "*";
+  public availableBlocks: BlockKey[] = [];
 
   @property({ type: String, attribute: true, reflect: true })
   public editorState: string = "{}";
