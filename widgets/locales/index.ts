@@ -7,6 +7,7 @@ import { Dictionaries } from "../types/locales";
 
 import de from "./de";
 import en from "./en";
+import { Leaves } from "../types/leaves";
 
 export const dictionaries: Dictionaries = {
   de,
@@ -26,4 +27,4 @@ export const setLocale = (lang: string) => {
   }[lang]);
 };
 
-export const msg = (key: keyof Dictionary) => dictionaries[currentLang][key];
+export const msg = (key: Leaves<Dictionary>) => dictionaries[currentLang][key];
