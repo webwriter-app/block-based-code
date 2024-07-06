@@ -11,8 +11,6 @@ export * from "./controls";
 export * from "./motions";
 
 export class WebWriterBlocks {
-  public static allBlocks: BlockKey[] = Object.values(BlockKey);
-
   private static readonly blocksDefinitionGetter: Record<BlockKey, () => BlockDefinition> = {
     // Control blocks
     [BlockKey.WAIT]: ControlBlocks.wait,

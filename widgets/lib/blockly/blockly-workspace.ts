@@ -4,7 +4,7 @@ import {
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
 import { WebWriterToolbox } from "./toolbox";
-import { WebWriterBlocks } from "./blocks";
+import { BlockKey } from "./types";
 
 export class BlocklyWorkspace {
   private static readonly renderer = "zelos";
@@ -13,16 +13,19 @@ export class BlocklyWorkspace {
 
   public container: HTMLDivElement;
 
+  private readonly: boolean;
+
+  private availableBlocks: BlockKey[];
+
   private workspace: WorkspaceSvg;
 
-  constructor(readonly: boolean = false) {
+  constructor(readonly: boolean, availableBlocks: BlockKey[]) {
     BlocklyInitializer.define();
+    this.readonly = readonly;
+    this.availableBlocks = availableBlocks;
+
     this.createContainer();
-    this.injectWorkspace(readonly);
-    if (!readonly) {
-      this.registerVariablesCategory();
-    }
-    this.moveStyleElementsToContainer();
+    this.injectWorkspace();
   }
 
   public resize(): void {
@@ -66,6 +69,13 @@ export class BlocklyWorkspace {
     this.workspace.dispose();
   }
 
+  public updateToolbox(availableBlocks: BlockKey[]): void {
+    this.availableBlocks = availableBlocks;
+    const toolbox = WebWriterToolbox.generateToolbox(this.availableBlocks);
+    this.workspace.updateToolbox(toolbox);
+    this.workspace.refreshToolboxSelection();
+  }
+
   private createContainer(): void {
     this.container = document.createElement("div");
     this.container.style.width = "100%";
@@ -73,11 +83,12 @@ export class BlocklyWorkspace {
     setParentContainer(this.container);
   }
 
-  private injectWorkspace(readonly: boolean): void {
+  private injectWorkspace(): void {
+    console.log(this.readonly || this.availableBlocks.length === 0);
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,
-      readOnly: readonly,
+      readOnly: this.readonly || this.availableBlocks.length === 0,
       sounds: false,
       collapse: false,
       comments: false,
@@ -85,7 +96,7 @@ export class BlocklyWorkspace {
       move: {
         wheel: true,
       },
-      toolbox: WebWriterToolbox.generateToolbox(WebWriterBlocks.allBlocks),
+      toolbox: WebWriterToolbox.generateToolbox(this.availableBlocks),
       maxTrashcanContents: 0,
       plugins: {
         toolbox: ContinuousToolbox,
@@ -93,6 +104,10 @@ export class BlocklyWorkspace {
         metricsManager: ContinuousMetrics,
       },
     });
+    if (!this.readonly) {
+      this.registerVariablesCategory();
+    }
+    this.moveStyleElementsToContainer();
   }
 
   private registerVariablesCategory(): void {

@@ -20,7 +20,7 @@
     "@tabler/icons": "^3.6.0",
     "@webwriter/lit": "^1.6.3",
     "blockly": "^11.1.0",
-    "lit": "^3.1.3",
+    "lit": "^3.1.4",
     "pixi.js": "^8.1.6"
   },
   "devDependencies": {

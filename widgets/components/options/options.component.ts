@@ -1,4 +1,4 @@
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
@@ -7,9 +7,13 @@ import { SlTree, SlTreeItem } from "@shoelace-style/shoelace";
 import { styles } from "./options.styles";
 import { BlockKey, CategoryKey } from "../../lib/blockly";
 import { msg } from "../../locales";
+import { OptionsChangeEvent } from "../../types";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
+  @property({ type: Array, attribute: true })
+  public availableBlocks: BlockKey[] = [];
+
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-tree": SlTree,
@@ -21,6 +25,10 @@ export class Options extends LitElementWw {
     return [
       styles,
     ];
+  }
+
+  public connectedCallback(): void {
+    super.connectedCallback();
   }
 
   public render(): TemplateResult {
@@ -74,7 +82,7 @@ export class Options extends LitElementWw {
                     <sl-tree-item>
                         ${category}
                         ${blockKeys.map((blockKey) => html`
-                            <sl-tree-item data-block-key="${blockKey}" selected="">
+                            <sl-tree-item .selected=${this.availableBlocks.includes(blockKey)} data-block-key=${blockKey}>
                                 ${blockKey}
                             </sl-tree-item>
                         `)}
@@ -86,9 +94,13 @@ export class Options extends LitElementWw {
   }
 
   private handleSelectionChange(event: CustomEvent<{ selection: SlTreeItem[] }>): void {
-    const selected = event.detail.selection
+    const availableBlocks = event.detail.selection
       .filter((item) => item.getAttribute("data-block-key"))
-      .map((item) => item.getAttribute("data-block-key"));
-    console.log(selected);
+      .map((item) => item.getAttribute("data-block-key") as BlockKey);
+
+    const changeEvent = new OptionsChangeEvent({
+      availableBlocks,
+    });
+    this.dispatchEvent(changeEvent);
   }
 }

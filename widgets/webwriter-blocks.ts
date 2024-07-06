@@ -15,19 +15,20 @@ import { Logger } from "./utils";
 import { IStage } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
-import { EditorChangeEvent } from "./types/events";
+import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
 import { BlockKey } from "./lib/blockly";
+import { WebWriterToolbox } from "./lib/blockly/toolbox";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
-  @property({ type: Boolean, attribute: true, reflect: true })
+  @property({ type: Boolean, reflect: true })
   @option({ type: "boolean", label: { en: "Readonly", de: "Schreibgeschützt" } })
   public readonly: boolean = false;
 
-  @property({ type: String, attribute: true, reflect: true })
-  public availableBlocks: BlockKey[] = [];
+  @property({ type: Array, reflect: true })
+  public availableBlocks: BlockKey[] = WebWriterToolbox.allBlocks;
 
-  @property({ type: String, attribute: true, reflect: true })
+  @property({ type: String, reflect: true })
   public editorState: string = "{}";
 
   @provide({ context: fullscreenContext })
@@ -117,7 +118,9 @@ export class WebwriterBlocks extends LitElementWw {
             </webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
-        <webwriter-blocks-options part="options"></webwriter-blocks-options>
+        <webwriter-blocks-options part="options"
+                                  .availableBlocks=${this.availableBlocks}
+                                  @change=${this.handleOptionsChange}></webwriter-blocks-options>
     `;
   }
 
@@ -156,5 +159,13 @@ export class WebwriterBlocks extends LitElementWw {
 
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
+  }
+
+  private handleOptionsChange(event: OptionsChangeEvent): void {
+    const options = event.detail;
+
+    if (options.availableBlocks) {
+      this.availableBlocks = options.availableBlocks;
+    }
   }
 }

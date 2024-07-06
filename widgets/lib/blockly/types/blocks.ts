@@ -36,7 +36,20 @@ export enum BlockKey {
   OR = `${CategoryKey.OPERATORS}:or`,
 }
 
+export type ToolboxDefinition = {
+  kind: "categoryToolbox";
+  contents: CategoryDefinition[];
+};
+
+export type CategoryDefinition = {
+  kind: "category";
+  name: CategoryKey;
+  contents: BlockDefinition[];
+  categoryStyle: string;
+};
+
 export type BlockDefinition = {
   kind: "block";
   type: BlockKey;
+  disabled?: boolean
 };

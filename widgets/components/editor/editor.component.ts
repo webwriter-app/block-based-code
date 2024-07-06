@@ -8,19 +8,24 @@ import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
 import { BlocklyWorkspace } from "../../lib/blockly/blockly-workspace";
 import { EditorChangeEvent } from "../../types/events";
+import { BlockKey } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
   @query("#new-variable-dialog")
   private newVariableDialog!: SlDialog;
 
+  @property({ type: Boolean })
   public readonly: boolean;
 
-  @property({ type: String })
-  public availableBlocks: string;
+  @property({ type: Array })
+  public availableBlocks: BlockKey[];
 
-  @property({ type: String, attribute: true })
+  @property({ type: String })
   public initialState: string;
+
+  @property({ type: Array })
+  public disabledBlocks: BlockKey[];
 
   private resizeObserver: ResizeObserver;
 
@@ -50,7 +55,7 @@ export class Editor extends LitElementWw {
     super.connectedCallback();
     this.resizeObserver.observe(this);
 
-    this.workspace = new BlocklyWorkspace(this.readonly);
+    this.workspace = new BlocklyWorkspace(this.readonly, this.availableBlocks);
     this.workspace.load(this.initialState);
     this.workspace.addEventListener("CHANGE", this.handleChange.bind(this));
     this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
@@ -75,6 +80,13 @@ export class Editor extends LitElementWw {
   protected firstUpdated(_changedProperties: PropertyValues): void {
     super.firstUpdated(_changedProperties);
     this.shadowRoot.appendChild(this.workspace.container);
+  }
+
+  protected updated(_changedProperties: PropertyValues): void {
+    super.updated(_changedProperties);
+    if (_changedProperties.get("availableBlocks")) {
+      this.workspace.updateToolbox(this.availableBlocks);
+    }
   }
 
   private handleResize(): void {

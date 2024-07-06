@@ -1,17 +1,22 @@
 import { Variables, WorkspaceSvg } from "blockly";
-import { BlockKey, CategoryKey } from "../types";
+import { BlockKey, CategoryKey, ToolboxDefinition } from "../types";
 import { WebWriterBlocks } from "../blocks";
 import { CategoryStyle } from "../theme";
 
 export class WebWriterToolbox {
+  public static allBlocks: BlockKey[] = Object.values(BlockKey);
+
   public static readonly CREATE_VARIABLE_CALLBACK_KEY = "ofkjffejkeff";
 
-  public static generateToolbox(blocks: BlockKey[] = []) {
+  public static generateToolbox(blocks: BlockKey[], disabledBlocks: BlockKey[] = []): ToolboxDefinition {
     WebWriterBlocks.clearBlocks();
 
     const toolbox = {};
     blocks.forEach((block) => {
       const blockDefinition = WebWriterBlocks.getBlockDefinition(block);
+      if (disabledBlocks.includes(block)) {
+        blockDefinition.disabled = true;
+      }
       const [category] = block.split(":") as [CategoryKey];
       if (!toolbox[category]) {
         toolbox[category] = [];
