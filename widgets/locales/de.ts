@@ -1,3 +1,5 @@
+import { Dictionary } from "../types";
+
 // eslint-disable-next-line import/no-default-export
 export default {
   start: "Starte Ausführung",
@@ -5,4 +7,5 @@ export default {
   fullscreen: "Vollbildmodus",
   fullscreenExit: "Vollbildmodus verlassen",
   error: "Es ist ein Fehler aufgetreten!",
-};
+  availableBlocks: "Verfügbare Bausteine",
+} as Dictionary;

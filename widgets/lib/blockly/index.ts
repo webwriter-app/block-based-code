@@ -1,3 +1,2 @@
-import "./theme";
-
-export * from "./blocks";
+export * from "./types";
+export * from "./blockly-workspace";

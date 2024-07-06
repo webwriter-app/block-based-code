@@ -1,24 +1,22 @@
-import * as Blockly from "blockly";
-
-enum EventType {
-  WHEN_START_CLICKED = "when_start_clicked",
-}
+import { Block, Blocks } from "blockly";
+import { BlockStyle } from "../theme";
+import { BlockDefinition, BlockKey, CategoryKey } from "../types";
 
 export class EventBlocks {
-  private static readonly style = "event_blocks";
+  private static readonly style = BlockStyle[CategoryKey.EVENTS];
 
-  public static defineBlocks() {
-    EventBlocks.whenStartClicked();
-  }
-
-  private static whenStartClicked() {
-    Blockly.Blocks[EventType.WHEN_START_CLICKED] = {
-      init(this: Blockly.Block) {
+  public static whenStartClicked(): BlockDefinition {
+    Blocks[BlockKey.WHEN_START_CLICKED] = {
+      init(this: Block) {
         this.setStyle(EventBlocks.style);
         this.setNextStatement(true, null);
         this.appendDummyInput().appendField("when");
         this.appendDummyInput().appendField("clicked");
       },
+    };
+    return {
+      kind: "block",
+      type: BlockKey.WHEN_START_CLICKED,
     };
   }
 }

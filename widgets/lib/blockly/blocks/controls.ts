@@ -1,40 +1,28 @@
-import * as Blockly from "blockly";
-
-enum ControlType {
-  WAIT = "wait",
-  REPEAT = "repeat",
-  FOREVER = "forever",
-  IF = "if",
-  IF_ELSE = "if_else",
-  STOP = "stop",
-}
+import { Block, Blocks } from "blockly";
+import { BlockStyle } from "../theme";
+import { BlockDefinition, BlockKey, CategoryKey } from "../types";
 
 export class ControlBlocks {
-  private static readonly style = "control_blocks";
+  private static readonly style = BlockStyle[CategoryKey.CONTROLS];
 
-  public static defineBlocks() {
-    ControlBlocks.wait();
-    ControlBlocks.repeat();
-    ControlBlocks.forever();
-    ControlBlocks.if();
-    ControlBlocks.ifElse();
-    ControlBlocks.stop();
-  }
-
-  private static wait() {
-    Blockly.Blocks[ControlType.WAIT] = {
-      init(this: Blockly.Block) {
+  public static wait(): BlockDefinition {
+    Blocks[BlockKey.WAIT] = {
+      init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.appendValueInput("DURATION").setCheck("Number").appendField("wait");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.WAIT,
+    };
   }
 
-  private static repeat() {
-    Blockly.Blocks[ControlType.REPEAT] = {
-      init(this: Blockly.Block) {
+  public static repeat(): BlockDefinition {
+    Blocks[BlockKey.REPEAT] = {
+      init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -42,11 +30,15 @@ export class ControlBlocks {
         this.appendStatementInput("SUBSTACK");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.REPEAT,
+    };
   }
 
-  private static forever() {
-    Blockly.Blocks[ControlType.FOREVER] = {
-      init(this: Blockly.Block) {
+  public static forever(): BlockDefinition {
+    Blocks[BlockKey.FOREVER] = {
+      init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -54,11 +46,15 @@ export class ControlBlocks {
         this.appendStatementInput("SUBSTACK");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.FOREVER,
+    };
   }
 
-  private static if() {
-    Blockly.Blocks[ControlType.IF] = {
-      init(this: Blockly.Block) {
+  public static if(): BlockDefinition {
+    Blocks[BlockKey.IF] = {
+      init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -66,11 +62,15 @@ export class ControlBlocks {
         this.appendStatementInput("SUBSTACK");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.IF,
+    };
   }
 
-  private static ifElse() {
-    Blockly.Blocks[ControlType.IF_ELSE] = {
-      init(this: Blockly.Block) {
+  public static ifElse(): BlockDefinition {
+    Blocks[BlockKey.IF_ELSE] = {
+      init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -80,15 +80,23 @@ export class ControlBlocks {
         this.appendStatementInput("SUBSTACK2");
       },
     };
+    return {
+      kind: "block",
+      type: BlockKey.IF_ELSE,
+    };
   }
 
-  private static stop() {
-    Blockly.Blocks[ControlType.STOP] = {
-      init(this: Blockly.Block) {
+  public static stop(): BlockDefinition {
+    Blocks[BlockKey.STOP] = {
+      init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
         this.appendDummyInput().appendField("stop");
       },
+    };
+    return {
+      kind: "block",
+      type: BlockKey.STOP,
     };
   }
 }
