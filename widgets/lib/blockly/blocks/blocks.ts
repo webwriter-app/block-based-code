@@ -4,6 +4,7 @@ import { blocks as eventBlocks } from "./events";
 import { blocks as motionBlocks } from "./motions";
 import { blocks as operatorBlocks } from "./operators";
 import { numberBlock } from "./math";
+import { BlockType } from "../types";
 
 const blocks = [
   ...eventBlocks,
@@ -41,4 +42,4 @@ export const blockTemplates = blocks.reduce((templates, block) => {
       inputs,
     },
   });
-}, {});
+}, {}) as Record<BlockType, object>;

@@ -83,7 +83,7 @@ export class BlocklyWorkspace {
 
   public updateToolbox(availableBlocks: BlockType[]): void {
     this.availableBlocks = availableBlocks;
-    const toolbox = createToolboxFromBlockList([]);
+    const toolbox = createToolboxFromBlockList(this.availableBlocks);
     this.workspace.updateToolbox(toolbox);
     this.workspace.refreshToolboxSelection();
   }
@@ -96,7 +96,6 @@ export class BlocklyWorkspace {
   }
 
   private injectWorkspace(): void {
-    console.log(createToolboxFromBlockList(this.availableBlocks));
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,

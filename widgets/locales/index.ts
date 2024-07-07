@@ -7,8 +7,8 @@ import {
   Dictionaries, Dictionary, Lang, languages,
 } from "../types";
 
-import { blocks as blocksDe, dictionary as webwriterDe } from "./de";
-import { blocks as blocksEn, dictionary as webwriterEn } from "./en";
+import { dictionary as webwriterDe } from "./de";
+import { dictionary as webwriterEn } from "./en";
 import { Leaves } from "../types/leaves";
 
 export const dictionaries: Dictionaries = {
@@ -26,11 +26,11 @@ export const setLocale = (lang: string) => {
   Blockly.setLocale({
     de: {
       ...blocklyDe,
-      ...blocksDe,
+      ...webwriterDe.BLOCKS,
     },
     en: {
       ...blocklyEn,
-      ...blocksEn,
+      ...webwriterEn.BLOCKS,
     },
   }[lang]);
   console.log(Blockly.Msg);
