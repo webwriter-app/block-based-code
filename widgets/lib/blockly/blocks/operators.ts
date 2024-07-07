@@ -1,152 +1,184 @@
-import { Block, Blocks } from "blockly";
-import { BlockDefinition, BlockType, CategoryKey } from "../types";
+import { BlockType } from "../types";
 
-import { BlockStyle } from "../theme/theme";
-
-export class OperatorBlocks {
-  private static readonly style = BlockStyle[CategoryKey.OPERATORS];
-
-  public static sum(): BlockDefinition {
-    Blocks[BlockType.SUM] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendValueInput("A").setCheck("Number");
-        this.appendDummyInput().appendField("+");
-        this.appendValueInput("B").setCheck("Number");
+export const blocks = [
+  {
+    type: BlockType.SUM,
+    message0: "%1 + %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.SUM,
-    };
-  }
-
-  public static subtract(): BlockDefinition {
-    Blocks[BlockType.SUBTRACT] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendValueInput("A").setCheck("Number");
-        this.appendDummyInput().appendField("-");
-        this.appendValueInput("B").setCheck("Number");
+      {
+        type: "input_value",
+        name: "B",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.SUBTRACT,
-    };
-  }
-
-  public static multiply(): BlockDefinition {
-    Blocks[BlockType.MULTIPLY] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendValueInput("A").setCheck("Number");
-        this.appendDummyInput().appendField("*");
-        this.appendValueInput("B").setCheck("Number");
+    ],
+    inputsInline: true,
+    output: "Number",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.SUBTRACT,
+    message0: "%1 - %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.MULTIPLY,
-    };
-  }
-
-  public static divide(): BlockDefinition {
-    Blocks[BlockType.DIVIDE] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendValueInput("A").setCheck("Number");
-        this.appendDummyInput().appendField("/");
-        this.appendValueInput("B").setCheck("Number");
+      {
+        type: "input_value",
+        name: "B",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.DIVIDE,
-    };
-  }
-
-  public static smaller(): BlockDefinition {
-    Blocks[BlockType.SMALLER] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Boolean");
-        this.appendValueInput("A").setCheck("Number");
-        this.appendDummyInput().appendField("<");
-        this.appendValueInput("B").setCheck("Number");
+    ],
+    inputsInline: true,
+    output: "Number",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.MULTIPLY,
+    message0: "%1 * %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.SMALLER,
-    };
-  }
-
-  public static greater(): BlockDefinition {
-    Blocks[BlockType.GREATER] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Boolean");
-        this.appendValueInput("A").setCheck("Number");
-        this.appendDummyInput().appendField(">");
-        this.appendValueInput("B").setCheck("Number");
+      {
+        type: "input_value",
+        name: "B",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.GREATER,
-    };
-  }
-
-  public static equal(): BlockDefinition {
-    Blocks[BlockType.EQUAL] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Boolean");
-        this.appendValueInput("A").setCheck("Number");
-        this.appendDummyInput().appendField("=");
-        this.appendValueInput("B").setCheck("Number");
+    ],
+    inputsInline: true,
+    output: "Number",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.DIVIDE,
+    message0: "%1 / %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.EQUAL,
-    };
-  }
-
-  public static and(): BlockDefinition {
-    Blocks[BlockType.AND] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Boolean");
-        this.appendValueInput("A").setCheck("Boolean");
-        this.appendDummyInput().appendField("and");
-        this.appendValueInput("B").setCheck("Boolean");
+      {
+        type: "input_value",
+        name: "B",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.AND,
-    };
-  }
-
-  public static or(): BlockDefinition {
-    Blocks[BlockType.OR] = {
-      init(this: Block) {
-        this.setStyle(OperatorBlocks.style);
-        this.setOutput(true, "Boolean");
-        this.appendValueInput("A").setCheck("Boolean");
-        this.appendDummyInput().appendField("or");
-        this.appendValueInput("B").setCheck("Boolean");
+    ],
+    inputsInline: true,
+    output: "Number",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.SMALLER,
+    message0: "%1 < %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.OR,
-    };
-  }
-}
+      {
+        type: "input_value",
+        name: "B",
+        check: "Number",
+      },
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.GREATER,
+    message0: "%1 > %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Number",
+      },
+      {
+        type: "input_value",
+        name: "B",
+        check: "Number",
+      },
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.EQUAL,
+    message0: "%1 = %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Number",
+      },
+      {
+        type: "input_value",
+        name: "B",
+        check: "Number",
+      },
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.AND,
+    message0: "%1 and %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Boolean",
+      },
+      {
+        type: "input_value",
+        name: "B",
+        check: "Boolean",
+      },
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: BlockType.OR,
+    message0: "%1 or %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Boolean",
+      },
+      {
+        type: "input_value",
+        name: "B",
+        check: "Boolean",
+      },
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    category: "operators",
+    style: "operator_blocks",
+  },
+];

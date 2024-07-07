@@ -1,102 +1,115 @@
-import { Block, Blocks } from "blockly";
-import { BlockDefinition, BlockType, CategoryKey } from "../types";
-import { BlockStyle } from "../theme/theme";
+import { BlockType } from "../types";
 
-export class ControlBlocks {
-  private static readonly style = BlockStyle[CategoryKey.CONTROLS];
-
-  public static wait(): BlockDefinition {
-    Blocks[BlockType.WAIT] = {
-      init(this: Block) {
-        this.setStyle(ControlBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("DURATION").setCheck("Number").appendField("wait");
+export const blocks = [
+  {
+    type: BlockType.WAIT,
+    message0: "wait %1 seconds",
+    args0: [
+      {
+        type: "input_value",
+        name: "DURATION",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.WAIT,
-    };
-  }
-
-  public static repeat(): BlockDefinition {
-    Blocks[BlockType.REPEAT] = {
-      init(this: Block) {
-        this.setStyle(ControlBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("TIMES").setCheck("Number").appendField("repeat");
-        this.appendStatementInput("SUBSTACK");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "controls",
+    style: "control_blocks",
+  },
+  {
+    type: BlockType.REPEAT,
+    message0: "repeat %1 times",
+    args0: [
+      {
+        type: "input_value",
+        name: "TIMES",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.REPEAT,
-    };
-  }
-
-  public static forever(): BlockDefinition {
-    Blocks[BlockType.FOREVER] = {
-      init(this: Block) {
-        this.setStyle(ControlBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendDummyInput().appendField("forever");
-        this.appendStatementInput("SUBSTACK");
+    ],
+    message1: "%1",
+    args1: [
+      {
+        type: "input_statement",
+        name: "SUBSTACK",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.FOREVER,
-    };
-  }
-
-  public static if(): BlockDefinition {
-    Blocks[BlockType.IF] = {
-      init(this: Block) {
-        this.setStyle(ControlBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("CONDITION").setCheck("Boolean").appendField("if");
-        this.appendStatementInput("SUBSTACK");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "controls",
+    style: "control_blocks",
+  },
+  {
+    type: BlockType.FOREVER,
+    message0: "forever",
+    message1: "%1",
+    args1: [
+      {
+        type: "input_statement",
+        name: "SUBSTACK",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.IF,
-    };
-  }
-
-  public static ifElse(): BlockDefinition {
-    Blocks[BlockType.IF_ELSE] = {
-      init(this: Block) {
-        this.setStyle(ControlBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("CONDITION").setCheck("Boolean").appendField("if");
-        this.appendStatementInput("SUBSTACK");
-        this.appendDummyInput().appendField("else");
-        this.appendStatementInput("SUBSTACK2");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "controls",
+    style: "control_blocks",
+  },
+  {
+    type: BlockType.IF,
+    message0: "if %1",
+    args0: [
+      {
+        type: "input_value",
+        name: "CONDITION",
+        check: "Boolean",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.IF_ELSE,
-    };
-  }
-
-  public static stop(): BlockDefinition {
-    Blocks[BlockType.STOP] = {
-      init(this: Block) {
-        this.setStyle(ControlBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.appendDummyInput().appendField("stop");
+    ],
+    message1: "%1",
+    args1: [
+      {
+        type: "input_statement",
+        name: "SUBSTACK",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.STOP,
-    };
-  }
-}
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "controls",
+    style: "control_blocks",
+  },
+  {
+    type: BlockType.IF_ELSE,
+    message0: "if %1",
+    args0: [
+      {
+        type: "input_value",
+        name: "CONDITION",
+        check: "Boolean",
+      },
+    ],
+    message1: "%1",
+    args1: [
+      {
+        type: "input_statement",
+        name: "SUBSTACK",
+      },
+    ],
+    message2: "else",
+    message3: "%1",
+    args3: [
+      {
+        type: "input_statement",
+        name: "SUBSTACK2",
+      },
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "controls",
+    style: "control_blocks",
+  },
+  {
+    type: BlockType.STOP,
+    message0: "stop",
+    previousStatement: null,
+    category: "controls",
+    style: "control_blocks",
+  },
+];

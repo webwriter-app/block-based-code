@@ -1,116 +1,99 @@
-import { Block, Blocks } from "blockly";
-import { BlockDefinition, BlockType, CategoryKey } from "../types";
+import { BlockType } from "../types";
 
-import { BlockStyle } from "../theme/theme";
-
-export class MotionBlocks {
-  private static readonly style = BlockStyle[CategoryKey.MOTIONS];
-
-  public static move(): BlockDefinition {
-    Blocks[BlockType.MOVE] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("STEPS").setCheck("Number").appendField("move");
-        this.appendDummyInput().appendField("steps");
+export const blocks = [
+  {
+    type: BlockType.MOVE,
+    message0: "move %1 steps",
+    args0: [
+      {
+        type: "input_value",
+        name: "STEPS",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.MOVE,
-    };
-  }
-
-  public static rotate(): BlockDefinition {
-    Blocks[BlockType.ROTATE] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("DEGREES").setCheck("Number").appendField("rotate");
-        this.appendDummyInput().appendField("degrees");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  },
+  {
+    type: BlockType.ROTATE,
+    message0: "rotate %1 degrees",
+    args0: [
+      {
+        type: "input_value",
+        name: "DEGREES",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.ROTATE,
-    };
-  }
-
-  public static goToX(): BlockDefinition {
-    Blocks[BlockType.GO_TO_X] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("X").setCheck("Number").appendField("go to x:");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  },
+  {
+    type: BlockType.GO_TO_X,
+    message0: "go to x: %1",
+    args0: [
+      {
+        type: "input_value",
+        name: "X",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.GO_TO_X,
-    };
-  }
-
-  public static goToY(): BlockDefinition {
-    Blocks[BlockType.GO_TO_Y] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("Y").setCheck("Number").appendField("go to y:");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  },
+  {
+    type: BlockType.GO_TO_Y,
+    message0: "go to y: %1",
+    args0: [
+      {
+        type: "input_value",
+        name: "Y",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.GO_TO_Y,
-    };
-  }
-
-  public static goToXY(): BlockDefinition {
-    Blocks[BlockType.GO_TO_XY] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendDummyInput().appendField("go to x:");
-        this.appendValueInput("X").setCheck("Number");
-        this.appendDummyInput().appendField("y:");
-        this.appendValueInput("Y").setCheck("Number");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  },
+  {
+    type: BlockType.GO_TO_XY,
+    message0: "go to x: %1 y: %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "X",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.GO_TO_XY,
-    };
-  }
-
-  public static xPosition(): BlockDefinition {
-    Blocks[BlockType.X_POSITION] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendDummyInput().appendField("x position");
+      {
+        type: "input_value",
+        name: "Y",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockType.X_POSITION,
-    };
-  }
-
-  public static yPosition(): BlockDefinition {
-    Blocks[BlockType.Y_POSITION] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendDummyInput().appendField("y position");
-      },
-    };
-    return {
-      kind: "block",
-      type: BlockType.Y_POSITION,
-    };
-  }
-}
+    ],
+    inputsInline: true,
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  },
+  {
+    type: BlockType.X_POSITION,
+    message0: "x position",
+    output: "Number",
+    category: "motions",
+    style: "motion_blocks",
+  },
+  {
+    type: BlockType.Y_POSITION,
+    message0: "y position",
+    output: "Number",
+    category: "motions",
+    style: "motion_blocks",
+  },
+];

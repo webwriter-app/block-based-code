@@ -1,6 +1,4 @@
-import * as Blockly from "blockly";
-
-export const blockDefinitions = Blockly.common.createBlockDefinitionsFromJsonArray([{
+export const numberBlock = {
   type: "math:number",
   message0: "%1",
   args0: [
@@ -11,4 +9,4 @@ export const blockDefinitions = Blockly.common.createBlockDefinitionsFromJsonArr
     },
   ],
   output: "Number",
-}]);
+};
