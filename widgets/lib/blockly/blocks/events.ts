@@ -3,7 +3,7 @@ import { BlockType, CategoryKey } from "../types";
 
 export const blocks = [{
   type: BlockType.WHEN_START_CLICKED,
-  message0: "when %1 clicked",
+  message0: "%{BKY_WHEN_START_CLICKED}",
   args0: [
     {
       type: "field_image",

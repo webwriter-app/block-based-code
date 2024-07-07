@@ -38,9 +38,3 @@ export enum BlockType {
   // Math
   NUMBER = `${CategoryKey.MATH}:number`,
 }
-
-export type BlockDefinition = {
-  kind: "block";
-  type: BlockType;
-  disabled?: boolean
-};

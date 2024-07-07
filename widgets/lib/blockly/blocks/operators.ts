@@ -143,7 +143,7 @@ export const blocks = [
   },
   {
     type: BlockType.AND,
-    message0: "%1 and %2",
+    message0: "%{BKY_AND}",
     args0: [
       {
         type: "input_value",
@@ -163,7 +163,7 @@ export const blocks = [
   },
   {
     type: BlockType.OR,
-    message0: "%1 or %2",
+    message0: "%{BKY_OR}",
     args0: [
       {
         type: "input_value",

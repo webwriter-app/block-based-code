@@ -3,7 +3,7 @@ import { BlockType } from "../types";
 export const blocks = [
   {
     type: BlockType.WAIT,
-    message0: "wait %1 seconds",
+    message0: "%{BKY_WAIT}",
     args0: [
       {
         type: "input_value",
@@ -18,7 +18,7 @@ export const blocks = [
   },
   {
     type: BlockType.REPEAT,
-    message0: "repeat %1 times",
+    message0: "%{BKY_REPEAT}",
     args0: [
       {
         type: "input_value",
@@ -40,7 +40,7 @@ export const blocks = [
   },
   {
     type: BlockType.FOREVER,
-    message0: "forever",
+    message0: "%{BKY_FOREVER}",
     message1: "%1",
     args1: [
       {
@@ -55,7 +55,7 @@ export const blocks = [
   },
   {
     type: BlockType.IF,
-    message0: "if %1",
+    message0: "%{BKY_IF}",
     args0: [
       {
         type: "input_value",
@@ -77,7 +77,7 @@ export const blocks = [
   },
   {
     type: BlockType.IF_ELSE,
-    message0: "if %1",
+    message0: "%{BKY_IF}",
     args0: [
       {
         type: "input_value",
@@ -92,7 +92,7 @@ export const blocks = [
         name: "SUBSTACK",
       },
     ],
-    message2: "else",
+    message2: "%{BKY_ELSE}",
     message3: "%1",
     args3: [
       {
@@ -107,7 +107,7 @@ export const blocks = [
   },
   {
     type: BlockType.STOP,
-    message0: "stop",
+    message0: "%{BKY_STOP}",
     previousStatement: null,
     category: "controls",
     style: "control_blocks",

@@ -3,7 +3,7 @@ import { BlockType } from "../types";
 export const blocks = [
   {
     type: BlockType.MOVE,
-    message0: "move %1 steps",
+    message0: "%{BKY_MOVE}",
     args0: [
       {
         type: "input_value",
@@ -18,7 +18,7 @@ export const blocks = [
   },
   {
     type: BlockType.ROTATE,
-    message0: "rotate %1 degrees",
+    message0: "%{BKY_ROTATE}",
     args0: [
       {
         type: "input_value",
@@ -33,7 +33,7 @@ export const blocks = [
   },
   {
     type: BlockType.GO_TO_X,
-    message0: "go to x: %1",
+    message0: "%{BKY_GO_TO_X}",
     args0: [
       {
         type: "input_value",
@@ -48,7 +48,7 @@ export const blocks = [
   },
   {
     type: BlockType.GO_TO_Y,
-    message0: "go to y: %1",
+    message0: "%{BKY_GO_TO_Y}",
     args0: [
       {
         type: "input_value",
@@ -63,7 +63,7 @@ export const blocks = [
   },
   {
     type: BlockType.GO_TO_XY,
-    message0: "go to x: %1 y: %2",
+    message0: "%{BKY_GO_TO_XY}",
     args0: [
       {
         type: "input_value",
@@ -84,14 +84,14 @@ export const blocks = [
   },
   {
     type: BlockType.X_POSITION,
-    message0: "x position",
+    message0: "%{BKY_X_POSITION}",
     output: "Number",
     category: "motions",
     style: "motion_blocks",
   },
   {
     type: BlockType.Y_POSITION,
-    message0: "y position",
+    message0: "%{BKY_Y_POSITION}",
     output: "Number",
     category: "motions",
     style: "motion_blocks",

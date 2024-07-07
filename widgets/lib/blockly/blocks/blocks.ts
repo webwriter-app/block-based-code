@@ -6,8 +6,8 @@ import { blocks as operatorBlocks } from "./operators";
 import { numberBlock } from "./math";
 
 const blocks = [
-  ...controlBlocks,
   ...eventBlocks,
+  ...controlBlocks,
   ...motionBlocks,
   ...operatorBlocks,
 ];
