@@ -2,11 +2,12 @@ export enum CategoryKey {
   CONTROLS = "controls",
   EVENTS = "events",
   MOTIONS = "motions",
+  MATH = "math",
   OPERATORS = "operators",
   VARIABLES = "variables",
 }
 
-export enum BlockKey {
+export enum BlockType {
   // Controls
   WAIT = `${CategoryKey.CONTROLS}:wait`,
   REPEAT = `${CategoryKey.CONTROLS}:repeat`,
@@ -34,22 +35,12 @@ export enum BlockKey {
   EQUAL = `${CategoryKey.OPERATORS}:equal`,
   AND = `${CategoryKey.OPERATORS}:and`,
   OR = `${CategoryKey.OPERATORS}:or`,
+  // Math
+  NUMBER = `${CategoryKey.MATH}:number`,
 }
-
-export type ToolboxDefinition = {
-  kind: "categoryToolbox";
-  contents: CategoryDefinition[];
-};
-
-export type CategoryDefinition = {
-  kind: "category";
-  name: CategoryKey;
-  contents: BlockDefinition[];
-  categoryStyle: string;
-};
 
 export type BlockDefinition = {
   kind: "block";
-  type: BlockKey;
+  type: BlockType;
   disabled?: boolean
 };

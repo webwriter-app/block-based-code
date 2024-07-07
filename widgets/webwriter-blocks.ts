@@ -16,8 +16,7 @@ import { IStage } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
-import { BlockKey } from "./lib/blockly";
-import { WebWriterToolbox } from "./lib/blockly/toolbox";
+import { BlockType } from "./lib/blockly";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -26,7 +25,7 @@ export class WebwriterBlocks extends LitElementWw {
   public readonly: boolean = false;
 
   @property({ type: Array, reflect: true })
-  public availableBlocks: BlockKey[] = WebWriterToolbox.allBlocks;
+  public availableBlocks: BlockType[] = [];
 
   @property({ type: String, reflect: true })
   public editorState: string = "{}";
@@ -120,7 +119,8 @@ export class WebwriterBlocks extends LitElementWw {
         </webwriter-blocks-application>
         <webwriter-blocks-options part="options"
                                   .availableBlocks=${this.availableBlocks}
-                                  @change=${this.handleOptionsChange}></webwriter-blocks-options>
+                                  @change=${this.handleOptionsChange}>
+        </webwriter-blocks-options>
     `;
   }
 
@@ -158,6 +158,7 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private handleEditorChange(event: EditorChangeEvent): void {
+    console.log(event.detail.workspace);
     this.editorState = event.detail.workspace;
   }
 

@@ -5,14 +5,14 @@ import {
 } from "lit";
 import { SlTree, SlTreeItem } from "@shoelace-style/shoelace";
 import { styles } from "./options.styles";
-import { BlockKey, CategoryKey } from "../../lib/blockly";
+import { BlockType, CategoryKey } from "../../lib/blockly";
 import { msg } from "../../locales";
 import { OptionsChangeEvent } from "../../types";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
   @property({ type: Array, attribute: true })
-  public availableBlocks: BlockKey[] = [];
+  public availableBlocks: BlockType[] = [];
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -32,44 +32,44 @@ export class Options extends LitElementWw {
   }
 
   public render(): TemplateResult {
-    const blocks: [CategoryKey, BlockKey[]][] = [
+    const blocks: [CategoryKey, BlockType[]][] = [
       [
         CategoryKey.CONTROLS, [
-          BlockKey.WAIT,
-          BlockKey.REPEAT,
-          BlockKey.FOREVER,
-          BlockKey.IF,
-          BlockKey.IF_ELSE,
-          BlockKey.STOP,
+          BlockType.WAIT,
+          BlockType.REPEAT,
+          BlockType.FOREVER,
+          BlockType.IF,
+          BlockType.IF_ELSE,
+          BlockType.STOP,
         ],
       ],
       [
         CategoryKey.EVENTS, [
-          BlockKey.WHEN_START_CLICKED,
+          BlockType.WHEN_START_CLICKED,
         ],
       ],
       [
         CategoryKey.MOTIONS, [
-          BlockKey.MOVE,
-          BlockKey.ROTATE,
-          BlockKey.GO_TO_X,
-          BlockKey.GO_TO_Y,
-          BlockKey.GO_TO_XY,
-          BlockKey.X_POSITION,
-          BlockKey.Y_POSITION,
+          BlockType.MOVE,
+          BlockType.ROTATE,
+          BlockType.GO_TO_X,
+          BlockType.GO_TO_Y,
+          BlockType.GO_TO_XY,
+          BlockType.X_POSITION,
+          BlockType.Y_POSITION,
         ],
       ],
       [
         CategoryKey.OPERATORS, [
-          BlockKey.SUM,
-          BlockKey.SUBTRACT,
-          BlockKey.MULTIPLY,
-          BlockKey.DIVIDE,
-          BlockKey.SMALLER,
-          BlockKey.GREATER,
-          BlockKey.EQUAL,
-          BlockKey.AND,
-          BlockKey.OR,
+          BlockType.SUM,
+          BlockType.SUBTRACT,
+          BlockType.MULTIPLY,
+          BlockType.DIVIDE,
+          BlockType.SMALLER,
+          BlockType.GREATER,
+          BlockType.EQUAL,
+          BlockType.AND,
+          BlockType.OR,
         ],
       ],
     ];
@@ -96,7 +96,7 @@ export class Options extends LitElementWw {
   private handleSelectionChange(event: CustomEvent<{ selection: SlTreeItem[] }>): void {
     const availableBlocks = event.detail.selection
       .filter((item) => item.getAttribute("data-block-key"))
-      .map((item) => item.getAttribute("data-block-key") as BlockKey);
+      .map((item) => item.getAttribute("data-block-key") as BlockType);
 
     const changeEvent = new OptionsChangeEvent({
       availableBlocks,

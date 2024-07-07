@@ -1,4 +1,5 @@
 import { ContextMenuRegistry } from "blockly";
+
 import { WebWriterTheme } from "./theme";
 
 export class BlocklyInitializer {

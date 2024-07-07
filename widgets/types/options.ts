@@ -1,5 +1,5 @@
-import { BlockKey } from "../lib/blockly";
+import { BlockType } from "../lib/blockly";
 
 export interface Options {
-  availableBlocks?: BlockKey[];
+  availableBlocks?: BlockType[];
 }

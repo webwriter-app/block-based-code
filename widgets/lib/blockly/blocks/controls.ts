@@ -1,12 +1,12 @@
 import { Block, Blocks } from "blockly";
-import { BlockStyle } from "../theme";
-import { BlockDefinition, BlockKey, CategoryKey } from "../types";
+import { BlockDefinition, BlockType, CategoryKey } from "../types";
+import { BlockStyle } from "../theme/theme";
 
 export class ControlBlocks {
   private static readonly style = BlockStyle[CategoryKey.CONTROLS];
 
   public static wait(): BlockDefinition {
-    Blocks[BlockKey.WAIT] = {
+    Blocks[BlockType.WAIT] = {
       init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
@@ -16,12 +16,12 @@ export class ControlBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.WAIT,
+      type: BlockType.WAIT,
     };
   }
 
   public static repeat(): BlockDefinition {
-    Blocks[BlockKey.REPEAT] = {
+    Blocks[BlockType.REPEAT] = {
       init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
@@ -32,12 +32,12 @@ export class ControlBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.REPEAT,
+      type: BlockType.REPEAT,
     };
   }
 
   public static forever(): BlockDefinition {
-    Blocks[BlockKey.FOREVER] = {
+    Blocks[BlockType.FOREVER] = {
       init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
@@ -48,12 +48,12 @@ export class ControlBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.FOREVER,
+      type: BlockType.FOREVER,
     };
   }
 
   public static if(): BlockDefinition {
-    Blocks[BlockKey.IF] = {
+    Blocks[BlockType.IF] = {
       init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
@@ -64,12 +64,12 @@ export class ControlBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.IF,
+      type: BlockType.IF,
     };
   }
 
   public static ifElse(): BlockDefinition {
-    Blocks[BlockKey.IF_ELSE] = {
+    Blocks[BlockType.IF_ELSE] = {
       init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
@@ -82,12 +82,12 @@ export class ControlBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.IF_ELSE,
+      type: BlockType.IF_ELSE,
     };
   }
 
   public static stop(): BlockDefinition {
-    Blocks[BlockKey.STOP] = {
+    Blocks[BlockType.STOP] = {
       init(this: Block) {
         this.setStyle(ControlBlocks.style);
         this.setPreviousStatement(true, null);
@@ -96,7 +96,7 @@ export class ControlBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.STOP,
+      type: BlockType.STOP,
     };
   }
 }

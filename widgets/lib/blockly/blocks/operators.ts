@@ -1,12 +1,13 @@
 import { Block, Blocks } from "blockly";
-import { BlockDefinition, BlockKey, CategoryKey } from "../types";
-import { BlockStyle } from "../theme";
+import { BlockDefinition, BlockType, CategoryKey } from "../types";
+
+import { BlockStyle } from "../theme/theme";
 
 export class OperatorBlocks {
   private static readonly style = BlockStyle[CategoryKey.OPERATORS];
 
   public static sum(): BlockDefinition {
-    Blocks[BlockKey.SUM] = {
+    Blocks[BlockType.SUM] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Number");
@@ -17,12 +18,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.SUM,
+      type: BlockType.SUM,
     };
   }
 
   public static subtract(): BlockDefinition {
-    Blocks[BlockKey.SUBTRACT] = {
+    Blocks[BlockType.SUBTRACT] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Number");
@@ -33,12 +34,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.SUBTRACT,
+      type: BlockType.SUBTRACT,
     };
   }
 
   public static multiply(): BlockDefinition {
-    Blocks[BlockKey.MULTIPLY] = {
+    Blocks[BlockType.MULTIPLY] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Number");
@@ -49,12 +50,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.MULTIPLY,
+      type: BlockType.MULTIPLY,
     };
   }
 
   public static divide(): BlockDefinition {
-    Blocks[BlockKey.DIVIDE] = {
+    Blocks[BlockType.DIVIDE] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Number");
@@ -65,12 +66,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.DIVIDE,
+      type: BlockType.DIVIDE,
     };
   }
 
   public static smaller(): BlockDefinition {
-    Blocks[BlockKey.SMALLER] = {
+    Blocks[BlockType.SMALLER] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Boolean");
@@ -81,12 +82,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.SMALLER,
+      type: BlockType.SMALLER,
     };
   }
 
   public static greater(): BlockDefinition {
-    Blocks[BlockKey.GREATER] = {
+    Blocks[BlockType.GREATER] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Boolean");
@@ -97,12 +98,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.GREATER,
+      type: BlockType.GREATER,
     };
   }
 
   public static equal(): BlockDefinition {
-    Blocks[BlockKey.EQUAL] = {
+    Blocks[BlockType.EQUAL] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Boolean");
@@ -113,12 +114,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.EQUAL,
+      type: BlockType.EQUAL,
     };
   }
 
   public static and(): BlockDefinition {
-    Blocks[BlockKey.AND] = {
+    Blocks[BlockType.AND] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Boolean");
@@ -129,12 +130,12 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.AND,
+      type: BlockType.AND,
     };
   }
 
   public static or(): BlockDefinition {
-    Blocks[BlockKey.OR] = {
+    Blocks[BlockType.OR] = {
       init(this: Block) {
         this.setStyle(OperatorBlocks.style);
         this.setOutput(true, "Boolean");
@@ -145,7 +146,7 @@ export class OperatorBlocks {
     };
     return {
       kind: "block",
-      type: BlockKey.OR,
+      type: BlockType.OR,
     };
   }
 }

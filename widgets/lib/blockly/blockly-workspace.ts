@@ -1,25 +1,32 @@
 import {
-  FlyoutButton, inject, serialization, setParentContainer, svgResize, WorkspaceSvg,
+  Events, FlyoutButton, inject, serialization, setParentContainer, svgResize, WorkspaceSvg,
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
-import { WebWriterToolbox } from "./toolbox";
-import { BlockKey } from "./types";
+import { BlockType } from "./types";
+import { createToolboxFromBlockList } from "./toolbox";
 
 export class BlocklyWorkspace {
   private static readonly renderer = "zelos";
 
   private static readonly theme = "webwriter";
 
+  private static readonly supportedBlocklyEvents = new Set([
+    Events.BLOCK_CHANGE,
+    Events.BLOCK_CREATE,
+    Events.BLOCK_DELETE,
+    Events.BLOCK_MOVE,
+  ]);
+
   public container: HTMLDivElement;
 
   private readonly: boolean;
 
-  private availableBlocks: BlockKey[];
+  private availableBlocks: BlockType[];
 
   private workspace: WorkspaceSvg;
 
-  constructor(readonly: boolean, availableBlocks: BlockKey[]) {
+  constructor(readonly: boolean, availableBlocks: BlockType[]) {
     BlocklyInitializer.define();
     this.readonly = readonly;
     this.availableBlocks = availableBlocks;
@@ -45,10 +52,15 @@ export class BlocklyWorkspace {
   public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
     switch (key) {
       case "CREATE_VARIABLE":
-        this.workspace.registerButtonCallback(WebWriterToolbox.CREATE_VARIABLE_CALLBACK_KEY, callback);
+        this.workspace.registerButtonCallback("Ejne", callback);
         break;
       case "CHANGE":
-        this.workspace.addChangeListener(callback);
+        this.workspace.addChangeListener((event) => {
+          if (this.workspace.isDragging()) return;
+          if (!BlocklyWorkspace.supportedBlocklyEvents.has(event.type)) return;
+
+          callback(event);
+        });
         break;
       default:
         throw new Error(`Event ${key} not supported`);
@@ -69,9 +81,9 @@ export class BlocklyWorkspace {
     this.workspace.dispose();
   }
 
-  public updateToolbox(availableBlocks: BlockKey[]): void {
+  public updateToolbox(availableBlocks: BlockType[]): void {
     this.availableBlocks = availableBlocks;
-    const toolbox = WebWriterToolbox.generateToolbox(this.availableBlocks);
+    const toolbox = createToolboxFromBlockList([]);
     this.workspace.updateToolbox(toolbox);
     this.workspace.refreshToolboxSelection();
   }
@@ -84,11 +96,11 @@ export class BlocklyWorkspace {
   }
 
   private injectWorkspace(): void {
-    console.log(this.readonly || this.availableBlocks.length === 0);
+    console.log(createToolboxFromBlockList(this.availableBlocks));
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,
-      readOnly: this.readonly || this.availableBlocks.length === 0,
+      // readOnly: this.readonly || this.availableBlocks.length === 0,
       sounds: false,
       collapse: false,
       comments: false,
@@ -96,7 +108,7 @@ export class BlocklyWorkspace {
       move: {
         wheel: true,
       },
-      toolbox: WebWriterToolbox.generateToolbox(this.availableBlocks),
+      toolbox: createToolboxFromBlockList(this.availableBlocks),
       maxTrashcanContents: 0,
       plugins: {
         toolbox: ContinuousToolbox,
@@ -105,13 +117,13 @@ export class BlocklyWorkspace {
       },
     });
     if (!this.readonly) {
-      this.registerVariablesCategory();
+      // this.registerVariablesCategory();
     }
     this.moveStyleElementsToContainer();
   }
 
   private registerVariablesCategory(): void {
-    this.workspace.registerToolboxCategoryCallback("VARIABLE", WebWriterToolbox.variablesCategoryCallback);
+    this.workspace.registerToolboxCategoryCallback("VARIABLE", () => null);
     this.workspace.getToolbox().refreshSelection();
   }
 
