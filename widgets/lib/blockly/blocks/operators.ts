@@ -1,8 +1,8 @@
-import { BlockType } from "../types";
+import { Block } from "../types";
 
 export const blocks = [
   {
-    type: BlockType.SUM,
+    type: "operators:sum",
     message0: "%1 + %2",
     args0: [
       {
@@ -20,9 +20,9 @@ export const blocks = [
     output: "Number",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.SUBTRACT,
+    type: "operators:subtract",
     message0: "%1 - %2",
     args0: [
       {
@@ -40,9 +40,9 @@ export const blocks = [
     output: "Number",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.MULTIPLY,
+    type: "operators:multiply",
     message0: "%1 * %2",
     args0: [
       {
@@ -60,9 +60,9 @@ export const blocks = [
     output: "Number",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.DIVIDE,
+    type: "operators:divide",
     message0: "%1 / %2",
     args0: [
       {
@@ -80,9 +80,9 @@ export const blocks = [
     output: "Number",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.SMALLER,
+    type: "operators:smaller",
     message0: "%1 < %2",
     args0: [
       {
@@ -100,9 +100,9 @@ export const blocks = [
     output: "Boolean",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.GREATER,
+    type: "operators:greater",
     message0: "%1 > %2",
     args0: [
       {
@@ -120,9 +120,9 @@ export const blocks = [
     output: "Boolean",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.EQUAL,
+    type: "operators:equal",
     message0: "%1 = %2",
     args0: [
       {
@@ -140,9 +140,9 @@ export const blocks = [
     output: "Boolean",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.AND,
+    type: "operators:and",
     message0: "%{BKY_AND}",
     args0: [
       {
@@ -160,9 +160,9 @@ export const blocks = [
     output: "Boolean",
     category: "operators",
     style: "operator_blocks",
-  },
+  } as const,
   {
-    type: BlockType.OR,
+    type: "operators:or",
     message0: "%{BKY_OR}",
     args0: [
       {
@@ -180,5 +180,5 @@ export const blocks = [
     output: "Boolean",
     category: "operators",
     style: "operator_blocks",
-  },
-];
+  } as const,
+] satisfies Block[];

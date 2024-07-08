@@ -9,4 +9,4 @@ export const numberBlock = {
     },
   ],
   output: "Number",
-};
+} as const;

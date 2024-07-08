@@ -1,3 +1,5 @@
+import { BlockTypes } from "../lib/blockly";
+
 export interface Options {
-  availableBlocks?: string[];
+  availableBlocks?: BlockTypes[];
 }

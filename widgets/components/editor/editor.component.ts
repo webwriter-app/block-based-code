@@ -8,7 +8,7 @@ import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
 import { BlocklyWorkspace } from "../../lib/blockly/blockly-workspace";
 import { EditorChangeEvent } from "../../types/events";
-import { BlockType } from "../../lib/blockly";
+import { BlockTypes } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -19,13 +19,13 @@ export class Editor extends LitElementWw {
   public readonly: boolean;
 
   @property({ type: Array })
-  public availableBlocks: BlockType[];
+  public availableBlocks: BlockTypes[];
 
   @property({ type: String })
   public initialState: string;
 
   @property({ type: Array })
-  public disabledBlocks: BlockType[];
+  public disabledBlocks: BlockTypes[];
 
   private resizeObserver: ResizeObserver;
 

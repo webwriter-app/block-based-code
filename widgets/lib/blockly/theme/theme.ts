@@ -2,7 +2,7 @@ import * as Blockly from "blockly";
 
 // Heavily inspired by the Scratch theme:
 // https://github.com/scratchfoundation/scratch-blocks/wiki/Colors
-const blockStyles: Record<string, Pick<Blockly.Theme.BlockStyle, "colourPrimary" | "colourSecondary" | "colourTertiary">> = {
+const blockStyles = {
   control_blocks: {
     colourPrimary: "#ffab19",
     colourSecondary: "#ec9c13",
@@ -28,25 +28,27 @@ const blockStyles: Record<string, Pick<Blockly.Theme.BlockStyle, "colourPrimary"
     colourSecondary: "#ff8000",
     colourTertiary: "#db6e00",
   },
-};
+} satisfies { [key: string]: Pick<Blockly.Theme.BlockStyle, "colourPrimary" | "colourSecondary" | "colourTertiary"> };
+export type BlockStyle = keyof typeof blockStyles;
 
-const categoryStyles: Record<string, Pick<Blockly.Theme.CategoryStyle, "colour">> = {
-  control: {
+const categoryStyles = {
+  controls: {
     colour: "#ffab19",
   },
-  event: {
+  events: {
     colour: "#ffbf00",
   },
-  motion: {
+  motions: {
     colour: "#4c97ff",
   },
-  operator: {
+  operators: {
     colour: "#59c059",
   },
-  variable: {
+  variables: {
     colour: "#ff8c1a",
   },
-};
+} satisfies { [key: string]: Pick<Blockly.Theme.CategoryStyle, "colour"> };
+export type CategoryStyle = keyof typeof categoryStyles;
 
 export class WebWriterTheme extends Blockly.Theme {
   public override startHats = true;

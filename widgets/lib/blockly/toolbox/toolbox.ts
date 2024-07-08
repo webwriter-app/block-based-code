@@ -1,24 +1,45 @@
-import { blockTemplates } from "../blocks";
-import { BlockType } from "../types";
+import { BlockTypes } from "../blocks";
+import { CategoryStyle } from "../theme";
 
-export const createToolboxFromBlockList = (blocks: string[]) => {
-  const toolbox = {};
-  Object.entries(blockTemplates).forEach(([block, template]) => {
-    if (![...blocks, BlockType.WHEN_START_CLICKED].includes(block)) return;
-    const [category] = block.split(":");
-    if (!toolbox[category]) {
-      toolbox[category] = [];
+interface IToolbox {
+  kind: "categoryToolbox";
+  contents: {
+    kind: "category";
+    name: string;
+    categoryStyle: CategoryStyle;
+    contents: {
+      kind: "block";
+      type: BlockTypes;
+      inputs: {
+        [key: string]: object
+      }
+    }[];
+  }[];
+}
+
+export const createToolboxFromBlockList = (blocks: BlockTypes[]): IToolbox => {
+  const toolbox = new Map<CategoryStyle, IToolbox["contents"][number]["contents"][number][]>();
+
+  ["events:when_start_clicked" as BlockTypes, ...blocks].forEach((block) => {
+    const [category] = block.split(":") as [CategoryStyle];
+
+    if (!toolbox.has(category)) {
+      toolbox.set(category, []);
     }
-    toolbox[category].push(template);
+    toolbox.get(category)!.push({
+      kind: "block",
+      type: block,
+      inputs: {},
+    });
   });
 
   return {
     kind: "categoryToolbox",
-    contents: Object.keys(toolbox).map((category) => ({
+    contents: Array.from(toolbox.entries()).map(([category, contents]) => ({
       kind: "category",
       name: category,
-      contents: toolbox[category],
-      categoryStyle: category.slice(0, -1),
+      categoryStyle: category,
+      contents,
     })),
   };
 };

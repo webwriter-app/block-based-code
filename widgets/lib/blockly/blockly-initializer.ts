@@ -1,6 +1,7 @@
-import { ContextMenuRegistry } from "blockly";
+import { common, ContextMenuRegistry } from "blockly";
 
 import { WebWriterTheme } from "./theme";
+import { blocks } from "./blocks";
 
 export class BlocklyInitializer {
   private static initialized = false;
@@ -9,6 +10,7 @@ export class BlocklyInitializer {
     if (BlocklyInitializer.initialized) return;
     BlocklyInitializer.defineTheme();
     BlocklyInitializer.defineContextMenu();
+    BlocklyInitializer.defineBlocks();
     BlocklyInitializer.initialized = true;
   }
 
@@ -21,5 +23,10 @@ export class BlocklyInitializer {
     ContextMenuRegistry.registry.unregister("undoWorkspace");
     ContextMenuRegistry.registry.unregister("redoWorkspace");
     ContextMenuRegistry.registry.unregister("blockInline");
+  }
+
+  private static defineBlocks(): void {
+    const blockDefinitions = common.createBlockDefinitionsFromJsonArray(blocks);
+    common.defineBlocks(blockDefinitions);
   }
 }

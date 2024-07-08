@@ -1,8 +1,8 @@
-import { BlockType } from "../types";
+import { Block } from "../types";
 
 export const blocks = [
   {
-    type: BlockType.MOVE,
+    type: "motions:move",
     message0: "%{BKY_MOVE}",
     args0: [
       {
@@ -15,9 +15,9 @@ export const blocks = [
     previousStatement: null,
     category: "motions",
     style: "motion_blocks",
-  },
+  } as const,
   {
-    type: BlockType.ROTATE,
+    type: "motions:rotate",
     message0: "%{BKY_ROTATE}",
     args0: [
       {
@@ -30,9 +30,9 @@ export const blocks = [
     previousStatement: null,
     category: "motions",
     style: "motion_blocks",
-  },
+  } as const,
   {
-    type: BlockType.GO_TO_X,
+    type: "motions:go_to_x",
     message0: "%{BKY_GO_TO_X}",
     args0: [
       {
@@ -45,9 +45,9 @@ export const blocks = [
     previousStatement: null,
     category: "motions",
     style: "motion_blocks",
-  },
+  } as const,
   {
-    type: BlockType.GO_TO_Y,
+    type: "motions:go_to_y",
     message0: "%{BKY_GO_TO_Y}",
     args0: [
       {
@@ -60,9 +60,9 @@ export const blocks = [
     previousStatement: null,
     category: "motions",
     style: "motion_blocks",
-  },
+  } as const,
   {
-    type: BlockType.GO_TO_XY,
+    type: "motions:go_to_xy",
     message0: "%{BKY_GO_TO_XY}",
     args0: [
       {
@@ -81,19 +81,19 @@ export const blocks = [
     previousStatement: null,
     category: "motions",
     style: "motion_blocks",
-  },
+  } as const,
   {
-    type: BlockType.X_POSITION,
+    type: "motions:x_position",
     message0: "%{BKY_X_POSITION}",
     output: "Number",
     category: "motions",
     style: "motion_blocks",
-  },
+  } as const,
   {
-    type: BlockType.Y_POSITION,
+    type: "motions:y_position",
     message0: "%{BKY_Y_POSITION}",
     output: "Number",
     category: "motions",
     style: "motion_blocks",
-  },
-];
+  } as const,
+] satisfies Block[];

@@ -1,8 +1,8 @@
-import { BlockType } from "../types";
+import { Block } from "../types";
 
 export const blocks = [
   {
-    type: BlockType.WAIT,
+    type: "controls:wait",
     message0: "%{BKY_WAIT}",
     args0: [
       {
@@ -15,9 +15,9 @@ export const blocks = [
     previousStatement: null,
     category: "controls",
     style: "control_blocks",
-  },
+  } as const,
   {
-    type: BlockType.REPEAT,
+    type: "controls:repeat",
     message0: "%{BKY_REPEAT}",
     args0: [
       {
@@ -37,9 +37,9 @@ export const blocks = [
     previousStatement: null,
     category: "controls",
     style: "control_blocks",
-  },
+  } as const,
   {
-    type: BlockType.FOREVER,
+    type: "controls:forever",
     message0: "%{BKY_FOREVER}",
     message1: "%1",
     args1: [
@@ -52,9 +52,9 @@ export const blocks = [
     previousStatement: null,
     category: "controls",
     style: "control_blocks",
-  },
+  } as const,
   {
-    type: BlockType.IF,
+    type: "controls:if",
     message0: "%{BKY_IF}",
     args0: [
       {
@@ -74,9 +74,9 @@ export const blocks = [
     previousStatement: null,
     category: "controls",
     style: "control_blocks",
-  },
+  } as const,
   {
-    type: BlockType.IF_ELSE,
+    type: "controls:if_else",
     message0: "%{BKY_IF}",
     args0: [
       {
@@ -104,12 +104,12 @@ export const blocks = [
     previousStatement: null,
     category: "controls",
     style: "control_blocks",
-  },
+  } as const,
   {
-    type: BlockType.STOP,
+    type: "controls:stop",
     message0: "%{BKY_STOP}",
     previousStatement: null,
     category: "controls",
     style: "control_blocks",
-  },
-];
+  } as const,
+] satisfies Block[];

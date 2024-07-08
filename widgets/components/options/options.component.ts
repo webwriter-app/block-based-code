@@ -7,7 +7,7 @@ import { SlTree, SlTreeItem } from "@shoelace-style/shoelace";
 import { styles } from "./options.styles";
 import { msg } from "../../locales";
 import { OptionsChangeEvent } from "../../types";
-import { BlockTree } from "../../lib/blockly";
+import { BlockTypes } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
@@ -32,20 +32,15 @@ export class Options extends LitElementWw {
   }
 
   public render(): TemplateResult {
-    const blocks = BlockTree;
+    const blocks: BlockTypes[] = ["controls:forever"];
 
     return html`
         <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectionChange}>
             <sl-tree-item>
                 ${msg("AVAILABLE_BLOCKS")}
-                ${Object.entries(blocks).map(([category, blockKeys]) => html`
-                    <sl-tree-item>
-                        ${category}
-                        ${blockKeys.map((blockKey) => html`
-                            <sl-tree-item .selected=${this.availableBlocks.includes(blockKey)} data-block-key=${blockKey}>
-                                ${blockKey}
-                            </sl-tree-item>
-                        `)}
+                ${blocks.map((block) => html`
+                    <sl-tree-item .selected=${this.availableBlocks.includes(block)} data-block-key=${block}>
+                        ${block}
                     </sl-tree-item>
               `)}
             </sl-tree-item>

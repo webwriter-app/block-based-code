@@ -3,8 +3,8 @@ import {
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
-import { BlockType } from "./types";
 import { createToolboxFromBlockList } from "./toolbox";
+import { BlockTypes } from "./blocks";
 
 export class BlocklyWorkspace {
   private static readonly renderer = "zelos";
@@ -22,11 +22,11 @@ export class BlocklyWorkspace {
 
   private readonly: boolean;
 
-  private availableBlocks: BlockType[];
+  private availableBlocks: BlockTypes[];
 
   private workspace: WorkspaceSvg;
 
-  constructor(readonly: boolean, availableBlocks: BlockType[]) {
+  constructor(readonly: boolean, availableBlocks: BlockTypes[]) {
     BlocklyInitializer.define();
     this.readonly = readonly;
     this.availableBlocks = availableBlocks;
@@ -81,7 +81,7 @@ export class BlocklyWorkspace {
     this.workspace.dispose();
   }
 
-  public updateToolbox(availableBlocks: BlockType[]): void {
+  public updateToolbox(availableBlocks: BlockTypes[]): void {
     this.availableBlocks = availableBlocks;
     const toolbox = createToolboxFromBlockList(this.availableBlocks);
     this.workspace.updateToolbox(toolbox);
