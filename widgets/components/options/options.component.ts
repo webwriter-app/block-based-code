@@ -9,15 +9,15 @@ import {
 import { styles } from "./options.styles";
 import { msg } from "../../locales";
 import { OptionsChangeEvent, StageType } from "../../types";
-import { BlockTypes } from "../../lib/blockly";
+import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
-  @property({ type: String, attribute: true })
+  @property({ type: String })
   public stageType: StageType;
 
-  @property({ type: Object, attribute: true })
-  public selectedBlocks: Set<BlockTypes>;
+  @property({ type: Array })
+  public selectedBlocks: SelectedBlocks;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -39,8 +39,15 @@ export class Options extends LitElementWw {
   }
 
   public render(): TemplateResult {
-    const blocks: BlockTypes[] = ["controls:forever", "controls:if"];
     const selectedBlocksSet = new Set(this.selectedBlocks);
+    const availableBlocksMap = new Map<string, BlockTypes[]>();
+    ["controls:forever", "controls:if", "events:when_start_clicked"].forEach((block: BlockTypes) => {
+      const [category] = block.split(":") as [string];
+      if (!availableBlocksMap.has(category)) {
+        availableBlocksMap.set(category, []);
+      }
+      availableBlocksMap.get(category)!.push(block);
+    });
 
     return html`
         <div class="group">
@@ -56,11 +63,18 @@ export class Options extends LitElementWw {
         <div class="group">
             <span class="label">${msg("OPTIONS.AVAILABLE_BLOCKS")}</span>
             <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectedBlocksChange}>
-                <sl-tree-item>
+                <sl-tree-item expanded>
                     all
-                    ${blocks.map((block) => html`
-                        <sl-tree-item .selected=${selectedBlocksSet.has(block)} data-block-key=${block}>
-                            ${block}
+                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => html`
+                        <sl-tree-item>
+                            ${category}
+                            ${blocks.map((block) => html`
+                            <sl-tree-item .selected=${selectedBlocksSet.has(block) && block !== "events:when_start_clicked"}
+                                          .disabled=${block === "events:when_start_clicked"}
+                                          data-block-key=${block}>
+                                ${block}
+                            </sl-tree-item>
+                            `)}
                         </sl-tree-item>
                     `)}
                 </sl-tree-item>
@@ -80,6 +94,7 @@ export class Options extends LitElementWw {
     const selectedBlocks = event.detail.selection
       .filter((item) => item.getAttribute("data-block-key"))
       .map((item) => item.getAttribute("data-block-key") as BlockTypes);
+    selectedBlocks.push("events:when_start_clicked");
 
     const changeEvent = new OptionsChangeEvent({
       selectedBlocks,

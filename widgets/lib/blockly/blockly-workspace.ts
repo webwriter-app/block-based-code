@@ -96,10 +96,12 @@ export class BlocklyWorkspace {
   }
 
   private injectWorkspace(): void {
+    const readOnly = this.readonly || this.selectedBlocks.length === 0;
+
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,
-      // readOnly: this.readonly || this.availableBlocks.length === 0,
+      readOnly,
       sounds: false,
       collapse: false,
       comments: false,
@@ -118,8 +120,8 @@ export class BlocklyWorkspace {
         metricsManager: ContinuousMetrics,
       },
     });
-    if (!this.readonly) {
-      // this.registerVariablesCategory();
+    if (!readOnly) {
+      this.registerVariablesCategory();
     }
     this.moveStyleElementsToContainer();
   }

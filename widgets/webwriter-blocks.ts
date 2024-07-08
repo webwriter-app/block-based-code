@@ -28,7 +28,7 @@ export class WebwriterBlocks extends LitElementWw {
   public stageType: StageType = StageType.CANVAS;
 
   @property({ type: Array, reflect: true })
-  public selectedBlocks: SelectedBlocks = [];
+  public selectedBlocks: SelectedBlocks = ["events:when_start_clicked"];
 
   @property({ type: String, reflect: true })
   public editorState: string = "{}";
