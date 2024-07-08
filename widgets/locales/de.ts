@@ -1,12 +1,15 @@
 import { Dictionary } from "../types";
 
-export const dictionary = {
+export const dictionary: Dictionary = {
   START: "Starte Ausführung",
   STOP: "Stoppe Ausführung",
   FULLSCREEN: "Vollbildmodus",
   FULLSCREEN_EXIT: "Vollbildmodus verlassen",
   ERROR: "Es ist ein Fehler aufgetreten!",
-  AVAILABLE_BLOCKS: "Verfügbare Bausteine",
+  OPTIONS: {
+    STAGE: "Bühne",
+    AVAILABLE_BLOCKS: "Verfügbare Bausteine",
+  },
   BLOCKS: {
     // Events
     WHEN_START_CLICKED: "wenn %1 angeklickt wird",
@@ -29,4 +32,4 @@ export const dictionary = {
     X_POSITION: "x-Position",
     Y_POSITION: "y-Position",
   },
-} satisfies Dictionary;
+};

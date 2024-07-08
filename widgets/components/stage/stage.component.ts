@@ -85,7 +85,7 @@ export class Stage extends LitElementWw implements IStage {
       pending: () => html`<sl-spinner></sl-spinner>`,
       error: (error: Error) => {
         Logger.log(error);
-        return html`<div class="error">${msg("error")}</div>`;
+        return html`<div class="error">${msg("ERROR")}</div>`;
       },
     };
 

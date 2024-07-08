@@ -1,6 +1,10 @@
 export interface IStage {
   start(): void;
   stop(): void;
+}
 
-  get blocks(): string[];
+export enum StageType {
+  CANVAS = "canvas",
+  CODE_EDITOR = "code-editor",
+  TEST = "test",
 }

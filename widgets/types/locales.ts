@@ -7,7 +7,10 @@ export type Dictionary = {
   FULLSCREEN: string;
   FULLSCREEN_EXIT: string;
   ERROR: string;
-  AVAILABLE_BLOCKS: string;
+  OPTIONS: {
+    STAGE: string;
+    AVAILABLE_BLOCKS: string;
+  }
   BLOCKS: {
     [key: string]: string;
   }

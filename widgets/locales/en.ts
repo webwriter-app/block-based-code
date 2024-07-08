@@ -7,7 +7,10 @@ export const dictionary = {
   FULLSCREEN: "Enter Fullscreen",
   FULLSCREEN_EXIT: "Leave Fullscreen",
   ERROR: "An error occurred!",
-  AVAILABLE_BLOCKS: "Available Blocks",
+  OPTIONS: {
+    STAGE: "Stage",
+    AVAILABLE_BLOCKS: "Available Blocks",
+  },
   BLOCKS: {
     // Events
     WHEN_START_CLICKED: "when %1 clicked",

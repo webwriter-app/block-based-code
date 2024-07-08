@@ -56,9 +56,9 @@ export class WebwriterBlocks extends LitElementWw {
           :host {
               display: flex !important;
               flex-direction: column;
-              gap: 8px;
+              gap: var(--sl-spacing-x-small);
               
-              padding: 8px;
+              padding: var(--sl-spacing-x-small);
 
               user-select: none;
 
