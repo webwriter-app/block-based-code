@@ -3,7 +3,7 @@ import {
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
-import { createToolboxFromBlockList } from "./toolbox";
+import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
 
 export class BlocklyWorkspace {
@@ -22,14 +22,14 @@ export class BlocklyWorkspace {
 
   private readonly: boolean;
 
-  private availableBlocks: BlockTypes[];
+  private selectedBlocks: SelectedBlocks;
 
   private workspace: WorkspaceSvg;
 
-  constructor(readonly: boolean, availableBlocks: BlockTypes[]) {
+  constructor(readonly: boolean, selectedBlocks: SelectedBlocks) {
     BlocklyInitializer.define();
     this.readonly = readonly;
-    this.availableBlocks = availableBlocks;
+    this.selectedBlocks = selectedBlocks;
 
     this.createContainer();
     this.injectWorkspace();
@@ -81,9 +81,9 @@ export class BlocklyWorkspace {
     this.workspace.dispose();
   }
 
-  public updateToolbox(availableBlocks: BlockTypes[]): void {
-    this.availableBlocks = availableBlocks;
-    const toolbox = createToolboxFromBlockList(this.availableBlocks);
+  public updateToolbox(selectedBlocks: SelectedBlocks): void {
+    this.selectedBlocks = selectedBlocks;
+    const toolbox = createToolboxFromBlockList(this.selectedBlocks);
     this.workspace.updateToolbox(toolbox);
     this.workspace.refreshToolboxSelection();
   }
@@ -107,7 +107,10 @@ export class BlocklyWorkspace {
       move: {
         wheel: true,
       },
-      toolbox: createToolboxFromBlockList(this.availableBlocks),
+      toolbox: createToolboxFromBlockList(this.selectedBlocks),
+      maxInstances: {
+        "events:when_start_clicked": 1,
+      } satisfies Partial<Record<BlockTypes, number>>,
       maxTrashcanContents: 0,
       plugins: {
         toolbox: ContinuousToolbox,

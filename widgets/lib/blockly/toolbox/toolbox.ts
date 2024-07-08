@@ -16,11 +16,12 @@ interface IToolbox {
     }[];
   }[];
 }
-
-export const createToolboxFromBlockList = (blocks: BlockTypes[]): IToolbox => {
+export type SelectedBlocks = BlockTypes[];
+export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => {
   const toolbox = new Map<CategoryStyle, IToolbox["contents"][number]["contents"][number][]>();
+  blocks.push("events:when_start_clicked");
 
-  ["events:when_start_clicked" as BlockTypes, ...blocks].forEach((block) => {
+  blocks.sort().forEach((block) => {
     const [category] = block.split(":") as [CategoryStyle];
 
     if (!toolbox.has(category)) {

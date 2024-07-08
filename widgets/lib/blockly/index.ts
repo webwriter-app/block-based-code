@@ -1,3 +1,4 @@
 export * from "./blockly-workspace";
 
-export { BlockTypes } from "./blocks";
+export type { BlockTypes } from "./blocks";
+export type { SelectedBlocks } from "./toolbox";

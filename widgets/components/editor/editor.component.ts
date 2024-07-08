@@ -6,9 +6,8 @@ import {
 import { PropertyValues } from "@lit/reactive-element";
 import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
-import { BlocklyWorkspace } from "../../lib/blockly/blockly-workspace";
-import { EditorChangeEvent } from "../../types/events";
-import { BlockTypes } from "../../lib/blockly";
+import { BlocklyWorkspace, SelectedBlocks } from "../../lib/blockly";
+import { EditorChangeEvent } from "../../types";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -19,13 +18,10 @@ export class Editor extends LitElementWw {
   public readonly: boolean;
 
   @property({ type: Array })
-  public availableBlocks: BlockTypes[];
+  public selectedBlocks: SelectedBlocks;
 
   @property({ type: String })
   public initialState: string;
-
-  @property({ type: Array })
-  public disabledBlocks: BlockTypes[];
 
   private resizeObserver: ResizeObserver;
 
@@ -55,7 +51,7 @@ export class Editor extends LitElementWw {
     super.connectedCallback();
     this.resizeObserver.observe(this);
 
-    this.workspace = new BlocklyWorkspace(this.readonly, this.availableBlocks);
+    this.workspace = new BlocklyWorkspace(this.readonly, this.selectedBlocks);
     this.workspace.load(this.initialState);
     this.workspace.addEventListener("CHANGE", this.handleChange.bind(this));
     this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
@@ -77,6 +73,18 @@ export class Editor extends LitElementWw {
     `;
   }
 
+  protected shouldUpdate(changedProperties: PropertyValues): boolean {
+    let shouldUpdate = false;
+    if (changedProperties.has("readonly")) {
+      shouldUpdate = true;
+    }
+    if (changedProperties.get("selectedBlocks")) {
+      this.workspace.updateToolbox(this.selectedBlocks);
+    }
+
+    return shouldUpdate;
+  }
+
   protected firstUpdated(_changedProperties: PropertyValues): void {
     super.firstUpdated(_changedProperties);
     this.shadowRoot.appendChild(this.workspace.container);
@@ -84,9 +92,6 @@ export class Editor extends LitElementWw {
 
   protected updated(_changedProperties: PropertyValues): void {
     super.updated(_changedProperties);
-    if (_changedProperties.get("availableBlocks")) {
-      this.workspace.updateToolbox(this.availableBlocks);
-    }
   }
 
   private handleResize(): void {

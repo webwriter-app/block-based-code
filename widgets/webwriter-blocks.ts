@@ -12,11 +12,11 @@ import {
 import { setLocale } from "./locales";
 import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
-import { IStage } from "./types";
+import { IStage, StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
-import { BlockTypes } from "./lib/blockly";
+import { SelectedBlocks } from "./lib/blockly";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -24,8 +24,11 @@ export class WebwriterBlocks extends LitElementWw {
   @option({ type: "boolean", label: { en: "Readonly", de: "Schreibgeschützt" } })
   public readonly: boolean = false;
 
+  @property({ type: String, reflect: true })
+  public stageType: StageType = StageType.CANVAS;
+
   @property({ type: Array, reflect: true })
-  public availableBlocks: BlockTypes[] = [];
+  public selectedBlocks: SelectedBlocks = [];
 
   @property({ type: String, reflect: true })
   public editorState: string = "{}";
@@ -111,14 +114,15 @@ export class WebwriterBlocks extends LitElementWw {
             <webwriter-blocks-editor slot="editor"
                                      id="editor"
                                      initialState=${this.editorState}
-                                     .availableBlocks=${this.availableBlocks}
+                                     .selectedBlocks=${this.selectedBlocks}
                                      .readonly=${this.readonly && !(this.contentEditable === "true" || this.contentEditable === "")}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
         </webwriter-blocks-application>
         <webwriter-blocks-options part="options"
-                                  .availableBlocks=${this.availableBlocks}
+                                  stageType=${this.stageType}
+                                  .selectedBlocks=${this.selectedBlocks}
                                   @change=${this.handleOptionsChange}>
         </webwriter-blocks-options>
     `;
@@ -165,8 +169,11 @@ export class WebwriterBlocks extends LitElementWw {
   private handleOptionsChange(event: OptionsChangeEvent): void {
     const options = event.detail;
 
-    if (options.availableBlocks) {
-      this.availableBlocks = options.availableBlocks;
+    if (options.selectedBlocks) {
+      this.selectedBlocks = options.selectedBlocks;
+    }
+    if (options.stageType) {
+      this.stageType = options.stageType;
     }
   }
 }
