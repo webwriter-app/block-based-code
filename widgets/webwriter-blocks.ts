@@ -16,7 +16,7 @@ import { IStage, StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
-import { SelectedBlocks } from "./lib/blockly";
+import { BlockTypes, SelectedBlocks } from "./lib/blockly";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -36,6 +36,9 @@ export class WebwriterBlocks extends LitElementWw {
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean = false;
+
+  @state()
+  private availableBlocks: BlockTypes[] = [];
 
   @query("#editor")
   private editor!: Editor;
@@ -69,7 +72,6 @@ export class WebwriterBlocks extends LitElementWw {
               box-sizing: border-box;
               border: 1px solid var(--sl-color-gray-300);
               border-radius: var(--sl-border-radius-medium);
-              overflow: hidden;
 
               background-color: var(--sl-color-gray-50);
           }
@@ -118,14 +120,23 @@ export class WebwriterBlocks extends LitElementWw {
                                      .readonly=${this.readonly && !(this.contentEditable === "true" || this.contentEditable === "")}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
-            <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
+            ${this.stageType === StageType.CANVAS ? html`<webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>` : null}
         </webwriter-blocks-application>
-        <webwriter-blocks-options part="options"
-                                  stageType=${this.stageType}
-                                  .selectedBlocks=${this.selectedBlocks}
-                                  @change=${this.handleOptionsChange}>
+        ${this.contentEditable === "true" || this.contentEditable === "" ? html`
+            <webwriter-blocks-options part="options"
+                                      stageType=${this.stageType}
+                                      .availableBlocks=${this.availableBlocks}
+                                      .selectedBlocks=${this.selectedBlocks}
+                                      @change=${this.handleOptionsChange}>
+        ` : null}
         </webwriter-blocks-options>
     `;
+  }
+
+  protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
+    super.firstUpdated(_changedProperties);
+
+    this.setBlocks();
   }
 
   private get isFullscreen(): boolean {
@@ -162,11 +173,10 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private handleEditorChange(event: EditorChangeEvent): void {
-    console.log(event.detail.workspace);
     this.editorState = event.detail.workspace;
   }
 
-  private handleOptionsChange(event: OptionsChangeEvent): void {
+  private async handleOptionsChange(event: OptionsChangeEvent): void {
     const options = event.detail;
 
     if (options.selectedBlocks) {
@@ -174,6 +184,20 @@ export class WebwriterBlocks extends LitElementWw {
     }
     if (options.stageType) {
       this.stageType = options.stageType;
+      await this.updateComplete;
+
+      this.setBlocks();
+    }
+  }
+
+  private setBlocks(): void {
+    if (this.stage) {
+      const { availableBlocks = [] as BlockTypes[] } = this.stage;
+      this.availableBlocks = availableBlocks;
+      this.selectedBlocks = [...availableBlocks];
+    } else {
+      this.availableBlocks = [];
+      this.selectedBlocks = [];
     }
   }
 }

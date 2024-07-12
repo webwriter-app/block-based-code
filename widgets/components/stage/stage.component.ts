@@ -11,6 +11,7 @@ import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { IStage } from "../../types/stage";
+import { BlockTypes } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw implements IStage {
@@ -103,6 +104,15 @@ export class Stage extends LitElementWw implements IStage {
 
   public stop(): void {
     this.application.ticker.stop();
+  }
+
+  public get availableBlocks(): BlockTypes[] {
+    return [
+      "controls:repeat",
+      "controls:forever",
+      "controls:if",
+      "controls:if_else",
+    ];
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {

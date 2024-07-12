@@ -96,12 +96,10 @@ export class BlocklyWorkspace {
   }
 
   private injectWorkspace(): void {
-    const readOnly = this.readonly || this.selectedBlocks.length === 0;
-
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,
-      readOnly,
+      readOnly: this.readonly,
       sounds: false,
       collapse: false,
       comments: false,
@@ -120,7 +118,7 @@ export class BlocklyWorkspace {
         metricsManager: ContinuousMetrics,
       },
     });
-    if (!readOnly) {
+    if (!this.readonly) {
       this.registerVariablesCategory();
     }
     this.moveStyleElementsToContainer();

@@ -35,19 +35,19 @@ export class Toolbar extends LitElementWw {
   public render(): TemplateResult {
     return html`
       <div class="actions">
-        <sl-tooltip content="${msg(this.fullscreen ? "fullscreenExit" : "fullscreen")}">
+        <sl-tooltip content="${msg(this.fullscreen ? "FULLSCREEN_EXIT" : "FULLSCREEN")}">
           <sl-button variant="text" @click="${this.handleFullscreenToggle}">
             <sl-icon src="${this.fullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}"></sl-icon>
           </sl-button>
         <sl-tooltip>
       </div>
       <div class="actions">
-        <sl-tooltip content="${msg("stop")}">
+        <sl-tooltip content="${msg("STOP")}">
           <sl-button id="stop" variant="text" @click="${this.handleStopClick}">
               <sl-icon src="${PlayerStopIcon}" label="Stop Execution"></sl-icon>
           </sl-button>
         </sl-tooltip>
-        <sl-tooltip content="${msg("start")}">
+        <sl-tooltip content="${msg("START")}">
           <sl-button id="play" variant="text" @click="${this.handleStartClick}">
               <sl-icon src="${PlayerPlayIcon}" label="Start Execution"></sl-icon>
           </sl-button>

@@ -19,6 +19,9 @@ export class Options extends LitElementWw {
   @property({ type: Array })
   public selectedBlocks: SelectedBlocks;
 
+  @property({ type: Array })
+  public availableBlocks: BlockTypes[];
+
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-select": SlSelect,
@@ -40,19 +43,20 @@ export class Options extends LitElementWw {
 
   public render(): TemplateResult {
     const selectedBlocksSet = new Set(this.selectedBlocks);
-    const availableBlocksMap = new Map<string, BlockTypes[]>();
-    ["controls:forever", "controls:if", "events:when_start_clicked"].forEach((block: BlockTypes) => {
-      const [category] = block.split(":") as [string];
+    const availableBlocksMap = new Map<string, string[]>();
+
+    this.availableBlocks.forEach((block: BlockTypes) => {
+      const [category, name] = block.split(":") as [string, string];
       if (!availableBlocksMap.has(category)) {
         availableBlocksMap.set(category, []);
       }
-      availableBlocksMap.get(category)!.push(block);
+      availableBlocksMap.get(category)!.push(name);
     });
 
     return html`
         <div class="group">
             <span class="label">${msg("OPTIONS.STAGE")}</span>
-            <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange}>
+            <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange} hoist>
                 ${Object.values(StageType).map((type) => html`
                     <sl-option value=${type} .disabled=${type === StageType.CODE_EDITOR}>
                         ${type}
@@ -68,11 +72,10 @@ export class Options extends LitElementWw {
                     ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => html`
                         <sl-tree-item>
                             ${category}
-                            ${blocks.map((block) => html`
-                            <sl-tree-item .selected=${selectedBlocksSet.has(block) && block !== "events:when_start_clicked"}
-                                          .disabled=${block === "events:when_start_clicked"}
-                                          data-block-key=${block}>
-                                ${block}
+                            ${blocks.map((name) => html`
+                            <sl-tree-item .selected=${selectedBlocksSet.has(`${category}:${name}` as BlockTypes)}
+                                          data-block-key=${`${category}:${name}`}>
+                                ${name}
                             </sl-tree-item>
                             `)}
                         </sl-tree-item>
@@ -83,9 +86,9 @@ export class Options extends LitElementWw {
     `;
   }
 
-  private handleStageTypeChange(): void {
+  private handleStageTypeChange(e): void {
     const changeEvent = new OptionsChangeEvent({
-      stageType: this.stageType,
+      stageType: e.target.value,
     });
     this.dispatchEvent(changeEvent);
   }
@@ -94,7 +97,6 @@ export class Options extends LitElementWw {
     const selectedBlocks = event.detail.selection
       .filter((item) => item.getAttribute("data-block-key"))
       .map((item) => item.getAttribute("data-block-key") as BlockTypes);
-    selectedBlocks.push("events:when_start_clicked");
 
     const changeEvent = new OptionsChangeEvent({
       selectedBlocks,

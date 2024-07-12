@@ -19,6 +19,7 @@ interface IToolbox {
 export type SelectedBlocks = BlockTypes[];
 export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => {
   const toolbox = new Map<CategoryStyle, IToolbox["contents"][number]["contents"][number][]>();
+  blocks.push("events:when_start_clicked");
 
   blocks.sort().forEach((block) => {
     const [category] = block.split(":") as [CategoryStyle];
@@ -32,7 +33,6 @@ export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => 
       inputs: {},
     });
   });
-
   return {
     kind: "categoryToolbox",
     contents: Array.from(toolbox.entries()).map(([category, contents]) => ({

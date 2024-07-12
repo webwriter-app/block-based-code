@@ -33,7 +33,6 @@ export const setLocale = (lang: string) => {
       ...webwriterEn.BLOCKS,
     },
   }[lang]);
-  console.log(Blockly.Msg);
 };
 
 export const msg = (key: Leaves<Dictionary>) => get(dictionaries[currentLang], key);
