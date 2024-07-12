@@ -33,4 +33,11 @@ export const dictionary: Dictionary = {
     X_POSITION: "x-Position",
     Y_POSITION: "y-Position",
   },
+  CATEGORY: {
+    CONTROLS: "Steuerung",
+    EVENTS: "Ereignisse",
+    OPERATORS: "Operatoren",
+    MOTIONS: "Bewegungen",
+    VARIABLES: "Variablen",
+  },
 };

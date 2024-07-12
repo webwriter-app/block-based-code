@@ -1,7 +1,7 @@
 import { Dictionary } from "../types";
 
 // eslint-disable-next-line import/no-default-export
-export const dictionary = {
+export const dictionary: Dictionary = {
   START: "Start Execution",
   STOP: "Stop Execution",
   FULLSCREEN: "Enter Fullscreen",
@@ -34,4 +34,11 @@ export const dictionary = {
     X_POSITION: "x-position",
     Y_POSITION: "y-position",
   },
-} satisfies Dictionary;
+  CATEGORY: {
+    CONTROLS: "Controls",
+    EVENTS: "Events",
+    OPERATORS: "Operators",
+    MOTIONS: "Motions",
+    VARIABLES: "Variables",
+  },
+};

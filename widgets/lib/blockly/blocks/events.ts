@@ -18,4 +18,4 @@ export const blocks = [
     category: "events",
     style: "event_blocks",
   } as const,
-]satisfies Block[];
+] satisfies Block[];

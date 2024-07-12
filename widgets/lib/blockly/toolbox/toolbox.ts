@@ -1,5 +1,6 @@
 import { blockArguments, BlockTypes } from "../blocks";
 import { CategoryStyle } from "../theme";
+import { msg } from "../../../locales";
 
 interface IToolbox {
   kind: "categoryToolbox";
@@ -54,14 +55,14 @@ export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => 
 
   const categories: IToolbox["contents"] = Array.from(toolbox.entries()).map(([category, contents]) => ({
     kind: "category",
-    name: category,
+    name: msg(`CATEGORY.${category.toUpperCase()}` as any),
     categoryStyle: category,
     contents,
   }));
   if (variables) {
     categories.push({
       kind: "category",
-      name: "variables",
+      name: msg("CATEGORY.VARIABLES"),
       categoryStyle: "variables",
       custom: "VARIABLE",
     });
