@@ -108,10 +108,28 @@ export class Stage extends LitElementWw implements IStage {
 
   public get availableBlocks(): BlockTypes[] {
     return [
+      "controls:wait",
       "controls:repeat",
       "controls:forever",
       "controls:if",
       "controls:if_else",
+      "controls:stop",
+      "motions:move",
+      "motions:rotate",
+      "motions:go_to_x",
+      "motions:go_to_y",
+      "motions:go_to_xy",
+      "motions:x_position",
+      "motions:y_position",
+      "operators:sum",
+      "operators:subtract",
+      "operators:multiply",
+      "operators:divide",
+      "operators:greater",
+      "operators:smaller",
+      "operators:equal",
+      "operators:and",
+      "operators:or",
     ];
   }
 

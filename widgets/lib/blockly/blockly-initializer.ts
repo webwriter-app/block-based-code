@@ -26,7 +26,6 @@ export class BlocklyInitializer {
   }
 
   private static defineBlocks(): void {
-    const blockDefinitions = common.createBlockDefinitionsFromJsonArray(blocks);
-    common.defineBlocks(blockDefinitions);
+    common.defineBlocksWithJsonArray(blocks);
   }
 }

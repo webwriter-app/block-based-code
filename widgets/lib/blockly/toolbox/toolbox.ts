@@ -1,4 +1,4 @@
-import { BlockTypes } from "../blocks";
+import { blockDefinitions, BlockTypes } from "../blocks";
 import { CategoryStyle } from "../theme";
 
 interface IToolbox {
@@ -19,18 +19,33 @@ interface IToolbox {
 export type SelectedBlocks = BlockTypes[];
 export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => {
   const toolbox = new Map<CategoryStyle, IToolbox["contents"][number]["contents"][number][]>();
-  blocks.push("events:when_start_clicked");
+  blocks.unshift("events:when_start_clicked");
 
-  blocks.sort().forEach((block) => {
+  blocks.forEach((block) => {
     const [category] = block.split(":") as [CategoryStyle];
 
     if (!toolbox.has(category)) {
       toolbox.set(category, []);
     }
+
+    let argsIndex = 0;
+    const inputs = {};
+    while (blockDefinitions[block][`args${argsIndex}`]) {
+      const args = blockDefinitions[block][`args${argsIndex}`];
+
+      args.forEach((arg) => {
+        if (arg.type && arg.type === "input_value") {
+          if (arg.check && arg.check === "Number") {
+            inputs[arg.name] = { shadow: { type: "math:number", fields: { NUM: "0" } } };
+          }
+        }
+      });
+      argsIndex += 1;
+    }
     toolbox.get(category)!.push({
       kind: "block",
       type: block,
-      inputs: {},
+      inputs,
     });
   });
   return {

@@ -4,7 +4,7 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import {
-  SlOption, SlSelect, SlTree, SlTreeItem,
+  SlCheckbox, SlOption, SlSelect, SlTree, SlTreeItem,
 } from "@shoelace-style/shoelace";
 import { styles } from "./options.styles";
 import { msg } from "../../locales";
@@ -13,6 +13,9 @@ import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
+  @property({ type: Number })
+  public readonly: 0 | 1;
+
   @property({ type: String })
   public stageType: StageType;
 
@@ -24,6 +27,7 @@ export class Options extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
+      "sl-checkbox": SlCheckbox,
       "sl-select": SlSelect,
       "sl-option": SlOption,
       "sl-tree": SlTree,
@@ -55,6 +59,11 @@ export class Options extends LitElementWw {
 
     return html`
         <div class="group">
+            <sl-checkbox .checked=${this.readonly === 1} @sl-change=${this.handleReadonlyChange}>
+                ${msg("OPTIONS.READONLY")}
+            </sl-checkbox>
+        </div>
+        <div class="group">
             <span class="label">${msg("OPTIONS.STAGE")}</span>
             <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange} hoist>
                 ${Object.values(StageType).map((type) => html`
@@ -84,6 +93,13 @@ export class Options extends LitElementWw {
             </sl-tree>
         </div>
     `;
+  }
+
+  private handleReadonlyChange(e): void {
+    const changeEvent = new OptionsChangeEvent({
+      readonly: e.target.checked ? 1 : 0,
+    });
+    this.dispatchEvent(changeEvent);
   }
 
   private handleStageTypeChange(e): void {

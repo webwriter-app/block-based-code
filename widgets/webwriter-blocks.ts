@@ -1,7 +1,7 @@
 import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { LitElementWw, option } from "@webwriter/lit";
+import { LitElementWw } from "@webwriter/lit";
 import {
   customElement, property, query, state,
 } from "lit/decorators.js";
@@ -20,9 +20,8 @@ import { BlockTypes, SelectedBlocks } from "./lib/blockly";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
-  @property({ type: Boolean, reflect: true })
-  @option({ type: "boolean", label: { en: "Readonly", de: "Schreibgeschützt" } })
-  public readonly: boolean = false;
+  @property({ type: Number, reflect: true })
+  public readonly: 0 | 1 = 0;
 
   @property({ type: String, reflect: true })
   public stageType: StageType = StageType.CANVAS;
@@ -117,13 +116,14 @@ export class WebwriterBlocks extends LitElementWw {
                                      id="editor"
                                      initialState=${this.editorState}
                                      .selectedBlocks=${this.selectedBlocks}
-                                     .readonly=${this.readonly && !(this.contentEditable === "true" || this.contentEditable === "")}
+                                     .readonly=${this.readonly === 1 && !(this.contentEditable === "true" || this.contentEditable === "")}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
             ${this.stageType === StageType.CANVAS ? html`<webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>` : null}
         </webwriter-blocks-application>
         ${this.contentEditable === "true" || this.contentEditable === "" ? html`
             <webwriter-blocks-options part="options"
+                                      readonly=${this.readonly}
                                       stageType=${this.stageType}
                                       .availableBlocks=${this.availableBlocks}
                                       .selectedBlocks=${this.selectedBlocks}
@@ -176,7 +176,7 @@ export class WebwriterBlocks extends LitElementWw {
     this.editorState = event.detail.workspace;
   }
 
-  private async handleOptionsChange(event: OptionsChangeEvent): void {
+  private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {
     const options = event.detail;
 
     if (options.selectedBlocks) {
@@ -187,6 +187,9 @@ export class WebwriterBlocks extends LitElementWw {
       await this.updateComplete;
 
       this.setBlocks();
+    }
+    if (options.readonly !== undefined) {
+      this.readonly = options.readonly;
     }
   }
 

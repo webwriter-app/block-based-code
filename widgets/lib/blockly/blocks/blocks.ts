@@ -12,3 +12,8 @@ export const blocks = [
   numberBlock,
 ];
 export type BlockTypes = typeof blocks[number]["type"];
+
+export const blockDefinitions = blocks.reduce((acc, block) => {
+  acc[block.type] = block;
+  return acc;
+}, {}) as Record<BlockTypes, object>;

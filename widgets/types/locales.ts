@@ -8,6 +8,7 @@ export type Dictionary = {
   FULLSCREEN_EXIT: string;
   ERROR: string;
   OPTIONS: {
+    READONLY: string;
     STAGE: string;
     AVAILABLE_BLOCKS: string;
   }

@@ -8,6 +8,7 @@ export const dictionary = {
   FULLSCREEN_EXIT: "Leave Fullscreen",
   ERROR: "An error occurred!",
   OPTIONS: {
+    READONLY: "Readonly",
     STAGE: "Stage",
     AVAILABLE_BLOCKS: "Available Blocks",
   },

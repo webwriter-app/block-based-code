@@ -7,6 +7,7 @@ export const dictionary: Dictionary = {
   FULLSCREEN_EXIT: "Vollbildmodus verlassen",
   ERROR: "Es ist ein Fehler aufgetreten!",
   OPTIONS: {
+    READONLY: "Schreibgeschützt",
     STAGE: "Bühne",
     AVAILABLE_BLOCKS: "Verfügbare Bausteine",
   },
