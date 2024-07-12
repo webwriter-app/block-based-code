@@ -10,6 +10,11 @@ export const dictionary: Dictionary = {
   OPTIONS: {
     READONLY: "Readonly",
     STAGE: "Stage",
+    STAGE_TYPES: {
+      canvas: "Canvas",
+      "code-editor": "Code Editor",
+      test: "Test",
+    },
     AVAILABLE_BLOCKS: "Available Blocks",
   },
   BLOCKS: {

@@ -1,4 +1,5 @@
 import { CategoryTypes } from "../lib/blockly";
+import { StageType } from "./stage";
 
 export const languages = ["en", "de"] as const;
 export type Lang = typeof languages[number];
@@ -12,6 +13,7 @@ export type Dictionary = {
   OPTIONS: {
     READONLY: string;
     STAGE: string;
+    STAGE_TYPES: Record<StageType, string>;
     AVAILABLE_BLOCKS: string;
   }
   BLOCKS: Partial<Record<Uppercase<string>, string>>

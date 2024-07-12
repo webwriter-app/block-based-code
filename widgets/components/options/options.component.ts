@@ -70,7 +70,7 @@ export class Options extends LitElementWw {
             <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange} hoist>
                 ${Object.values(StageType).map((type) => html`
                     <sl-option value=${type} .disabled=${type === StageType.CODE_EDITOR}>
-                        ${type}
+                        ${msg(`OPTIONS.STAGE_TYPES.${type}`)}
                     </sl-option>
                 `)}
             </sl-select>
@@ -80,12 +80,12 @@ export class Options extends LitElementWw {
             <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectedBlocksChange}>
                 <sl-tree-item expanded>
                     all
-                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => (blocks.length === 0 ? (html`
+                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => (blocks.length === 0 ? html`
                         <sl-tree-item .selected=${selectedBlocksSet.has(category as BlockTypes)}
                                       data-block-key=${`${category}`}>
                             ${category}
                         </sl-tree-item>
-                      `) : html`
+                      ` : html`
                           <sl-tree-item>
                               ${category}
                               ${blocks.map((name) => html`
