@@ -11,6 +11,7 @@ import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { IStage } from "../../types/stage";
+import { BlockTypes } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw implements IStage {
@@ -85,7 +86,7 @@ export class Stage extends LitElementWw implements IStage {
       pending: () => html`<sl-spinner></sl-spinner>`,
       error: (error: Error) => {
         Logger.log(error);
-        return html`<div class="error">${msg("error")}</div>`;
+        return html`<div class="error">${msg("ERROR")}</div>`;
       },
     };
 
@@ -103,6 +104,34 @@ export class Stage extends LitElementWw implements IStage {
 
   public stop(): void {
     this.application.ticker.stop();
+  }
+
+  public get availableBlocks(): BlockTypes[] {
+    return [
+      "controls:wait",
+      "controls:repeat",
+      "controls:forever",
+      "controls:if",
+      "controls:if_else",
+      "controls:stop",
+      "motions:move",
+      "motions:rotate",
+      "motions:go_to_x",
+      "motions:go_to_y",
+      "motions:go_to_xy",
+      "motions:x_position",
+      "motions:y_position",
+      "operators:sum",
+      "operators:subtract",
+      "operators:multiply",
+      "operators:divide",
+      "operators:greater",
+      "operators:smaller",
+      "operators:equal",
+      "operators:and",
+      "operators:or",
+      "variables",
+    ];
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {

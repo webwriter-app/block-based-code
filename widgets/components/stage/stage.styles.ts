@@ -4,7 +4,7 @@ export const styles = css`
     :host {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: var(--sl-spacing-x-small);
     }
 
     #stage {

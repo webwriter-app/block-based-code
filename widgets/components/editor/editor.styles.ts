@@ -23,7 +23,7 @@ export const styles = css`
 
     .blocklyTreeRow {
         margin-bottom: 0;
-        padding: 8px 12px !important;
+        padding: var(--sl-spacing-x-small) var(--sl-spacing-medium) !important;
 
         transition: var(--sl-transition-medium);
 

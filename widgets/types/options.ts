@@ -1,5 +1,8 @@
-import { BlockKey } from "../lib/blockly";
+import { BlockTypes } from "../lib/blockly";
+import { StageType } from "./stage";
 
 export interface Options {
-  availableBlocks?: BlockKey[];
+  readonly?: 0 | 1;
+  stageType?: StageType;
+  selectedBlocks?: BlockTypes[];
 }

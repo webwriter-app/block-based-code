@@ -1,28 +1,44 @@
 import {
-  FlyoutButton, inject, serialization, setParentContainer, svgResize, WorkspaceSvg,
+  Events,
+  FlyoutButton,
+  inject,
+  serialization,
+  setParentContainer,
+  svgResize,
+  Variables,
+  WorkspaceSvg,
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
-import { WebWriterToolbox } from "./toolbox";
-import { BlockKey } from "./types";
+import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
+import { BlockTypes } from "./blocks";
 
 export class BlocklyWorkspace {
+  private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
+
   private static readonly renderer = "zelos";
 
   private static readonly theme = "webwriter";
+
+  private static readonly supportedBlocklyEvents = new Set([
+    Events.BLOCK_CHANGE,
+    Events.BLOCK_CREATE,
+    Events.BLOCK_DELETE,
+    Events.BLOCK_MOVE,
+  ]);
 
   public container: HTMLDivElement;
 
   private readonly: boolean;
 
-  private availableBlocks: BlockKey[];
+  private selectedBlocks: SelectedBlocks;
 
   private workspace: WorkspaceSvg;
 
-  constructor(readonly: boolean, availableBlocks: BlockKey[]) {
+  constructor(readonly: boolean, selectedBlocks: SelectedBlocks) {
     BlocklyInitializer.define();
     this.readonly = readonly;
-    this.availableBlocks = availableBlocks;
+    this.selectedBlocks = selectedBlocks;
 
     this.createContainer();
     this.injectWorkspace();
@@ -45,10 +61,15 @@ export class BlocklyWorkspace {
   public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
     switch (key) {
       case "CREATE_VARIABLE":
-        this.workspace.registerButtonCallback(WebWriterToolbox.CREATE_VARIABLE_CALLBACK_KEY, callback);
+        this.workspace.registerButtonCallback(BlocklyWorkspace.newVariableButtonCallback, callback);
         break;
       case "CHANGE":
-        this.workspace.addChangeListener(callback);
+        this.workspace.addChangeListener((event) => {
+          if (this.workspace.isDragging()) return;
+          if (!BlocklyWorkspace.supportedBlocklyEvents.has(event.type)) return;
+
+          callback(event);
+        });
         break;
       default:
         throw new Error(`Event ${key} not supported`);
@@ -69,9 +90,9 @@ export class BlocklyWorkspace {
     this.workspace.dispose();
   }
 
-  public updateToolbox(availableBlocks: BlockKey[]): void {
-    this.availableBlocks = availableBlocks;
-    const toolbox = WebWriterToolbox.generateToolbox(this.availableBlocks);
+  public updateToolbox(selectedBlocks: SelectedBlocks): void {
+    this.selectedBlocks = selectedBlocks;
+    const toolbox = createToolboxFromBlockList(this.selectedBlocks);
     this.workspace.updateToolbox(toolbox);
     this.workspace.refreshToolboxSelection();
   }
@@ -84,11 +105,10 @@ export class BlocklyWorkspace {
   }
 
   private injectWorkspace(): void {
-    console.log(this.readonly || this.availableBlocks.length === 0);
     this.workspace = inject(this.container, {
       renderer: BlocklyWorkspace.renderer,
       theme: BlocklyWorkspace.theme,
-      readOnly: this.readonly || this.availableBlocks.length === 0,
+      readOnly: this.readonly,
       sounds: false,
       collapse: false,
       comments: false,
@@ -96,7 +116,10 @@ export class BlocklyWorkspace {
       move: {
         wheel: true,
       },
-      toolbox: WebWriterToolbox.generateToolbox(this.availableBlocks),
+      toolbox: createToolboxFromBlockList(this.selectedBlocks),
+      maxInstances: {
+        "events:when_start_clicked": 1,
+      } satisfies Partial<Record<BlockTypes, number>>,
       maxTrashcanContents: 0,
       plugins: {
         toolbox: ContinuousToolbox,
@@ -111,7 +134,19 @@ export class BlocklyWorkspace {
   }
 
   private registerVariablesCategory(): void {
-    this.workspace.registerToolboxCategoryCallback("VARIABLE", WebWriterToolbox.variablesCategoryCallback);
+    this.workspace.registerToolboxCategoryCallback("VARIABLE", (workspace: WorkspaceSvg): Element[] => {
+      const blockList: Element[] = [];
+
+      const button = document.createElement("button");
+      button.setAttribute("text", "Create variable");
+      button.setAttribute("callbackkey", BlocklyWorkspace.newVariableButtonCallback);
+      blockList.push(button);
+
+      const blocks = Variables.flyoutCategoryBlocks(workspace);
+      blockList.push(...blocks);
+
+      return blockList;
+    });
     this.workspace.getToolbox().refreshSelection();
   }
 

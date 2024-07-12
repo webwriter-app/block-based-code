@@ -1,7 +1,7 @@
 import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { LitElementWw, option } from "@webwriter/lit";
+import { LitElementWw } from "@webwriter/lit";
 import {
   customElement, property, query, state,
 } from "lit/decorators.js";
@@ -12,21 +12,22 @@ import {
 import { setLocale } from "./locales";
 import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
-import { IStage } from "./types";
+import { IStage, StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
-import { BlockKey } from "./lib/blockly";
-import { WebWriterToolbox } from "./lib/blockly/toolbox";
+import { BlockTypes, SelectedBlocks } from "./lib/blockly";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
-  @property({ type: Boolean, reflect: true })
-  @option({ type: "boolean", label: { en: "Readonly", de: "Schreibgeschützt" } })
-  public readonly: boolean = false;
+  @property({ type: Number, reflect: true })
+  public readonly: 0 | 1 = 0;
+
+  @property({ type: String, reflect: true })
+  public stageType: StageType = StageType.CANVAS;
 
   @property({ type: Array, reflect: true })
-  public availableBlocks: BlockKey[] = WebWriterToolbox.allBlocks;
+  public selectedBlocks: SelectedBlocks = ["events:when_start_clicked"];
 
   @property({ type: String, reflect: true })
   public editorState: string = "{}";
@@ -34,6 +35,9 @@ export class WebwriterBlocks extends LitElementWw {
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean = false;
+
+  @state()
+  private availableBlocks: BlockTypes[] = [];
 
   @query("#editor")
   private editor!: Editor;
@@ -57,9 +61,9 @@ export class WebwriterBlocks extends LitElementWw {
           :host {
               display: flex !important;
               flex-direction: column;
-              gap: 8px;
+              gap: var(--sl-spacing-x-small);
               
-              padding: 8px;
+              padding: var(--sl-spacing-x-small);
 
               user-select: none;
 
@@ -67,7 +71,6 @@ export class WebwriterBlocks extends LitElementWw {
               box-sizing: border-box;
               border: 1px solid var(--sl-color-gray-300);
               border-radius: var(--sl-border-radius-medium);
-              overflow: hidden;
 
               background-color: var(--sl-color-gray-50);
           }
@@ -112,16 +115,28 @@ export class WebwriterBlocks extends LitElementWw {
             <webwriter-blocks-editor slot="editor"
                                      id="editor"
                                      initialState=${this.editorState}
-                                     .availableBlocks=${this.availableBlocks}
-                                     .readonly=${this.readonly && !(this.contentEditable === "true" || this.contentEditable === "")}
+                                     .selectedBlocks=${this.selectedBlocks}
+                                     .readonly=${this.readonly === 1 && !(this.contentEditable === "true" || this.contentEditable === "")}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
-            <webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>
+            ${this.stageType === StageType.CANVAS ? html`<webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>` : null}
         </webwriter-blocks-application>
-        <webwriter-blocks-options part="options"
-                                  .availableBlocks=${this.availableBlocks}
-                                  @change=${this.handleOptionsChange}></webwriter-blocks-options>
+        ${this.contentEditable === "true" || this.contentEditable === "" ? html`
+            <webwriter-blocks-options part="options"
+                                      readonly=${this.readonly}
+                                      stageType=${this.stageType}
+                                      .availableBlocks=${this.availableBlocks}
+                                      .selectedBlocks=${this.selectedBlocks}
+                                      @change=${this.handleOptionsChange}>
+        ` : null}
+        </webwriter-blocks-options>
     `;
+  }
+
+  protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
+    super.firstUpdated(_changedProperties);
+
+    this.setBlocks();
   }
 
   private get isFullscreen(): boolean {
@@ -161,11 +176,31 @@ export class WebwriterBlocks extends LitElementWw {
     this.editorState = event.detail.workspace;
   }
 
-  private handleOptionsChange(event: OptionsChangeEvent): void {
+  private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {
     const options = event.detail;
 
-    if (options.availableBlocks) {
-      this.availableBlocks = options.availableBlocks;
+    if (options.selectedBlocks) {
+      this.selectedBlocks = options.selectedBlocks;
+    }
+    if (options.stageType) {
+      this.stageType = options.stageType;
+      await this.updateComplete;
+
+      this.setBlocks();
+    }
+    if (options.readonly !== undefined) {
+      this.readonly = options.readonly;
+    }
+  }
+
+  private setBlocks(): void {
+    if (this.stage) {
+      const { availableBlocks = [] as BlockTypes[] } = this.stage;
+      this.availableBlocks = availableBlocks;
+      this.selectedBlocks = [...availableBlocks];
+    } else {
+      this.availableBlocks = [];
+      this.selectedBlocks = [];
     }
   }
 }

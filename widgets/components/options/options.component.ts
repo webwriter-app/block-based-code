@@ -3,19 +3,33 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { SlTree, SlTreeItem } from "@shoelace-style/shoelace";
+import {
+  SlCheckbox, SlOption, SlSelect, SlTree, SlTreeItem,
+} from "@shoelace-style/shoelace";
 import { styles } from "./options.styles";
-import { BlockKey, CategoryKey } from "../../lib/blockly";
 import { msg } from "../../locales";
-import { OptionsChangeEvent } from "../../types";
+import { OptionsChangeEvent, StageType } from "../../types";
+import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
-  @property({ type: Array, attribute: true })
-  public availableBlocks: BlockKey[] = [];
+  @property({ type: Number })
+  public readonly: 0 | 1;
+
+  @property({ type: String })
+  public stageType: StageType;
+
+  @property({ type: Array })
+  public selectedBlocks: SelectedBlocks;
+
+  @property({ type: Array })
+  public availableBlocks: BlockTypes[];
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
+      "sl-checkbox": SlCheckbox,
+      "sl-select": SlSelect,
+      "sl-option": SlOption,
       "sl-tree": SlTree,
       "sl-tree-item": SlTreeItem,
     };
@@ -32,74 +46,83 @@ export class Options extends LitElementWw {
   }
 
   public render(): TemplateResult {
-    const blocks: [CategoryKey, BlockKey[]][] = [
-      [
-        CategoryKey.CONTROLS, [
-          BlockKey.WAIT,
-          BlockKey.REPEAT,
-          BlockKey.FOREVER,
-          BlockKey.IF,
-          BlockKey.IF_ELSE,
-          BlockKey.STOP,
-        ],
-      ],
-      [
-        CategoryKey.EVENTS, [
-          BlockKey.WHEN_START_CLICKED,
-        ],
-      ],
-      [
-        CategoryKey.MOTIONS, [
-          BlockKey.MOVE,
-          BlockKey.ROTATE,
-          BlockKey.GO_TO_X,
-          BlockKey.GO_TO_Y,
-          BlockKey.GO_TO_XY,
-          BlockKey.X_POSITION,
-          BlockKey.Y_POSITION,
-        ],
-      ],
-      [
-        CategoryKey.OPERATORS, [
-          BlockKey.SUM,
-          BlockKey.SUBTRACT,
-          BlockKey.MULTIPLY,
-          BlockKey.DIVIDE,
-          BlockKey.SMALLER,
-          BlockKey.GREATER,
-          BlockKey.EQUAL,
-          BlockKey.AND,
-          BlockKey.OR,
-        ],
-      ],
-    ];
+    const selectedBlocksSet = new Set(this.selectedBlocks);
+    const availableBlocksMap = new Map<string, string[]>();
+
+    this.availableBlocks.forEach((block: BlockTypes) => {
+      const [category, name] = block.split(":") as [string, string];
+      if (!availableBlocksMap.has(category)) {
+        availableBlocksMap.set(category, []);
+      }
+      if (name) {
+        availableBlocksMap.get(category)!.push(name);
+      }
+    });
 
     return html`
-        <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectionChange}>
-            <sl-tree-item>
-                ${msg("availableBlocks")}
-                ${blocks.map(([category, blockKeys]) => html`
-                    <sl-tree-item>
-                        ${category}
-                        ${blockKeys.map((blockKey) => html`
-                            <sl-tree-item .selected=${this.availableBlocks.includes(blockKey)} data-block-key=${blockKey}>
-                                ${blockKey}
-                            </sl-tree-item>
-                        `)}
-                    </sl-tree-item>
-              `)}
-            </sl-tree-item>
-        </sl-tree>
+        <div class="group">
+            <sl-checkbox .checked=${this.readonly === 1} @sl-change=${this.handleReadonlyChange}>
+                ${msg("OPTIONS.READONLY")}
+            </sl-checkbox>
+        </div>
+        <div class="group">
+            <span class="label">${msg("OPTIONS.STAGE")}</span>
+            <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange} hoist>
+                ${Object.values(StageType).map((type) => html`
+                    <sl-option value=${type} .disabled=${type === StageType.CODE_EDITOR}>
+                        ${msg(`OPTIONS.STAGE_TYPES.${type}`)}
+                    </sl-option>
+                `)}
+            </sl-select>
+        </div>
+        <div class="group">
+            <span class="label">${msg("OPTIONS.AVAILABLE_BLOCKS")}</span>
+            <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectedBlocksChange}>
+                <sl-tree-item expanded>
+                    all
+                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => (blocks.length === 0 ? html`
+                        <sl-tree-item .selected=${selectedBlocksSet.has(category as BlockTypes)}
+                                      data-block-key=${`${category}`}>
+                            ${category}
+                        </sl-tree-item>
+                      ` : html`
+                          <sl-tree-item>
+                              ${category}
+                              ${blocks.map((name) => html`
+                              <sl-tree-item .selected=${selectedBlocksSet.has(`${category}:${name}` as BlockTypes)}
+                                            data-block-key=${`${category}:${name}`}>
+                                  ${name}
+                              </sl-tree-item>
+                              `)}
+                          </sl-tree-item>
+                      `))}
+                </sl-tree-item>
+            </sl-tree>
+        </div>
     `;
   }
 
-  private handleSelectionChange(event: CustomEvent<{ selection: SlTreeItem[] }>): void {
-    const availableBlocks = event.detail.selection
+  private handleReadonlyChange(e): void {
+    const changeEvent = new OptionsChangeEvent({
+      readonly: e.target.checked ? 1 : 0,
+    });
+    this.dispatchEvent(changeEvent);
+  }
+
+  private handleStageTypeChange(e): void {
+    const changeEvent = new OptionsChangeEvent({
+      stageType: e.target.value,
+    });
+    this.dispatchEvent(changeEvent);
+  }
+
+  private handleSelectedBlocksChange(event: CustomEvent<{ selection: SlTreeItem[] }>): void {
+    const selectedBlocks = event.detail.selection
       .filter((item) => item.getAttribute("data-block-key"))
-      .map((item) => item.getAttribute("data-block-key") as BlockKey);
+      .map((item) => item.getAttribute("data-block-key") as BlockTypes);
 
     const changeEvent = new OptionsChangeEvent({
-      availableBlocks,
+      selectedBlocks,
     });
     this.dispatchEvent(changeEvent);
   }

@@ -1,115 +1,99 @@
-import { Block, Blocks } from "blockly";
-import { BlockDefinition, BlockKey, CategoryKey } from "../types";
-import { BlockStyle } from "../theme";
+import { Block } from "../types";
 
-export class MotionBlocks {
-  private static readonly style = BlockStyle[CategoryKey.MOTIONS];
-
-  public static move(): BlockDefinition {
-    Blocks[BlockKey.MOVE] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("STEPS").setCheck("Number").appendField("move");
-        this.appendDummyInput().appendField("steps");
+export const blocks = [
+  {
+    type: "motions:move",
+    message0: "%{BKY_MOVE}",
+    args0: [
+      {
+        type: "input_value",
+        name: "STEPS",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockKey.MOVE,
-    };
-  }
-
-  public static rotate(): BlockDefinition {
-    Blocks[BlockKey.ROTATE] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("DEGREES").setCheck("Number").appendField("rotate");
-        this.appendDummyInput().appendField("degrees");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+  {
+    type: "motions:rotate",
+    message0: "%{BKY_ROTATE}",
+    args0: [
+      {
+        type: "input_value",
+        name: "DEGREES",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockKey.ROTATE,
-    };
-  }
-
-  public static goToX(): BlockDefinition {
-    Blocks[BlockKey.GO_TO_X] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("X").setCheck("Number").appendField("go to x:");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+  {
+    type: "motions:go_to_x",
+    message0: "%{BKY_GO_TO_X}",
+    args0: [
+      {
+        type: "input_value",
+        name: "X",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockKey.GO_TO_X,
-    };
-  }
-
-  public static goToY(): BlockDefinition {
-    Blocks[BlockKey.GO_TO_Y] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendValueInput("Y").setCheck("Number").appendField("go to y:");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+  {
+    type: "motions:go_to_y",
+    message0: "%{BKY_GO_TO_Y}",
+    args0: [
+      {
+        type: "input_value",
+        name: "Y",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockKey.GO_TO_Y,
-    };
-  }
-
-  public static goToXY(): BlockDefinition {
-    Blocks[BlockKey.GO_TO_XY] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.appendDummyInput().appendField("go to x:");
-        this.appendValueInput("X").setCheck("Number");
-        this.appendDummyInput().appendField("y:");
-        this.appendValueInput("Y").setCheck("Number");
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+  {
+    type: "motions:go_to_xy",
+    message0: "%{BKY_GO_TO_XY}",
+    args0: [
+      {
+        type: "input_value",
+        name: "X",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockKey.GO_TO_XY,
-    };
-  }
-
-  public static xPosition(): BlockDefinition {
-    Blocks[BlockKey.X_POSITION] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendDummyInput().appendField("x position");
+      {
+        type: "input_value",
+        name: "Y",
+        check: "Number",
       },
-    };
-    return {
-      kind: "block",
-      type: BlockKey.X_POSITION,
-    };
-  }
-
-  public static yPosition(): BlockDefinition {
-    Blocks[BlockKey.Y_POSITION] = {
-      init(this: Block) {
-        this.setStyle(MotionBlocks.style);
-        this.setOutput(true, "Number");
-        this.appendDummyInput().appendField("y position");
-      },
-    };
-    return {
-      kind: "block",
-      type: BlockKey.Y_POSITION,
-    };
-  }
-}
+    ],
+    inputsInline: true,
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+  {
+    type: "motions:x_position",
+    message0: "%{BKY_X_POSITION}",
+    output: "Number",
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+  {
+    type: "motions:y_position",
+    message0: "%{BKY_Y_POSITION}",
+    output: "Number",
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+] satisfies Block[];
