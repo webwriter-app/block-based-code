@@ -1,5 +1,12 @@
 import {
-  Events, FlyoutButton, inject, serialization, setParentContainer, svgResize, WorkspaceSvg,
+  Events,
+  FlyoutButton,
+  inject,
+  serialization,
+  setParentContainer,
+  svgResize,
+  Variables,
+  WorkspaceSvg,
 } from "blockly";
 import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
@@ -7,6 +14,8 @@ import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
 
 export class BlocklyWorkspace {
+  private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
+
   private static readonly renderer = "zelos";
 
   private static readonly theme = "webwriter";
@@ -52,7 +61,7 @@ export class BlocklyWorkspace {
   public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
     switch (key) {
       case "CREATE_VARIABLE":
-        this.workspace.registerButtonCallback("Ejne", callback);
+        this.workspace.registerButtonCallback(BlocklyWorkspace.newVariableButtonCallback, callback);
         break;
       case "CHANGE":
         this.workspace.addChangeListener((event) => {
@@ -125,7 +134,19 @@ export class BlocklyWorkspace {
   }
 
   private registerVariablesCategory(): void {
-    this.workspace.registerToolboxCategoryCallback("VARIABLE", () => null);
+    this.workspace.registerToolboxCategoryCallback("VARIABLE", (workspace: WorkspaceSvg): Element[] => {
+      const blockList: Element[] = [];
+
+      const button = document.createElement("button");
+      button.setAttribute("text", "Create variable");
+      button.setAttribute("callbackkey", BlocklyWorkspace.newVariableButtonCallback);
+      blockList.push(button);
+
+      const blocks = Variables.flyoutCategoryBlocks(workspace);
+      blockList.push(...blocks);
+
+      return blockList;
+    });
     this.workspace.getToolbox().refreshSelection();
   }
 

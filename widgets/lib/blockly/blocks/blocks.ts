@@ -11,9 +11,17 @@ export const blocks = [
   ...operatorBlocks,
   numberBlock,
 ];
-export type BlockTypes = typeof blocks[number]["type"];
+export type BlockTypes = typeof blocks[number]["type"] | "variables";
 
-export const blockDefinitions = blocks.reduce((acc, block) => {
-  acc[block.type] = block;
+export const blockArguments = blocks.reduce((acc, block) => {
+  const args = [];
+  let argsIndex = 0;
+  while (block[`args${argsIndex}`]) {
+    const blockArgs = block[`args${argsIndex}`];
+    args.push(blockArgs);
+    argsIndex += 1;
+  }
+
+  acc[block.type] = args;
   return acc;
-}, {}) as Record<BlockTypes, object>;
+}, {}) as Record<BlockTypes, { type: string; name: string; check: string }[][]>;

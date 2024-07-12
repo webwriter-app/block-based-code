@@ -54,7 +54,9 @@ export class Options extends LitElementWw {
       if (!availableBlocksMap.has(category)) {
         availableBlocksMap.set(category, []);
       }
-      availableBlocksMap.get(category)!.push(name);
+      if (name) {
+        availableBlocksMap.get(category)!.push(name);
+      }
     });
 
     return html`
@@ -78,17 +80,22 @@ export class Options extends LitElementWw {
             <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectedBlocksChange}>
                 <sl-tree-item expanded>
                     all
-                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => html`
-                        <sl-tree-item>
+                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => (blocks.length === 0 ? (html`
+                        <sl-tree-item .selected=${selectedBlocksSet.has(category as BlockTypes)}
+                                      data-block-key=${`${category}`}>
                             ${category}
-                            ${blocks.map((name) => html`
-                            <sl-tree-item .selected=${selectedBlocksSet.has(`${category}:${name}` as BlockTypes)}
-                                          data-block-key=${`${category}:${name}`}>
-                                ${name}
-                            </sl-tree-item>
-                            `)}
                         </sl-tree-item>
-                    `)}
+                      `) : html`
+                          <sl-tree-item>
+                              ${category}
+                              ${blocks.map((name) => html`
+                              <sl-tree-item .selected=${selectedBlocksSet.has(`${category}:${name}` as BlockTypes)}
+                                            data-block-key=${`${category}:${name}`}>
+                                  ${name}
+                              </sl-tree-item>
+                              `)}
+                          </sl-tree-item>
+                      `))}
                 </sl-tree-item>
             </sl-tree>
         </div>

@@ -130,6 +130,7 @@ export class Stage extends LitElementWw implements IStage {
       "operators:equal",
       "operators:and",
       "operators:or",
+      "variables",
     ];
   }
 
