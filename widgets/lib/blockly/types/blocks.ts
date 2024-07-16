@@ -1,6 +1,6 @@
 import { BlockStyle, CategoryStyle } from "../theme";
 
-export interface Block {
+export interface BlockDefinition {
   type: `${CategoryStyle}:${string}`;
   category: CategoryStyle;
   style: BlockStyle;

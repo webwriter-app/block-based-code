@@ -3,15 +3,16 @@ import { blocks as eventBlocks } from "./events";
 import { blocks as motionBlocks } from "./motions";
 import { blocks as operatorBlocks } from "./operators";
 import { numberBlock } from "./math";
-import { Block } from "../types";
+import { BlockDefinition } from "../types";
 
 export const blocks = [
   ...eventBlocks,
   ...controlBlocks,
   ...motionBlocks,
   ...operatorBlocks,
-  numberBlock as unknown as Block,
-] satisfies Block[];
+  numberBlock,
+] satisfies BlockDefinition[];
+
 export type BlockTypes = typeof blocks[number]["type"] | "variables";
 export type CategoryTypes = typeof blocks[number]["category"];
 

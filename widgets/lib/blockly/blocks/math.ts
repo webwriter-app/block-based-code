@@ -1,3 +1,5 @@
+import { BlockDefinition } from "../types";
+
 export const numberBlock = {
   type: "math:number",
   message0: "%1",
@@ -9,4 +11,6 @@ export const numberBlock = {
     },
   ],
   output: "Number",
-} as const;
+  category: null,
+  style: null,
+} as const satisfies BlockDefinition;

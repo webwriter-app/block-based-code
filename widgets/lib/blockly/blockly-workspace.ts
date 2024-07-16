@@ -12,6 +12,7 @@ import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly
 import { BlocklyInitializer } from "./blockly-initializer";
 import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
+import { codeGenerator } from "./generator";
 
 export class BlocklyWorkspace {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
@@ -49,6 +50,10 @@ export class BlocklyWorkspace {
   }
 
   public save(): string {
+    const startBlock = this.workspace.getBlocksByType("events:when_start_clicked")[0];
+    if (startBlock) {
+      console.log(codeGenerator.workspaceToCode(this.workspace));
+    }
     return JSON.stringify(serialization.workspaces.save(this.workspace));
   }
 

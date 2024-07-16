@@ -198,7 +198,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   private setBlocks(): void {
     const { usableBlocks } = this.stage.application;
-    console.log(usableBlocks);
     this.availableBlocks = usableBlocks;
     this.selectedBlocks = [...usableBlocks];
   }

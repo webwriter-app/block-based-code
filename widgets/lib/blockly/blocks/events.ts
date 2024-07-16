@@ -1,5 +1,5 @@
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
-import { Block } from "../types";
+import { BlockDefinition } from "../types";
 
 export const blocks = [
   {
@@ -14,8 +14,14 @@ export const blocks = [
         alt: "play",
       },
     ],
-    nextStatement: null,
+    message1: "%1",
+    args1: [
+      {
+        type: "input_statement",
+        name: "SUBSTACK",
+      },
+    ],
     category: "events",
     style: "event_blocks",
   } as const,
-] satisfies Block[];
+] satisfies BlockDefinition[];
