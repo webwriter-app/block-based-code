@@ -13,7 +13,7 @@ export const dictionary: Dictionary = {
     STAGE_TYPES: {
       canvas: "Canvas",
       "code-editor": "Code Editor",
-      test: "Test",
+      error: "Test",
     },
     AVAILABLE_BLOCKS: "Available Blocks",
   },

@@ -10,13 +10,10 @@ export class PixiApplication implements IStageApplication {
 
   private application: Application;
 
-  constructor(invalid: boolean = false) {
+  constructor() {
     this.application = new Application();
     this.initComplete = new Promise((resolve, reject) => {
       this.init().then(() => {
-        if (invalid) {
-          reject(new Error("Invalid"));
-        }
         resolve();
       }).catch((error) => {
         reject(error);
@@ -80,6 +77,7 @@ export class PixiApplication implements IStageApplication {
   }
 
   private async init(): Promise<void> {
+    await new Promise((resolve) => { setTimeout(resolve, 1e3); });
     await this.application.init({
       width: 800,
       height: 600,

@@ -1,14 +1,14 @@
 import { BlockTypes } from "../blockly";
 import { IStageApplication } from "../../types";
 
-export class TestApplication implements IStageApplication {
+export class ErrorApplication implements IStageApplication {
   public initComplete: Promise<void>;
 
   constructor() {
     this.initComplete = new Promise((resolve, reject) => {
       setTimeout(() => {
         reject(new Error("Invalid"));
-      }, 1000);
+      }, 5e3);
     });
   }
 

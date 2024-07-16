@@ -10,7 +10,7 @@ import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
 import { IStageApplication, StageType } from "../../types";
-import { TestApplication } from "../../lib/test";
+import { ErrorApplication } from "../../lib/error";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
@@ -43,7 +43,6 @@ export class Stage extends LitElementWw {
 
     this.readyTask = new Task(this, {
       task: async () => {
-        await new Promise((resolve) => { setTimeout(resolve, 1e3); });
         await this.application.initComplete;
       },
       autoRun: false,
@@ -107,8 +106,8 @@ export class Stage extends LitElementWw {
         break;
       case StageType.CODE_EDITOR:
         throw new Error("Not implemented yet.");
-      case StageType.TEST:
-        this.application = new TestApplication();
+      case StageType.Error:
+        this.application = new ErrorApplication();
         break;
       default:
         throw new Error("Invalid stage type.");
