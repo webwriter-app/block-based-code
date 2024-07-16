@@ -2,7 +2,7 @@ import { Order } from "blockly/javascript";
 import { BlockTypes } from "../blocks";
 import type { GeneratorFunction } from "../types/generator";
 
-export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
+export const generators = {
   "motions:move": (block, generator) => {
     const distance = generator.valueToCode(block, "STEPS", Order.ATOMIC);
     return `move(${distance});\n`;
@@ -24,6 +24,6 @@ export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
     const y = generator.valueToCode(block, "Y", Order.ATOMIC);
     return `goToXY(${x}, ${y});\n`;
   },
-  "motions:x_position": () => ["xPosition()", Order.ATOMIC],
-  "motions:y_position": () => ["yPosition()", Order.ATOMIC],
-};
+  "motions:x_position": () => ["xPosition()", Order.FUNCTION_CALL],
+  "motions:y_position": () => ["yPosition()", Order.FUNCTION_CALL],
+} satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

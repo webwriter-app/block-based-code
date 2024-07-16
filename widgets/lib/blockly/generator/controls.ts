@@ -3,10 +3,10 @@ import { Names } from "blockly";
 import { BlockTypes } from "../blocks";
 import type { GeneratorFunction } from "../types/generator";
 
-export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
+export const generators = {
   "controls:wait": (block, generator) => {
     const time = generator.valueToCode(block, "DURATION", Order.ATOMIC);
-    return `sleep(${time});`;
+    return `sleep(${time});\n`;
   },
   "controls:repeat": (block, generator) => {
     const times = generator.valueToCode(block, "TIMES", Order.ATOMIC);
@@ -58,4 +58,4 @@ export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
     return code;
   },
   "controls:stop": () => "return;",
-};
+} satisfies Partial<Record<BlockTypes, GeneratorFunction>>;
