@@ -1,4 +1,4 @@
-import { customElement, query } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
@@ -8,20 +8,23 @@ import { SlSpinner } from "@shoelace-style/shoelace";
 import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
-import { IStage } from "../../types/stage";
-import { BlockTypes } from "../../lib/blockly";
 import { PixiApplication } from "../../lib/pixi";
+import { IStageApplication, StageType } from "../../types";
+import { TestApplication } from "../../lib/test";
 
 @customElement("webwriter-blocks-stage")
-export class Stage extends LitElementWw implements IStage {
+export class Stage extends LitElementWw {
+  public application: IStageApplication;
+
+  @property({ type: String })
+  public stageType: StageType;
+
   @query("#stage")
-  private canvas!: HTMLDivElement;
+  private readonly stage!: HTMLDivElement;
 
-  private application: PixiApplication;
+  private readonly resizeObserver: ResizeObserver;
 
-  private resizeObserver: ResizeObserver;
-
-  private readyTask: Task;
+  private readonly readyTask: Task;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -38,7 +41,6 @@ export class Stage extends LitElementWw implements IStage {
   constructor() {
     super();
 
-    this.application = new PixiApplication();
     this.readyTask = new Task(this, {
       task: async () => {
         await new Promise((resolve) => { setTimeout(resolve, 1e3); });
@@ -46,7 +48,7 @@ export class Stage extends LitElementWw implements IStage {
       },
       autoRun: false,
       onComplete: () => {
-        this.canvas.appendChild(this.application.container);
+        this.stage.appendChild(this.application.container);
         this.application.show();
         Logger.log("Stage initialized!");
       },
@@ -59,7 +61,7 @@ export class Stage extends LitElementWw implements IStage {
 
     this.resizeObserver.observe(this);
 
-    this.readyTask.run();
+    this.applyStageType();
   }
 
   public disconnectedCallback() {
@@ -85,47 +87,32 @@ export class Stage extends LitElementWw implements IStage {
     `;
   }
 
-  public start(): void {
-    this.application.start();
-  }
-
-  public stop(): void {
-    this.application.stop();
-  }
-
-  public get availableBlocks(): BlockTypes[] {
-    return [
-      "controls:wait",
-      "controls:repeat",
-      "controls:forever",
-      "controls:if",
-      "controls:if_else",
-      "controls:stop",
-      "motions:move",
-      "motions:rotate",
-      "motions:go_to_x",
-      "motions:go_to_y",
-      "motions:go_to_xy",
-      "motions:x_position",
-      "motions:y_position",
-      "operators:sum",
-      "operators:subtract",
-      "operators:multiply",
-      "operators:divide",
-      "operators:greater",
-      "operators:smaller",
-      "operators:equal",
-      "operators:and",
-      "operators:or",
-      "variables",
-    ];
-  }
-
-  protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
-    super.firstUpdated(_changedProperties);
+  protected updated(changedProperties: Map<string | number | symbol, unknown>): void {
+    if (changedProperties.get("stageType")) {
+      this.applyStageType();
+    }
   }
 
   private handleResize(): void {
     this.application.resize();
+  }
+
+  private applyStageType(): void {
+    if (this.application) {
+      this.application.destroy();
+    }
+    switch (this.stageType) {
+      case StageType.CANVAS:
+        this.application = new PixiApplication();
+        break;
+      case StageType.CODE_EDITOR:
+        throw new Error("Not implemented yet.");
+      case StageType.TEST:
+        this.application = new TestApplication();
+        break;
+      default:
+        throw new Error("Invalid stage type.");
+    }
+    this.readyTask.run();
   }
 }

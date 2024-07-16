@@ -12,7 +12,7 @@ import {
 import { setLocale } from "./locales";
 import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
-import { IStage, StageType } from "./types";
+import { StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
@@ -43,7 +43,7 @@ export class WebwriterBlocks extends LitElementWw {
   private editor!: Editor;
 
   @query("#stage")
-  private stage!: IStage;
+  private stage!: Stage;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -119,7 +119,10 @@ export class WebwriterBlocks extends LitElementWw {
                                      .readonly=${this.readonly === 1 && !(this.contentEditable === "true" || this.contentEditable === "")}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
-            ${this.stageType === StageType.CANVAS ? html`<webwriter-blocks-stage slot="stage" id="stage"></webwriter-blocks-stage>` : null}
+            <webwriter-blocks-stage slot="stage"
+                                    id="stage"
+                                    stageType=${this.stageType}>
+            </webwriter-blocks-stage>
         </webwriter-blocks-application>
         ${this.contentEditable === "true" || this.contentEditable === "" ? html`
             <webwriter-blocks-options part="options"
@@ -162,13 +165,13 @@ export class WebwriterBlocks extends LitElementWw {
 
   private handleStart(): void {
     if (this.stage) {
-      this.stage.start();
+      this.stage.application.start();
     }
   }
 
   private handleStop(): void {
     if (this.stage) {
-      this.stage.stop();
+      this.stage.application.stop();
     }
   }
 
@@ -194,13 +197,9 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private setBlocks(): void {
-    if (this.stage) {
-      const { availableBlocks = [] as BlockTypes[] } = this.stage;
-      this.availableBlocks = availableBlocks;
-      this.selectedBlocks = [...availableBlocks];
-    } else {
-      this.availableBlocks = [];
-      this.selectedBlocks = [];
-    }
+    const { usableBlocks } = this.stage.application;
+    console.log(usableBlocks);
+    this.availableBlocks = usableBlocks;
+    this.selectedBlocks = [...usableBlocks];
   }
 }

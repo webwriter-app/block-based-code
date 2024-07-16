@@ -3,16 +3,20 @@ import {
 } from "pixi.js";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
+import { IStageApplication } from "../../types";
 
-export class PixiApplication {
+export class PixiApplication implements IStageApplication {
   public initComplete: Promise<void>;
 
   private application: Application;
 
-  constructor() {
+  constructor(invalid: boolean = false) {
     this.application = new Application();
     this.initComplete = new Promise((resolve, reject) => {
       this.init().then(() => {
+        if (invalid) {
+          reject(new Error("Invalid"));
+        }
         resolve();
       }).catch((error) => {
         reject(error);
@@ -24,6 +28,10 @@ export class PixiApplication {
     return this.application.canvas;
   }
 
+  public destroy(): void {
+    this.application.destroy();
+  }
+
   public start(): void {
     this.application.ticker.start();
   }
@@ -32,8 +40,32 @@ export class PixiApplication {
     this.application.ticker.stop();
   }
 
-  public get useableBlocks(): BlockTypes[] {
-    return [];
+  public get usableBlocks(): BlockTypes[] {
+    return [
+      "controls:wait",
+      "controls:repeat",
+      "controls:forever",
+      "controls:if",
+      "controls:if_else",
+      "controls:stop",
+      "motions:move",
+      "motions:rotate",
+      "motions:go_to_x",
+      "motions:go_to_y",
+      "motions:go_to_xy",
+      "motions:x_position",
+      "motions:y_position",
+      "operators:sum",
+      "operators:subtract",
+      "operators:multiply",
+      "operators:divide",
+      "operators:greater",
+      "operators:smaller",
+      "operators:equal",
+      "operators:and",
+      "operators:or",
+      "variables",
+    ];
   }
 
   public show(): void {
