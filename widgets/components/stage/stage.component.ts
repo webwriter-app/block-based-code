@@ -3,24 +3,23 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import * as Pixi from "pixi.js";
 import { Task } from "@lit/task";
 import { SlSpinner } from "@shoelace-style/shoelace";
-import bunny from "../../assets/bunny.png";
 import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { IStage } from "../../types/stage";
 import { BlockTypes } from "../../lib/blockly";
+import { PixiApplication } from "../../lib/pixi";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw implements IStage {
   @query("#stage")
   private canvas!: HTMLDivElement;
 
-  private resizeObserver: ResizeObserver;
+  private application: PixiApplication;
 
-  private application: Pixi.Application;
+  private resizeObserver: ResizeObserver;
 
   private readyTask: Task;
 
@@ -39,36 +38,25 @@ export class Stage extends LitElementWw implements IStage {
   constructor() {
     super();
 
-    this.application = new Pixi.Application();
-
+    this.application = new PixiApplication();
     this.readyTask = new Task(this, {
       task: async () => {
         await new Promise((resolve) => { setTimeout(resolve, 1e3); });
-        await Promise.all([
-          await this.application.init({
-            width: 800,
-            height: 600,
-            background: "white",
-            autoStart: false,
-          }),
-          await Pixi.Assets.load(bunny),
-        ]);
+        await this.application.initComplete;
       },
       autoRun: false,
       onComplete: () => {
-        Logger.log("Pixi.js initialized!");
-        this.handlePixiReady();
-        this.addSprite();
-        this.dummyAnimation();
-        this.application.render();
+        this.canvas.appendChild(this.application.container);
+        this.application.show();
+        Logger.log("Stage initialized!");
       },
     });
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
 
   public connectedCallback() {
     super.connectedCallback();
 
-    this.resizeObserver = new ResizeObserver(() => this.handleResize());
     this.resizeObserver.observe(this);
 
     this.readyTask.run();
@@ -94,16 +82,15 @@ export class Stage extends LitElementWw implements IStage {
       <div id="stage">
           ${this.readyTask.render(renderer)}
       </div>
-      
     `;
   }
 
   public start(): void {
-    this.application.ticker.start();
+    this.application.start();
   }
 
   public stop(): void {
-    this.application.ticker.stop();
+    this.application.stop();
   }
 
   public get availableBlocks(): BlockTypes[] {
@@ -138,50 +125,7 @@ export class Stage extends LitElementWw implements IStage {
     super.firstUpdated(_changedProperties);
   }
 
-  private addSprite(): void {
-    const filter = new Pixi.ColorMatrixFilter();
-    filter.hue(Math.random() * 360, true);
-
-    const sprite = Pixi.Sprite.from(bunny);
-    sprite.label = "bunny";
-    sprite.filters = [filter];
-    sprite.anchor = new Pixi.Point(0.5, 0.5);
-    sprite.x = this.application.canvas.width / 2;
-    sprite.y = this.application.canvas.height / 2;
-    sprite.setSize(100);
-    this.application.stage.addChild(sprite);
-  }
-
-  private dummyAnimation() : void {
-    const sprite = this.application.stage.getChildByLabel("bunny");
-
-    let ySpeed = (Math.random() * 0.4 + 0.1) * 0.5;
-    let xSpeed = (Math.random() * 0.4 + 0.1) * 0.5;
-
-    this.application.ticker.add((ticker) => {
-      sprite.y += ySpeed * ticker.deltaMS;
-      sprite.x += xSpeed * ticker.deltaMS;
-
-      if (sprite.y > this.application.canvas.height - 50 || sprite.y < 50) {
-        ySpeed *= -1;
-        sprite.filters[0].hue(Math.random() * 360, true);
-      }
-
-      if (sprite.x > this.application.canvas.width - 50 || sprite.x < 50) {
-        xSpeed *= -1;
-        sprite.filters[0].hue(Math.random() * 360, true);
-      }
-    });
-  }
-
-  private handlePixiReady(): void {
-    this.canvas.appendChild(this.application.canvas);
-    this.handleResize();
-  }
-
   private handleResize(): void {
-    if (this.application.renderer) {
-      this.application.canvas.style.transform = `scale(${this.canvas.clientWidth / this.application.canvas.width})`;
-    }
+    this.application.resize();
   }
 }
