@@ -50,9 +50,13 @@ export class BlocklyWorkspace {
   }
 
   public save(): string {
-    const startBlock = this.workspace.getBlocksByType("events:when_start_clicked")[0];
-    if (startBlock) {
-      console.log(codeGenerator.workspaceToCode(this.workspace));
+    try {
+      const startBlock = this.workspace.getBlocksByType("events:when_start_clicked")[0];
+      if (startBlock) {
+        console.log(codeGenerator.workspaceToCode(this.workspace));
+      }
+    } catch (error) {
+      console.error(error);
     }
     return JSON.stringify(serialization.workspaces.save(this.workspace));
   }

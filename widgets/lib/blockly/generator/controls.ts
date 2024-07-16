@@ -16,8 +16,8 @@ export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
     let code = "";
     const loopVar = generator.nameDB_.getDistinctName("count", Names.NameType.VARIABLE);
     code += `for (let ${loopVar} = 0; ${loopVar} < ${times}; ${loopVar}++) {\n`;
-    code += `${generator.prefixLines(branch, generator.INDENT)}\n`;
-    code += "}";
+    code += `${generator.prefixLines(branch, generator.INDENT)}`;
+    code += "}\n";
     return code;
   },
   "controls:forever": (block, generator) => {
@@ -26,8 +26,8 @@ export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
 
     let code = "";
     code += "while (true) {\n";
-    code += `${generator.prefixLines(branch, generator.INDENT)}\n`;
-    code += "}";
+    code += `${generator.prefixLines(branch, generator.INDENT)}`;
+    code += "}\n";
     return code;
   },
   "controls:if": (block, generator) => {
@@ -37,8 +37,8 @@ export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
 
     let code = "";
     code += `if (${condition}) {\n`;
-    code += `${branch}\n`;
-    code += "}";
+    code += `${branch}`;
+    code += "}\n";
     return code;
   },
   "controls:if_else": (block, generator) => {
@@ -51,10 +51,10 @@ export const generators: Partial<Record<BlockTypes, GeneratorFunction>> = {
 
     let code = "";
     code += `if (${condition}) {\n`;
-    code += `${branch}\n`;
+    code += `${branch}`;
     code += "} else {\n";
-    code += `${elseBranch}\n`;
-    code += "}";
+    code += `${elseBranch}`;
+    code += "}\n";
     return code;
   },
   "controls:stop": () => "return;",
