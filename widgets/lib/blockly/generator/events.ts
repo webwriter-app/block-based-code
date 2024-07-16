@@ -6,7 +6,8 @@ export const generators = {
     let code = "function main() { \n";
     const branch = generator.statementToCode(block, "SUBSTACK");
     code += `${generator.prefixLines(branch, generator.INDENT)}`;
-    code += "}";
+    code += "}\n";
+    code += "main();";
     return code;
   },
 }satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

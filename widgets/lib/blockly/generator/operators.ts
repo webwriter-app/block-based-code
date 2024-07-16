@@ -46,14 +46,14 @@ export const generators = {
     return [`${left} == ${right}`, Order.EQUALITY];
   },
   "operators:and": (block, generator) => {
-    const left = generator.valueToCode(block, "A", Order.LOGICAL_AND);
-    const right = generator.valueToCode(block, "B", Order.LOGICAL_AND);
+    const left = generator.valueToCode(block, "A", Order.LOGICAL_AND) || false;
+    const right = generator.valueToCode(block, "B", Order.LOGICAL_AND) || false;
 
     return [`${left} && ${right}`, Order.LOGICAL_AND];
   },
   "operators:or": (block, generator) => {
-    const left = generator.valueToCode(block, "A", Order.LOGICAL_OR);
-    const right = generator.valueToCode(block, "B", Order.LOGICAL_OR);
+    const left = generator.valueToCode(block, "A", Order.LOGICAL_OR) || false;
+    const right = generator.valueToCode(block, "B", Order.LOGICAL_OR) || false;
 
     return [`${left} || ${right}`, Order.LOGICAL_OR];
   },
