@@ -5,6 +5,7 @@ import { generators as eventGenerators } from "./events";
 import { generators as controlGenerators } from "./controls";
 import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators } from "./operators";
+import { generators as variableGenerators } from "./variables";
 
 export const codeGenerator = new JavascriptGenerator("webwriter");
 
@@ -13,6 +14,7 @@ const generators: Record<BlockTypes, GeneratorFunction> = {
   ...controlGenerators,
   ...motionGenerators,
   ...operatorGenerators,
+  ...variableGenerators,
   "math:number": (block) => {
     const number = Number(block.getFieldValue("NUM"));
     const order = number >= 0 ? Order.ATOMIC : Order.UNARY_NEGATION;
