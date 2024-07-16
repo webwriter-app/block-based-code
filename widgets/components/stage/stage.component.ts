@@ -1,28 +1,30 @@
-import { customElement, query } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import * as Pixi from "pixi.js";
 import { Task } from "@lit/task";
 import { SlSpinner } from "@shoelace-style/shoelace";
-import bunny from "../../assets/bunny.png";
 import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
-import { IStage } from "../../types/stage";
-import { BlockTypes } from "../../lib/blockly";
+import { PixiApplication } from "../../lib/pixi";
+import { IStageApplication, StageType } from "../../types";
+import { ErrorApplication } from "../../lib/error";
 
 @customElement("webwriter-blocks-stage")
-export class Stage extends LitElementWw implements IStage {
+export class Stage extends LitElementWw {
+  public application: IStageApplication;
+
+  @property({ type: String })
+  public stageType: StageType;
+
   @query("#stage")
-  private canvas!: HTMLDivElement;
+  private readonly stage!: HTMLDivElement;
 
-  private resizeObserver: ResizeObserver;
+  private readonly resizeObserver: ResizeObserver;
 
-  private application: Pixi.Application;
-
-  private readyTask: Task;
+  private readonly readyTask: Task;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -39,39 +41,26 @@ export class Stage extends LitElementWw implements IStage {
   constructor() {
     super();
 
-    this.application = new Pixi.Application();
-
     this.readyTask = new Task(this, {
       task: async () => {
-        await new Promise((resolve) => { setTimeout(resolve, 1e3); });
-        await Promise.all([
-          await this.application.init({
-            width: 800,
-            height: 600,
-            background: "white",
-            autoStart: false,
-          }),
-          await Pixi.Assets.load(bunny),
-        ]);
+        await this.application.initComplete;
       },
       autoRun: false,
       onComplete: () => {
-        Logger.log("Pixi.js initialized!");
-        this.handlePixiReady();
-        this.addSprite();
-        this.dummyAnimation();
-        this.application.render();
+        this.stage.appendChild(this.application.container);
+        this.application.show();
+        Logger.log("Stage initialized!");
       },
     });
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
 
   public connectedCallback() {
     super.connectedCallback();
 
-    this.resizeObserver = new ResizeObserver(() => this.handleResize());
     this.resizeObserver.observe(this);
 
-    this.readyTask.run();
+    this.applyStageType();
   }
 
   public disconnectedCallback() {
@@ -94,94 +83,35 @@ export class Stage extends LitElementWw implements IStage {
       <div id="stage">
           ${this.readyTask.render(renderer)}
       </div>
-      
     `;
   }
 
-  public start(): void {
-    this.application.ticker.start();
-  }
-
-  public stop(): void {
-    this.application.ticker.stop();
-  }
-
-  public get availableBlocks(): BlockTypes[] {
-    return [
-      "controls:wait",
-      "controls:repeat",
-      "controls:forever",
-      "controls:if",
-      "controls:if_else",
-      "controls:stop",
-      "motions:move",
-      "motions:rotate",
-      "motions:go_to_x",
-      "motions:go_to_y",
-      "motions:go_to_xy",
-      "motions:x_position",
-      "motions:y_position",
-      "operators:sum",
-      "operators:subtract",
-      "operators:multiply",
-      "operators:divide",
-      "operators:greater",
-      "operators:smaller",
-      "operators:equal",
-      "operators:and",
-      "operators:or",
-      "variables",
-    ];
-  }
-
-  protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
-    super.firstUpdated(_changedProperties);
-  }
-
-  private addSprite(): void {
-    const filter = new Pixi.ColorMatrixFilter();
-    filter.hue(Math.random() * 360, true);
-
-    const sprite = Pixi.Sprite.from(bunny);
-    sprite.label = "bunny";
-    sprite.filters = [filter];
-    sprite.anchor = new Pixi.Point(0.5, 0.5);
-    sprite.x = this.application.canvas.width / 2;
-    sprite.y = this.application.canvas.height / 2;
-    sprite.setSize(100);
-    this.application.stage.addChild(sprite);
-  }
-
-  private dummyAnimation() : void {
-    const sprite = this.application.stage.getChildByLabel("bunny");
-
-    let ySpeed = (Math.random() * 0.4 + 0.1) * 0.5;
-    let xSpeed = (Math.random() * 0.4 + 0.1) * 0.5;
-
-    this.application.ticker.add((ticker) => {
-      sprite.y += ySpeed * ticker.deltaMS;
-      sprite.x += xSpeed * ticker.deltaMS;
-
-      if (sprite.y > this.application.canvas.height - 50 || sprite.y < 50) {
-        ySpeed *= -1;
-        sprite.filters[0].hue(Math.random() * 360, true);
-      }
-
-      if (sprite.x > this.application.canvas.width - 50 || sprite.x < 50) {
-        xSpeed *= -1;
-        sprite.filters[0].hue(Math.random() * 360, true);
-      }
-    });
-  }
-
-  private handlePixiReady(): void {
-    this.canvas.appendChild(this.application.canvas);
-    this.handleResize();
+  protected updated(changedProperties: Map<string | number | symbol, unknown>): void {
+    if (changedProperties.get("stageType")) {
+      this.applyStageType();
+    }
   }
 
   private handleResize(): void {
-    if (this.application.renderer) {
-      this.application.canvas.style.transform = `scale(${this.canvas.clientWidth / this.application.canvas.width})`;
+    this.application.resize();
+  }
+
+  private applyStageType(): void {
+    if (this.application) {
+      this.application.destroy();
     }
+    switch (this.stageType) {
+      case StageType.CANVAS:
+        this.application = new PixiApplication();
+        break;
+      case StageType.CODE_EDITOR:
+        throw new Error("Not implemented yet.");
+      case StageType.Error:
+        this.application = new ErrorApplication();
+        break;
+      default:
+        throw new Error("Invalid stage type.");
+    }
+    this.readyTask.run();
   }
 }
