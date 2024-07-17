@@ -49,7 +49,7 @@ export class Options extends LitElementWw {
     const selectedBlocksSet = new Set(this.selectedBlocks);
     const availableBlocksMap = new Map<string, string[]>();
 
-    this.availableBlocks.forEach((block: BlockTypes) => {
+    this.availableBlocks.sort().forEach((block: BlockTypes) => {
       const [category, name] = block.split(":") as [string, string];
       if (!availableBlocksMap.has(category)) {
         availableBlocksMap.set(category, []);

@@ -3,14 +3,16 @@ import {
 } from "pixi.js";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
-import { IStageApplication } from "../../types";
+import { StageApplication } from "../types";
+import { Logger } from "../../utils";
 
-export class PixiApplication implements IStageApplication {
-  public initComplete: Promise<void>;
+type Commands = "move" | "rotate" | "set_x" | "set_y" | "set_xy";
 
+export class PixiApplication extends StageApplication<Commands> {
   private application: Application;
 
   constructor() {
+    super();
     this.application = new Application();
     this.initComplete = new Promise((resolve, reject) => {
       this.init().then(() => {
@@ -29,22 +31,21 @@ export class PixiApplication implements IStageApplication {
     this.application.destroy();
   }
 
-  public start(): void {
-    this.application.ticker.start();
-  }
-
-  public stop(): void {
-    this.application.ticker.stop();
+  public command(command: Commands, ...args: unknown[]): void {
+    const [mainCommand, subCommand] = command.split(":");
+    switch (mainCommand) {
+      case "execute":
+        this.execute(subCommand, args as number[]);
+        break;
+      default:
+        Logger.log(`Unknown command: ${command}(${args.join(", ")})`);
+    }
   }
 
   public get usableBlocks(): BlockTypes[] {
+    const defaultBlocks = super.usableBlocks;
     return [
-      "controls:wait",
-      "controls:repeat",
-      "controls:forever",
-      "controls:if",
-      "controls:if_else",
-      "controls:stop",
+      ...defaultBlocks,
       "motions:move",
       "motions:rotate",
       "motions:go_to_x",
@@ -52,16 +53,6 @@ export class PixiApplication implements IStageApplication {
       "motions:go_to_xy",
       "motions:x_position",
       "motions:y_position",
-      "operators:sum",
-      "operators:subtract",
-      "operators:multiply",
-      "operators:divide",
-      "operators:greater",
-      "operators:smaller",
-      "operators:equal",
-      "operators:and",
-      "operators:or",
-      "variables",
     ];
   }
 
@@ -86,7 +77,8 @@ export class PixiApplication implements IStageApplication {
     });
     await Assets.load(bunny);
     this.addSprite();
-    this.dummyAnimation();
+    // this.dummyAnimation();
+    this.application.ticker.start();
   }
 
   private addSprite(): void {
@@ -101,6 +93,45 @@ export class PixiApplication implements IStageApplication {
     sprite.y = this.application.canvas.height / 2;
     sprite.setSize(100);
     this.application.stage.addChild(sprite);
+  }
+
+  private execute(command: string, args: number[]): void {
+    switch (command) {
+      case "move":
+        this.move(args[0]);
+        break;
+      case "rotate":
+        this.application.stage.getChildByLabel("bunny").rotation += args[0];
+        break;
+      default:
+        Logger.log(`Unknown command: ${command}(${args.join(", ")})`);
+    }
+  }
+
+  private move(distance: number): void {
+    this.bunny.x += distance * Math.cos(this.bunny.rotation);
+    this.bunny.y += distance * Math.sin(this.bunny.rotation);
+  }
+
+  private rotate(angle: number): void {
+    this.bunny.angle += angle;
+  }
+
+  private setX(x: number): void {
+    this.bunny.x = x;
+  }
+
+  private setY(y: number): void {
+    this.bunny.y = y;
+  }
+
+  private setXY(x: number, y: number): void {
+    this.bunny.x = x;
+    this.bunny.y = y;
+  }
+
+  private get bunny(): Sprite {
+    return this.application.stage.getChildByLabel("bunny") as Sprite;
   }
 
   private dummyAnimation() : void {

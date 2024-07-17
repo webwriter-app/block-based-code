@@ -1,4 +1,4 @@
-export * from "./blockly-workspace";
+export * from "./application";
 
 export type { BlockTypes, CategoryTypes } from "./blocks";
 export { codeGenerator } from "./generator";

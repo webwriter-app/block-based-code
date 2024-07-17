@@ -13,8 +13,11 @@ import { BlocklyInitializer } from "./blockly-initializer";
 import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
 import { codeGenerator } from "./generator";
+import { IApplication } from "../types";
 
-export class BlocklyWorkspace {
+type Commands = "highlight";
+
+export class BlocklyApplication implements IApplication<Commands> {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
 
   private static readonly renderer = "zelos";
@@ -61,17 +64,21 @@ export class BlocklyWorkspace {
     serialization.workspaces.load(JSON.parse(workspace), this.workspace);
   }
 
+  // @ts-ignore
   public addEventListener(key: "CREATE_VARIABLE", callback: (button: FlyoutButton) => void): void;
   public addEventListener(key: "CHANGE", callback: (event: any) => void): void;
   public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
     switch (key) {
       case "CREATE_VARIABLE":
-        this.workspace.registerButtonCallback(BlocklyWorkspace.newVariableButtonCallback, callback);
+        this.workspace.registerButtonCallback(
+          BlocklyApplication.newVariableButtonCallback,
+          callback,
+        );
         break;
       case "CHANGE":
         this.workspace.addChangeListener((event) => {
           if (this.workspace.isDragging()) return;
-          if (!BlocklyWorkspace.supportedBlocklyEvents.has(event.type)) return;
+          if (!BlocklyApplication.supportedBlocklyEvents.has(event.type)) return;
 
           callback(event);
         });
@@ -102,6 +109,13 @@ export class BlocklyWorkspace {
     this.workspace.refreshToolboxSelection();
   }
 
+  public command(command: Commands, ...args: unknown[]): void {
+    switch (command) {
+      default:
+        console.error(`Unknown command: ${command}(${args.join(", ")})`);
+    }
+  }
+
   private createContainer(): void {
     this.container = document.createElement("div");
     this.container.style.width = "100%";
@@ -111,8 +125,8 @@ export class BlocklyWorkspace {
 
   private injectWorkspace(): void {
     this.workspace = inject(this.container, {
-      renderer: BlocklyWorkspace.renderer,
-      theme: BlocklyWorkspace.theme,
+      renderer: BlocklyApplication.renderer,
+      theme: BlocklyApplication.theme,
       readOnly: this.readonly,
       sounds: false,
       collapse: false,
@@ -144,7 +158,7 @@ export class BlocklyWorkspace {
 
       const button = document.createElement("button");
       button.setAttribute("text", "Create variable");
-      button.setAttribute("callbackkey", BlocklyWorkspace.newVariableButtonCallback);
+      button.setAttribute("callbackkey", BlocklyApplication.newVariableButtonCallback);
       blockList.push(button);
 
       const blocks = Variables.flyoutCategoryBlocks(workspace);
@@ -156,7 +170,7 @@ export class BlocklyWorkspace {
   }
 
   private moveStyleElementsToContainer(): void {
-    ["blockly-common-style", `blockly-renderer-style-${BlocklyWorkspace.renderer}-${BlocklyWorkspace.theme}`].forEach((styleElementId) => {
+    ["blockly-common-style", `blockly-renderer-style-${BlocklyApplication.renderer}-${BlocklyApplication.theme}`].forEach((styleElementId) => {
       const styleElement = <HTMLStyleElement>document.querySelector(`#${styleElementId}`);
       if (!styleElement) {
         console.error(`Style element with id ${styleElementId} not found`);

@@ -169,13 +169,13 @@ export class WebwriterBlocks extends LitElementWw {
 
   private handleStart(): void {
     if (this.stage) {
-      this.stage.application.start();
+      this.stage.application.command("execute:move", 10);
     }
   }
 
   private handleStop(): void {
     if (this.stage) {
-      this.stage.application.stop();
+      this.stage.application.command("execute:rotate", 0.1);
     }
   }
 
