@@ -1,6 +1,7 @@
 import { BlockTypes } from "../blockly";
+import { IApplication } from "./application";
 
-export interface IStageApplication {
+export interface IStageApplication extends IApplication {
   initComplete: Promise<void>;
 
   get container(): HTMLElement;
@@ -10,10 +11,6 @@ export interface IStageApplication {
   destroy(): void;
 
   show(): void;
-
-  start(): void;
-
-  stop(): void;
 
   resize(): void;
 }

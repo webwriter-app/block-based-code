@@ -3,7 +3,8 @@ import {
 } from "pixi.js";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
-import { IStageApplication } from "../../types";
+import type { Command, IStageApplication } from "../types";
+import { Logger } from "../../utils";
 
 export class PixiApplication implements IStageApplication {
   public initComplete: Promise<void>;
@@ -29,12 +30,17 @@ export class PixiApplication implements IStageApplication {
     this.application.destroy();
   }
 
-  public start(): void {
-    this.application.ticker.start();
-  }
-
-  public stop(): void {
-    this.application.ticker.stop();
+  public command(command: Command, ...args: unknown[]): void {
+    switch (command) {
+      case "start":
+        this.application.ticker.start();
+        break;
+      case "stop":
+        this.application.ticker.stop();
+        break;
+      default:
+        Logger.log(`Unknown command: ${command}(${args.join(", ")})`);
+    }
   }
 
   public get usableBlocks(): BlockTypes[] {

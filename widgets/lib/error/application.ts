@@ -20,11 +20,7 @@ export class ErrorApplication implements IStageApplication {
 
   }
 
-  public start(): void {
-
-  }
-
-  public stop(): void {
+  public command(): void {
 
   }
 
