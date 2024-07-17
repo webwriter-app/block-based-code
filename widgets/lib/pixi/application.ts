@@ -1,5 +1,5 @@
 import {
-  Application, Assets, ColorMatrixFilter, Point, Renderer, Sprite,
+  Application, Assets, ColorMatrixFilter, Point, Sprite,
 } from "pixi.js";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
@@ -11,9 +11,12 @@ type Commands = "move" | "rotate" | "set_x" | "set_y" | "set_xy";
 export class PixiApplication extends StageApplication<Commands> {
   private application: Application;
 
+  public container: HTMLDivElement;
+
   constructor() {
     super();
     this.application = new Application();
+    this.createContainer();
     this.initComplete = new Promise((resolve, reject) => {
       this.init().then(() => {
         resolve();
@@ -21,10 +24,6 @@ export class PixiApplication extends StageApplication<Commands> {
         reject(error);
       });
     });
-  }
-
-  public get container(): Renderer["canvas"] {
-    return this.application.canvas;
   }
 
   public destroy(): void {
@@ -57,14 +56,26 @@ export class PixiApplication extends StageApplication<Commands> {
   }
 
   public show(): void {
+    this.container.appendChild(this.application.canvas);
     this.application.render();
     this.resize();
   }
 
   public resize(): void {
-    if (this.application.canvas.parentElement) {
-      this.application.canvas.style.transform = `scale(${this.application.canvas.parentElement.clientWidth / this.application.canvas.width})`;
-    }
+    this.application.canvas.style.transform = `scale(${this.container.clientWidth / this.application.canvas.width})`;
+  }
+
+  private createContainer(): void {
+    this.container = document.createElement("div");
+    this.container.style.position = "relative";
+    this.container.style.width = "100%";
+    this.container.style.height = "0";
+    this.container.style.paddingTop = "calc(100% * 3 / 4)";
+    this.container.style.border = "1px solid var(--sl-color-gray-300)";
+    this.container.style.borderRadius = "var(--sl-border-radius-medium)";
+    this.container.style.overflow = "hidden";
+    this.container.style.boxSizing = "border-box";
+    this.container.style.backgroundColor = "var(--sl-color-neutral-0)";
   }
 
   private async init(): Promise<void> {
@@ -77,6 +88,10 @@ export class PixiApplication extends StageApplication<Commands> {
     });
     await Assets.load(bunny);
     this.addSprite();
+    this.application.canvas.style.position = "absolute";
+    this.application.canvas.style.transformOrigin = "top left";
+    this.application.canvas.style.top = "0";
+    this.application.canvas.style.left = "0";
     // this.dummyAnimation();
     this.application.ticker.start();
   }

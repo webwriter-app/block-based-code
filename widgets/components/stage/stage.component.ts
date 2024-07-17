@@ -9,12 +9,12 @@ import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
-import { IStageApplication, StageType } from "../../types";
+import { StageApplication, StageType } from "../../types";
 import { ErrorApplication } from "../../lib/error";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
-  public application: IStageApplication;
+  public application: StageApplication<string>;
 
   @property({ type: String })
   public stageType: StageType;
@@ -50,7 +50,7 @@ export class Stage extends LitElementWw {
       },
       autoRun: false,
       onComplete: () => {
-        this.stage.appendChild(this.application.container);
+        this.shadowRoot.appendChild(this.application.container);
         this.application.show();
         Logger.log("Stage initialized!");
       },
@@ -76,6 +76,7 @@ export class Stage extends LitElementWw {
   public render(): TemplateResult {
     const renderer: Parameters<typeof this.readyTask["render"]>[0] = {
       pending: () => html`<sl-spinner></sl-spinner>`,
+      complete: () => html`<pre><code>${this.code}</code></pre>`,
       error: (error: Error) => {
         Logger.log(error);
         return html`<div class="error">${msg("ERROR")}</div>`;
@@ -85,10 +86,7 @@ export class Stage extends LitElementWw {
     console.log(this.code);
 
     return html`
-      <div id="stage">
-          ${this.readyTask.render(renderer)}
-      </div>
-      <pre><code>${this.code}</code></pre>
+      ${this.readyTask.render(renderer)}
     `;
   }
 

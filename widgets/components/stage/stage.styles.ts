@@ -2,48 +2,24 @@ import { css } from "lit";
 
 export const styles = css`
     :host {
+        position: relative;
         width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         gap: var(--sl-spacing-x-small);
         overflow: hidden;
     }
-
-    #stage {
-        position: relative;
-        width: 100%;
-        margin: 0 auto;
-        height: 0;
-
-        padding-top: calc(100% * 3 / 4);
-
-        border: 1px solid var(--sl-color-gray-300);
-        border-radius: var(--sl-border-radius-medium);
-        overflow: hidden;
-        
-        box-sizing: border-box;
-        
-        background-color: var(--sl-color-neutral-0);
-    }
-
-    #stage * {
+   
+    sl-spinner {
         position: absolute;
-    }
-
-    #stage canvas {
-        top: 0;
-        left: 0;
-
-        transform-origin: top left;
-    }
-
-    #stage sl-spinner {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%)
     }
 
-    #stage div.error {
+    .error {
+        height: 100%;
         inset: 0;
         font-size: 14px;
         
@@ -53,6 +29,8 @@ export const styles = css`
         
         background-color: var(--sl-color-danger-50);
         color: var(--sl-color-danger-500);
+        border: 1px solid var(--sl-color-danger-300);
+        border-radius: var(--sl-border-radius-medium);
     }
     
     pre {
