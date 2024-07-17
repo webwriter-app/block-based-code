@@ -7,7 +7,14 @@ import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators } from "./operators";
 import { generators as variableGenerators } from "./variables";
 
-export const codeGenerator = new JavascriptGenerator("webwriter");
+export class WebwriterGenerator extends JavascriptGenerator {
+  constructor() {
+    super("webwriter");
+    this.STATEMENT_PREFIX = "highlight(%1);\n";
+  }
+}
+
+export const codeGenerator = new WebwriterGenerator();
 
 const generators: Record<BlockTypes, GeneratorFunction> = {
   ...eventGenerators,

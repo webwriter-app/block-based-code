@@ -6,7 +6,7 @@ import type { GeneratorFunction } from "../types/generator";
 export const generators = {
   "controls:wait": (block, generator) => {
     const time = generator.valueToCode(block, "DURATION", Order.ATOMIC);
-    return `sleep(${time});\n`;
+    return `await sleep(${time});\n`;
   },
   "controls:repeat": (block, generator) => {
     const times = generator.valueToCode(block, "TIMES", Order.ATOMIC);

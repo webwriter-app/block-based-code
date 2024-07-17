@@ -1,4 +1,4 @@
 import type { Block } from "blockly";
-import { JavascriptGenerator } from "blockly/javascript";
+import { WebwriterGenerator } from "../generator/generator";
 
-export type GeneratorFunction = (block: Block, generator: JavascriptGenerator) => [string, number] | string | null;
+export type GeneratorFunction = (block: Block, generator: WebwriterGenerator) => [string, number] | string | null;

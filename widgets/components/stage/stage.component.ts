@@ -82,13 +82,13 @@ export class Stage extends LitElementWw {
       },
     };
 
+    console.log(this.code);
+
     return html`
       <div id="stage">
           ${this.readyTask.render(renderer)}
       </div>
-      <pre>
-        ${this.code}
-      </pre>
+      <pre><code>${this.code}</code></pre>
     `;
   }
 

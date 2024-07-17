@@ -23,5 +23,6 @@ export const blocks = [
     ],
     category: "events",
     style: "event_blocks",
+    suppressPrefixSuffix: true,
   } as const,
 ] satisfies BlockDefinition[];
