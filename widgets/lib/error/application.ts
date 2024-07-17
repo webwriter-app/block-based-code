@@ -1,10 +1,8 @@
-import { BlockTypes } from "../blockly";
-import { IStageApplication } from "../../types";
+import { StageApplication } from "../types";
 
-export class ErrorApplication implements IStageApplication {
-  public initComplete: Promise<void>;
-
+export class ErrorApplication extends StageApplication<string> {
   constructor() {
+    super();
     this.initComplete = new Promise((resolve, reject) => {
       setTimeout(() => {
         reject(new Error("Invalid"));
@@ -22,10 +20,6 @@ export class ErrorApplication implements IStageApplication {
 
   public command(): void {
 
-  }
-
-  public get usableBlocks(): BlockTypes[] {
-    return [];
   }
 
   public show(): void {

@@ -15,7 +15,9 @@ import { BlockTypes } from "./blocks";
 import { codeGenerator } from "./generator";
 import { IApplication } from "../types";
 
-export class BlocklyApplication implements IApplication {
+type Commands = "highlight";
+
+export class BlocklyApplication implements IApplication<Commands> {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
 
   private static readonly renderer = "zelos";
@@ -107,7 +109,7 @@ export class BlocklyApplication implements IApplication {
     this.workspace.refreshToolboxSelection();
   }
 
-  public command(command: unknown, ...args: unknown[]): void {
+  public command(command: Commands, ...args: unknown[]): void {
     switch (command) {
       default:
         console.error(`Unknown command: ${command}(${args.join(", ")})`);
