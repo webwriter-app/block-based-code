@@ -4,7 +4,9 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { Task } from "@lit/task";
-import { SlSpinner } from "@shoelace-style/shoelace";
+import {
+  SlSpinner, SlTab, SlTabGroup, SlTabPanel,
+} from "@shoelace-style/shoelace";
 import { styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
@@ -14,7 +16,7 @@ import { ErrorApplication } from "../../lib/error";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
-  public application: StageApplication<string>;
+  public stageApplication: StageApplication<string>;
 
   @property({ type: String })
   public stageType: StageType;
@@ -32,6 +34,9 @@ export class Stage extends LitElementWw {
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-spinner": SlSpinner,
+      "sl-tab-group": SlTabGroup,
+      "sl-tab": SlTab,
+      "sl-tab-panel": SlTabPanel,
     };
   }
 
@@ -46,12 +51,12 @@ export class Stage extends LitElementWw {
 
     this.readyTask = new Task(this, {
       task: async () => {
-        await this.application.initComplete;
+        await this.stageApplication.initComplete;
       },
       autoRun: false,
       onComplete: () => {
-        this.shadowRoot.appendChild(this.application.container);
-        this.application.show();
+        this.stage.appendChild(this.stageApplication.container);
+        this.stageApplication.show();
         Logger.log("Stage initialized!");
       },
     });
@@ -76,7 +81,6 @@ export class Stage extends LitElementWw {
   public render(): TemplateResult {
     const renderer: Parameters<typeof this.readyTask["render"]>[0] = {
       pending: () => html`<sl-spinner></sl-spinner>`,
-      complete: () => html`<pre><code>${this.code}</code></pre>`,
       error: (error: Error) => {
         Logger.log(error);
         return html`<div class="error">${msg("ERROR")}</div>`;
@@ -86,7 +90,17 @@ export class Stage extends LitElementWw {
     console.log(this.code);
 
     return html`
-      ${this.readyTask.render(renderer)}
+        <sl-tab-group placement="bottom">
+            <sl-tab slot="nav" panel="stage">${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}</sl-tab>
+            <sl-tab slot="nav" panel="code">${msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
+            
+            <sl-tab-panel name="stage" id="stage">
+                ${this.readyTask.render(renderer)}
+            </sl-tab-panel>
+            <sl-tab-panel name="code">
+                <pre><code>${this.code}</code></pre>
+            </sl-tab-panel>
+        </sl-tab-group>
     `;
   }
 
@@ -97,21 +111,19 @@ export class Stage extends LitElementWw {
   }
 
   private handleResize(): void {
-    this.application.resize();
+    this.stageApplication.resize();
   }
 
   private applyStageType(): void {
-    if (this.application) {
-      this.application.destroy();
+    if (this.stageApplication) {
+      this.stageApplication.destroy();
     }
     switch (this.stageType) {
       case StageType.CANVAS:
-        this.application = new PixiApplication();
+        this.stageApplication = new PixiApplication();
         break;
-      case StageType.CODE_EDITOR:
-        throw new Error("Not implemented yet.");
       case StageType.Error:
-        this.application = new ErrorApplication();
+        this.stageApplication = new ErrorApplication();
         break;
       default:
         throw new Error("Invalid stage type.");

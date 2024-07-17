@@ -169,13 +169,13 @@ export class WebwriterBlocks extends LitElementWw {
 
   private handleStart(): void {
     if (this.stage) {
-      this.stage.application.command("execute:move", 10);
+      this.stage.stageApplication.command("execute:move", 10);
     }
   }
 
   private handleStop(): void {
     if (this.stage) {
-      this.stage.application.command("execute:rotate", 0.1);
+      this.stage.stageApplication.command("execute:rotate", 0.1);
     }
   }
 
@@ -202,7 +202,7 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private setBlocks(): void {
-    const { usableBlocks } = this.stage.application;
+    const { usableBlocks } = this.stage.stageApplication;
     this.availableBlocks = usableBlocks;
     this.selectedBlocks = [...usableBlocks];
   }

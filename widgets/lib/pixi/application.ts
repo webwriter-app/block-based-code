@@ -28,6 +28,7 @@ export class PixiApplication extends StageApplication<Commands> {
 
   public destroy(): void {
     this.application.destroy();
+    this.container.remove();
   }
 
   public command(command: Commands, ...args: unknown[]): void {
