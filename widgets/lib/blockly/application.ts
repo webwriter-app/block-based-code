@@ -11,7 +11,7 @@ import {
 import { BlocklyInitializer } from "./blockly-initializer";
 import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
-import { codeGenerator } from "./generator";
+import { executableCodeGenerator, readableCodeGenerator } from "./generator";
 import { Application } from "../types";
 
 type Commands = "highlight";
@@ -53,8 +53,12 @@ export class BlocklyApplication extends Application<Commands> {
     return JSON.stringify(serialization.workspaces.save(this.workspace));
   }
 
-  public get code(): string {
-    return codeGenerator.workspaceToCode(this.workspace);
+  public get executableCode(): string {
+    return executableCodeGenerator.workspaceToCode(this.workspace);
+  }
+
+  public get readableCode(): string {
+    return readableCodeGenerator.workspaceToCode(this.workspace);
   }
 
   public load(workspace: string): void {
