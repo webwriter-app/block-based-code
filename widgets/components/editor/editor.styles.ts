@@ -3,13 +3,10 @@ import { css } from "lit";
 export const styles = css`
     :host {
         display: block;
+        width: 100%;
         height: 100%;
 
-        border: 1px solid var(--sl-color-gray-300);
-        border-radius: var(--sl-border-radius-medium);
         overflow: hidden;
-        
-        box-sizing: border-box;
     }
 
     .blocklyToolboxDiv {

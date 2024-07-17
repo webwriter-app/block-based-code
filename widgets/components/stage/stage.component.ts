@@ -7,7 +7,10 @@ import { Task } from "@lit/task";
 import {
   SlSpinner, SlTab, SlTabGroup, SlTabPanel,
 } from "@shoelace-style/shoelace";
-import { styles } from "./stage.styles";
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
@@ -25,11 +28,11 @@ export class Stage extends LitElementWw {
   public code: string;
 
   @query("#stage")
-  private readonly stage!: HTMLDivElement;
+  private readonly stageElement!: SlTabPanel;
 
   private readonly resizeObserver: ResizeObserver;
 
-  private readonly readyTask: Task;
+  private readonly applicationReady: Task;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -43,19 +46,20 @@ export class Stage extends LitElementWw {
   public static get styles(): CSSResult[] {
     return [
       styles,
+      codeStyles,
     ];
   }
 
   constructor() {
     super();
-
-    this.readyTask = new Task(this, {
+    hljs.registerLanguage("javascript", javascript);
+    this.applicationReady = new Task(this, {
       task: async () => {
         await this.stageApplication.initComplete;
       },
       autoRun: false,
       onComplete: () => {
-        this.stage.appendChild(this.stageApplication.container);
+        this.stageElement.appendChild(this.stageApplication.container);
         this.stageApplication.show();
         Logger.log("Stage initialized!");
       },
@@ -75,11 +79,11 @@ export class Stage extends LitElementWw {
     super.disconnectedCallback();
 
     this.resizeObserver.disconnect();
-    this.readyTask.abort();
+    this.applicationReady.abort();
   }
 
   public render(): TemplateResult {
-    const renderer: Parameters<typeof this.readyTask["render"]>[0] = {
+    const renderer: Parameters<typeof this.applicationReady["render"]>[0] = {
       pending: () => html`<sl-spinner></sl-spinner>`,
       error: (error: Error) => {
         Logger.log(error);
@@ -87,18 +91,16 @@ export class Stage extends LitElementWw {
       },
     };
 
-    console.log(this.code);
-
     return html`
         <sl-tab-group placement="bottom">
             <sl-tab slot="nav" panel="stage">${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}</sl-tab>
             <sl-tab slot="nav" panel="code">${msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
             
             <sl-tab-panel name="stage" id="stage">
-                ${this.readyTask.render(renderer)}
+                ${this.applicationReady.render(renderer)}
             </sl-tab-panel>
-            <sl-tab-panel name="code">
-                <pre><code>${this.code}</code></pre>
+            <sl-tab-panel name="code" id="code">
+                <pre><code>${unsafeHTML(hljs.highlight(this.code, { language: "javascript" }).value)}</code></pre>
             </sl-tab-panel>
         </sl-tab-group>
     `;
@@ -128,6 +130,6 @@ export class Stage extends LitElementWw {
       default:
         throw new Error("Invalid stage type.");
     }
-    this.readyTask.run();
+    this.applicationReady.run();
   }
 }

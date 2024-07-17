@@ -11,8 +11,6 @@ type Commands = "move" | "rotate" | "set_x" | "set_y" | "set_xy";
 export class PixiApplication extends StageApplication<Commands> {
   private application: Application;
 
-  public container: HTMLDivElement;
-
   constructor() {
     super();
     this.application = new Application();
@@ -28,7 +26,7 @@ export class PixiApplication extends StageApplication<Commands> {
 
   public destroy(): void {
     this.application.destroy();
-    this.container.remove();
+    super.destroy();
   }
 
   public command(command: Commands, ...args: unknown[]): void {
@@ -66,17 +64,10 @@ export class PixiApplication extends StageApplication<Commands> {
     this.application.canvas.style.transform = `scale(${this.container.clientWidth / this.application.canvas.width})`;
   }
 
-  private createContainer(): void {
-    this.container = document.createElement("div");
-    this.container.style.position = "relative";
-    this.container.style.width = "100%";
+  protected createContainer(): void {
+    super.createContainer();
     this.container.style.height = "0";
     this.container.style.paddingTop = "calc(100% * 3 / 4)";
-    this.container.style.border = "1px solid var(--sl-color-gray-300)";
-    this.container.style.borderRadius = "var(--sl-border-radius-medium)";
-    this.container.style.overflow = "hidden";
-    this.container.style.boxSizing = "border-box";
-    this.container.style.backgroundColor = "var(--sl-color-neutral-0)";
   }
 
   private async init(): Promise<void> {
