@@ -36,7 +36,6 @@ export const styles = css`
         position: relative;
         overflow: hidden;
         padding-top: 0;
-        padding-bottom: 0;
     }
 
     .error {
@@ -56,7 +55,16 @@ export const styles = css`
     }
     
     pre {
-        overflow-x: scroll;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: var(--sl-color-neutral-0);
+        
+        border: 1px solid var(--sl-color-gray-300);
+        border-radius: var(--sl-border-radius-medium);
+        
+        overflow: scroll;
         font-size: 12px;
+        box-sizing: border-box;
     }
 `;
