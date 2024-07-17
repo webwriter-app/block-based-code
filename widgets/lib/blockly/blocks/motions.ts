@@ -1,4 +1,4 @@
-import { Block } from "../types";
+import { BlockDefinition } from "../types";
 
 export const blocks = [
   {
@@ -96,4 +96,4 @@ export const blocks = [
     category: "motions",
     style: "motion_blocks",
   } as const,
-] satisfies Block[];
+] satisfies BlockDefinition[];

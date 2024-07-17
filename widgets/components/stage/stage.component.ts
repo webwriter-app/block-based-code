@@ -19,6 +19,9 @@ export class Stage extends LitElementWw {
   @property({ type: String })
   public stageType: StageType;
 
+  @property({ type: String })
+  public code: string;
+
   @query("#stage")
   private readonly stage!: HTMLDivElement;
 
@@ -79,10 +82,13 @@ export class Stage extends LitElementWw {
       },
     };
 
+    console.log(this.code);
+
     return html`
       <div id="stage">
           ${this.readyTask.render(renderer)}
       </div>
+      <pre><code>${this.code}</code></pre>
     `;
   }
 

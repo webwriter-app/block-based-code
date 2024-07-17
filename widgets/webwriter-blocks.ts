@@ -39,6 +39,9 @@ export class WebwriterBlocks extends LitElementWw {
   @state()
   private availableBlocks: BlockTypes[] = [];
 
+  @state()
+  private code: string = "";
+
   @query("#editor")
   private editor!: Editor;
 
@@ -121,7 +124,8 @@ export class WebwriterBlocks extends LitElementWw {
             </webwriter-blocks-editor>
             <webwriter-blocks-stage slot="stage"
                                     id="stage"
-                                    stageType=${this.stageType}>
+                                    stageType=${this.stageType}
+                                    code=${this.code}>
             </webwriter-blocks-stage>
         </webwriter-blocks-application>
         ${this.contentEditable === "true" || this.contentEditable === "" ? html`
@@ -177,6 +181,7 @@ export class WebwriterBlocks extends LitElementWw {
 
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
+    this.code = event.detail.code;
   }
 
   private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {
@@ -198,7 +203,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   private setBlocks(): void {
     const { usableBlocks } = this.stage.application;
-    console.log(usableBlocks);
     this.availableBlocks = usableBlocks;
     this.selectedBlocks = [...usableBlocks];
   }

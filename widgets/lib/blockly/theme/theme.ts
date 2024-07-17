@@ -48,7 +48,7 @@ const categoryStyles = {
     colour: "#ff8c1a",
   },
 } satisfies { [key: string]: Pick<Blockly.Theme.CategoryStyle, "colour"> };
-export type CategoryStyle = keyof typeof categoryStyles;
+export type CategoryStyle = keyof typeof categoryStyles | "math";
 
 export class WebWriterTheme extends Blockly.Theme {
   public override startHats = true;

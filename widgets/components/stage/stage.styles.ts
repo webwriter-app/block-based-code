@@ -2,9 +2,11 @@ import { css } from "lit";
 
 export const styles = css`
     :host {
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: var(--sl-spacing-x-small);
+        overflow: hidden;
     }
 
     #stage {
@@ -51,5 +53,10 @@ export const styles = css`
         
         background-color: var(--sl-color-danger-50);
         color: var(--sl-color-danger-500);
+    }
+    
+    pre {
+        overflow-x: scroll;
+        font-size: 12px;
     }
 `;

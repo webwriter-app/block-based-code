@@ -119,7 +119,7 @@ export class Editor extends LitElementWw {
   }
 
   private handleChange(): void {
-    const changeEvent = new EditorChangeEvent(this.workspace.save());
+    const changeEvent = new EditorChangeEvent(this.workspace.save(), this.workspace.code);
     this.dispatchEvent(changeEvent);
   }
 }
