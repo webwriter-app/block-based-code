@@ -10,13 +10,14 @@ import {
   Application, Editor, Options, Stage, Toolbar,
 } from "./components";
 import { setLocale } from "./locales";
-import { fullscreenContext } from "./context";
+import { fullscreenContext, virtualMachineContext } from "./context";
 import { Logger } from "./utils";
 import { StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
 import { BlockTypes, SelectedBlocks } from "./lib/blockly";
+import { VirtualMachine } from "./lib/vm";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -35,6 +36,9 @@ export class WebwriterBlocks extends LitElementWw {
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean = false;
+
+  @provide({ context: virtualMachineContext })
+  private vm: VirtualMachine;
 
   @state()
   private availableBlocks: BlockTypes[] = [];
@@ -96,6 +100,7 @@ export class WebwriterBlocks extends LitElementWw {
     super();
     setLocale(this.ownerDocument.documentElement.lang);
 
+    this.vm = new VirtualMachine();
     this.fullscreen = false;
   }
 
@@ -168,20 +173,17 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private handleStart(): void {
-    if (this.stage) {
-      this.stage.stageApplication.command("execute:move", 10);
-    }
+    this.vm.run();
   }
 
   private handleStop(): void {
-    if (this.stage) {
-      this.stage.stageApplication.command("execute:rotate", 0.1);
-    }
+    this.vm.stop();
   }
 
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
-    this.readableCode = event.detail.readableCode;
+    this.readableCode = event.detail.executableCode;
+    this.vm.code = event.detail.executableCode;
   }
 
   private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {

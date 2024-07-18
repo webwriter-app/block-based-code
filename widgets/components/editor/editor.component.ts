@@ -5,9 +5,12 @@ import {
 } from "lit";
 import { PropertyValues } from "@lit/reactive-element";
 import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
+import { consume } from "@lit/context";
 import { styles } from "./editor.styles";
 import { BlocklyApplication, SelectedBlocks } from "../../lib/blockly";
 import { EditorChangeEvent } from "../../types";
+import { virtualMachineContext } from "../../context";
+import { VirtualMachine } from "../../lib/vm";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -22,6 +25,9 @@ export class Editor extends LitElementWw {
 
   @property({ type: String })
   public initialState: string;
+
+  @consume({ context: virtualMachineContext })
+  private vm: VirtualMachine;
 
   private resizeObserver: ResizeObserver;
 
@@ -52,6 +58,7 @@ export class Editor extends LitElementWw {
     this.resizeObserver.observe(this);
 
     this.workspace = new BlocklyApplication(this.readonly, this.selectedBlocks);
+    this.vm.registerCommandReceiver(this.workspace);
     this.workspace.load(this.initialState);
     this.workspace.addEventListener("CHANGE", this.handleChange.bind(this));
     this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));

@@ -29,6 +29,4 @@ export abstract class StageApplication<Commands extends string> extends Applicat
   public abstract show(): void;
 
   public abstract resize(): void;
-
-  public abstract command(command: Commands, ...args: unknown[]): void;
 }

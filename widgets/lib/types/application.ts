@@ -1,4 +1,6 @@
-export abstract class Application<Commands extends string> {
+import { ICommandReceiver } from "./command";
+
+export abstract class Application<Commands extends string> implements ICommandReceiver<Commands> {
   public container: HTMLDivElement;
 
   constructor() {

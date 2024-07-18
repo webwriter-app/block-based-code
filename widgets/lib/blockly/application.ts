@@ -112,6 +112,9 @@ export class BlocklyApplication extends Application<Commands> {
 
   public command(command: Commands, ...args: unknown[]): void {
     switch (command) {
+      case "highlight":
+        this.workspace.highlightBlock(args[0] as string);
+        break;
       default:
         console.error(`Unknown command: ${command}(${args.join(", ")})`);
     }
