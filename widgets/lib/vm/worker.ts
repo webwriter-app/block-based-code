@@ -85,8 +85,6 @@ const workerFunction = (function () {
 
 const workerString = workerFunction.toString().match(/function[^{]+\{([\s\S]*)\}$/)[1];
 
-console.log(workerString);
-
 // eslint-disable-next-line import/no-default-export
 export default URL.createObjectURL(new Blob([
   workerString,

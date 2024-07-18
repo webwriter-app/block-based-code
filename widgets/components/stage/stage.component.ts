@@ -67,7 +67,7 @@ export class Stage extends LitElementWw {
       onComplete: () => {
         this.stageElement.appendChild(this.stageApplication.container);
         this.stageApplication.show();
-        Logger.log("Stage initialized!");
+        Logger.log(this, "Initialized!");
       },
     });
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
@@ -92,7 +92,7 @@ export class Stage extends LitElementWw {
     const renderer: Parameters<typeof this.applicationReady["render"]>[0] = {
       pending: () => html`<sl-spinner></sl-spinner>`,
       error: (error: Error) => {
-        Logger.log(error);
+        Logger.log(this, error);
         return html`<div class="error">${msg("ERROR")}</div>`;
       },
     };

@@ -2,9 +2,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/no-unused-vars,no-console,no-unused-labels,no-restricted-syntax,no-labels */
 const base = "[webwriter-blocks]".toUpperCase();
 
-export const Logger: Console = {
-  log: (...args: any[]) => {
-    DEV: console.log(base, ...args);
+export const Logger = {
+  log: (origin: {
+    constructor: {
+      name: string
+    };
+  }, ...args: any[]) => {
+    DEV: console.log(`${base} [${(origin.constructor.name).toUpperCase()}]`, ...args);
   },
   error: (...args: any[]) => {
     console.error(...args);

@@ -30,7 +30,7 @@ export class PixiApplication extends StageApplication<Commands> {
   }
 
   public command(command: Commands, ...args: unknown[]): void {
-    Logger.log("PIXI", command, args);
+    Logger.log(this, `${command}(${args.join(", ")})`);
     switch (command) {
       case "move":
         this.move(args[0] as number);
