@@ -182,7 +182,7 @@ export class WebwriterBlocks extends LitElementWw {
 
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
-    this.readableCode = event.detail.executableCode;
+    this.readableCode = event.detail.readableCode;
     this.vm.code = event.detail.executableCode;
   }
 
