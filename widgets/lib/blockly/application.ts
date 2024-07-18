@@ -135,6 +135,7 @@ export class BlocklyApplication extends Application<Commands> {
       move: {
         wheel: true,
       },
+      trashcan: false,
       toolbox: createToolboxFromBlockList(this.selectedBlocks),
       maxInstances: {
         "events:when_start_clicked": 1,

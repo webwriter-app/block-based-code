@@ -18,6 +18,10 @@ export const styles = css`
         transform: translate(-50%, -50%)
     }
     
+    sl-tab-group {
+        height: 100%;
+    }
+    
     sl-tab-group::part(base) {
         height: 100%;
     }
@@ -29,6 +33,11 @@ export const styles = css`
     
     sl-tab::part(base) {
         padding-top: 0;
+    }
+    
+    sl-tab-panel {
+        height: 100%;
+        position: relative;
     }
     
     sl-tab-panel::part(base) {
