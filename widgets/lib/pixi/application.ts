@@ -30,13 +30,25 @@ export class PixiApplication extends StageApplication<Commands> {
   }
 
   public command(command: Commands, ...args: unknown[]): void {
-    const [mainCommand, subCommand] = command.split(":");
-    switch (mainCommand) {
-      case "execute":
-        this.execute(subCommand, args as number[]);
+    Logger.log("PIXI", command, args);
+    switch (command) {
+      case "move":
+        this.move(args[0] as number);
+        break;
+      case "rotate":
+        this.rotate(args[0] as number);
+        break;
+      case "set_x":
+        this.setX(args[0] as number);
+        break;
+      case "set_y":
+        this.setY(args[0] as number);
+        break;
+      case "set_xy":
+        this.setXY(args[0] as number, args[1] as number);
         break;
       default:
-        Logger.log(`Unknown command: ${command}(${args.join(", ")})`);
+        break;
     }
   }
 
@@ -102,22 +114,9 @@ export class PixiApplication extends StageApplication<Commands> {
     this.application.stage.addChild(sprite);
   }
 
-  private execute(command: string, args: number[]): void {
-    switch (command) {
-      case "move":
-        this.move(args[0]);
-        break;
-      case "rotate":
-        this.application.stage.getChildByLabel("bunny").rotation += args[0];
-        break;
-      default:
-        Logger.log(`Unknown command: ${command}(${args.join(", ")})`);
-    }
-  }
-
-  private move(distance: number): void {
-    this.bunny.x += distance * Math.cos(this.bunny.rotation);
-    this.bunny.y += distance * Math.sin(this.bunny.rotation);
+  private move(steps: number): void {
+    this.bunny.x += steps * Math.cos(this.bunny.rotation);
+    this.bunny.y += steps * Math.sin(this.bunny.rotation);
   }
 
   private rotate(angle: number): void {

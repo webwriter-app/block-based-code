@@ -1,4 +1,4 @@
-import type { IStartMessage } from "./types/message";
+import type { ICommandMessge, IStartMessage } from "./types/message";
 
 // eslint-disable-next-line import/no-default-export
 export default URL.createObjectURL(new Blob([
@@ -9,9 +9,18 @@ export default URL.createObjectURL(new Blob([
       },
     };
 
+    const postCommandMessage = (command: string, ...args: unknown[]) => {
+      const message: ICommandMessge = {
+        type: "command",
+        command,
+        args,
+      };
+      postMessage(message);
+    };
+
     const highlight = (id: string) => {
       Logger.log("Highlighting block", id);
-      postMessage({ type: "highlight", id });
+      postCommandMessage("highlight", id);
     };
 
     const wait = (seconds: number) => {
@@ -29,6 +38,31 @@ export default URL.createObjectURL(new Blob([
       while (Date.now() < now + ms) {
         // Wait
       }
+    };
+
+    const move = (steps: number) => {
+      Logger.log("Moving", steps, "steps");
+      postCommandMessage("move", steps);
+    };
+
+    const rotate = (degrees: number) => {
+      Logger.log("Rotating", degrees, "degrees");
+      postCommandMessage("rotate", degrees);
+    };
+
+    const goToX = (x: number) => {
+      Logger.log("Going to x", x);
+      postCommandMessage("set_x", x);
+    };
+
+    const goToY = (y: number) => {
+      Logger.log("Going to y", y);
+      postCommandMessage("set_y", y);
+    };
+
+    const goToXY = (x: number, y: number) => {
+      Logger.log("Going to x", x, "y", y);
+      postCommandMessage("set_xy", x, y);
     };
 
     const start = (message: IStartMessage) => {

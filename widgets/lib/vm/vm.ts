@@ -1,7 +1,6 @@
 import worker from "./worker";
-import { IHighlightMessage, IStartMessage } from "./types/message";
+import { ICommandMessge, IStartMessage } from "./types/message";
 import { ICommandReceiver } from "../types/command";
-import { Logger } from "../../utils";
 
 export class VirtualMachine {
   public code: string = "";
@@ -29,22 +28,27 @@ export class VirtualMachine {
   }
 
   public stop(): void {
+    this.sendCommand("highlight", null);
     this.worker.terminate();
     this.initWorker();
   }
 
   private initWorker(): void {
     this.worker = new Worker(worker);
-    this.worker.onmessage = (event: MessageEvent<IHighlightMessage>) => {
-      this.commandReceiver.forEach((receiver) => {
-        switch (event.data.type) {
-          case "highlight":
-            receiver.command("highlight", event.data.id);
-            break;
-          default:
-            Logger.log("Unknown message type", event.data.type);
-        }
-      });
+    this.worker.onmessage = (event: MessageEvent<ICommandMessge>) => {
+      switch (event.data.type) {
+        case "command":
+          this.sendCommand(event.data.command, ...event.data.args);
+          break;
+        default:
+          break;
+      }
     };
+  }
+
+  private sendCommand(command: string, ...args: unknown[]): void {
+    this.commandReceiver.forEach((receiver) => {
+      receiver.command(command, ...args);
+    });
   }
 }

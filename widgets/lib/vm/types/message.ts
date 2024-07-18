@@ -7,7 +7,8 @@ export interface IStartMessage extends IMessage {
   code: string;
 }
 
-export interface IHighlightMessage extends IMessage {
-  type: "highlight";
-  id: string;
+export interface ICommandMessge extends IMessage {
+  type: "command";
+  command: string;
+  args: unknown[];
 }
