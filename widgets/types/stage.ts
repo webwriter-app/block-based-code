@@ -9,6 +9,5 @@ export interface IStage {
 
 export enum StageType {
   CANVAS = "canvas",
-  CODE_EDITOR = "code-editor",
   Error = "error",
 }

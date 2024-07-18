@@ -20,6 +20,7 @@
     "@tabler/icons": "^3.6.0",
     "@webwriter/lit": "^1.6.3",
     "blockly": "^11.1.0",
+    "highlight.js": "^11.10.0",
     "lit": "^3.1.4",
     "lodash": "^4.17.21",
     "pixi.js": "^8.1.6"

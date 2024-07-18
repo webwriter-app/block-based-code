@@ -69,8 +69,8 @@ export class Options extends LitElementWw {
             <span class="label">${msg("OPTIONS.STAGE")}</span>
             <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange} hoist>
                 ${Object.values(StageType).map((type) => html`
-                    <sl-option value=${type} .disabled=${type === StageType.CODE_EDITOR}>
-                        ${msg(`OPTIONS.STAGE_TYPES.${type}`)}
+                    <sl-option value=${type}>
+                        ${msg(`OPTIONS.STAGE_TYPES.${type.toUpperCase() as Uppercase<StageType>}`)}
                     </sl-option>
                 `)}
             </sl-select>

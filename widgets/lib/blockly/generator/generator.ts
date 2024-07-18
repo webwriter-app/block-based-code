@@ -7,14 +7,22 @@ import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators } from "./operators";
 import { generators as variableGenerators } from "./variables";
 
-export class WebwriterGenerator extends JavascriptGenerator {
+export class ExecutableGenerator extends JavascriptGenerator {
   constructor() {
-    super("webwriter");
+    super("executable");
     this.STATEMENT_PREFIX = "highlight(%1);\n";
   }
 }
 
-export const codeGenerator = new WebwriterGenerator();
+export class ReadableGenerator extends JavascriptGenerator {
+  constructor() {
+    super("readable");
+    this.STATEMENT_PREFIX = "";
+  }
+}
+
+export const executableCodeGenerator = new ExecutableGenerator();
+export const readableCodeGenerator = new ReadableGenerator();
 
 const generators: Record<BlockTypes, GeneratorFunction> = {
   ...eventGenerators,
@@ -30,4 +38,5 @@ const generators: Record<BlockTypes, GeneratorFunction> = {
   variables: null,
 };
 
-codeGenerator.forBlock = generators;
+executableCodeGenerator.forBlock = generators;
+readableCodeGenerator.forBlock = generators;

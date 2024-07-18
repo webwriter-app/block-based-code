@@ -1,25 +1,9 @@
 import { BlockTypes } from "../blockly";
-import { IApplication } from "./application";
-
-interface IStageApplication<Commands extends string> extends IApplication<Commands> {
-  initComplete: Promise<void>;
-
-  get container(): HTMLElement;
-
-  get usableBlocks(): BlockTypes[];
-
-  destroy(): void;
-
-  show(): void;
-
-  resize(): void;
-}
+import { Application } from "./application";
 
 // eslint-disable-next-line max-len
-export abstract class StageApplication<Commands extends string> implements IStageApplication<Commands> {
+export abstract class StageApplication<Commands extends string> extends Application<Commands> {
   public initComplete: Promise<void>;
-
-  public abstract get container(): HTMLElement;
 
   public get usableBlocks(): BlockTypes[] {
     return [
@@ -41,8 +25,6 @@ export abstract class StageApplication<Commands extends string> implements IStag
       "variables",
     ];
   }
-
-  public abstract destroy(): void;
 
   public abstract show(): void;
 

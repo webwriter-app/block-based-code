@@ -11,9 +11,9 @@ export const dictionary: Dictionary = {
     READONLY: "Readonly",
     STAGE: "Stage",
     STAGE_TYPES: {
-      canvas: "Canvas",
-      "code-editor": "Code Editor",
-      error: "Test",
+      CODE: "Code",
+      CANVAS: "Canvas",
+      ERROR: "Test",
     },
     AVAILABLE_BLOCKS: "Available Blocks",
   },

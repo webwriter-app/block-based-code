@@ -13,7 +13,7 @@ export type Dictionary = {
   OPTIONS: {
     READONLY: string;
     STAGE: string;
-    STAGE_TYPES: Record<StageType, string>;
+    STAGE_TYPES: Record<Uppercase<StageType | "code">, string>;
     AVAILABLE_BLOCKS: string;
   }
   BLOCKS: Partial<Record<Uppercase<string>, string>>

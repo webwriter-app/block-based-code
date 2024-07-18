@@ -4,17 +4,22 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { Task } from "@lit/task";
-import { SlSpinner } from "@shoelace-style/shoelace";
-import { styles } from "./stage.styles";
+import {
+  SlSpinner, SlTab, SlTabGroup, SlTabPanel,
+} from "@shoelace-style/shoelace";
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
-import { IStageApplication, StageType } from "../../types";
+import { StageApplication, StageType } from "../../types";
 import { ErrorApplication } from "../../lib/error";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
-  public application: IStageApplication;
+  public stageApplication: StageApplication<string>;
 
   @property({ type: String })
   public stageType: StageType;
@@ -23,35 +28,39 @@ export class Stage extends LitElementWw {
   public code: string;
 
   @query("#stage")
-  private readonly stage!: HTMLDivElement;
+  private readonly stageElement!: SlTabPanel;
 
   private readonly resizeObserver: ResizeObserver;
 
-  private readonly readyTask: Task;
+  private readonly applicationReady: Task;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-spinner": SlSpinner,
+      "sl-tab-group": SlTabGroup,
+      "sl-tab": SlTab,
+      "sl-tab-panel": SlTabPanel,
     };
   }
 
   public static get styles(): CSSResult[] {
     return [
       styles,
+      codeStyles,
     ];
   }
 
   constructor() {
     super();
-
-    this.readyTask = new Task(this, {
+    hljs.registerLanguage("javascript", javascript);
+    this.applicationReady = new Task(this, {
       task: async () => {
-        await this.application.initComplete;
+        await this.stageApplication.initComplete;
       },
       autoRun: false,
       onComplete: () => {
-        this.stage.appendChild(this.application.container);
-        this.application.show();
+        this.stageElement.appendChild(this.stageApplication.container);
+        this.stageApplication.show();
         Logger.log("Stage initialized!");
       },
     });
@@ -70,11 +79,11 @@ export class Stage extends LitElementWw {
     super.disconnectedCallback();
 
     this.resizeObserver.disconnect();
-    this.readyTask.abort();
+    this.applicationReady.abort();
   }
 
   public render(): TemplateResult {
-    const renderer: Parameters<typeof this.readyTask["render"]>[0] = {
+    const renderer: Parameters<typeof this.applicationReady["render"]>[0] = {
       pending: () => html`<sl-spinner></sl-spinner>`,
       error: (error: Error) => {
         Logger.log(error);
@@ -82,13 +91,18 @@ export class Stage extends LitElementWw {
       },
     };
 
-    console.log(this.code);
-
     return html`
-      <div id="stage">
-          ${this.readyTask.render(renderer)}
-      </div>
-      <pre><code>${this.code}</code></pre>
+        <sl-tab-group placement="bottom">
+            <sl-tab slot="nav" panel="stage">${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}</sl-tab>
+            <sl-tab slot="nav" panel="code">${msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
+            
+            <sl-tab-panel name="stage" id="stage">
+                ${this.applicationReady.render(renderer)}
+            </sl-tab-panel>
+            <sl-tab-panel name="code" id="code">
+                <pre><code>${unsafeHTML(hljs.highlight(this.code, { language: "javascript" }).value)}</code></pre>
+            </sl-tab-panel>
+        </sl-tab-group>
     `;
   }
 
@@ -99,25 +113,23 @@ export class Stage extends LitElementWw {
   }
 
   private handleResize(): void {
-    this.application.resize();
+    this.stageApplication.resize();
   }
 
   private applyStageType(): void {
-    if (this.application) {
-      this.application.destroy();
+    if (this.stageApplication) {
+      this.stageApplication.destroy();
     }
     switch (this.stageType) {
       case StageType.CANVAS:
-        this.application = new PixiApplication();
+        this.stageApplication = new PixiApplication();
         break;
-      case StageType.CODE_EDITOR:
-        throw new Error("Not implemented yet.");
       case StageType.Error:
-        this.application = new ErrorApplication();
+        this.stageApplication = new ErrorApplication();
         break;
       default:
         throw new Error("Invalid stage type.");
     }
-    this.readyTask.run();
+    this.applicationReady.run();
   }
 }

@@ -10,9 +10,9 @@ export const dictionary: Dictionary = {
     READONLY: "Schreibgeschützt",
     STAGE: "Bühne",
     STAGE_TYPES: {
-      canvas: "Leinwand",
-      "code-editor": "Code Editor",
-      error: "Test",
+      CODE: "Code",
+      CANVAS: "Leinwand",
+      ERROR: "Test",
     },
     AVAILABLE_BLOCKS: "Verfügbare Bausteine",
   },

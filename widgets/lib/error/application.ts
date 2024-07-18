@@ -10,14 +10,6 @@ export class ErrorApplication extends StageApplication<string> {
     });
   }
 
-  public get container(): HTMLElement {
-    return null;
-  }
-
-  public destroy(): void {
-
-  }
-
   public command(): void {
 
   }

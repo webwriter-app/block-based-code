@@ -8,16 +8,15 @@ import {
   Variables,
   WorkspaceSvg,
 } from "blockly";
-import { ContinuousFlyout, ContinuousMetrics, ContinuousToolbox } from "@blockly/continuous-toolbox";
 import { BlocklyInitializer } from "./blockly-initializer";
 import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
-import { codeGenerator } from "./generator";
-import { IApplication } from "../types";
+import { executableCodeGenerator, readableCodeGenerator } from "./generator";
+import { Application } from "../types";
 
 type Commands = "highlight";
 
-export class BlocklyApplication implements IApplication<Commands> {
+export class BlocklyApplication extends Application<Commands> {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
 
   private static readonly renderer = "zelos";
@@ -31,8 +30,6 @@ export class BlocklyApplication implements IApplication<Commands> {
     Events.BLOCK_MOVE,
   ]);
 
-  public container: HTMLDivElement;
-
   private readonly: boolean;
 
   private selectedBlocks: SelectedBlocks;
@@ -40,11 +37,11 @@ export class BlocklyApplication implements IApplication<Commands> {
   private workspace: WorkspaceSvg;
 
   constructor(readonly: boolean, selectedBlocks: SelectedBlocks) {
+    super();
     BlocklyInitializer.define();
     this.readonly = readonly;
     this.selectedBlocks = selectedBlocks;
 
-    this.createContainer();
     this.injectWorkspace();
   }
 
@@ -56,8 +53,12 @@ export class BlocklyApplication implements IApplication<Commands> {
     return JSON.stringify(serialization.workspaces.save(this.workspace));
   }
 
-  public get code(): string {
-    return codeGenerator.workspaceToCode(this.workspace);
+  public get executableCode(): string {
+    return executableCodeGenerator.workspaceToCode(this.workspace);
+  }
+
+  public get readableCode(): string {
+    return readableCodeGenerator.workspaceToCode(this.workspace);
   }
 
   public load(workspace: string): void {
@@ -116,9 +117,8 @@ export class BlocklyApplication implements IApplication<Commands> {
     }
   }
 
-  private createContainer(): void {
-    this.container = document.createElement("div");
-    this.container.style.width = "100%";
+  protected createContainer(): void {
+    super.createContainer();
     this.container.style.height = "100%";
     setParentContainer(this.container);
   }
@@ -135,16 +135,12 @@ export class BlocklyApplication implements IApplication<Commands> {
       move: {
         wheel: true,
       },
+      trashcan: false,
       toolbox: createToolboxFromBlockList(this.selectedBlocks),
       maxInstances: {
         "events:when_start_clicked": 1,
       } satisfies Partial<Record<BlockTypes, number>>,
       maxTrashcanContents: 0,
-      plugins: {
-        toolbox: ContinuousToolbox,
-        flyoutsVerticalToolbox: ContinuousFlyout,
-        metricsManager: ContinuousMetrics,
-      },
     });
     if (!this.readonly) {
       this.registerVariablesCategory();

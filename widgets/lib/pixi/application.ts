@@ -1,5 +1,5 @@
 import {
-  Application, Assets, ColorMatrixFilter, Point, Renderer, Sprite,
+  Application, Assets, ColorMatrixFilter, Point, Sprite,
 } from "pixi.js";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
@@ -14,6 +14,7 @@ export class PixiApplication extends StageApplication<Commands> {
   constructor() {
     super();
     this.application = new Application();
+    this.createContainer();
     this.initComplete = new Promise((resolve, reject) => {
       this.init().then(() => {
         resolve();
@@ -23,12 +24,9 @@ export class PixiApplication extends StageApplication<Commands> {
     });
   }
 
-  public get container(): Renderer["canvas"] {
-    return this.application.canvas;
-  }
-
   public destroy(): void {
     this.application.destroy();
+    super.destroy();
   }
 
   public command(command: Commands, ...args: unknown[]): void {
@@ -57,14 +55,19 @@ export class PixiApplication extends StageApplication<Commands> {
   }
 
   public show(): void {
+    this.container.appendChild(this.application.canvas);
     this.application.render();
     this.resize();
   }
 
   public resize(): void {
-    if (this.application.canvas.parentElement) {
-      this.application.canvas.style.transform = `scale(${this.application.canvas.parentElement.clientWidth / this.application.canvas.width})`;
-    }
+    this.application.canvas.style.transform = `scale(${this.container.clientWidth / this.application.canvas.width})`;
+  }
+
+  protected createContainer(): void {
+    super.createContainer();
+    this.container.style.height = "0";
+    this.container.style.paddingTop = "calc(100% * 3 / 4)";
   }
 
   private async init(): Promise<void> {
@@ -77,6 +80,10 @@ export class PixiApplication extends StageApplication<Commands> {
     });
     await Assets.load(bunny);
     this.addSprite();
+    this.application.canvas.style.position = "absolute";
+    this.application.canvas.style.transformOrigin = "top left";
+    this.application.canvas.style.top = "0";
+    this.application.canvas.style.left = "0";
     // this.dummyAnimation();
     this.application.ticker.start();
   }
