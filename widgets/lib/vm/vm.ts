@@ -1,54 +1,53 @@
-import worker from "./worker";
-import { ICommandMessge, IStartMessage } from "./types/message";
-import { ICommandReceiver } from "../types/command";
-
-export class VirtualMachine {
-  public code: string = "";
-
-  private commandReceiver: Set<ICommandReceiver<string>>;
-
+export abstract class VirtualMachine {
   private worker: Worker;
 
-  constructor() {
-    this.commandReceiver = new Set();
+  protected constructor() {
     this.initWorker();
   }
 
-  public registerCommandReceiver(receiver: ICommandReceiver<string>): void {
-    this.commandReceiver.add(receiver);
-  }
-
-  public unregisterCommandReceiver(receiver: ICommandReceiver<string>): void {
-    this.commandReceiver.delete(receiver);
-  }
-
-  public run(): void {
-    const message: IStartMessage = { type: "start", code: this.code };
-    this.worker.postMessage(message);
+  public start(code: string): void {
+    this.worker.postMessage(code);
   }
 
   public stop(): void {
-    this.sendCommand("highlight", null);
     this.worker.terminate();
     this.initWorker();
   }
 
+  protected get callables(): ((...args: any[]) => void)[] {
+    return [
+      this.highlight,
+    ];
+  }
+
   private initWorker(): void {
-    this.worker = new Worker(worker);
-    this.worker.onmessage = (event: MessageEvent<ICommandMessge>) => {
-      switch (event.data.type) {
-        case "command":
-          this.sendCommand(event.data.command, ...event.data.args);
-          break;
-        default:
-          break;
-      }
+    const script = this.generateWorkerScript();
+    const url = this.generateWorkerScriptUrl(script);
+    this.worker = new Worker(url);
+    this.worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
+      this[event.data.type](...event.data.args);
     };
   }
 
-  private sendCommand(command: string, ...args: unknown[]): void {
-    this.commandReceiver.forEach((receiver) => {
-      receiver.command(command, ...args);
+  private generateWorkerScript(): string {
+    let script = "";
+    script += "function wait(s) { const n = Date.now(); while(Date.now() < n + s * 1e3) {} } \n";
+    script += "function delay(ms) { const n = Date.now(); while(Date.now() < n + ms) {} } \n";
+    this.callables.forEach((callable) => {
+      const args = Array(callable.length).fill("x").map((x, i) => `${x}${i}`).join(", ");
+      const message = `{ type: "${callable.name}", args: [${args}] }`;
+      script += `function ${callable.name}(${args}) { postMessage(${message.toString()}); } \n`;
     });
+    script += "onmessage = function(event) { console.log(event.data); eval(event.data); highlight(null); } \n";
+    return script;
+  }
+
+  private generateWorkerScriptUrl(script: string): string {
+    const blob = new Blob([script], { type: "application/javascript" });
+    return URL.createObjectURL(blob);
+  }
+
+  private highlight(id: string): void {
+    console.log("HIGHLIGHTING BLOCK:", id);
   }
 }

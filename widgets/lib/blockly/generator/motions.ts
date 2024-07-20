@@ -24,6 +24,6 @@ export const generators = {
     const y = generator.valueToCode(block, "Y", Order.ATOMIC);
     return `goToXY(${x}, ${y});\n`;
   },
-  "motions:x_position": () => ["xPosition()", Order.FUNCTION_CALL],
-  "motions:y_position": () => ["yPosition()", Order.FUNCTION_CALL],
+  "motions:x_position": () => ["getX()", Order.FUNCTION_CALL],
+  "motions:y_position": () => ["getY()", Order.FUNCTION_CALL],
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

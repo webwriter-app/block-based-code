@@ -1,9 +1,23 @@
 import { BlockTypes } from "../blockly";
 import { Application } from "./application";
+import { VirtualMachine } from "../vm";
 
-// eslint-disable-next-line max-len
-export abstract class StageApplication<Commands extends string> extends Application<Commands> {
+export abstract class StageApplication extends Application {
   public initComplete: Promise<void>;
+
+  public abstract virtualMachine: VirtualMachine;
+
+  protected constructor() {
+    super();
+
+    this.initComplete = new Promise((resolve, reject) => {
+      this.init().then(() => {
+        resolve();
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  }
 
   public get usableBlocks(): BlockTypes[] {
     return [
@@ -23,10 +37,15 @@ export abstract class StageApplication<Commands extends string> extends Applicat
       "operators:and",
       "operators:or",
       "variables",
+      ...this.specialBlocks,
     ];
   }
 
   public abstract show(): void;
 
   public abstract resize(): void;
+
+  protected abstract init(): Promise<void>;
+
+  protected abstract get specialBlocks(): BlockTypes[];
 }

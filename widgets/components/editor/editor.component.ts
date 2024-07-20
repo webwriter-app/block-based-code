@@ -5,15 +5,14 @@ import {
 } from "lit";
 import { PropertyValues } from "@lit/reactive-element";
 import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
-import { consume } from "@lit/context";
 import { styles } from "./editor.styles";
 import { BlocklyApplication, SelectedBlocks } from "../../lib/blockly";
 import { EditorChangeEvent } from "../../types";
-import { virtualMachineContext } from "../../context";
-import { VirtualMachine } from "../../lib/vm";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
+  public editorApplication: BlocklyApplication;
+
   @query("#new-variable-dialog")
   private newVariableDialog!: SlDialog;
 
@@ -26,12 +25,7 @@ export class Editor extends LitElementWw {
   @property({ type: String })
   public initialState: string;
 
-  @consume({ context: virtualMachineContext })
-  private vm: VirtualMachine;
-
   private resizeObserver: ResizeObserver;
-
-  private workspace: BlocklyApplication;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -57,17 +51,16 @@ export class Editor extends LitElementWw {
     super.connectedCallback();
     this.resizeObserver.observe(this);
 
-    this.workspace = new BlocklyApplication(this.readonly, this.selectedBlocks);
-    this.vm.registerCommandReceiver(this.workspace);
-    this.workspace.load(this.initialState);
-    this.workspace.addEventListener("CHANGE", this.handleChange.bind(this));
-    this.workspace.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
+    this.editorApplication = new BlocklyApplication(this.readonly, this.selectedBlocks);
+    this.editorApplication.load(this.initialState);
+    this.editorApplication.addEventListener("CHANGE", this.handleChange.bind(this));
+    this.editorApplication.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
   }
 
   public disconnectedCallback() {
     super.disconnectedCallback();
     this.resizeObserver.disconnect();
-    this.workspace.disconnect();
+    this.editorApplication.disconnect();
   }
 
   public render(): TemplateResult {
@@ -86,7 +79,7 @@ export class Editor extends LitElementWw {
       shouldUpdate = true;
     }
     if (changedProperties.get("selectedBlocks")) {
-      this.workspace.updateToolbox(this.selectedBlocks);
+      this.editorApplication.updateToolbox(this.selectedBlocks);
     }
 
     return shouldUpdate;
@@ -94,7 +87,7 @@ export class Editor extends LitElementWw {
 
   protected firstUpdated(_changedProperties: PropertyValues): void {
     super.firstUpdated(_changedProperties);
-    this.shadowRoot.appendChild(this.workspace.container);
+    this.shadowRoot.appendChild(this.editorApplication.container);
   }
 
   protected updated(_changedProperties: PropertyValues): void {
@@ -102,7 +95,7 @@ export class Editor extends LitElementWw {
   }
 
   private handleResize(): void {
-    this.workspace.resize();
+    this.editorApplication.resize();
   }
 
   private handleCreateVariableClick(): void {
@@ -113,7 +106,7 @@ export class Editor extends LitElementWw {
     const input = this.newVariableDialog.querySelector("sl-input");
     const variableName = input.value;
     try {
-      this.workspace.createVariable(variableName);
+      this.editorApplication.createVariable(variableName);
     } catch (error) {
       if (error instanceof Error) {
         input.setCustomValidity(error.message);
@@ -127,9 +120,8 @@ export class Editor extends LitElementWw {
 
   private handleChange(): void {
     const changeEvent = new EditorChangeEvent(
-      this.workspace.save(),
-      this.workspace.executableCode,
-      this.workspace.readableCode,
+      this.editorApplication.save(),
+      this.editorApplication.readableCode,
     );
     this.dispatchEvent(changeEvent);
   }

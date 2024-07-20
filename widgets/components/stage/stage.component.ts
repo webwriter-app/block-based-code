@@ -10,19 +10,16 @@ import {
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
-import { consume } from "@lit/context";
 import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
 import { StageApplication, StageType } from "../../types";
 import { ErrorApplication } from "../../lib/error";
-import { virtualMachineContext } from "../../context";
-import { VirtualMachine } from "../../lib/vm";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
-  public stageApplication: StageApplication<string>;
+  public stageApplication: StageApplication;
 
   @property({ type: String })
   public stageType: StageType;
@@ -32,9 +29,6 @@ export class Stage extends LitElementWw {
 
   @query("#stage")
   private readonly stageElement!: SlTabPanel;
-
-  @consume({ context: virtualMachineContext })
-  private vm: VirtualMachine;
 
   private readonly resizeObserver: ResizeObserver;
 
@@ -136,7 +130,6 @@ export class Stage extends LitElementWw {
       default:
         throw new Error("Invalid stage type.");
     }
-    this.vm.registerCommandReceiver(this.stageApplication);
     this.applicationReady.run();
   }
 }

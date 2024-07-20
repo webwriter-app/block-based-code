@@ -10,14 +10,13 @@ import {
   Application, Editor, Options, Stage, Toolbar,
 } from "./components";
 import { setLocale } from "./locales";
-import { fullscreenContext, virtualMachineContext } from "./context";
+import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
 import { StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
 import { BlockTypes, SelectedBlocks } from "./lib/blockly";
-import { VirtualMachine } from "./lib/vm";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -36,9 +35,6 @@ export class WebwriterBlocks extends LitElementWw {
   @provide({ context: fullscreenContext })
   @state()
   private fullscreen: boolean = false;
-
-  @provide({ context: virtualMachineContext })
-  private vm: VirtualMachine;
 
   @state()
   private availableBlocks: BlockTypes[] = [];
@@ -99,8 +95,6 @@ export class WebwriterBlocks extends LitElementWw {
   constructor() {
     super();
     setLocale(this.ownerDocument.documentElement.lang);
-
-    this.vm = new VirtualMachine();
     this.fullscreen = false;
   }
 
@@ -167,23 +161,25 @@ export class WebwriterBlocks extends LitElementWw {
         this.requestFullscreen();
       } catch (error) {
         Logger.error("Failed to enter fullscreen mode.");
-        Logger.log(error);
+        Logger.log(this, error);
       }
     }
   }
 
   private handleStart(): void {
-    this.vm.run();
+    console.log(this.editor.editorApplication.executableCode);
+    Logger.log(this, "Start");
+    this.stage.stageApplication.virtualMachine.start(this.editor.editorApplication.executableCode);
   }
 
   private handleStop(): void {
-    this.vm.stop();
+    Logger.log(this, "Stop");
+    this.stage.stageApplication.virtualMachine.stop();
   }
 
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
     this.readableCode = event.detail.readableCode;
-    this.vm.code = event.detail.executableCode;
   }
 
   private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {

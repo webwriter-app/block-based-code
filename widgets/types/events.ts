@@ -1,12 +1,11 @@
 /* eslint-disable max-classes-per-file */
 import { Options } from "./options";
 
-export class EditorChangeEvent extends CustomEvent<{ workspace: string, executableCode: string, readableCode: string }> {
-  constructor(workspace: string, executableCode: string, readableCode: string) {
+export class EditorChangeEvent extends CustomEvent<{ workspace: string, readableCode: string }> {
+  constructor(workspace: string, readableCode: string) {
     super("change", {
       detail: {
         workspace,
-        executableCode,
         readableCode,
       },
       bubbles: true,

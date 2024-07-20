@@ -7,6 +7,11 @@ export interface IStartMessage extends IMessage {
   code: string;
 }
 
+export interface IValueMessage extends IMessage {
+  type: "value";
+  value: [string, number | string];
+}
+
 export interface ICommandMessge extends IMessage {
   type: "command";
   command: string;

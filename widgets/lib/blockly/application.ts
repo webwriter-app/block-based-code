@@ -14,9 +14,7 @@ import { BlockTypes } from "./blocks";
 import { executableCodeGenerator, readableCodeGenerator } from "./generator";
 import { Application } from "../types";
 
-type Commands = "highlight";
-
-export class BlocklyApplication extends Application<Commands> {
+export class BlocklyApplication extends Application {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
 
   private static readonly renderer = "zelos";
@@ -108,16 +106,6 @@ export class BlocklyApplication extends Application<Commands> {
     const toolbox = createToolboxFromBlockList(this.selectedBlocks);
     this.workspace.updateToolbox(toolbox);
     this.workspace.refreshToolboxSelection();
-  }
-
-  public command(command: Commands, ...args: unknown[]): void {
-    switch (command) {
-      case "highlight":
-        this.workspace.highlightBlock(args[0] as string);
-        break;
-      default:
-        break;
-    }
   }
 
   protected createContainer(): void {
