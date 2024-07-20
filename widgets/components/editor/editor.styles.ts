@@ -8,6 +8,15 @@ export const styles = css`
 
         overflow: hidden;
     }
+    
+    .categoryBubble {
+        display: block;
+        margin: 0 auto 0.125rem;
+        border-radius: 100%;
+        border: 1px solid;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
 
     .blocklyToolboxDiv {
         padding: 0;
@@ -19,12 +28,22 @@ export const styles = css`
     }
 
     .blocklyTreeRow {
+        height: initial;
         margin-bottom: 0;
-        padding: var(--sl-spacing-x-small) var(--sl-spacing-medium) !important;
+        padding: var(--sl-spacing-x-small) !important;
 
         transition: var(--sl-transition-medium);
 
         cursor: pointer;
+    }
+
+    .blocklyTreeRowContentContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .blocklyTreeLabel {
+        margin: auto;
     }
 
     .blocklyTreeRow:first-child {
