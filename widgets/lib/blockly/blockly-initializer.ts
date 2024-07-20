@@ -1,7 +1,10 @@
-import { common, ContextMenuRegistry } from "blockly";
+import {
+  common, ContextMenuRegistry, registry, ToolboxCategory,
+} from "blockly";
 
 import { WebWriterTheme } from "./theme";
 import { blocks } from "./blocks";
+import { WebWriterToolboxCategory } from "./toolbox";
 
 export class BlocklyInitializer {
   private static initialized = false;
@@ -9,6 +12,7 @@ export class BlocklyInitializer {
   public static define(): void {
     if (BlocklyInitializer.initialized) return;
     BlocklyInitializer.defineTheme();
+    BlocklyInitializer.defineToolboxCategory();
     BlocklyInitializer.defineContextMenu();
     BlocklyInitializer.defineBlocks();
     BlocklyInitializer.initialized = true;
@@ -17,6 +21,15 @@ export class BlocklyInitializer {
   private static defineTheme(): void {
     // eslint-disable-next-line no-new
     new WebWriterTheme();
+  }
+
+  private static defineToolboxCategory(): void {
+    registry.register(
+      registry.Type.TOOLBOX_ITEM,
+      ToolboxCategory.registrationName,
+      WebWriterToolboxCategory,
+      true,
+    );
   }
 
   private static defineContextMenu(): void {
