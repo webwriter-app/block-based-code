@@ -17,18 +17,19 @@ export class PixiApplication extends StageApplication {
     this.virtualMachine = new PixiVirtualMachine(this.application);
   }
 
-  public destroy(): void {
+  public override destroy(): void {
+    this.virtualMachine.stop();
     this.application.destroy();
     super.destroy();
   }
 
-  public show(): void {
+  public override show(): void {
     this.container.appendChild(this.application.canvas);
     this.application.render();
     this.resize();
   }
 
-  public resize(): void {
+  public override resize(): void {
     this.application.canvas.style.transform = `scale(${this.container.clientWidth / this.application.canvas.width})`;
   }
 

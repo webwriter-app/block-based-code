@@ -63,6 +63,10 @@ export class BlocklyApplication extends Application {
     serialization.workspaces.load(JSON.parse(workspace), this.workspace);
   }
 
+  public highlight(id: string): void {
+    this.workspace.highlightBlock(id);
+  }
+
   // @ts-ignore
   public addEventListener(key: "CREATE_VARIABLE", callback: (button: FlyoutButton) => void): void;
   public addEventListener(key: "CHANGE", callback: (event: any) => void): void;

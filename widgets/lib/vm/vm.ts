@@ -1,6 +1,8 @@
 export abstract class VirtualMachine {
   private worker: Worker;
 
+  private highlightCallback: (id: string) => void;
+
   protected constructor() {
     this.initWorker();
   }
@@ -12,6 +14,10 @@ export abstract class VirtualMachine {
   public stop(): void {
     this.worker.terminate();
     this.initWorker();
+  }
+
+  public setHighlightCallback(callback: (id: string) => void): void {
+    this.highlightCallback = callback;
   }
 
   protected get callables(): ((...args: any[]) => void)[] {
@@ -48,6 +54,8 @@ export abstract class VirtualMachine {
   }
 
   private highlight(id: string): void {
-    console.log("HIGHLIGHTING BLOCK:", id);
+    if (this.highlightCallback) {
+      this.highlightCallback(id);
+    }
   }
 }

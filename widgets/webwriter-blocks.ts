@@ -12,7 +12,7 @@ import {
 import { setLocale } from "./locales";
 import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
-import { StageType } from "./types";
+import { CodeHighlightingEvent, StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
@@ -124,7 +124,8 @@ export class WebwriterBlocks extends LitElementWw {
             <webwriter-blocks-stage slot="stage"
                                     id="stage"
                                     stageType=${this.stageType}
-                                    code=${this.readableCode}>
+                                    code=${this.readableCode}
+                                    @highlight=${this.handleCodeHighlighting}>
             </webwriter-blocks-stage>
         </webwriter-blocks-application>
         ${this.contentEditable === "true" || this.contentEditable === "" ? html`
@@ -180,6 +181,10 @@ export class WebwriterBlocks extends LitElementWw {
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
     this.readableCode = event.detail.readableCode;
+  }
+
+  private handleCodeHighlighting(event: CodeHighlightingEvent): void {
+    this.editor.editorApplication.highlight(event.detail);
   }
 
   private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {

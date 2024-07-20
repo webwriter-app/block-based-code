@@ -14,7 +14,7 @@ import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
-import { StageApplication, StageType } from "../../types";
+import { CodeHighlightingEvent, StageApplication, StageType } from "../../types";
 import { ErrorApplication } from "../../lib/error";
 
 @customElement("webwriter-blocks-stage")
@@ -60,6 +60,7 @@ export class Stage extends LitElementWw {
       autoRun: false,
       onComplete: () => {
         this.stageElement.appendChild(this.stageApplication.container);
+        this.stageApplication.virtualMachine.setHighlightCallback(this.handleCodeHighlighting.bind(this));
         this.stageApplication.show();
         Logger.log(this, "Initialized!");
       },
@@ -114,6 +115,11 @@ export class Stage extends LitElementWw {
 
   private handleResize(): void {
     this.stageApplication.resize();
+  }
+
+  private handleCodeHighlighting(id: string): void {
+    const event = new CodeHighlightingEvent(id);
+    this.dispatchEvent(event);
   }
 
   private applyStageType(): void {
