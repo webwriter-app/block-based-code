@@ -35,27 +35,13 @@ export abstract class VirtualMachine {
     };
   }
 
-  private generateWorkerScript(code: string, delayMs: number): string {
-    let script = `let delayMs = ${delayMs};\n`;
-    const scriptFunction = (function () {
-      let resultResolveFunction: (result: any) => void;
+  private generateWorkerScript(code: string, delay: number): string {
+    let script = "";
+    script += "let resultResolveFunction;\n";
+    script += "async function wait(s) { await new Promise((resolve) => { setTimeout(resolve, s * 1e3) }); }\n";
+    script += `async function delay() { await new Promise((resolve) => { setTimeout(resolve, ${delay}) }); }\n`;
+    script += "onmessage = function (event) { if (event.data.type === 'result') { resultResolveFunction(event.data.args[0]); } };\n";
 
-      async function wait(s: number): Promise<void> {
-        await new Promise((resolve) => { setTimeout(resolve, s * 1e3); });
-      }
-
-      async function delay(): Promise<void> {
-        await new Promise((resolve) => { setTimeout(resolve, delayMs); });
-      }
-
-      onmessage = function (event) {
-        console.log(event);
-        if (event.data.type === "result") {
-          resultResolveFunction(event.data.args[0]);
-        }
-      };
-    });
-    script += `${scriptFunction.toString().match(/function[^{]+\{([\s\S]*)\}$/)[1]}\n`;
     this.callables.forEach((callable) => {
       const args = Array(callable.length).fill("x").map((x, i) => `${x}${i}`).join(", ");
       const message = `{ type: "${callable.name}", args: [${args}] }`;

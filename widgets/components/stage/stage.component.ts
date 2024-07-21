@@ -173,7 +173,7 @@ export class Stage extends LitElementWw {
                 <div style="display: flex; gap: var(--sl-spacing-x-small);">
                     <sl-range help-text="The delay between each block execution."
                               style="width: 100%;"
-                              min="0"
+                              min="40"
                               max="1000"
                               step="100"
                               .value=${this.vmDelay}
