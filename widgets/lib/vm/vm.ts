@@ -3,8 +3,8 @@ export abstract class VirtualMachine {
 
   private highlightCallback: (id: string) => void;
 
-  public start(code: string): void {
-    this.initWorker(code);
+  public start(code: string, delay: number): void {
+    this.initWorker(code, delay);
   }
 
   public stop(): void {
@@ -23,8 +23,8 @@ export abstract class VirtualMachine {
     ];
   }
 
-  private initWorker(code: string): void {
-    const script = this.generateWorkerScript(code);
+  private initWorker(code: string, delay: number): void {
+    const script = this.generateWorkerScript(code, delay);
     const url = this.generateWorkerScriptUrl(script);
     this.worker = new Worker(url);
     this.worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
@@ -35,8 +35,8 @@ export abstract class VirtualMachine {
     };
   }
 
-  private generateWorkerScript(code: string): string {
-    let script = "";
+  private generateWorkerScript(code: string, delayMs: number): string {
+    let script = `let delayMs = ${delayMs};\n`;
     const scriptFunction = (function () {
       let resultResolveFunction: (result: any) => void;
 
@@ -45,7 +45,7 @@ export abstract class VirtualMachine {
       }
 
       async function delay(): Promise<void> {
-        await new Promise((resolve) => { setTimeout(resolve, 100); });
+        await new Promise((resolve) => { setTimeout(resolve, delayMs); });
       }
 
       onmessage = function (event) {

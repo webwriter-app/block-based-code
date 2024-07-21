@@ -2,7 +2,6 @@ import { css } from "lit";
 
 export const styles = css`
     :host {
-        position: relative;
         width: 100%;
         height: 100%;
         display: flex;

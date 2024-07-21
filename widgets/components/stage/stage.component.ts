@@ -1,11 +1,21 @@
-import { customElement, property, query } from "lit/decorators.js";
+import {
+  customElement, property, query, state,
+} from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { Task } from "@lit/task";
 import {
-  SlSpinner, SlTab, SlTabGroup, SlTabPanel,
+  SlButton,
+  SlCheckbox,
+  SlDialog,
+  SlDivider,
+  SlRange,
+  SlSpinner,
+  SlTab,
+  SlTabGroup,
+  SlTabPanel,
 } from "@shoelace-style/shoelace";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
@@ -38,6 +48,15 @@ export class Stage extends LitElementWw {
   @query("#stage")
   private readonly stageElement!: SlTabPanel;
 
+  @query("#vm-options-dialog")
+  private readonly vmOptionsDialog!: SlDialog;
+
+  @state()
+  private vmBlockHighlighting: boolean = true;
+
+  @state()
+  private vmDelay: number = 100;
+
   private readonly resizeObserver: ResizeObserver;
 
   private readonly applicationReady: Task;
@@ -50,6 +69,11 @@ export class Stage extends LitElementWw {
       "sl-tab-group": SlTabGroup,
       "sl-tab": SlTab,
       "sl-tab-panel": SlTabPanel,
+      "sl-dialog": SlDialog,
+      "sl-button": SlButton,
+      "sl-checkbox": SlCheckbox,
+      "sl-range": SlRange,
+      "sl-divider": SlDivider,
     };
   }
 
@@ -105,7 +129,11 @@ export class Stage extends LitElementWw {
     return html`
         <webwriter-blocks-toolbar>
             <div>
-                <webwriter-blocks-toolbar-button id="settings" label=${msg("STOP")} icon=${AdjustmentsIcon}></webwriter-blocks-toolbar-button>
+                <webwriter-blocks-toolbar-button id="settings"
+                                                 label=${msg("STOP")}
+                                                 icon=${AdjustmentsIcon}
+                                                 @click=${this.handleVmOptionsClick}>
+                </webwriter-blocks-toolbar-button>
             </div>
             <div>
                 <webwriter-blocks-toolbar-button id="stop"
@@ -131,6 +159,37 @@ export class Stage extends LitElementWw {
                 <pre><code>${unsafeHTML(hljs.highlight(this.readableCode, { language: "javascript" }).value)}</code></pre>
             </sl-tab-panel>
         </sl-tab-group>
+        <sl-dialog label="Execution Options" id="vm-options-dialog">
+            <div class="group">
+                <sl-checkbox help-text="Highlight blocks as they are executed." 
+                             .checked=${this.vmBlockHighlighting}
+                             @sl-change=${this.handleBlockHighlightingChange}>
+                    Block highlighting
+                </sl-checkbox>
+            </div>
+            <sl-divider></sl-divider>
+            <div class="group" style="gap: 0">
+                <span class="label">Delay (ms)</span>
+                <div style="display: flex; gap: var(--sl-spacing-x-small);">
+                    <sl-range help-text="The delay between each block execution."
+                              style="width: 100%;"
+                              min="0"
+                              max="1000"
+                              step="100"
+                              .value=${this.vmDelay}
+                              @sl-change=${this.handleDelayChange}>
+                    </sl-range>
+                    <span style="width: 100px; font-style: italic; color: var(--sl-color-gray-500); font-size: 14px; padding-top: 3px">
+                        ${this.vmDelay} ms
+                    </span>
+                </div>
+            </div>
+            <sl-button slot="footer"
+                       variant="primary"
+                       @click="${() => this.vmOptionsDialog.hide()}">
+                Save
+            </sl-button>
+        </sl-dialog>
     `;
   }
 
@@ -144,8 +203,23 @@ export class Stage extends LitElementWw {
     this.stageApplication.resize();
   }
 
+  private handleVmOptionsClick(): void {
+    this.vmOptionsDialog.show().catch();
+  }
+
+  private handleBlockHighlightingChange(event: Event): void {
+    const checkbox = event.target as SlCheckbox;
+    console.log(checkbox.checked);
+    this.vmBlockHighlighting = checkbox.checked;
+  }
+
+  private handleDelayChange(event: Event): void {
+    const range = event.target as SlRange;
+    this.vmDelay = range.value as number;
+  }
+
   private handleStartClick(): void {
-    this.stageApplication.virtualMachine.start(this.executableCode);
+    this.stageApplication.virtualMachine.start(this.executableCode, this.vmDelay);
   }
 
   private handleStopClick(): void {
@@ -153,6 +227,7 @@ export class Stage extends LitElementWw {
   }
 
   private handleCodeHighlighting(id: string): void {
+    if (!this.vmBlockHighlighting) return;
     const event = new CodeHighlightingEvent(id);
     this.dispatchEvent(event);
   }
