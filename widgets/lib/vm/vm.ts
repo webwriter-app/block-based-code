@@ -1,5 +1,3 @@
-import { result } from "lodash";
-
 export abstract class VirtualMachine {
   private worker?: Worker;
 
