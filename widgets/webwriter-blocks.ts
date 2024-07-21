@@ -12,7 +12,7 @@ import {
 import { setLocale } from "./locales";
 import { fullscreenContext } from "./context";
 import { Logger } from "./utils";
-import { StageType } from "./types";
+import { CodeHighlightingEvent, StageType } from "./types";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
@@ -95,7 +95,6 @@ export class WebwriterBlocks extends LitElementWw {
   constructor() {
     super();
     setLocale(this.ownerDocument.documentElement.lang);
-
     this.fullscreen = false;
   }
 
@@ -125,7 +124,8 @@ export class WebwriterBlocks extends LitElementWw {
             <webwriter-blocks-stage slot="stage"
                                     id="stage"
                                     stageType=${this.stageType}
-                                    code=${this.readableCode}>
+                                    code=${this.readableCode}
+                                    @highlight=${this.handleCodeHighlighting}>
             </webwriter-blocks-stage>
         </webwriter-blocks-application>
         ${this.contentEditable === "true" || this.contentEditable === "" ? html`
@@ -162,26 +162,28 @@ export class WebwriterBlocks extends LitElementWw {
         this.requestFullscreen();
       } catch (error) {
         Logger.error("Failed to enter fullscreen mode.");
-        Logger.log(error);
+        Logger.log(this, error);
       }
     }
   }
 
   private handleStart(): void {
-    if (this.stage) {
-      this.stage.stageApplication.command("execute:move", 10);
-    }
+    Logger.log(this, "Start");
+    this.stage.stageApplication.virtualMachine.start(this.editor.editorApplication.executableCode);
   }
 
   private handleStop(): void {
-    if (this.stage) {
-      this.stage.stageApplication.command("execute:rotate", 0.1);
-    }
+    Logger.log(this, "Stop");
+    this.stage.stageApplication.virtualMachine.stop();
   }
 
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
     this.readableCode = event.detail.readableCode;
+  }
+
+  private handleCodeHighlighting(event: CodeHighlightingEvent): void {
+    this.editor.editorApplication.highlight(event.detail);
   }
 
   private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {

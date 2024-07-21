@@ -20,6 +20,7 @@
         "sourceType": "module"
       },
       "rules": {
+        "consistent-return": "off",
         "no-underscore-dangle": "off",
         "import/no-cycle": "off",
         "class-methods-use-this": "off",
@@ -27,7 +28,8 @@
         "import/no-default-export": "error",
         "import/no-extraneous-dependencies": "off",
         "import/extensions": "off",
-        "@typescript-eslint/quotes": ["error", "double"]
+        "@typescript-eslint/quotes": ["error", "double"],
+        "@typescript-eslint/no-explicit-any": "off"
       }
     }
   ]

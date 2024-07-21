@@ -1,10 +1,16 @@
 // eslint-disable-next-line max-len
 /* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/no-unused-vars,no-console,no-unused-labels,no-restricted-syntax,no-labels */
+import { toKebabCase } from "./string";
+
 const base = "[webwriter-blocks]".toUpperCase();
 
-export const Logger: Console = {
-  log: (...args: any[]) => {
-    DEV: console.log(base, ...args);
+export const Logger = {
+  log: (origin: {
+    constructor: {
+      name: string
+    };
+  }, ...args: any[]) => {
+    DEV: console.log(`${base} [${toKebabCase(origin.constructor.name).toUpperCase()}]`, ...args);
   },
   error: (...args: any[]) => {
     console.error(...args);

@@ -1,6 +1,6 @@
 import { StageApplication } from "../types";
 
-export class ErrorApplication extends StageApplication<string> {
+export class ErrorApplication extends StageApplication {
   constructor() {
     super();
     this.initComplete = new Promise((resolve, reject) => {
@@ -10,7 +10,7 @@ export class ErrorApplication extends StageApplication<string> {
     });
   }
 
-  public command(): void {
+  public command(): any {
 
   }
 

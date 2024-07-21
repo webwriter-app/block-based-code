@@ -1,11 +1,9 @@
-export abstract class Application<Commands extends string> {
+export abstract class Application {
   public container: HTMLDivElement;
 
   constructor() {
     this.createContainer();
   }
-
-  public abstract command(command: Commands, ...args: unknown[]): void;
 
   public destroy(): void {
     this.container.remove();

@@ -14,9 +14,7 @@ import { BlockTypes } from "./blocks";
 import { executableCodeGenerator, readableCodeGenerator } from "./generator";
 import { Application } from "../types";
 
-type Commands = "highlight";
-
-export class BlocklyApplication extends Application<Commands> {
+export class BlocklyApplication extends Application {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
 
   private static readonly renderer = "zelos";
@@ -58,11 +56,15 @@ export class BlocklyApplication extends Application<Commands> {
   }
 
   public get readableCode(): string {
-    return readableCodeGenerator.workspaceToCode(this.workspace);
+    return readableCodeGenerator.workspaceToCode(this.workspace).replace("await ", "");
   }
 
   public load(workspace: string): void {
     serialization.workspaces.load(JSON.parse(workspace), this.workspace);
+  }
+
+  public highlight(id: string): void {
+    this.workspace.highlightBlock(id);
   }
 
   // @ts-ignore
@@ -108,13 +110,6 @@ export class BlocklyApplication extends Application<Commands> {
     const toolbox = createToolboxFromBlockList(this.selectedBlocks);
     this.workspace.updateToolbox(toolbox);
     this.workspace.refreshToolboxSelection();
-  }
-
-  public command(command: Commands, ...args: unknown[]): void {
-    switch (command) {
-      default:
-        console.error(`Unknown command: ${command}(${args.join(", ")})`);
-    }
   }
 
   protected createContainer(): void {

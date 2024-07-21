@@ -14,12 +14,12 @@ import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
-import { StageApplication, StageType } from "../../types";
+import { CodeHighlightingEvent, StageApplication, StageType } from "../../types";
 import { ErrorApplication } from "../../lib/error";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
-  public stageApplication: StageApplication<string>;
+  public stageApplication: StageApplication;
 
   @property({ type: String })
   public stageType: StageType;
@@ -60,8 +60,9 @@ export class Stage extends LitElementWw {
       autoRun: false,
       onComplete: () => {
         this.stageElement.appendChild(this.stageApplication.container);
+        this.stageApplication.virtualMachine.setHighlightCallback(this.handleCodeHighlighting.bind(this));
         this.stageApplication.show();
-        Logger.log("Stage initialized!");
+        Logger.log(this, "Initialized!");
       },
     });
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
@@ -86,7 +87,7 @@ export class Stage extends LitElementWw {
     const renderer: Parameters<typeof this.applicationReady["render"]>[0] = {
       pending: () => html`<sl-spinner></sl-spinner>`,
       error: (error: Error) => {
-        Logger.log(error);
+        Logger.log(this, error);
         return html`<div class="error">${msg("ERROR")}</div>`;
       },
     };
@@ -114,6 +115,11 @@ export class Stage extends LitElementWw {
 
   private handleResize(): void {
     this.stageApplication.resize();
+  }
+
+  private handleCodeHighlighting(id: string): void {
+    const event = new CodeHighlightingEvent(id);
+    this.dispatchEvent(event);
   }
 
   private applyStageType(): void {

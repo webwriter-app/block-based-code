@@ -1,12 +1,12 @@
 /* eslint-disable max-classes-per-file */
-import { Options } from "./options";
+import { StageType } from "./stage";
+import { BlockTypes } from "../lib/blockly";
 
-export class EditorChangeEvent extends CustomEvent<{ workspace: string, executableCode: string, readableCode: string }> {
-  constructor(workspace: string, executableCode: string, readableCode: string) {
+export class EditorChangeEvent extends CustomEvent<{ workspace: string, readableCode: string }> {
+  constructor(workspace: string, readableCode: string) {
     super("change", {
       detail: {
         workspace,
-        executableCode,
         readableCode,
       },
       bubbles: true,
@@ -15,10 +15,24 @@ export class EditorChangeEvent extends CustomEvent<{ workspace: string, executab
   }
 }
 
-export class OptionsChangeEvent extends CustomEvent<Options> {
-  constructor(options: Options) {
+export class OptionsChangeEvent extends CustomEvent<{
+  readonly?: 0 | 1;
+  stageType?: StageType;
+  selectedBlocks?: BlockTypes[];
+}> {
+  constructor(options: OptionsChangeEvent["detail"]) {
     super("change", {
       detail: options,
+      bubbles: true,
+      composed: true,
+    });
+  }
+}
+
+export class CodeHighlightingEvent extends CustomEvent<string> {
+  constructor(id: string) {
+    super("highlight", {
+      detail: id,
       bubbles: true,
       composed: true,
     });
