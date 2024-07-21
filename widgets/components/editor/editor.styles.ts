@@ -16,8 +16,8 @@ export const styles = css`
         margin: 0 auto 0.125rem;
         border-radius: 100%;
         border: 1px solid;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     .blocklyToolboxDiv {
@@ -59,7 +59,7 @@ export const styles = css`
 
     .blocklyTreeLabel {
         margin-top: 4px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .blocklyTreeSelected {

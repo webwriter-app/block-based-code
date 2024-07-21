@@ -44,8 +44,8 @@ export abstract class VirtualMachine {
         await new Promise((resolve) => { setTimeout(resolve, s * 1e3); });
       }
 
-      async function delay(ms: number): Promise<void> {
-        await new Promise((resolve) => { setTimeout(resolve, ms); });
+      async function delay(): Promise<void> {
+        await new Promise((resolve) => { setTimeout(resolve, 100); });
       }
 
       onmessage = function (event) {
