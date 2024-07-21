@@ -2,10 +2,12 @@ import { css } from "lit";
 
 export const styles = css`
     :host {
-        display: block;
+        position: relative;
         width: 100%;
         height: 100%;
-
+        display: flex;
+        flex-direction: column;
+        gap: var(--sl-spacing-x-small);
         overflow: hidden;
     }
     

@@ -10,12 +10,17 @@ import {
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import AdjustmentsIcon from "@tabler/icons/outline/adjustments.svg";
+import PlayerStopIcon from "@tabler/icons/outline/player-stop.svg";
+import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
 import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
 import { CodeHighlightingEvent, StageApplication, StageType } from "../../types";
 import { ErrorApplication } from "../../lib/error";
+import { Toolbar } from "../toolbar";
+import { ToolbarButton } from "../toolbar-button/toolbar-button.component";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
@@ -25,7 +30,10 @@ export class Stage extends LitElementWw {
   public stageType: StageType;
 
   @property({ type: String })
-  public code: string;
+  public readableCode: string;
+
+  @property({ type: String })
+  public executableCode: string;
 
   @query("#stage")
   private readonly stageElement!: SlTabPanel;
@@ -36,6 +44,8 @@ export class Stage extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
+      "webwriter-blocks-toolbar": Toolbar,
+      "webwriter-blocks-toolbar-button": ToolbarButton,
       "sl-spinner": SlSpinner,
       "sl-tab-group": SlTabGroup,
       "sl-tab": SlTab,
@@ -93,6 +103,23 @@ export class Stage extends LitElementWw {
     };
 
     return html`
+        <webwriter-blocks-toolbar>
+            <div>
+                <webwriter-blocks-toolbar-button id="settings" label=${msg("STOP")} icon=${AdjustmentsIcon}></webwriter-blocks-toolbar-button>
+            </div>
+            <div>
+                <webwriter-blocks-toolbar-button id="stop"
+                                                 label=${msg("STOP")}
+                                                 icon=${PlayerStopIcon}
+                                                 @click=${this.handleStopClick}>
+                </webwriter-blocks-toolbar-button>
+                <webwriter-blocks-toolbar-button id="start"
+                                                 label=${msg("START")}
+                                                 icon=${PlayerPlayIcon}
+                                                 @click=${this.handleStartClick}>
+                </webwriter-blocks-toolbar-button>
+            </div>
+        </webwriter-blocks-toolbar>
         <sl-tab-group placement="bottom">
             <sl-tab slot="nav" panel="stage">${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}</sl-tab>
             <sl-tab slot="nav" panel="code">${msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
@@ -101,7 +128,7 @@ export class Stage extends LitElementWw {
                 ${this.applicationReady.render(renderer)}
             </sl-tab-panel>
             <sl-tab-panel name="code" id="code">
-                <pre><code>${unsafeHTML(hljs.highlight(this.code, { language: "javascript" }).value)}</code></pre>
+                <pre><code>${unsafeHTML(hljs.highlight(this.readableCode, { language: "javascript" }).value)}</code></pre>
             </sl-tab-panel>
         </sl-tab-group>
     `;
@@ -115,6 +142,14 @@ export class Stage extends LitElementWw {
 
   private handleResize(): void {
     this.stageApplication.resize();
+  }
+
+  private handleStartClick(): void {
+    this.stageApplication.virtualMachine.start(this.executableCode);
+  }
+
+  private handleStopClick(): void {
+    this.stageApplication.virtualMachine.stop();
   }
 
   private handleCodeHighlighting(id: string): void {

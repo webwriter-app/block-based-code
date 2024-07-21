@@ -7,7 +7,7 @@ import {
 } from "lit/decorators.js";
 import { provide } from "@lit/context";
 import {
-  Application, Editor, Options, Stage, Toolbar,
+  Application, Editor, Options, Stage,
 } from "./components";
 import { setLocale } from "./locales";
 import { fullscreenContext } from "./context";
@@ -42,6 +42,9 @@ export class WebwriterBlocks extends LitElementWw {
   @state()
   private readableCode: string = "";
 
+  @state()
+  private executableCode: string = "";
+
   @query("#editor")
   private editor!: Editor;
 
@@ -50,7 +53,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
-      "webwriter-blocks-toolbar": Toolbar,
       "webwriter-blocks-application": Application,
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
@@ -109,9 +111,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <webwriter-blocks-toolbar @fullscreentoggle=${this.handleFullscreenToggle}
-                                  @start=${this.handleStart}
-                                  @stop=${this.handleStop}>
         </webwriter-blocks-toolbar>
         <webwriter-blocks-application id="application">
             <webwriter-blocks-editor slot="editor"
@@ -124,7 +123,8 @@ export class WebwriterBlocks extends LitElementWw {
             <webwriter-blocks-stage slot="stage"
                                     id="stage"
                                     stageType=${this.stageType}
-                                    code=${this.readableCode}
+                                    readableCode=${this.readableCode}
+                                    executableCode=${this.executableCode}
                                     @highlight=${this.handleCodeHighlighting}>
             </webwriter-blocks-stage>
         </webwriter-blocks-application>
@@ -167,19 +167,10 @@ export class WebwriterBlocks extends LitElementWw {
     }
   }
 
-  private handleStart(): void {
-    Logger.log(this, "Start");
-    this.stage.stageApplication.virtualMachine.start(this.editor.editorApplication.executableCode);
-  }
-
-  private handleStop(): void {
-    Logger.log(this, "Stop");
-    this.stage.stageApplication.virtualMachine.stop();
-  }
-
   private handleEditorChange(event: EditorChangeEvent): void {
     this.editorState = event.detail.workspace;
     this.readableCode = event.detail.readableCode;
+    this.executableCode = event.detail.executableCode;
   }
 
   private handleCodeHighlighting(event: CodeHighlightingEvent): void {

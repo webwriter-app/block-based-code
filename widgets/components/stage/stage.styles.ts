@@ -10,7 +10,23 @@ export const styles = css`
         gap: var(--sl-spacing-x-small);
         overflow: hidden;
     }
-   
+
+    webwriter-blocks-toolbar-button#stop {
+        background-color: var(--sl-color-danger-50);
+    }
+    
+    webwriter-blocks-toolbar-button#stop::part(icon) {
+        color: var(--sl-color-danger-500);
+    }
+
+    webwriter-blocks-toolbar-button#start {
+        background-color: var(--sl-color-success-50);
+    }
+
+    webwriter-blocks-toolbar-button#start::part(icon) {
+        color: var(--sl-color-success-500);
+    }
+    
     sl-spinner {
         position: absolute;
         top: 50%;

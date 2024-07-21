@@ -8,6 +8,8 @@ import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
 import { BlocklyApplication, SelectedBlocks } from "../../lib/blockly";
 import { EditorChangeEvent } from "../../types";
+import { Toolbar } from "../toolbar";
+import { ToolbarButton } from "../toolbar-button";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
@@ -29,6 +31,8 @@ export class Editor extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
+      "webwriter-blocks-toolbar": Toolbar,
+      "webwriter-blocks-toolbar-button": ToolbarButton,
       "sl-dialog": SlDialog,
       "sl-input": SlInput,
       "sl-button": SlButton,
@@ -65,6 +69,9 @@ export class Editor extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
+        <webwriter-blocks-toolbar>
+            
+        </webwriter-blocks-toolbar>
         <sl-dialog label="New Variable" id="new-variable-dialog">
             <sl-input autofocus label="New variable name" placeholder=""></sl-input>
             <sl-button slot="footer" @click="${() => this.newVariableDialog.hide()}">Close</sl-button>
@@ -122,6 +129,7 @@ export class Editor extends LitElementWw {
     const changeEvent = new EditorChangeEvent(
       this.editorApplication.save(),
       this.editorApplication.readableCode,
+      this.editorApplication.executableCode,
     );
     this.dispatchEvent(changeEvent);
   }
