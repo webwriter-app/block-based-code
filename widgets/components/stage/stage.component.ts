@@ -209,7 +209,6 @@ export class Stage extends LitElementWw {
 
   private handleBlockHighlightingChange(event: Event): void {
     const checkbox = event.target as SlCheckbox;
-    console.log(checkbox.checked);
     this.vmBlockHighlighting = checkbox.checked;
   }
 
