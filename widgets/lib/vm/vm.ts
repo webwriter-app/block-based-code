@@ -1,19 +1,17 @@
+import { result } from "lodash";
+
 export abstract class VirtualMachine {
-  private worker: Worker;
+  private worker?: Worker;
 
   private highlightCallback: (id: string) => void;
 
-  protected constructor() {
-    this.initWorker();
-  }
-
   public start(code: string): void {
-    this.worker.postMessage(code);
+    this.initWorker(code);
   }
 
   public stop(): void {
+    this.highlight(null);
     this.worker.terminate();
-    this.initWorker();
   }
 
   public setHighlightCallback(callback: (id: string) => void): void {
@@ -23,28 +21,57 @@ export abstract class VirtualMachine {
   protected get callables(): ((...args: any[]) => void)[] {
     return [
       this.highlight,
+      this.stop,
     ];
   }
 
-  private initWorker(): void {
-    const script = this.generateWorkerScript();
+  private initWorker(code: string): void {
+    const script = this.generateWorkerScript(code);
     const url = this.generateWorkerScriptUrl(script);
     this.worker = new Worker(url);
     this.worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
-      this[event.data.type](...event.data.args);
+      const result = this[event.data.type](...event.data.args);
+      if (result) {
+        this.worker.postMessage({ type: "result", args: [result] });
+      }
     };
   }
 
-  private generateWorkerScript(): string {
+  private generateWorkerScript(code: string): string {
     let script = "";
-    script += "function wait(s) { const n = Date.now(); while(Date.now() < n + s * 1e3) {} } \n";
-    script += "function delay(ms) { const n = Date.now(); while(Date.now() < n + ms) {} } \n";
+    const scriptFunction = (function () {
+      let resultResolveFunction: (result: any) => void;
+
+      async function wait(s: number): Promise<void> {
+        await new Promise((resolve) => { setTimeout(resolve, s * 1e3); });
+      }
+
+      async function delay(ms: number): Promise<void> {
+        await new Promise((resolve) => { setTimeout(resolve, ms); });
+      }
+
+      onmessage = function (event) {
+        console.log(event);
+        if (event.data.type === "result") {
+          resultResolveFunction(event.data.args[0]);
+        }
+      };
+    });
+    script += `${scriptFunction.toString().match(/function[^{]+\{([\s\S]*)\}$/)[1]}\n`;
     this.callables.forEach((callable) => {
       const args = Array(callable.length).fill("x").map((x, i) => `${x}${i}`).join(", ");
       const message = `{ type: "${callable.name}", args: [${args}] }`;
-      script += `function ${callable.name}(${args}) { postMessage(${message.toString()}); } \n`;
+      if (callable.name.startsWith("get")) {
+        script += `async function ${callable.name}(${args}) { postMessage(${message.toString()}); return await new Promise((resolve) => { resultResolveFunction = resolve; }); } \n`;
+      } else {
+        script += `function ${callable.name}(${args}) { postMessage(${message.toString()}); } \n`;
+      }
     });
-    script += "onmessage = function(event) { console.log(event.data); eval(event.data); highlight(null); } \n";
+    script += "(async function () {\n";
+    script += code;
+    script += "highlight(null);\n";
+    script += "})()\n";
+    console.log(script);
     return script;
   }
 

@@ -6,7 +6,7 @@ import type { GeneratorFunction } from "../types/generator";
 export const generators = {
   "controls:wait": (block, generator) => {
     const time = generator.valueToCode(block, "DURATION", Order.ATOMIC);
-    return `wait(${time});\n`;
+    return `await wait(${time});\n`;
   },
   "controls:repeat": (block, generator) => {
     const times = generator.valueToCode(block, "TIMES", Order.ATOMIC);
@@ -57,5 +57,5 @@ export const generators = {
     code += "}\n";
     return code;
   },
-  "controls:stop": () => "return;",
+  "controls:stop": () => "stop();\n",
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

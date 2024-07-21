@@ -56,7 +56,7 @@ export class BlocklyApplication extends Application {
   }
 
   public get readableCode(): string {
-    return readableCodeGenerator.workspaceToCode(this.workspace);
+    return readableCodeGenerator.workspaceToCode(this.workspace).replace("await ", "");
   }
 
   public load(workspace: string): void {

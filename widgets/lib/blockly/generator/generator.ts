@@ -11,7 +11,7 @@ export class ExecutableGenerator extends JavascriptGenerator {
   constructor() {
     super("executable");
     this.STATEMENT_PREFIX = "highlight(%1);\n";
-    this.STATEMENT_SUFFIX = "delay(100);\n";
+    this.STATEMENT_SUFFIX = "await delay(100);\n";
   }
 }
 

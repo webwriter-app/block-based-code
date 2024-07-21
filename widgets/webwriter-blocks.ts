@@ -168,7 +168,6 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private handleStart(): void {
-    console.log(this.editor.editorApplication.executableCode);
     Logger.log(this, "Start");
     this.stage.stageApplication.virtualMachine.start(this.editor.editorApplication.executableCode);
   }
