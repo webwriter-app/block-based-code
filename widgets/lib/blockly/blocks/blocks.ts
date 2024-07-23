@@ -1,5 +1,6 @@
 import { blocks as controlBlocks } from "./controls";
 import { blocks as eventBlocks } from "./events";
+import { blocks as lookBlocks } from "./looks";
 import { blocks as motionBlocks } from "./motions";
 import { blocks as operatorBlocks } from "./operators";
 import { numberBlock } from "./math";
@@ -8,6 +9,7 @@ import { BlockDefinition } from "../types";
 export const blocks = [
   ...eventBlocks,
   ...controlBlocks,
+  ...lookBlocks,
   ...motionBlocks,
   ...operatorBlocks,
   numberBlock,

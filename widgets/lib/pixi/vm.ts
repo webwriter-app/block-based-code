@@ -1,4 +1,4 @@
-import { Application, Sprite } from "pixi.js";
+import { Application, ColorMatrixFilter, Sprite } from "pixi.js";
 import { VirtualMachine } from "../vm";
 
 export class PixiVirtualMachine extends VirtualMachine {
@@ -20,6 +20,7 @@ export class PixiVirtualMachine extends VirtualMachine {
       this.setXY,
       this.getX,
       this.getY,
+      this.setColor,
     ];
   }
 
@@ -55,6 +56,11 @@ export class PixiVirtualMachine extends VirtualMachine {
 
   private getY(): number {
     return this.bunny.y;
+  }
+
+  private setColor(color: number): void {
+    const filter = this.bunny.filters[0] as ColorMatrixFilter;
+    filter.hue(color, false);
   }
 
   private get bunny(): Sprite {

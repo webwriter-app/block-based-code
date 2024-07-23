@@ -1,5 +1,5 @@
 import {
-  Application, Assets, Point, Sprite,
+  Application, Assets, ColorMatrixFilter, Point, Sprite,
 } from "pixi.js";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
@@ -49,6 +49,7 @@ export class PixiApplication extends StageApplication {
       "motions:set_xy",
       "motions:get_x",
       "motions:get_y",
+      "looks:set_color",
     ];
   }
 
@@ -80,6 +81,10 @@ export class PixiApplication extends StageApplication {
     sprite.x = this.application.canvas.width / 2;
     sprite.y = this.application.canvas.height / 2;
     sprite.setSize(100);
+
+    const filter = new ColorMatrixFilter();
+    sprite.filters = [filter];
+
     this.application.stage.addChild(sprite);
   }
 }

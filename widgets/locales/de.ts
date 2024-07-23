@@ -31,6 +31,8 @@ export const dictionary: Dictionary = {
     OR: "%1 oder %2",
     NOT: "nicht %1",
     ABSOLUTE: "betrag von %1",
+    // Looks
+    SET_COLOR: "setze Farbeffekt auf %1",
     // Motions
     MOVE: "gehe %1 Schritte",
     ROTATE: "drehe um %1 Grad",
@@ -45,6 +47,7 @@ export const dictionary: Dictionary = {
     CONTROLS: "Steuerung",
     EVENTS: "Ereignisse",
     OPERATORS: "Operatoren",
+    LOOKS: "Aussehen",
     MOTIONS: "Bewegungen",
     VARIABLES: "Variablen",
   },
