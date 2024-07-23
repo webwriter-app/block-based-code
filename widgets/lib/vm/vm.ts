@@ -8,6 +8,8 @@ export abstract class VirtualMachine {
   }
 
   public stop(): void {
+    if (!this.worker) return;
+
     this.highlight(null);
     this.worker.terminate();
   }
@@ -39,7 +41,7 @@ export abstract class VirtualMachine {
     let script = "";
     script += "let resultResolveFunction;\n";
     script += "async function wait(s) { await new Promise((resolve) => { setTimeout(resolve, s * 1e3) }); }\n";
-    script += `async function delay() { await new Promise((resolve) => { setTimeout(resolve, ${delay}) }); }\n`;
+    script += `async function delay() { await new Promise((resolve) => { setTimeout(resolve, ${delay === 0 ? 40 : delay}) }); }\n`;
     script += "onmessage = function (event) { if (event.data.type === 'result') { resultResolveFunction(event.data.args[0]); } };\n";
 
     this.callables.forEach((callable) => {
@@ -55,7 +57,6 @@ export abstract class VirtualMachine {
     script += code;
     script += "highlight(null);\n";
     script += "})()\n";
-    console.log(script);
     return script;
   }
 

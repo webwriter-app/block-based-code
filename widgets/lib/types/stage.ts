@@ -41,6 +41,11 @@ export abstract class StageApplication extends Application {
     ];
   }
 
+  public override destroy(): void {
+    super.destroy();
+    this.virtualMachine.stop();
+  }
+
   public abstract show(): void;
 
   public abstract resize(): void;

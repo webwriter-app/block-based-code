@@ -28,7 +28,6 @@ import { Logger } from "../../utils";
 import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
 import { CodeHighlightingEvent, StageApplication, StageType } from "../../types";
-import { ErrorApplication } from "../../lib/error";
 import { Toolbar } from "../toolbar";
 import { ToolbarButton } from "../toolbar-button/toolbar-button.component";
 
@@ -173,7 +172,7 @@ export class Stage extends LitElementWw {
                 <div style="display: flex; gap: var(--sl-spacing-x-small);">
                     <sl-range help-text="The delay between each block execution."
                               style="width: 100%;"
-                              min="40"
+                              min="0"
                               max="1000"
                               step="100"
                               .value=${this.vmDelay}
@@ -238,9 +237,6 @@ export class Stage extends LitElementWw {
     switch (this.stageType) {
       case StageType.CANVAS:
         this.stageApplication = new PixiApplication();
-        break;
-      case StageType.Error:
-        this.stageApplication = new ErrorApplication();
         break;
       default:
         throw new Error("Invalid stage type.");
