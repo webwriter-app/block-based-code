@@ -46,11 +46,10 @@ export class BlocklyApplication extends Application {
 
   public resize(): void {
     svgResize(this.workspace);
-    this.workspace.zoomToFit();
   }
 
-  public save(): string {
-    return JSON.stringify(serialization.workspaces.save(this.workspace));
+  public save(): object {
+    return serialization.workspaces.save(this.workspace);
   }
 
   public get executableCode(): string {
@@ -61,8 +60,8 @@ export class BlocklyApplication extends Application {
     return readableCodeGenerator.workspaceToCode(this.workspace).replaceAll("await ", "");
   }
 
-  public load(workspace: string): void {
-    serialization.workspaces.load(JSON.parse(workspace), this.workspace);
+  public load(state: object): void {
+    serialization.workspaces.load(state, this.workspace);
   }
 
   public highlight(id: string): void {

@@ -2,11 +2,11 @@
 import { StageType } from "./stage";
 import { BlockTypes } from "../lib/blockly";
 
-export class EditorChangeEvent extends CustomEvent<{ workspace: string, readableCode: string, executableCode: string }> {
-  constructor(workspace: string, readableCode: string, executableCode: string) {
+export class EditorChangeEvent extends CustomEvent<{ state: object, readableCode: string, executableCode: string }> {
+  constructor(state: object, readableCode: string, executableCode: string) {
     super("change", {
       detail: {
-        workspace,
+        state,
         readableCode,
         executableCode,
       },

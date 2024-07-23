@@ -24,8 +24,8 @@ export class Editor extends LitElementWw {
   @property({ type: Array })
   public selectedBlocks: SelectedBlocks;
 
-  @property({ type: String })
-  public initialState: string;
+  @property({ type: Object })
+  public state: object;
 
   private resizeObserver: ResizeObserver;
 
@@ -56,7 +56,7 @@ export class Editor extends LitElementWw {
     this.resizeObserver.observe(this);
 
     this.editorApplication = new BlocklyApplication(this.readonly, this.selectedBlocks);
-    this.editorApplication.load(this.initialState);
+    this.editorApplication.load(this.state);
     this.editorApplication.addEventListener("CHANGE", this.handleChange.bind(this));
     this.editorApplication.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
   }
