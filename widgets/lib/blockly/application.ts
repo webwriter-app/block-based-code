@@ -201,17 +201,10 @@ export class BlocklyApplication extends Application {
   private generateZoomGroup(): HTMLDivElement {
     const groupDiv = document.createElement("div");
     groupDiv.style.position = "absolute";
-    groupDiv.style.top = "-1px";
-    groupDiv.style.right = "var(--sl-spacing-x-large)";
+    groupDiv.style.top = "var(--sl-spacing-small)";
+    groupDiv.style.right = "var(--sl-spacing-large)";
     groupDiv.style.display = "flex";
-    // groupDiv.style.flexDirection = "column-reverse";
     groupDiv.style.zIndex = "100";
-    groupDiv.style.borderBottomRightRadius = "var(--sl-border-radius-medium)";
-    groupDiv.style.borderBottomLeftRadius = "var(--sl-border-radius-medium)";
-    groupDiv.style.backgroundColor = "var(--sl-color-gray-50)";
-    groupDiv.style.borderLeft = "1px solid var(--sl-color-gray-300)";
-    groupDiv.style.borderRight = "1px solid var(--sl-color-gray-300)";
-    groupDiv.style.borderBottom = "1px solid var(--sl-color-gray-300)";
 
     groupDiv.appendChild(this.generateZoomButton(ZoomResetIcon, "Reset", () => {
       this.workspace.zoomToFit();
