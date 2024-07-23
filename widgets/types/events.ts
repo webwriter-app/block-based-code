@@ -2,12 +2,13 @@
 import { StageType } from "./stage";
 import { BlockTypes } from "../lib/blockly";
 
-export class EditorChangeEvent extends CustomEvent<{ workspace: string, readableCode: string }> {
-  constructor(workspace: string, readableCode: string) {
+export class EditorChangeEvent extends CustomEvent<{ workspace: string, readableCode: string, executableCode: string }> {
+  constructor(workspace: string, readableCode: string, executableCode: string) {
     super("change", {
       detail: {
         workspace,
         readableCode,
+        executableCode,
       },
       bubbles: true,
       composed: true,

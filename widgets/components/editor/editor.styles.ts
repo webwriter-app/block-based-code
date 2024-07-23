@@ -2,10 +2,11 @@ import { css } from "lit";
 
 export const styles = css`
     :host {
-        display: block;
         width: 100%;
         height: 100%;
-
+        display: flex;
+        flex-direction: column;
+        gap: var(--sl-spacing-x-small);
         overflow: hidden;
     }
     
@@ -14,8 +15,8 @@ export const styles = css`
         margin: 0 auto 0.125rem;
         border-radius: 100%;
         border: 1px solid;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     .blocklyToolboxDiv {
@@ -57,7 +58,7 @@ export const styles = css`
 
     .blocklyTreeLabel {
         margin-top: 4px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .blocklyTreeSelected {

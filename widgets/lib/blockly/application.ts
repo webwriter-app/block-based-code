@@ -56,7 +56,7 @@ export class BlocklyApplication extends Application {
   }
 
   public get readableCode(): string {
-    return readableCodeGenerator.workspaceToCode(this.workspace).replace("await ", "");
+    return readableCodeGenerator.workspaceToCode(this.workspace).replaceAll("await ", "");
   }
 
   public load(workspace: string): void {
@@ -130,6 +130,10 @@ export class BlocklyApplication extends Application {
       move: {
         wheel: true,
       },
+      zoom: {
+        controls: false,
+        startScale: 0.8,
+      },
       trashcan: false,
       toolbox: createToolboxFromBlockList(this.selectedBlocks),
       maxInstances: {
@@ -140,6 +144,9 @@ export class BlocklyApplication extends Application {
     if (!this.readonly) {
       this.registerVariablesCategory();
     }
+    this.workspace.addChangeListener(() => {
+      this.removeComputeCanvas();
+    });
     this.moveStyleElementsToContainer();
   }
 
@@ -162,12 +169,17 @@ export class BlocklyApplication extends Application {
 
   private moveStyleElementsToContainer(): void {
     ["blockly-common-style", `blockly-renderer-style-${BlocklyApplication.renderer}-${BlocklyApplication.theme}`].forEach((styleElementId) => {
-      const styleElement = <HTMLStyleElement>document.querySelector(`#${styleElementId}`);
+      const styleElement = document.querySelector<HTMLStyleElement>(`#${styleElementId}`);
       if (!styleElement) {
         console.error(`Style element with id ${styleElementId} not found`);
         return;
       }
       this.container.appendChild(styleElement.cloneNode(true));
     });
+  }
+
+  private removeComputeCanvas(): void {
+    const computeCanvas = document.querySelectorAll<HTMLCanvasElement>(".blocklyComputeCanvas");
+    computeCanvas.forEach((canvas) => canvas.remove());
   }
 }

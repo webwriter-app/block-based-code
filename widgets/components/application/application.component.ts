@@ -1,4 +1,4 @@
-import { customElement, query, state } from "lit/decorators.js";
+import { customElement, state } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
@@ -7,7 +7,6 @@ import { SlIcon, SlSplitPanel } from "@shoelace-style/shoelace";
 import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
 import { consume } from "@lit/context";
 import { styleMap } from "lit/directives/style-map.js";
-import { Stage } from "../stage";
 import { styles } from "./application.styles";
 import { fullscreenContext } from "../../context";
 
@@ -16,9 +15,6 @@ export class Application extends LitElementWw {
   @consume({ context: fullscreenContext, subscribe: true })
   @state()
   private fullscreen?: boolean;
-
-  @query("#stage")
-  private stage!: Stage;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -38,7 +34,7 @@ export class Application extends LitElementWw {
         <sl-split-panel position="66" primary="start" style=${styleMap({ height: this.fullscreen ? "100%" : "500px" })}>
             <sl-icon slot="divider" src="${GripVerticalIcon}"></sl-icon>
             <slot name="editor" slot="start"></slot>
-            <slot name="stage" slot="end" id="stage"></slot>
+            <slot name="stage" slot="end"></slot>
         </sl-split-panel>
     `;
   }

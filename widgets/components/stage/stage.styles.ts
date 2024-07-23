@@ -2,7 +2,6 @@ import { css } from "lit";
 
 export const styles = css`
     :host {
-        position: relative;
         width: 100%;
         height: 100%;
         display: flex;
@@ -10,7 +9,23 @@ export const styles = css`
         gap: var(--sl-spacing-x-small);
         overflow: hidden;
     }
-   
+
+    webwriter-blocks-toolbar-button#stop {
+        background-color: var(--sl-color-danger-50);
+    }
+    
+    webwriter-blocks-toolbar-button#stop::part(icon) {
+        color: var(--sl-color-danger-500);
+    }
+
+    webwriter-blocks-toolbar-button#start {
+        background-color: var(--sl-color-success-50);
+    }
+
+    webwriter-blocks-toolbar-button#start::part(icon) {
+        color: var(--sl-color-success-500);
+    }
+    
     sl-spinner {
         position: absolute;
         top: 50%;
@@ -47,6 +62,33 @@ export const styles = css`
         padding-top: 0;
     }
 
+    sl-dialog::part(base) {
+        position: absolute !important;
+    }
+    
+    sl-dialog::part(body) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    sl-dialog::part(overlay) {
+        position: absolute !important;
+    }
+
+    .group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sl-spacing-2x-small);
+
+        padding-right: 10px;
+
+        box-sizing: border-box;
+    }
+
+    .label {
+        font-size: var(--sl-font-size-medium);
+    }
+
     .error {
         height: 100%;
         font-size: 14px;
@@ -76,7 +118,7 @@ export const styles = css`
         font-size: 12px;
         box-sizing: border-box;
         
-        padding: var(--sl-spacing-small);
+        padding: var(--sl-spacing-large);
     }
     
     pre code {
