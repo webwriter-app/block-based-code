@@ -2,6 +2,15 @@
 import { StageType } from "./stage";
 import { BlockTypes } from "../lib/blockly";
 
+export class FullscreenChangeEvent extends CustomEvent<void> {
+  constructor() {
+    super("fullscreen", {
+      bubbles: true,
+      composed: true,
+    });
+  }
+}
+
 export class EditorChangeEvent extends CustomEvent<{ state: object, readableCode: string, executableCode: string }> {
   constructor(state: object, readableCode: string, executableCode: string) {
     super("change", {

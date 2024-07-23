@@ -5,18 +5,20 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   customElement, property, query, state,
 } from "lit/decorators.js";
-import { provide } from "@lit/context";
+import ArrowsMaximizeIcon from "@tabler/icons/outline/arrows-maximize.svg";
+import ArrowsMinimizeIcon from "@tabler/icons/outline/arrows-minimize.svg";
+import { styleMap } from "lit/directives/style-map.js";
 import {
-  Application, Editor, Options, Stage,
+  Application, Editor, Options, Stage, Toolbar,
 } from "./components";
-import { setLocale } from "./locales";
-import { fullscreenContext } from "./context";
+import { msg, setLocale } from "./locales";
 import { Logger } from "./utils";
 import { CodeHighlightingEvent, StageType } from "./types";
-
-import "@shoelace-style/shoelace/dist/themes/light.css";
 import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
 import { BlockTypes, SelectedBlocks } from "./lib/blockly";
+
+import "@shoelace-style/shoelace/dist/themes/light.css";
+import { ToolbarButton } from "./components/toolbar-button";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -31,10 +33,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   @property({ type: Object, reflect: true })
   public editorState: object = {};
-
-  @provide({ context: fullscreenContext })
-  @state()
-  private fullscreen: boolean = false;
 
   @state()
   private availableBlocks: BlockTypes[] = [];
@@ -53,6 +51,8 @@ export class WebwriterBlocks extends LitElementWw {
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
+      "webwriter-blocks-toolbar": Toolbar,
+      "webwriter-blocks-toolbar-button": ToolbarButton,
       "webwriter-blocks-application": Application,
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
@@ -97,13 +97,12 @@ export class WebwriterBlocks extends LitElementWw {
   constructor() {
     super();
     setLocale(this.ownerDocument.documentElement.lang);
-    this.fullscreen = false;
   }
 
   public connectedCallback() {
     super.connectedCallback();
 
-    this.addEventListener("fullscreenchange", () => this.handleFullscreenChange());
+    this.addEventListener("fullscreenchange", () => this.requestUpdate());
     const styleElement = this.ownerDocument.createElement("style");
     styleElement.textContent = ".sl-scroll-lock {--sl-scroll-lock-size: 0!important; overflow-x: hidden!important; overflow-y: scroll!important}";
     this.ownerDocument.head.appendChild(styleElement);
@@ -111,8 +110,14 @@ export class WebwriterBlocks extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        </webwriter-blocks-toolbar>
-        <webwriter-blocks-application id="application">
+        <webwriter-blocks-application id="application" style=${styleMap({ height: this.isFullscreen ? "100%" : "500px" })}>
+            <webwriter-blocks-toolbar slot="editor">
+                <div>
+                    <webwriter-blocks-toolbar-button icon=${this.isFullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}
+                                                     label=${this.isFullscreen ? msg("FULLSCREEN_EXIT") : msg("FULLSCREEN")}
+                                                     @click=${this.handleFullscreenToggle}></webwriter-blocks-toolbar-button>
+                </div>
+            </webwriter-blocks-toolbar>
             <webwriter-blocks-editor slot="editor"
                                      id="editor"
                                      .state=${this.editorState}
@@ -120,6 +125,7 @@ export class WebwriterBlocks extends LitElementWw {
                                      .readonly=${this.readonly === 1 && !(this.contentEditable === "true" || this.contentEditable === "")}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
+            
             <webwriter-blocks-stage slot="stage"
                                     id="stage"
                                     stageType=${this.stageType}
@@ -128,7 +134,7 @@ export class WebwriterBlocks extends LitElementWw {
                                     @highlight=${this.handleCodeHighlighting}>
             </webwriter-blocks-stage>
         </webwriter-blocks-application>
-        ${this.contentEditable === "true" || this.contentEditable === "" ? html`
+        ${!this.isFullscreen && (this.contentEditable === "true" || this.contentEditable === "") ? html`
             <webwriter-blocks-options part="options"
                                       readonly=${this.readonly}
                                       stageType=${this.stageType}
@@ -148,10 +154,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   private get isFullscreen(): boolean {
     return this.ownerDocument.fullscreenElement === this;
-  }
-
-  private handleFullscreenChange(): void {
-    this.fullscreen = this.isFullscreen;
   }
 
   private handleFullscreenToggle(): void {
