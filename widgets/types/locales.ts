@@ -10,6 +10,11 @@ export type Dictionary = {
   FULLSCREEN: string;
   FULLSCREEN_EXIT: string;
   ERROR: string;
+  ZOOM: {
+    IN: string;
+    OUT: string;
+    RESET: string;
+  };
   OPTIONS: {
     READONLY: string;
     STAGE: string;

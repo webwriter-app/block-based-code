@@ -5,6 +5,7 @@ export const styles = css`
         display: flex;
         justify-content: space-between;
         
+        width: 100%;
         height: 34px;
         flex: none;
 
