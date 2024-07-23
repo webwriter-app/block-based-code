@@ -10,7 +10,8 @@
     "lint": "eslint --fix ."
   },
   "exports": {
-    "./widgets/webwriter-blocks": "./widgets/webwriter-blocks.ts"
+    "./widgets/webwriter-blocks": "./widgets/webwriter-blocks.ts",
+    "./snippets/dvd-bounce": "./snippets/dvd.html"
   },
   "dependencies": {
     "@blockly/continuous-toolbox": "^6.0.2",

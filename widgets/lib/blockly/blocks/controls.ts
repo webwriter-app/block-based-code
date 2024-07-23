@@ -48,7 +48,6 @@ export const blocks = [
         name: "SUBSTACK",
       },
     ],
-    nextStatement: null,
     previousStatement: null,
     category: "controls",
     style: "control_blocks",

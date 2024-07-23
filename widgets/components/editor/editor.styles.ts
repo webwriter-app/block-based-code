@@ -14,9 +14,10 @@ export const styles = css`
         display: block;
         margin: 0 auto 0.125rem;
         border-radius: 100%;
-        border: 1px solid;
-        width: 1rem;
-        height: 1rem;
+        width: 1.3rem;
+        height: 1.3rem;
+        border: none;
+        box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.15);
     }
 
     .blocklyToolboxDiv {
@@ -31,7 +32,7 @@ export const styles = css`
     .blocklyTreeRow {
         height: initial;
         margin-bottom: 0;
-        padding: var(--sl-spacing-x-small) !important;
+        padding: var(--sl-spacing-x-small) var(--sl-spacing-2x-small) !important;
 
         transition: var(--sl-transition-medium);
 
@@ -45,15 +46,11 @@ export const styles = css`
     
     .blocklyTreeLabel {
         margin: auto;
+        color: var(--sl-color-gray-500);
     }
 
     .blocklyTreeRow:first-child {
         border-top: none;
-    }
-
-    .categoryBubble {
-        border-color: var(--sl-color-gray-300);
-        margin-bottom: 0;
     }
 
     .blocklyTreeLabel {

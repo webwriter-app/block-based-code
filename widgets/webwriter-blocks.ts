@@ -29,8 +29,8 @@ export class WebwriterBlocks extends LitElementWw {
   @property({ type: Array, reflect: true })
   public selectedBlocks: SelectedBlocks = ["events:when_start_clicked"];
 
-  @property({ type: String, reflect: true })
-  public editorState: string = "{}";
+  @property({ type: Object, reflect: true })
+  public editorState: object = {};
 
   @provide({ context: fullscreenContext })
   @state()
@@ -115,7 +115,7 @@ export class WebwriterBlocks extends LitElementWw {
         <webwriter-blocks-application id="application">
             <webwriter-blocks-editor slot="editor"
                                      id="editor"
-                                     initialState=${this.editorState}
+                                     .state=${this.editorState}
                                      .selectedBlocks=${this.selectedBlocks}
                                      .readonly=${this.readonly === 1 && !(this.contentEditable === "true" || this.contentEditable === "")}
                                      @change=${this.handleEditorChange}>
@@ -168,7 +168,7 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   private handleEditorChange(event: EditorChangeEvent): void {
-    this.editorState = event.detail.workspace;
+    this.editorState = event.detail.state;
     this.readableCode = event.detail.readableCode;
     this.executableCode = event.detail.executableCode;
   }

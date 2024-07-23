@@ -57,4 +57,14 @@ export const generators = {
 
     return [`${left} || ${right}`, Order.LOGICAL_OR];
   },
+  "operators:not": (block, generator) => {
+    const value = generator.valueToCode(block, "A", Order.LOGICAL_NOT) || false;
+
+    return [`!${value}`, Order.LOGICAL_NOT];
+  },
+  "operators:absolute": (block, generator) => {
+    const value = generator.valueToCode(block, "VALUE", Order.NONE);
+
+    return [`Math.abs(${value})`, Order.NONE];
+  },
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

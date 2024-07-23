@@ -13,6 +13,7 @@ import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
 import { executableCodeGenerator, readableCodeGenerator } from "./generator";
 import { Application } from "../types";
+import { WebWriterFlyout } from "./toolbox/flyout";
 
 export class BlocklyApplication extends Application {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
@@ -47,8 +48,8 @@ export class BlocklyApplication extends Application {
     svgResize(this.workspace);
   }
 
-  public save(): string {
-    return JSON.stringify(serialization.workspaces.save(this.workspace));
+  public save(): object {
+    return serialization.workspaces.save(this.workspace);
   }
 
   public get executableCode(): string {
@@ -59,8 +60,8 @@ export class BlocklyApplication extends Application {
     return readableCodeGenerator.workspaceToCode(this.workspace).replaceAll("await ", "");
   }
 
-  public load(workspace: string): void {
-    serialization.workspaces.load(JSON.parse(workspace), this.workspace);
+  public load(state: object): void {
+    serialization.workspaces.load(state, this.workspace);
   }
 
   public highlight(id: string): void {
@@ -106,10 +107,12 @@ export class BlocklyApplication extends Application {
   }
 
   public updateToolbox(selectedBlocks: SelectedBlocks): void {
-    this.selectedBlocks = selectedBlocks;
-    const toolbox = createToolboxFromBlockList(this.selectedBlocks);
-    this.workspace.updateToolbox(toolbox);
-    this.workspace.refreshToolboxSelection();
+    if (!this.readonly) {
+      this.selectedBlocks = selectedBlocks;
+      const toolbox = createToolboxFromBlockList(this.selectedBlocks);
+      this.workspace.updateToolbox(toolbox);
+      this.workspace.refreshToolboxSelection();
+    }
   }
 
   protected createContainer(): void {
@@ -140,6 +143,9 @@ export class BlocklyApplication extends Application {
         "events:when_start_clicked": 1,
       } satisfies Partial<Record<BlockTypes, number>>,
       maxTrashcanContents: 0,
+      plugins: {
+        flyoutsVerticalToolbox: WebWriterFlyout,
+      },
     });
     if (!this.readonly) {
       this.registerVariablesCategory();

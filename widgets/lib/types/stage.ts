@@ -36,6 +36,8 @@ export abstract class StageApplication extends Application {
       "operators:equal",
       "operators:and",
       "operators:or",
+      "operators:not",
+      "operators:absolute",
       "variables",
       ...this.specialBlocks,
     ];

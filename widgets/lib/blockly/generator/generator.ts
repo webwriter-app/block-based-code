@@ -3,6 +3,7 @@ import type { GeneratorFunction } from "../types/generator";
 import { BlockTypes } from "../blocks";
 import { generators as eventGenerators } from "./events";
 import { generators as controlGenerators } from "./controls";
+import { generators as lookGenerators } from "./looks";
 import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators } from "./operators";
 import { generators as variableGenerators } from "./variables";
@@ -28,6 +29,7 @@ export const readableCodeGenerator = new ReadableGenerator();
 const generators: Record<BlockTypes, GeneratorFunction> = {
   ...eventGenerators,
   ...controlGenerators,
+  ...lookGenerators,
   ...motionGenerators,
   ...operatorGenerators,
   ...variableGenerators,

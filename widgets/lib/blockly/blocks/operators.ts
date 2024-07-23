@@ -181,4 +181,32 @@ export const blocks = [
     category: "operators",
     style: "operator_blocks",
   } as const,
+  {
+    type: "operators:not",
+    message0: "%{BKY_NOT}",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: "Boolean",
+      },
+    ],
+    output: "Boolean",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
+    type: "operators:absolute",
+    message0: "%{BKY_ABSOLUTE}",
+    args0: [
+      {
+        type: "input_value",
+        name: "VALUE",
+        check: "Number",
+      },
+    ],
+    output: "Number",
+    category: "operators",
+    style: "operator_blocks",
+  },
 ] satisfies BlockDefinition[];

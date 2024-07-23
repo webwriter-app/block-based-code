@@ -1,4 +1,4 @@
-import { Application, Sprite } from "pixi.js";
+import { Application, ColorMatrixFilter, Sprite } from "pixi.js";
 import { VirtualMachine } from "../vm";
 
 export class PixiVirtualMachine extends VirtualMachine {
@@ -14,11 +14,13 @@ export class PixiVirtualMachine extends VirtualMachine {
       ...super.callables,
       this.move,
       this.rotate,
-      this.goToX,
-      this.goToY,
-      this.goToXY,
+      this.setRotation,
+      this.setX,
+      this.setY,
+      this.setXY,
       this.getX,
       this.getY,
+      this.setColor,
     ];
   }
 
@@ -31,15 +33,19 @@ export class PixiVirtualMachine extends VirtualMachine {
     this.bunny.angle += angle;
   }
 
-  private goToX(x: number): void {
+  private setRotation(angle: number): void {
+    this.bunny.angle = angle;
+  }
+
+  private setX(x: number): void {
     this.bunny.x = x;
   }
 
-  private goToY(y: number): void {
+  private setY(y: number): void {
     this.bunny.y = y;
   }
 
-  private goToXY(x: number, y: number): void {
+  private setXY(x: number, y: number): void {
     this.bunny.x = x;
     this.bunny.y = y;
   }
@@ -50,6 +56,11 @@ export class PixiVirtualMachine extends VirtualMachine {
 
   private getY(): number {
     return this.bunny.y;
+  }
+
+  private setColor(color: number): void {
+    const filter = this.bunny.filters[0] as ColorMatrixFilter;
+    filter.hue(color, false);
   }
 
   private get bunny(): Sprite {

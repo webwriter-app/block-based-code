@@ -13,6 +13,11 @@ const blockStyles = {
     colourSecondary: "#e6ac00",
     colourTertiary: "#cc9900",
   },
+  look_blocks: {
+    colourPrimary: "#9966ff",
+    colourSecondary: "#855cd6",
+    colourTertiary: "#774dc6",
+  },
   motion_blocks: {
     colourPrimary: "#4c97ff",
     colourSecondary: "#4280d7",
@@ -37,6 +42,9 @@ const categoryStyles = {
   },
   events: {
     colour: "#ffbf00",
+  },
+  looks: {
+    colour: "#9966ff",
   },
   motions: {
     colour: "#4c97ff",
