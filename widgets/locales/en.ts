@@ -32,6 +32,7 @@ export const dictionary: Dictionary = {
     // Motions
     MOVE: "move %1 steps",
     ROTATE: "rotate by %1 degrees",
+    SET_ROTATION: "set rotation to %1 degrees",
     GO_TO_X: "go to x: %1",
     GO_TO_Y: "go to y: %1",
     GO_TO_XY: "go to x: %1 y: %2",

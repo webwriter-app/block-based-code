@@ -43,6 +43,7 @@ export class PixiApplication extends StageApplication {
     return [
       "motions:move",
       "motions:rotate",
+      "motions:set_rotation",
       "motions:go_to_x",
       "motions:go_to_y",
       "motions:go_to_xy",

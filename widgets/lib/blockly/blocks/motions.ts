@@ -32,6 +32,21 @@ export const blocks = [
     style: "motion_blocks",
   } as const,
   {
+    type: "motions:set_rotation",
+    message0: "%{BKY_SET_ROTATION}",
+    args0: [
+      {
+        type: "input_value",
+        name: "DEGREES",
+        check: "Number",
+      },
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "motions",
+    style: "motion_blocks",
+  } as const,
+  {
     type: "motions:go_to_x",
     message0: "%{BKY_GO_TO_X}",
     args0: [

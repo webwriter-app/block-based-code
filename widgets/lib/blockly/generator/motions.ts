@@ -11,6 +11,10 @@ export const generators = {
     const angle = generator.valueToCode(block, "DEGREES", Order.ATOMIC);
     return `rotate(${angle});\n`;
   },
+  "motions:set_rotation": (block, generator) => {
+    const angle = generator.valueToCode(block, "DEGREES", Order.ATOMIC);
+    return `setRotation(${angle});\n`;
+  },
   "motions:go_to_x": (block, generator) => {
     const x = generator.valueToCode(block, "X", Order.ATOMIC);
     return `goToX(${x});\n`;
