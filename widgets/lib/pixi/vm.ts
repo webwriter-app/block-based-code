@@ -15,9 +15,9 @@ export class PixiVirtualMachine extends VirtualMachine {
       this.move,
       this.rotate,
       this.setRotation,
-      this.goToX,
-      this.goToY,
-      this.goToXY,
+      this.setX,
+      this.setY,
+      this.setXY,
       this.getX,
       this.getY,
     ];
@@ -36,15 +36,15 @@ export class PixiVirtualMachine extends VirtualMachine {
     this.bunny.angle = angle;
   }
 
-  private goToX(x: number): void {
+  private setX(x: number): void {
     this.bunny.x = x;
   }
 
-  private goToY(y: number): void {
+  private setY(y: number): void {
     this.bunny.y = y;
   }
 
-  private goToXY(x: number, y: number): void {
+  private setXY(x: number, y: number): void {
     this.bunny.x = x;
     this.bunny.y = y;
   }

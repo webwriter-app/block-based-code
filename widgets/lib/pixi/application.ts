@@ -44,11 +44,11 @@ export class PixiApplication extends StageApplication {
       "motions:move",
       "motions:rotate",
       "motions:set_rotation",
-      "motions:go_to_x",
-      "motions:go_to_y",
-      "motions:go_to_xy",
-      "motions:x_position",
-      "motions:y_position",
+      "motions:set_x",
+      "motions:set_y",
+      "motions:set_xy",
+      "motions:get_x",
+      "motions:get_y",
     ];
   }
 

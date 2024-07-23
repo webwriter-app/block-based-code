@@ -15,19 +15,19 @@ export const generators = {
     const angle = generator.valueToCode(block, "DEGREES", Order.ATOMIC);
     return `setRotation(${angle});\n`;
   },
-  "motions:go_to_x": (block, generator) => {
+  "motions:set_x": (block, generator) => {
     const x = generator.valueToCode(block, "X", Order.ATOMIC);
-    return `goToX(${x});\n`;
+    return `setX(${x});\n`;
   },
-  "motions:go_to_y": (block, generator) => {
+  "motions:set_y": (block, generator) => {
     const y = generator.valueToCode(block, "Y", Order.ATOMIC);
-    return `goToY(${y});\n`;
+    return `setY(${y});\n`;
   },
-  "motions:go_to_xy": (block, generator) => {
+  "motions:set_xy": (block, generator) => {
     const x = generator.valueToCode(block, "X", Order.ATOMIC);
     const y = generator.valueToCode(block, "Y", Order.ATOMIC);
-    return `goToXY(${x}, ${y});\n`;
+    return `setXY(${x}, ${y});\n`;
   },
-  "motions:x_position": () => ["await getX()", Order.FUNCTION_CALL],
-  "motions:y_position": () => ["await getY()", Order.FUNCTION_CALL],
+  "motions:get_x": () => ["await getX()", Order.FUNCTION_CALL],
+  "motions:get_y": () => ["await getY()", Order.FUNCTION_CALL],
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

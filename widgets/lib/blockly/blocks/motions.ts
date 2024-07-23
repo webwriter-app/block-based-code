@@ -47,8 +47,8 @@ export const blocks = [
     style: "motion_blocks",
   } as const,
   {
-    type: "motions:go_to_x",
-    message0: "%{BKY_GO_TO_X}",
+    type: "motions:set_x",
+    message0: "%{BKY_SET_X}",
     args0: [
       {
         type: "input_value",
@@ -62,8 +62,8 @@ export const blocks = [
     style: "motion_blocks",
   } as const,
   {
-    type: "motions:go_to_y",
-    message0: "%{BKY_GO_TO_Y}",
+    type: "motions:set_y",
+    message0: "%{BKY_SET_Y}",
     args0: [
       {
         type: "input_value",
@@ -77,8 +77,8 @@ export const blocks = [
     style: "motion_blocks",
   } as const,
   {
-    type: "motions:go_to_xy",
-    message0: "%{BKY_GO_TO_XY}",
+    type: "motions:set_xy",
+    message0: "%{BKY_SET_XY}",
     args0: [
       {
         type: "input_value",
@@ -98,15 +98,15 @@ export const blocks = [
     style: "motion_blocks",
   } as const,
   {
-    type: "motions:x_position",
-    message0: "%{BKY_X_POSITION}",
+    type: "motions:get_x",
+    message0: "%{BKY_GET_X}",
     output: "Number",
     category: "motions",
     style: "motion_blocks",
   } as const,
   {
-    type: "motions:y_position",
-    message0: "%{BKY_Y_POSITION}",
+    type: "motions:get_y",
+    message0: "%{BKY_GET_Y}",
     output: "Number",
     category: "motions",
     style: "motion_blocks",
