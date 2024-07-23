@@ -27,12 +27,6 @@ export const generators = {
 
     return [`${left} / ${right}`, Order.ADDITION];
   },
-  "operators:random": (block, generator) => {
-    const min = generator.valueToCode(block, "MIN", Order.NONE);
-    const max = generator.valueToCode(block, "MAX", Order.NONE);
-
-    return [`Math.random() * (${max} - ${min}) + ${min}`, Order.NONE];
-  },
   "operators:greater": (block, generator) => {
     const left = generator.valueToCode(block, "A", Order.RELATIONAL);
     const right = generator.valueToCode(block, "B", Order.RELATIONAL);

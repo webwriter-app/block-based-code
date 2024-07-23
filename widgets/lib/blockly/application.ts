@@ -13,6 +13,7 @@ import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
 import { executableCodeGenerator, readableCodeGenerator } from "./generator";
 import { Application } from "../types";
+import { WebWriterFlyout } from "./toolbox/flyout";
 
 export class BlocklyApplication extends Application {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
@@ -45,6 +46,7 @@ export class BlocklyApplication extends Application {
 
   public resize(): void {
     svgResize(this.workspace);
+    this.workspace.zoomToFit();
   }
 
   public save(): string {
@@ -106,10 +108,12 @@ export class BlocklyApplication extends Application {
   }
 
   public updateToolbox(selectedBlocks: SelectedBlocks): void {
-    this.selectedBlocks = selectedBlocks;
-    const toolbox = createToolboxFromBlockList(this.selectedBlocks);
-    this.workspace.updateToolbox(toolbox);
-    this.workspace.refreshToolboxSelection();
+    if (!this.readonly) {
+      this.selectedBlocks = selectedBlocks;
+      const toolbox = createToolboxFromBlockList(this.selectedBlocks);
+      this.workspace.updateToolbox(toolbox);
+      this.workspace.refreshToolboxSelection();
+    }
   }
 
   protected createContainer(): void {
@@ -140,6 +144,9 @@ export class BlocklyApplication extends Application {
         "events:when_start_clicked": 1,
       } satisfies Partial<Record<BlockTypes, number>>,
       maxTrashcanContents: 0,
+      plugins: {
+        flyoutsVerticalToolbox: WebWriterFlyout,
+      },
     });
     if (!this.readonly) {
       this.registerVariablesCategory();

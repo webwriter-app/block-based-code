@@ -31,7 +31,6 @@ export abstract class StageApplication extends Application {
       "operators:subtract",
       "operators:multiply",
       "operators:divide",
-      "operators:random",
       "operators:greater",
       "operators:smaller",
       "operators:equal",

@@ -82,26 +82,6 @@ export const blocks = [
     style: "operator_blocks",
   } as const,
   {
-    type: "operators:random",
-    message0: "%{BKY_RANDOM}",
-    args0: [
-      {
-        type: "input_value",
-        name: "MIN",
-        check: "Number",
-      },
-      {
-        type: "input_value",
-        name: "MAX",
-        check: "Number",
-      },
-    ],
-    inputsInline: true,
-    output: "Number",
-    category: "operators",
-    style: "operator_blocks",
-  } as const,
-  {
     type: "operators:smaller",
     message0: "%1 < %2",
     args0: [
