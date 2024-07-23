@@ -8,12 +8,16 @@ import {
   Variables,
   WorkspaceSvg,
 } from "blockly";
+import ZoomResetIcon from "@tabler/icons/outline/zoom-reset.svg";
+import ZoomOutIcon from "@tabler/icons/outline/zoom-out.svg";
+import ZoomInIcon from "@tabler/icons/outline/zoom-in.svg";
 import { BlocklyInitializer } from "./blockly-initializer";
 import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
 import { executableCodeGenerator, readableCodeGenerator } from "./generator";
 import { Application } from "../types";
 import { WebWriterFlyout } from "./toolbox/flyout";
+import { ToolbarButton } from "../../components/toolbar-button";
 
 export class BlocklyApplication extends Application {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
@@ -118,6 +122,11 @@ export class BlocklyApplication extends Application {
   protected createContainer(): void {
     super.createContainer();
     this.container.style.height = "100%";
+    this.container.style.overflow = "visible";
+
+    const zoomGroup = this.generateZoomGroup();
+    this.container.appendChild(zoomGroup);
+
     setParentContainer(this.container);
   }
 
@@ -187,5 +196,41 @@ export class BlocklyApplication extends Application {
   private removeComputeCanvas(): void {
     const computeCanvas = document.querySelectorAll<HTMLCanvasElement>(".blocklyComputeCanvas");
     computeCanvas.forEach((canvas) => canvas.remove());
+  }
+
+  private generateZoomGroup(): HTMLDivElement {
+    const groupDiv = document.createElement("div");
+    groupDiv.style.position = "absolute";
+    groupDiv.style.top = "-1px";
+    groupDiv.style.right = "var(--sl-spacing-x-large)";
+    groupDiv.style.display = "flex";
+    // groupDiv.style.flexDirection = "column-reverse";
+    groupDiv.style.zIndex = "100";
+    groupDiv.style.borderBottomRightRadius = "var(--sl-border-radius-medium)";
+    groupDiv.style.borderBottomLeftRadius = "var(--sl-border-radius-medium)";
+    groupDiv.style.backgroundColor = "var(--sl-color-gray-50)";
+    groupDiv.style.borderLeft = "1px solid var(--sl-color-gray-300)";
+    groupDiv.style.borderRight = "1px solid var(--sl-color-gray-300)";
+    groupDiv.style.borderBottom = "1px solid var(--sl-color-gray-300)";
+
+    groupDiv.appendChild(this.generateZoomButton(ZoomResetIcon, "Reset", () => {
+      this.workspace.zoomToFit();
+    }));
+    groupDiv.appendChild(this.generateZoomButton(ZoomOutIcon, "Out", () => {
+      this.workspace.zoomCenter(-1);
+    }));
+    groupDiv.appendChild(this.generateZoomButton(ZoomInIcon, "In", () => {
+      this.workspace.zoomCenter(1);
+    }));
+
+    return groupDiv;
+  }
+
+  private generateZoomButton(icon: string, label: string, onClick: () => void): ToolbarButton {
+    const zoomInButton = document.createElement("webwriter-blocks-toolbar-button");
+    zoomInButton.icon = icon;
+    zoomInButton.label = label;
+    zoomInButton.addEventListener("click", onClick);
+    return zoomInButton;
   }
 }
