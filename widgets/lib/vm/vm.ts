@@ -31,7 +31,7 @@ export abstract class VirtualMachine {
     this.worker = new Worker(url);
     this.worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
       const result = this[event.data.type](...event.data.args);
-      if (result) {
+      if (result != null) {
         this.worker.postMessage({ type: "result", args: [result] });
       }
     };
@@ -41,7 +41,7 @@ export abstract class VirtualMachine {
     let script = "";
     script += "let resultResolveFunction;\n";
     script += "async function wait(s) { await new Promise((resolve) => { setTimeout(resolve, s * 1e3) }); }\n";
-    script += `async function delay() { await new Promise((resolve) => { setTimeout(resolve, ${delay === 0 ? 40 : delay}) }); }\n`;
+    script += `async function delay() { await new Promise((resolve) => { setTimeout(resolve, ${delay === 0 ? 16.6 : delay}) }); }\n`;
     script += "onmessage = function (event) { if (event.data.type === 'result') { resultResolveFunction(event.data.args[0]); } };\n";
 
     this.callables.forEach((callable) => {
