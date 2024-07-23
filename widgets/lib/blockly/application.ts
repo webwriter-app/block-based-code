@@ -130,6 +130,11 @@ export class BlocklyApplication extends Application {
       collapse: false,
       comments: false,
       disable: false,
+      grid: {
+        spacing: 30,
+        length: 1,
+        colour: "var(--sl-color-gray-500)",
+      },
       move: {
         wheel: true,
       },
