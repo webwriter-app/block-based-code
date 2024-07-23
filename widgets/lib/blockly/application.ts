@@ -18,6 +18,7 @@ import { executableCodeGenerator, readableCodeGenerator } from "./generator";
 import { Application } from "../types";
 import { WebWriterFlyout } from "./toolbox/flyout";
 import { ToolbarButton } from "../../components/toolbar-button";
+import { msg } from "../../locales";
 
 export class BlocklyApplication extends Application {
   private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
@@ -206,13 +207,13 @@ export class BlocklyApplication extends Application {
     groupDiv.style.display = "flex";
     groupDiv.style.zIndex = "100";
 
-    groupDiv.appendChild(this.generateZoomButton(ZoomResetIcon, "Reset", () => {
+    groupDiv.appendChild(this.generateZoomButton(ZoomResetIcon, msg("ZOOM.RESET"), () => {
       this.workspace.zoomToFit();
     }));
-    groupDiv.appendChild(this.generateZoomButton(ZoomOutIcon, "Out", () => {
+    groupDiv.appendChild(this.generateZoomButton(ZoomOutIcon, msg("ZOOM.OUT"), () => {
       this.workspace.zoomCenter(-1);
     }));
-    groupDiv.appendChild(this.generateZoomButton(ZoomInIcon, "In", () => {
+    groupDiv.appendChild(this.generateZoomButton(ZoomInIcon, msg("ZOOM.IN"), () => {
       this.workspace.zoomCenter(1);
     }));
 

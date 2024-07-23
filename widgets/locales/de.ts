@@ -6,6 +6,11 @@ export const dictionary: Dictionary = {
   FULLSCREEN: "Vollbildmodus",
   FULLSCREEN_EXIT: "Vollbildmodus verlassen",
   ERROR: "Es ist ein Fehler aufgetreten!",
+  ZOOM: {
+    IN: "Vergrößern",
+    OUT: "Verkleinern",
+    RESET: "Zurücksetzen",
+  },
   OPTIONS: {
     READONLY: "Schreibgeschützt",
     STAGE: "Bühne",
