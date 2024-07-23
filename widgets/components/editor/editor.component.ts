@@ -69,9 +69,6 @@ export class Editor extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <webwriter-blocks-toolbar>
-            
-        </webwriter-blocks-toolbar>
         <sl-dialog label="New Variable" id="new-variable-dialog">
             <sl-input autofocus label="New variable name" placeholder=""></sl-input>
             <sl-button slot="footer" @click="${() => this.newVariableDialog.hide()}">Close</sl-button>

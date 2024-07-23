@@ -7,6 +7,11 @@ export const dictionary: Dictionary = {
   FULLSCREEN: "Enter Fullscreen",
   FULLSCREEN_EXIT: "Leave Fullscreen",
   ERROR: "An error occurred!",
+  ZOOM: {
+    IN: "Zoom In",
+    OUT: "Zoom Out",
+    RESET: "Reset Zoom",
+  },
   OPTIONS: {
     READONLY: "Readonly",
     STAGE: "Stage",

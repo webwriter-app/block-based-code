@@ -1,4 +1,6 @@
 import * as Blockly from "blockly";
+import { Theme } from "blockly";
+import ComponentStyle = Theme.ComponentStyle;
 
 // Heavily inspired by the Scratch theme:
 // https://github.com/scratchfoundation/scratch-blocks/wiki/Colors
@@ -58,10 +60,16 @@ const categoryStyles = {
 } satisfies { [key: string]: Pick<Blockly.Theme.CategoryStyle, "colour"> };
 export type CategoryStyle = keyof typeof categoryStyles | "math";
 
+const componentStyles: ComponentStyle = {
+  workspaceBackgroundColour: "var(--sl-color-neutral-0)",
+  scrollbarColour: "var(--sl-color-neutral-700)",
+  scrollbarOpacity: 0.4,
+};
+
 export class WebWriterTheme extends Blockly.Theme {
   public override startHats = true;
 
   constructor() {
-    super("webwriter", blockStyles, categoryStyles);
+    super("webwriter", blockStyles, categoryStyles, componentStyles);
   }
 }
