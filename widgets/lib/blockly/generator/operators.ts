@@ -27,6 +27,12 @@ export const generators = {
 
     return [`${left} / ${right}`, Order.ADDITION];
   },
+  "operators:random": (block, generator) => {
+    const min = generator.valueToCode(block, "MIN", Order.NONE);
+    const max = generator.valueToCode(block, "MAX", Order.NONE);
+
+    return [`Math.random() * (${max} - ${min}) + ${min}`, Order.NONE];
+  },
   "operators:greater": (block, generator) => {
     const left = generator.valueToCode(block, "A", Order.RELATIONAL);
     const right = generator.valueToCode(block, "B", Order.RELATIONAL);
@@ -56,5 +62,15 @@ export const generators = {
     const right = generator.valueToCode(block, "B", Order.LOGICAL_OR) || false;
 
     return [`${left} || ${right}`, Order.LOGICAL_OR];
+  },
+  "operators:not": (block, generator) => {
+    const value = generator.valueToCode(block, "A", Order.LOGICAL_NOT) || false;
+
+    return [`!${value}`, Order.LOGICAL_NOT];
+  },
+  "operators:absolute": (block, generator) => {
+    const value = generator.valueToCode(block, "VALUE", Order.NONE);
+
+    return [`Math.abs(${value})`, Order.NONE];
   },
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

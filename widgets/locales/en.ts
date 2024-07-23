@@ -27,8 +27,11 @@ export const dictionary: Dictionary = {
     ELSE: "else",
     STOP: "stop",
     // Operators
+    RANDOM: "random between %1 and %2",
     AND: "%1 and %2",
     OR: "%1 or %2",
+    NOT: "not %1",
+    ABSOLUTE: "absolute of %1",
     // Motions
     MOVE: "move %1 steps",
     ROTATE: "rotate by %1 degrees",

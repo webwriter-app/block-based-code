@@ -26,8 +26,11 @@ export const dictionary: Dictionary = {
     ELSE: "sonst",
     STOP: "stoppe",
     // Operators
+    RANDOM: "zufallszahl zwischen %1 und %2",
     AND: "%1 und %2",
     OR: "%1 oder %2",
+    NOT: "nicht %1",
+    ABSOLUTE: "betrag von %1",
     // Motions
     MOVE: "gehe %1 Schritte",
     ROTATE: "drehe um %1 Grad",
