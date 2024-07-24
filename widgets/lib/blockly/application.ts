@@ -1,13 +1,5 @@
 import {
-  Events,
-  FlyoutButton,
-  inject,
-  serialization,
-  setParentContainer,
-  svgResize,
-  utils,
-  Variables,
-  WorkspaceSvg,
+  Events, inject, serialization, setParentContainer, svgResize, utils, Variables, WorkspaceSvg,
 } from "blockly";
 import ZoomResetIcon from "@tabler/icons/outline/zoom-reset.svg";
 import ZoomOutIcon from "@tabler/icons/outline/zoom-out.svg";
@@ -35,6 +27,8 @@ export class BlocklyApplication extends Application {
     Events.BLOCK_MOVE,
   ]);
 
+  public promptCallback: (p1: string, p2: string, p3: (p1: string | null) => void) => void;
+
   private readonly: boolean;
 
   private selectedBlocks: SelectedBlocks;
@@ -43,7 +37,7 @@ export class BlocklyApplication extends Application {
 
   constructor(readonly: boolean, selectedBlocks: SelectedBlocks) {
     super();
-    BlocklyInitializer.define();
+    BlocklyInitializer.define(this);
     this.readonly = readonly;
     this.selectedBlocks = selectedBlocks;
 
@@ -74,16 +68,12 @@ export class BlocklyApplication extends Application {
     this.workspace.highlightBlock(id);
   }
 
-  // @ts-ignore
-  public addEventListener(key: "CREATE_VARIABLE", callback: (button: FlyoutButton) => void): void;
+  public addEventListener(key: "PROMPT", callback: (p1: string, p2: string, p3: (p1: string | null) => void) => void): void;
   public addEventListener(key: "CHANGE", callback: (event: any) => void): void;
-  public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
+  public addEventListener(key: string, callback: (...args: any[]) => void): void {
     switch (key) {
-      case "CREATE_VARIABLE":
-        this.workspace.registerButtonCallback(
-          BlocklyApplication.newVariableButtonCallback,
-          callback,
-        );
+      case "PROMPT":
+        this.promptCallback = callback;
         break;
       case "CHANGE":
         this.workspace.addChangeListener((event) => {
@@ -164,7 +154,7 @@ export class BlocklyApplication extends Application {
       },
     });
     if (!this.readonly) {
-      this.registerVariablesCategory();
+      // this.registerVariablesCategory();
     }
     this.workspace.addChangeListener(() => {
       this.removeComputeCanvas();

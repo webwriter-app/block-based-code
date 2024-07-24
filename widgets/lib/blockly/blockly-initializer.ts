@@ -1,18 +1,20 @@
 import {
-  Blocks, common, ContextMenuRegistry, registry, ToolboxCategory,
+  Blocks, common, ContextMenuRegistry, dialog, registry, ToolboxCategory,
 } from "blockly";
 
 import { WebWriterTheme } from "./theme";
 import { blocks } from "./blocks";
 import { WebWriterToolboxCategory } from "./toolbox";
+import { BlocklyApplication } from "./application";
 
 export class BlocklyInitializer {
   private static initialized = false;
 
-  public static define(): void {
+  public static define(promptReceiver: BlocklyApplication): void {
     if (BlocklyInitializer.initialized) return;
     BlocklyInitializer.defineTheme();
     BlocklyInitializer.defineToolboxCategory();
+    BlocklyInitializer.definePrompt(promptReceiver);
     BlocklyInitializer.defineContextMenu();
     BlocklyInitializer.defineBlocks();
     BlocklyInitializer.initialized = true;
@@ -30,6 +32,12 @@ export class BlocklyInitializer {
       WebWriterToolboxCategory,
       true,
     );
+  }
+
+  private static definePrompt(promptReceiver: BlocklyApplication): void {
+    dialog.setPrompt((...args) => {
+      promptReceiver.promptCallback(...args);
+    });
   }
 
   private static defineContextMenu(): void {
