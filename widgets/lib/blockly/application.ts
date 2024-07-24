@@ -153,25 +153,19 @@ export class BlocklyApplication extends Application {
         flyoutsVerticalToolbox: WebWriterFlyout,
       },
     });
-    if (!this.readonly) {
-      // this.registerVariablesCategory();
-    }
+    this.registerVariablesCategory();
     this.workspace.addChangeListener(() => {
       this.removeComputeCanvas();
     });
     this.moveStyleElementsToContainer();
+    if (!this.readonly) {
+      this.workspace.getToolbox().refreshSelection();
+    }
   }
 
   private registerVariablesCategory(): void {
     this.workspace.registerToolboxCategoryCallback("VARIABLE", (workspace: WorkspaceSvg): Element[] => {
-      const blockList: Element[] = [];
-
-      const button = document.createElement("button");
-      button.setAttribute("text", "Create variable");
-      button.setAttribute("callbackkey", BlocklyApplication.newVariableButtonCallback);
-      blockList.push(button);
-
-      const blocks = Variables.flyoutCategoryBlocks(workspace);
+      const blocks = Variables.flyoutCategory(workspace);
       blocks.some((block) => {
         if (block.getAttribute("type") === "variables_set") {
           const shadow = utils.xml.textToDom("<value name='VALUE'><shadow type='math:number'><field name='NUM'>0</field></shadow></value>");
@@ -180,11 +174,9 @@ export class BlocklyApplication extends Application {
         }
         return false;
       });
-      blockList.push(...blocks);
 
-      return blockList;
+      return blocks;
     });
-    this.workspace.getToolbox().refreshSelection();
   }
 
   private moveStyleElementsToContainer(): void {
