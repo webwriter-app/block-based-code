@@ -94,4 +94,13 @@ export const styles = css`
     sl-dialog::part(overlay) {
         position: absolute !important;
     }
+    
+    sl-dialog::part(body) {
+        padding-top: var(--sl-spacing-large);
+        padding-bottom: var(--sl-spacing-large);
+    }
+    
+    sl-dialog::part(footer) {
+        padding-top: 0;
+    }
 `;

@@ -10,13 +10,11 @@ import { BlocklyApplication, SelectedBlocks } from "../../lib/blockly";
 import { EditorChangeEvent } from "../../types";
 import { Toolbar } from "../toolbar";
 import { ToolbarButton } from "../toolbar-button";
+import { Logger } from "../../utils";
 
 @customElement("webwriter-blocks-editor")
 export class Editor extends LitElementWw {
   public editorApplication: BlocklyApplication;
-
-  @query("#new-variable-dialog")
-  private newVariableDialog!: SlDialog;
 
   @property({ type: Boolean })
   public readonly: boolean;
@@ -28,6 +26,15 @@ export class Editor extends LitElementWw {
   public state: object;
 
   private resizeObserver: ResizeObserver;
+
+  @query("#prompt")
+  private promptDialog!: SlDialog;
+
+  @query("#confirm")
+  private confirmDialog!: SlDialog;
+
+  @query("#alert")
+  private alertDialog!: SlDialog;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -58,7 +65,9 @@ export class Editor extends LitElementWw {
     this.editorApplication = new BlocklyApplication(this.readonly, this.selectedBlocks);
     this.editorApplication.load(this.state);
     this.editorApplication.addEventListener("CHANGE", this.handleChange.bind(this));
-    this.editorApplication.addEventListener("CREATE_VARIABLE", this.handleCreateVariableClick.bind(this));
+    this.editorApplication.addEventListener("PROMPT", this.handlePrompt.bind(this));
+    this.editorApplication.addEventListener("CONFIRM", this.handleConfirm.bind(this));
+    this.editorApplication.addEventListener("ALERT", this.handleAlert.bind(this));
   }
 
   public disconnectedCallback() {
@@ -69,10 +78,20 @@ export class Editor extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <sl-dialog label="New Variable" id="new-variable-dialog">
-            <sl-input autofocus label="New variable name" placeholder=""></sl-input>
-            <sl-button slot="footer" @click="${() => this.newVariableDialog.hide()}">Close</sl-button>
-            <sl-button slot="footer" variant="primary" @click="${this.handleCreateVariable}">Create</sl-button>
+        <sl-dialog id="prompt" no-header>
+            <span></span>
+            <sl-input autofocus placeholder=""></sl-input>
+            <sl-button slot="footer" @click="${() => this.promptDialog.hide()}">Cancel</sl-button>
+            <sl-button slot="footer" variant="primary">Save</sl-button>
+        </sl-dialog>
+        <sl-dialog id="confirm" no-header>
+            <span></span>
+            <sl-button slot="footer">No</sl-button>
+            <sl-button slot="footer" variant="primary">Yes</sl-button>
+        </sl-dialog>
+        <sl-dialog id="alert" no-header>
+            <span></span>
+            <sl-button slot="footer" variant="primary" @click=${() => this.alertDialog.hide()}>Ok</sl-button>
         </sl-dialog>
     `;
   }
@@ -102,24 +121,64 @@ export class Editor extends LitElementWw {
     this.editorApplication.resize();
   }
 
-  private handleCreateVariableClick(): void {
-    this.newVariableDialog.show().catch();
+  private handlePrompt(
+    promptText: string,
+    defaultText: string,
+    callback: (newText: string) => void,
+  ): void {
+    Logger.log(this, promptText, defaultText, callback);
+    const titleSpan = this.promptDialog.querySelector("span");
+    titleSpan.textContent = promptText;
+
+    const input = this.promptDialog.querySelector("sl-input");
+    input.value = defaultText;
+    const button = this.promptDialog.querySelector("sl-button[variant=primary]");
+    const clonedButton = button.cloneNode(true);
+    clonedButton.addEventListener("click", () => {
+      try {
+        callback(input.value);
+      } catch (error) {
+        Logger.log(this, error);
+      }
+      this.promptDialog.hide().catch();
+    });
+    button.parentNode.replaceChild(clonedButton, button);
+    this.promptDialog.show().catch();
   }
 
-  private handleCreateVariable(): void {
-    const input = this.newVariableDialog.querySelector("sl-input");
-    const variableName = input.value;
-    try {
-      this.editorApplication.createVariable(variableName);
-    } catch (error) {
-      if (error instanceof Error) {
-        input.setCustomValidity(error.message);
-        input.reportValidity();
+  private handleConfirm(message: string, callback: (confirmed: boolean) => void): void {
+    Logger.log(this, message, callback);
+    const titleSpan = this.confirmDialog.querySelector("span");
+    titleSpan.textContent = message;
+
+    const noButton = this.confirmDialog.querySelector("sl-button");
+    const clonedNoButton = noButton.cloneNode(true);
+    clonedNoButton.addEventListener("click", () => {
+      callback(false);
+      this.confirmDialog.hide().catch();
+    });
+    noButton.parentNode.replaceChild(clonedNoButton, noButton);
+
+    const yesButton = this.confirmDialog.querySelector("sl-button[variant=primary]");
+    const clonedYesButton = yesButton.cloneNode(true);
+    clonedYesButton.addEventListener("click", () => {
+      try {
+        callback(true);
+      } catch (error) {
+        Logger.log(this, error);
       }
-      return;
-    }
-    input.value = "";
-    this.newVariableDialog.hide().catch();
+      this.confirmDialog.hide().catch();
+    });
+    yesButton.parentNode.replaceChild(clonedYesButton, yesButton);
+    this.confirmDialog.show().catch();
+  }
+
+  private handleAlert(message: string): void {
+    Logger.log(this, message);
+    const titleSpan = this.alertDialog.querySelector("span");
+    titleSpan.textContent = message;
+
+    this.alertDialog.show().catch();
   }
 
   private handleChange(): void {

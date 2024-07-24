@@ -1,12 +1,5 @@
 import {
-  Events,
-  FlyoutButton,
-  inject,
-  serialization,
-  setParentContainer,
-  svgResize,
-  Variables,
-  WorkspaceSvg,
+  Events, inject, serialization, setParentContainer, svgResize, utils, Variables, WorkspaceSvg,
 } from "blockly";
 import ZoomResetIcon from "@tabler/icons/outline/zoom-reset.svg";
 import ZoomOutIcon from "@tabler/icons/outline/zoom-out.svg";
@@ -27,12 +20,21 @@ export class BlocklyApplication extends Application {
 
   private static readonly theme = "webwriter";
 
-  private static readonly supportedBlocklyEvents = new Set([
+  private static readonly supportedBlocklyEvents: Set<string> = new Set([
     Events.BLOCK_CHANGE,
     Events.BLOCK_CREATE,
     Events.BLOCK_DELETE,
     Events.BLOCK_MOVE,
+    Events.VAR_CREATE,
+    Events.VAR_DELETE,
+    Events.VAR_RENAME,
   ]);
+
+  public promptCallback: (promptText: string, defaultText: string, callback: (newText: string) => void) => void;
+
+  public confirmCallback: (message: string, callback: (confirmed: boolean) => void) => void;
+
+  public alertCallback: (message: string) => void;
 
   private readonly: boolean;
 
@@ -42,7 +44,7 @@ export class BlocklyApplication extends Application {
 
   constructor(readonly: boolean, selectedBlocks: SelectedBlocks) {
     super();
-    BlocklyInitializer.define();
+    BlocklyInitializer.define(this);
     this.readonly = readonly;
     this.selectedBlocks = selectedBlocks;
 
@@ -73,16 +75,20 @@ export class BlocklyApplication extends Application {
     this.workspace.highlightBlock(id);
   }
 
-  // @ts-ignore
-  public addEventListener(key: "CREATE_VARIABLE", callback: (button: FlyoutButton) => void): void;
+  public addEventListener(key: "PROMPT", callback: (promptText: string, defaultText: string, callback: (newText: string) => void) => void): void;
+  public addEventListener(key: "CONFIRM", callback: (message: string, callback: (confirmed: boolean) => void) => void): void;
+  public addEventListener(key: "ALERT", callback: (message: string) => void): void;
   public addEventListener(key: "CHANGE", callback: (event: any) => void): void;
-  public addEventListener(key: string, callback: (...args: unknown[]) => void): void {
+  public addEventListener(key: string, callback: (...args: any[]) => void): void {
     switch (key) {
-      case "CREATE_VARIABLE":
-        this.workspace.registerButtonCallback(
-          BlocklyApplication.newVariableButtonCallback,
-          callback,
-        );
+      case "PROMPT":
+        this.promptCallback = callback;
+        break;
+      case "CONFIRM":
+        this.confirmCallback = callback;
+        break;
+      case "ALERT":
+        this.alertCallback = callback;
         break;
       case "CHANGE":
         this.workspace.addChangeListener((event) => {
@@ -162,30 +168,30 @@ export class BlocklyApplication extends Application {
         flyoutsVerticalToolbox: WebWriterFlyout,
       },
     });
-    if (!this.readonly) {
-      this.registerVariablesCategory();
-    }
+    this.registerVariablesCategory();
     this.workspace.addChangeListener(() => {
       this.removeComputeCanvas();
     });
     this.moveStyleElementsToContainer();
+    if (!this.readonly) {
+      this.workspace.getToolbox().refreshSelection();
+    }
   }
 
   private registerVariablesCategory(): void {
     this.workspace.registerToolboxCategoryCallback("VARIABLE", (workspace: WorkspaceSvg): Element[] => {
-      const blockList: Element[] = [];
+      const blocks = Variables.flyoutCategory(workspace);
+      blocks.some((block) => {
+        if (block.getAttribute("type") === "variables_set") {
+          const shadow = utils.xml.textToDom("<value name='VALUE'><shadow type='math:number'><field name='NUM'>0</field></shadow></value>");
+          block.appendChild(shadow);
+          return true;
+        }
+        return false;
+      });
 
-      const button = document.createElement("button");
-      button.setAttribute("text", "Create variable");
-      button.setAttribute("callbackkey", BlocklyApplication.newVariableButtonCallback);
-      blockList.push(button);
-
-      const blocks = Variables.flyoutCategoryBlocks(workspace);
-      blockList.push(...blocks);
-
-      return blockList;
+      return blocks;
     });
-    this.workspace.getToolbox().refreshSelection();
   }
 
   private moveStyleElementsToContainer(): void {
