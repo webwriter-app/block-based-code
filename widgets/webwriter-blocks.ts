@@ -10,15 +10,16 @@ import ArrowsMinimizeIcon from "@tabler/icons/outline/arrows-minimize.svg";
 import { styleMap } from "lit/directives/style-map.js";
 import {
   Application, Editor, Options, Stage, Toolbar,
-} from "./components";
-import { msg, setLocale } from "./locales";
-import { Logger } from "./utils";
-import { CodeHighlightingEvent, StageType } from "./types";
-import { EditorChangeEvent, OptionsChangeEvent } from "./types/events";
-import { BlockTypes, SelectedBlocks } from "./lib/blockly";
+} from "../components";
+import { msg, setLocale } from "../locales";
+import { Logger } from "../utils";
+import {
+  CodeHighlightingEvent, EditorChangeEvent, OptionsChangeEvent, StageType,
+} from "../types";
+import { BlockTypes, SelectedBlocks } from "../lib/blockly";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
-import { ToolbarButton } from "./components/toolbar-button";
+import { ToolbarButton } from "../components/toolbar-button";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
