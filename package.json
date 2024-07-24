@@ -7,12 +7,17 @@
     "webwriter-widget"
   ],
   "scripts": {
+    "build": "esbuild widgets/webwriter-blocks.ts --loader:.png=dataurl --loader:.svg=dataurl --bundle --outdir=./dist --format=esm --tsconfig-raw='{\"compilerOptions\":{\"experimentalDecorators\":true, \"target\": \"es2022\", \"useDefineForClassFields\": false}}' --drop-labels=DEV --minify",
     "lint": "eslint --fix ."
   },
   "exports": {
-    "./widgets/webwriter-blocks": "./widgets/webwriter-blocks.ts",
+    "./widgets/webwriter-blocks": "./dist/webwriter-blocks.js",
     "./snippets/dvd-bounce": "./snippets/dvd.html"
   },
+  "files": [
+    "dist",
+    "snippets"
+  ],
   "dependencies": {
     "@blockly/continuous-toolbox": "^6.0.2",
     "@lit/task": "^1.0.1",
