@@ -8,7 +8,7 @@ export interface BlockDefinition {
   [key: `message${number}`]: string;
   [key: `args${number}`]: {
     type: string;
-    name: Uppercase<string>;
+    name?: Uppercase<string>;
     check?: "Number" | "String" | "Boolean";
   }[];
   [key: string]: unknown;

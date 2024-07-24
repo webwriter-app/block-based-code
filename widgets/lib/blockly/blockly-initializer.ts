@@ -1,5 +1,5 @@
 import {
-  common, ContextMenuRegistry, registry, ToolboxCategory,
+  Blocks, common, ContextMenuRegistry, registry, ToolboxCategory,
 } from "blockly";
 
 import { WebWriterTheme } from "./theme";
@@ -39,6 +39,10 @@ export class BlocklyInitializer {
   }
 
   private static defineBlocks(): void {
+    Object.keys(Blocks).forEach((key) => {
+      if (key === "variables_get" || key === "variables_set") return;
+      delete Blocks[key];
+    });
     common.defineBlocksWithJsonArray(blocks);
   }
 }

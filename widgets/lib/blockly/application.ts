@@ -5,6 +5,7 @@ import {
   serialization,
   setParentContainer,
   svgResize,
+  utils,
   Variables,
   WorkspaceSvg,
 } from "blockly";
@@ -181,6 +182,14 @@ export class BlocklyApplication extends Application {
       blockList.push(button);
 
       const blocks = Variables.flyoutCategoryBlocks(workspace);
+      blocks.some((block) => {
+        if (block.getAttribute("type") === "variables_set") {
+          const shadow = utils.xml.textToDom("<value name='VALUE'><shadow type='math:number'><field name='NUM'>0</field></shadow></value>");
+          block.appendChild(shadow);
+          return true;
+        }
+        return false;
+      });
       blockList.push(...blocks);
 
       return blockList;
