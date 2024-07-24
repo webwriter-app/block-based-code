@@ -10,11 +10,11 @@ import { BlocklyApplication } from "./application";
 export class BlocklyInitializer {
   private static initialized = false;
 
-  public static define(promptReceiver: BlocklyApplication): void {
+  public static define(dialogReceiver: BlocklyApplication): void {
     if (BlocklyInitializer.initialized) return;
     BlocklyInitializer.defineTheme();
     BlocklyInitializer.defineToolboxCategory();
-    BlocklyInitializer.definePrompt(promptReceiver);
+    BlocklyInitializer.defineDialog(dialogReceiver);
     BlocklyInitializer.defineContextMenu();
     BlocklyInitializer.defineBlocks();
     BlocklyInitializer.initialized = true;
@@ -34,9 +34,18 @@ export class BlocklyInitializer {
     );
   }
 
-  private static definePrompt(promptReceiver: BlocklyApplication): void {
+  private static defineDialog(promptReceiver: BlocklyApplication): void {
     dialog.setPrompt((...args) => {
+      if (!promptReceiver.promptCallback) return;
       promptReceiver.promptCallback(...args);
+    });
+    dialog.setConfirm((...args) => {
+      if (!promptReceiver.confirmCallback) return;
+      promptReceiver.confirmCallback(...args);
+    });
+    dialog.setAlert((message) => {
+      if (!promptReceiver.alertCallback) return;
+      promptReceiver.alertCallback(message);
     });
   }
 

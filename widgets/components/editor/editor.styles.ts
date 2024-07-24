@@ -96,8 +96,8 @@ export const styles = css`
     }
     
     sl-dialog::part(body) {
-        padding-top: var(--sl-spacing-small);
-        padding-bottom: var(--sl-spacing-small);
+        padding-top: var(--sl-spacing-large);
+        padding-bottom: var(--sl-spacing-large);
     }
     
     sl-dialog::part(footer) {

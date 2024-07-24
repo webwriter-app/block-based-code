@@ -16,9 +16,6 @@ import { Logger } from "../../utils";
 export class Editor extends LitElementWw {
   public editorApplication: BlocklyApplication;
 
-  @query("#new-variable-dialog")
-  private newVariableDialog!: SlDialog;
-
   @property({ type: Boolean })
   public readonly: boolean;
 
@@ -29,6 +26,15 @@ export class Editor extends LitElementWw {
   public state: object;
 
   private resizeObserver: ResizeObserver;
+
+  @query("#prompt")
+  private promptDialog!: SlDialog;
+
+  @query("#confirm")
+  private confirmDialog!: SlDialog;
+
+  @query("#alert")
+  private alertDialog!: SlDialog;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -60,6 +66,8 @@ export class Editor extends LitElementWw {
     this.editorApplication.load(this.state);
     this.editorApplication.addEventListener("CHANGE", this.handleChange.bind(this));
     this.editorApplication.addEventListener("PROMPT", this.handlePrompt.bind(this));
+    this.editorApplication.addEventListener("CONFIRM", this.handleConfirm.bind(this));
+    this.editorApplication.addEventListener("ALERT", this.handleAlert.bind(this));
   }
 
   public disconnectedCallback() {
@@ -70,9 +78,20 @@ export class Editor extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <sl-dialog id="new-variable-dialog">
+        <sl-dialog id="prompt" no-header>
+            <span></span>
             <sl-input autofocus placeholder=""></sl-input>
+            <sl-button slot="footer" @click="${() => this.promptDialog.hide()}">Cancel</sl-button>
             <sl-button slot="footer" variant="primary">Save</sl-button>
+        </sl-dialog>
+        <sl-dialog id="confirm" no-header>
+            <span></span>
+            <sl-button slot="footer">No</sl-button>
+            <sl-button slot="footer" variant="primary">Yes</sl-button>
+        </sl-dialog>
+        <sl-dialog id="alert" no-header>
+            <span></span>
+            <sl-button slot="footer" variant="primary" @click=${() => this.alertDialog.hide()}>Ok</sl-button>
         </sl-dialog>
     `;
   }
@@ -108,17 +127,58 @@ export class Editor extends LitElementWw {
     callback: (newText: string) => void,
   ): void {
     Logger.log(this, promptText, defaultText, callback);
-    this.newVariableDialog.label = promptText;
-    const input = this.newVariableDialog.querySelector("sl-input");
+    const titleSpan = this.promptDialog.querySelector("span");
+    titleSpan.textContent = promptText;
+
+    const input = this.promptDialog.querySelector("sl-input");
     input.value = defaultText;
-    const button = this.newVariableDialog.querySelector("sl-button");
+    const button = this.promptDialog.querySelector("sl-button[variant=primary]");
     const clonedButton = button.cloneNode(true);
     clonedButton.addEventListener("click", () => {
-      callback(input.value);
-      this.newVariableDialog.hide().catch();
+      try {
+        callback(input.value);
+      } catch (error) {
+        Logger.log(this, error);
+      }
+      this.promptDialog.hide().catch();
     });
     button.parentNode.replaceChild(clonedButton, button);
-    this.newVariableDialog.show().catch();
+    this.promptDialog.show().catch();
+  }
+
+  private handleConfirm(message: string, callback: (confirmed: boolean) => void): void {
+    Logger.log(this, message, callback);
+    const titleSpan = this.confirmDialog.querySelector("span");
+    titleSpan.textContent = message;
+
+    const noButton = this.confirmDialog.querySelector("sl-button");
+    const clonedNoButton = noButton.cloneNode(true);
+    clonedNoButton.addEventListener("click", () => {
+      callback(false);
+      this.confirmDialog.hide().catch();
+    });
+    noButton.parentNode.replaceChild(clonedNoButton, noButton);
+
+    const yesButton = this.confirmDialog.querySelector("sl-button[variant=primary]");
+    const clonedYesButton = yesButton.cloneNode(true);
+    clonedYesButton.addEventListener("click", () => {
+      try {
+        callback(true);
+      } catch (error) {
+        Logger.log(this, error);
+      }
+      this.confirmDialog.hide().catch();
+    });
+    yesButton.parentNode.replaceChild(clonedYesButton, yesButton);
+    this.confirmDialog.show().catch();
+  }
+
+  private handleAlert(message: string): void {
+    Logger.log(this, message);
+    const titleSpan = this.alertDialog.querySelector("span");
+    titleSpan.textContent = message;
+
+    this.alertDialog.show().catch();
   }
 
   private handleChange(): void {

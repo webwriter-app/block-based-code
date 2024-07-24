@@ -20,14 +20,21 @@ export class BlocklyApplication extends Application {
 
   private static readonly theme = "webwriter";
 
-  private static readonly supportedBlocklyEvents = new Set([
+  private static readonly supportedBlocklyEvents: Set<string> = new Set([
     Events.BLOCK_CHANGE,
     Events.BLOCK_CREATE,
     Events.BLOCK_DELETE,
     Events.BLOCK_MOVE,
+    Events.VAR_CREATE,
+    Events.VAR_DELETE,
+    Events.VAR_RENAME,
   ]);
 
-  public promptCallback: (p1: string, p2: string, p3: (p1: string | null) => void) => void;
+  public promptCallback: (promptText: string, defaultText: string, callback: (newText: string) => void) => void;
+
+  public confirmCallback: (message: string, callback: (confirmed: boolean) => void) => void;
+
+  public alertCallback: (message: string) => void;
 
   private readonly: boolean;
 
@@ -68,12 +75,20 @@ export class BlocklyApplication extends Application {
     this.workspace.highlightBlock(id);
   }
 
-  public addEventListener(key: "PROMPT", callback: (p1: string, p2: string, p3: (p1: string | null) => void) => void): void;
+  public addEventListener(key: "PROMPT", callback: (promptText: string, defaultText: string, callback: (newText: string) => void) => void): void;
+  public addEventListener(key: "CONFIRM", callback: (message: string, callback: (confirmed: boolean) => void) => void): void;
+  public addEventListener(key: "ALERT", callback: (message: string) => void): void;
   public addEventListener(key: "CHANGE", callback: (event: any) => void): void;
   public addEventListener(key: string, callback: (...args: any[]) => void): void {
     switch (key) {
       case "PROMPT":
         this.promptCallback = callback;
+        break;
+      case "CONFIRM":
+        this.confirmCallback = callback;
+        break;
+      case "ALERT":
+        this.alertCallback = callback;
         break;
       case "CHANGE":
         this.workspace.addChangeListener((event) => {
