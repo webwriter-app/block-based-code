@@ -7,12 +7,13 @@
     "webwriter-widget"
   ],
   "scripts": {
-    "prepare": "husky",
-    "build": "esbuild widgets/webwriter-blocks.ts --loader:.png=dataurl --loader:.svg=dataurl --bundle --outdir=./dist --format=esm --tsconfig-raw='{\"compilerOptions\":{\"experimentalDecorators\":true, \"target\": \"es2022\", \"useDefineForClassFields\": false}}' --drop-labels=DEV --minify",
-    "release": "release-it --config scripts/release-it.config.ts",
-    "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
+    "build": "node scripts/esbuild.config.mjs",
+    "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
     "lint:fix": "eslint --fix .",
-    "lint:commit": "commitlint --edit"
+    "lint:commit": "commitlint --edit",
+    "prepare": "husky",
+    "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
+    "release": "release-it --config scripts/release-it.config.ts"
   },
   "exports": {
     "./widgets/webwriter-blocks": "./dist/webwriter-blocks.js",

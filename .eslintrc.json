@@ -7,7 +7,7 @@
   ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": ["*.ts", "*.mjs"],
       "extends": [
         "airbnb-base",
         "airbnb-typescript/base",
