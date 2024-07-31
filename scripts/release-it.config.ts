@@ -16,4 +16,12 @@ export default {
   hooks: {
     "before:init": ["npm run build"],
   },
+  plugins: {
+    "@release-it/conventional-changelog": {
+      infile: "CHANGELOG.md",
+      ignoreRecommendedBump: true,
+      header: "# Changelog",
+      preset: "conventionalcommits",
+    },
+  },
 } satisfies Config;

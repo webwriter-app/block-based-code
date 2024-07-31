@@ -1,16 +1,18 @@
 {
   "name": "@philipplentzen/blocks",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "@philipplentzen",
   "keywords": [
     "webwriter-widget"
   ],
   "scripts": {
+    "prepare": "husky",
     "build": "esbuild widgets/webwriter-blocks.ts --loader:.png=dataurl --loader:.svg=dataurl --bundle --outdir=./dist --format=esm --tsconfig-raw='{\"compilerOptions\":{\"experimentalDecorators\":true, \"target\": \"es2022\", \"useDefineForClassFields\": false}}' --drop-labels=DEV --minify",
     "release": "release-it --config scripts/release-it.config.ts",
     "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
-    "lint": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "lint:commit": "commitlint --edit"
   },
   "exports": {
     "./widgets/webwriter-blocks": "./dist/webwriter-blocks.js",
@@ -33,12 +35,17 @@
     "pixi.js": "^8.1.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/types": "^19.0.3",
+    "@release-it/conventional-changelog": "^8.0.1",
     "@types/lodash": "^4.17.6",
     "esbuild": "0.23.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-plugin-import": "^2.29.1",
+    "husky": "^9.1.4",
     "release-it": "^17.6.0"
   }
 }
