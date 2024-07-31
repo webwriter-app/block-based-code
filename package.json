@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "build": "esbuild widgets/webwriter-blocks.ts --loader:.png=dataurl --loader:.svg=dataurl --bundle --outdir=./dist --format=esm --tsconfig-raw='{\"compilerOptions\":{\"experimentalDecorators\":true, \"target\": \"es2022\", \"useDefineForClassFields\": false}}' --drop-labels=DEV --minify",
+    "release": "release-it --config scripts/release-it.config.ts",
+    "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
     "lint": "eslint --fix ."
   },
   "exports": {
@@ -36,6 +38,7 @@
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-import": "^2.29.1"
+    "eslint-plugin-import": "^2.29.1",
+    "release-it": "^17.6.0"
   }
 }
