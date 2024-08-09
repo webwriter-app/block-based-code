@@ -7,6 +7,7 @@ export abstract class VirtualMachine {
 
   public async start(code: string, delay: number): Promise<void> {
     this.stop();
+
     this.initWorker(code, delay);
     await new Promise<void>((resolve) => {
       this.completeResolveFunction = resolve;
