@@ -1,16 +1,26 @@
 export abstract class VirtualMachine {
   private worker?: Worker;
 
-  private highlightCallback: (id: string) => void;
+  private highlightCallback: ((id: string) => void) | undefined;
 
-  public start(code: string, delay: number): void {
+  private completeResolveFunction: () => void;
+
+  public async start(code: string, delay: number): Promise<void> {
+    this.stop();
     this.initWorker(code, delay);
+    await new Promise<void>((resolve) => {
+      this.completeResolveFunction = resolve;
+    });
   }
 
   public stop(): void {
     if (!this.worker) return;
 
     this.highlight(null);
+    if (this.completeResolveFunction) {
+      this.completeResolveFunction();
+    }
+    this.completeResolveFunction = undefined;
     this.worker.terminate();
   }
 
@@ -30,6 +40,11 @@ export abstract class VirtualMachine {
     const url = this.generateWorkerScriptUrl(script);
     this.worker = new Worker(url);
     this.worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
+      if (event.data.type === "complete") {
+        this.stop();
+        return;
+      }
+
       const result = this[event.data.type](...event.data.args);
       if (result != null) {
         this.worker.postMessage({ type: "result", args: [result] });
@@ -55,7 +70,7 @@ export abstract class VirtualMachine {
     });
     script += "(async function () {\n";
     script += code;
-    script += "highlight(null);\n";
+    script += "postMessage({ type: 'complete', args: [] });\n";
     script += "})()\n";
     return script;
   }

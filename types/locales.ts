@@ -6,6 +6,7 @@ export type Lang = typeof languages[number];
 
 export type Dictionary = {
   START: string;
+  RESTART: string;
   STOP: string;
   FULLSCREEN: string;
   FULLSCREEN_EXIT: string;

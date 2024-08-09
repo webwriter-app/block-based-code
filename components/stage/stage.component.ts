@@ -5,7 +5,7 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { Task } from "@lit/task";
+import { Task, TaskStatus } from "@lit/task";
 import {
   SlButton,
   SlCheckbox,
@@ -23,6 +23,7 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import AdjustmentsIcon from "@tabler/icons/outline/adjustments.svg";
 import PlayerStopIcon from "@tabler/icons/outline/player-stop.svg";
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
+import RefreshIcon from "@tabler/icons/outline/refresh.svg";
 import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
@@ -59,6 +60,8 @@ export class Stage extends LitElementWw {
   private readonly resizeObserver: ResizeObserver;
 
   private readonly applicationReady: Task;
+
+  private readonly executionRunning: Task;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -98,6 +101,20 @@ export class Stage extends LitElementWw {
         Logger.log(this, "Initialized!");
       },
     });
+    this.executionRunning = new Task<[string, number]>(this, {
+      task: async ([code, delay], options) => {
+        Logger.log(this, "Starting execution...");
+        options.signal.addEventListener("abort", () => {
+          this.stageApplication.virtualMachine.stop();
+          Logger.log(this, "Execution aborted!");
+        });
+        await this.stageApplication.virtualMachine.start(code, delay);
+      },
+      autoRun: false,
+      onComplete: () => {
+        Logger.log(this, "Execution completed!");
+      },
+    });
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
 
@@ -131,6 +148,7 @@ export class Stage extends LitElementWw {
                 <webwriter-blocks-toolbar-button id="settings"
                                                  label=${msg("EXECUTION_OPTIONS")}
                                                  icon=${AdjustmentsIcon}
+                                                 .disabled=${this.executionRunning.status === TaskStatus.PENDING}
                                                  @click=${this.handleVmOptionsClick}>
                 </webwriter-blocks-toolbar-button>
             </div>
@@ -138,11 +156,12 @@ export class Stage extends LitElementWw {
                 <webwriter-blocks-toolbar-button id="stop"
                                                  label=${msg("STOP")}
                                                  icon=${PlayerStopIcon}
+                                                 .disabled=${this.executionRunning.status !== TaskStatus.PENDING}
                                                  @click=${this.handleStopClick}>
                 </webwriter-blocks-toolbar-button>
                 <webwriter-blocks-toolbar-button id="start"
-                                                 label=${msg("START")}
-                                                 icon=${PlayerPlayIcon}
+                                                 label=${this.executionRunning.status === TaskStatus.PENDING ? msg("RESTART") : msg("START")}
+                                                 icon=${this.executionRunning.status === TaskStatus.PENDING ? RefreshIcon : PlayerPlayIcon}
                                                  @click=${this.handleStartClick}>
                 </webwriter-blocks-toolbar-button>
             </div>
@@ -206,6 +225,14 @@ export class Stage extends LitElementWw {
     this.vmOptionsDialog.show().catch();
   }
 
+  private async handleStartClick(): Promise<void> {
+    await this.executionRunning.run([this.executableCode, this.vmDelay]);
+  }
+
+  private handleStopClick(): void {
+    this.executionRunning.abort();
+  }
+
   private handleBlockHighlightingChange(event: Event): void {
     const checkbox = event.target as SlCheckbox;
     this.vmBlockHighlighting = checkbox.checked;
@@ -214,14 +241,6 @@ export class Stage extends LitElementWw {
   private handleDelayChange(event: Event): void {
     const range = event.target as SlRange;
     this.vmDelay = range.value as number;
-  }
-
-  private handleStartClick(): void {
-    this.stageApplication.virtualMachine.start(this.executableCode, this.vmDelay);
-  }
-
-  private handleStopClick(): void {
-    this.stageApplication.virtualMachine.stop();
   }
 
   private handleCodeHighlighting(id: string): void {

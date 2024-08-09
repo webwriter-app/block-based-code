@@ -3,6 +3,7 @@ import { Dictionary } from "../types";
 // eslint-disable-next-line import/no-default-export
 export const dictionary: Dictionary = {
   START: "Start Execution",
+  RESTART: "Restart Execution",
   STOP: "Stop Execution",
   FULLSCREEN: "Enter Fullscreen",
   FULLSCREEN_EXIT: "Leave Fullscreen",

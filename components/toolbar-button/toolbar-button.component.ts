@@ -14,6 +14,9 @@ export class ToolbarButton extends LitElementWw {
   @property({ type: String })
   public icon: string;
 
+  @property({ type: Boolean })
+  public disabled: boolean;
+
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-tooltip": SlTooltip,
@@ -31,7 +34,7 @@ export class ToolbarButton extends LitElementWw {
   public render(): TemplateResult {
     return html`
         <sl-tooltip content=${this.label}>
-            <sl-button part="button" variant="text">
+            <sl-button part="button" variant="text" .disabled=${this.disabled}>
                 <sl-icon part="icon" src=${this.icon}></sl-icon>
             </sl-button>
         </sl-tooltip>

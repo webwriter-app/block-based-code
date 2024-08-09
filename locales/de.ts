@@ -2,6 +2,7 @@ import { Dictionary } from "../types";
 
 export const dictionary: Dictionary = {
   START: "Starte Ausführung",
+  RESTART: "Ausführung neu starten",
   STOP: "Stoppe Ausführung",
   FULLSCREEN: "Vollbildmodus",
   FULLSCREEN_EXIT: "Vollbildmodus verlassen",
