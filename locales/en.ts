@@ -7,6 +7,7 @@ export const dictionary: Dictionary = {
   FULLSCREEN: "Enter Fullscreen",
   FULLSCREEN_EXIT: "Leave Fullscreen",
   ERROR: "An error occurred!",
+  EXECUTION_OPTIONS: "Execution Options",
   ZOOM: {
     IN: "Zoom In",
     OUT: "Zoom Out",

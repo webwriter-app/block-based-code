@@ -129,7 +129,7 @@ export class Stage extends LitElementWw {
         <webwriter-blocks-toolbar>
             <div>
                 <webwriter-blocks-toolbar-button id="settings"
-                                                 label=${msg("STOP")}
+                                                 label=${msg("EXECUTION_OPTIONS")}
                                                  icon=${AdjustmentsIcon}
                                                  @click=${this.handleVmOptionsClick}>
                 </webwriter-blocks-toolbar-button>
