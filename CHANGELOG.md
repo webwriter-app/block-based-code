@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.1](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.3.0...v1.3.1) (2024-08-21)
+
+_Housekeeping, just some behind-the-scenes tidying up to keep everything running smoothly!_
+
 ## [1.3.0](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.2.0...v1.3.0) (2024-08-09)
 
 
