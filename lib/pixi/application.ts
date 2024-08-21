@@ -9,11 +9,10 @@ import { PixiVirtualMachine } from "./vm";
 export class PixiApplication extends StageApplication {
   public override virtualMachine: PixiVirtualMachine;
 
-  private application: Application;
+  protected declare application: Application;
 
   constructor() {
     super();
-
     this.virtualMachine = new PixiVirtualMachine(this.application);
   }
 
@@ -30,6 +29,7 @@ export class PixiApplication extends StageApplication {
   }
 
   public override resize(): void {
+    if (!this.application) return;
     this.application.canvas.style.transform = `scale(${this.container.clientWidth / this.application.canvas.width})`;
   }
 

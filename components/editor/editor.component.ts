@@ -17,24 +17,24 @@ export class Editor extends LitElementWw {
   public editorApplication: BlocklyApplication;
 
   @property({ type: Boolean })
-  public readonly: boolean;
+  public accessor readonly: boolean;
 
   @property({ type: Array })
-  public selectedBlocks: SelectedBlocks;
+  public accessor selectedBlocks: SelectedBlocks;
 
   @property({ type: Object })
-  public state: object;
+  public accessor state: object;
 
   private resizeObserver: ResizeObserver;
 
   @query("#prompt")
-  private promptDialog!: SlDialog;
+  private accessor promptDialog!: SlDialog;
 
   @query("#confirm")
-  private confirmDialog!: SlDialog;
+  private accessor confirmDialog!: SlDialog;
 
   @query("#alert")
-  private alertDialog!: SlDialog;
+  private accessor alertDialog!: SlDialog;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {

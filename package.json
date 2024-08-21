@@ -26,7 +26,7 @@
     "@lit/task": "^1.0.1",
     "@shoelace-style/shoelace": "^2.15.1",
     "@tabler/icons": "^3.6.0",
-    "@webwriter/lit": "^1.6.3",
+    "@webwriter/lit": "^2.0.0",
     "blockly": "^11.1.0",
     "highlight.js": "^11.10.0",
     "lit": "^3.1.4",

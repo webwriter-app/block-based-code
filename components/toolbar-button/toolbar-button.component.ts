@@ -9,13 +9,13 @@ import { styles } from "./toolbar-button.styles";
 @customElement("webwriter-blocks-toolbar-button")
 export class ToolbarButton extends LitElementWw {
   @property({ type: String })
-  public label: string;
+  public accessor label: string;
 
   @property({ type: String })
-  public icon: string;
+  public accessor icon: string;
 
   @property({ type: Boolean })
-  public disabled: boolean;
+  public accessor disabled: boolean;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {

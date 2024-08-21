@@ -30,32 +30,32 @@ import { msg } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
 import { CodeHighlightingEvent, StageApplication, StageType } from "../../types";
 import { Toolbar } from "../toolbar";
-import { ToolbarButton } from "../toolbar-button/toolbar-button.component";
+import { ToolbarButton } from "../toolbar-button";
 
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
   public stageApplication: StageApplication;
 
   @property({ type: String })
-  public stageType: StageType;
+  public accessor stageType: StageType;
 
   @property({ type: String })
-  public readableCode: string;
+  public accessor readableCode: string;
 
   @property({ type: String })
-  public executableCode: string;
+  public accessor executableCode: string;
 
   @query("#stage")
-  private readonly stageElement!: SlTabPanel;
+  private accessor stageElement!: SlTabPanel;
 
   @query("#vm-options-dialog")
-  private readonly vmOptionsDialog!: SlDialog;
+  private accessor vmOptionsDialog!: SlDialog;
 
   @state()
-  private vmBlockHighlighting: boolean = true;
+  private accessor vmBlockHighlighting: boolean = true;
 
   @state()
-  private vmDelay: number = 100;
+  private accessor vmDelay: number = 100;
 
   private readonly resizeObserver: ResizeObserver;
 

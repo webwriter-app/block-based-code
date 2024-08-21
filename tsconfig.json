@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
     "target": "es2022",
     "moduleResolution": "Bundler",
-    "module": "ES2022",
-    "useDefineForClassFields": false
+    "module": "ES2022"
   },
   "exclude": ["node_modules"]
 }

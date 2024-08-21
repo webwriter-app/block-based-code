@@ -14,16 +14,16 @@ import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
   @property({ type: Number })
-  public readonly: 0 | 1;
+  public accessor readonly: 0 | 1;
 
   @property({ type: String })
-  public stageType: StageType;
+  public accessor stageType: StageType;
 
   @property({ type: Array })
-  public selectedBlocks: SelectedBlocks;
+  public accessor selectedBlocks: SelectedBlocks;
 
   @property({ type: Array })
-  public availableBlocks: BlockTypes[];
+  public accessor availableBlocks: BlockTypes[];
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {

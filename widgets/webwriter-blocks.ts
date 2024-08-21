@@ -24,31 +24,31 @@ import { ToolbarButton } from "../components/toolbar-button";
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
   @property({ type: Number, reflect: true })
-  public readonly: 0 | 1 = 0;
+  public accessor readonly: 0 | 1 = 0;
 
   @property({ type: String, reflect: true })
-  public stageType: StageType = StageType.CANVAS;
+  public accessor stageType: StageType = StageType.CANVAS;
 
   @property({ type: Array, reflect: true })
-  public selectedBlocks: SelectedBlocks = ["events:when_start_clicked"];
+  public accessor selectedBlocks: SelectedBlocks = ["events:when_start_clicked"];
 
   @property({ type: Object, reflect: true })
-  public editorState: object = {};
+  public accessor editorState: object = {};
 
   @state()
-  private availableBlocks: BlockTypes[] = [];
+  private accessor availableBlocks: BlockTypes[] = [];
 
   @state()
-  private readableCode: string = "";
+  private accessor readableCode: string = "";
 
   @state()
-  private executableCode: string = "";
+  private accessor executableCode: string = "";
 
   @query("#editor")
-  private editor!: Editor;
+  private accessor editor!: Editor;
 
   @query("#stage")
-  private stage!: Stage;
+  private accessor stage!: Stage;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
