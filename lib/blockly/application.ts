@@ -155,8 +155,11 @@ export class BlocklyApplication extends Application {
         wheel: true,
       },
       zoom: {
+        wheel: true,
+        maxScale: 0.8,
         controls: false,
         startScale: 0.8,
+        pinch: true,
       },
       trashcan: false,
       toolbox: createToolboxFromBlockList(this.selectedBlocks),

@@ -2,6 +2,7 @@ import {
   Blocks, common, ContextMenuRegistry, dialog, registry, ToolboxCategory,
 } from "blockly";
 
+import { CrossTabCopyPaste } from "@blockly/plugin-cross-tab-copy-paste";
 import { WebWriterTheme } from "./theme";
 import { blocks } from "./blocks";
 import { WebWriterToolboxCategory } from "./toolbox";
@@ -12,12 +13,21 @@ export class BlocklyInitializer {
 
   public static define(dialogReceiver: BlocklyApplication): void {
     if (BlocklyInitializer.initialized) return;
+    BlocklyInitializer.addCopyPastePlugin();
     BlocklyInitializer.defineTheme();
     BlocklyInitializer.defineToolboxCategory();
     BlocklyInitializer.defineDialog(dialogReceiver);
     BlocklyInitializer.defineContextMenu();
     BlocklyInitializer.defineBlocks();
     BlocklyInitializer.initialized = true;
+  }
+
+  private static addCopyPastePlugin(): void {
+    const plugin = new CrossTabCopyPaste();
+    plugin.init({
+      contextMenu: true,
+      shortcut: true,
+    });
   }
 
   private static defineTheme(): void {
