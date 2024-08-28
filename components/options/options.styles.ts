@@ -22,6 +22,24 @@ export const styles = css`
     }
     
     .label {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--sl-spacing-x-small);
+        
         font-size: var(--sl-font-size-medium);
+    }
+    
+    sl-icon {
+        color: var(--sl-color-gray-500);
+    }
+    
+    sl-checkbox::part(base) {
+        display: flex;
+    }
+    
+    sl-checkbox::part(label) {
+        width: 100%;
     }
 `;

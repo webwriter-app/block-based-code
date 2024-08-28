@@ -4,8 +4,9 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import {
-  SlCheckbox, SlOption, SlSelect, SlTree, SlTreeItem,
+  SlCheckbox, SlIcon, SlOption, SlSelect, SlTooltip, SlTree, SlTreeItem,
 } from "@shoelace-style/shoelace";
+import HelpCircleIcon from "@tabler/icons/outline/help-circle.svg";
 import { styles } from "./options.styles";
 import { msg } from "../../locales";
 import { OptionsChangeEvent, StageType } from "../../types";
@@ -32,6 +33,8 @@ export class Options extends LitElementWw {
       "sl-option": SlOption,
       "sl-tree": SlTree,
       "sl-tree-item": SlTreeItem,
+      "sl-tooltip": SlTooltip,
+      "sl-icon": SlIcon,
     };
   }
 
@@ -62,11 +65,21 @@ export class Options extends LitElementWw {
     return html`
         <div class="group">
             <sl-checkbox .checked=${this.readonly === 1} @sl-change=${this.handleReadonlyChange}>
+              <span class="label">
                 ${msg("OPTIONS.READONLY")}
+                <sl-tooltip content=${msg("OPTIONS.READONLY_TOOLTIP")}>
+                    <sl-icon src="${HelpCircleIcon}"></sl-icon>
+                </sl-tooltip>
+              </span>
             </sl-checkbox>
         </div>
         <div class="group">
-            <span class="label">${msg("OPTIONS.STAGE")}</span>
+            <span class="label">
+              ${msg("OPTIONS.STAGE")}
+              <sl-tooltip content=${msg("OPTIONS.STAGE_TOOLTIP")}>
+                  <sl-icon src="${HelpCircleIcon}"></sl-icon>
+              </sl-tooltip>
+            </span>
             <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange} hoist>
                 ${Object.values(StageType).map((type) => html`
                     <sl-option value=${type}>
@@ -76,7 +89,12 @@ export class Options extends LitElementWw {
             </sl-select>
         </div>
         <div class="group">
-            <span class="label">${msg("OPTIONS.AVAILABLE_BLOCKS")}</span>
+            <span class="label">
+              ${msg("OPTIONS.AVAILABLE_BLOCKS")}
+              <sl-tooltip content=${msg("OPTIONS.AVAILABLE_BLOCKS_TOOLTIP")}>
+                  <sl-icon src="${HelpCircleIcon}"></sl-icon>
+              </sl-tooltip>
+            </span>
             <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectedBlocksChange}>
                 <sl-tree-item expanded>
                     all

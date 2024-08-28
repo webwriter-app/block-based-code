@@ -16,12 +16,15 @@ export const dictionary: Dictionary = {
   },
   OPTIONS: {
     READONLY: "Readonly",
+    READONLY_TOOLTIP: "Choose whether the blocks can be edited",
     STAGE: "Stage",
+    STAGE_TOOLTIP: "Choose the type of stage",
     STAGE_TYPES: {
       CODE: "Code",
       CANVAS: "Canvas",
     },
     AVAILABLE_BLOCKS: "Available Blocks",
+    AVAILABLE_BLOCKS_TOOLTIP: "Choose the blocks that are available in the toolbox",
   },
   BLOCKS: {
     // Events

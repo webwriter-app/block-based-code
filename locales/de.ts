@@ -15,12 +15,15 @@ export const dictionary: Dictionary = {
   },
   OPTIONS: {
     READONLY: "Schreibgeschützt",
+    READONLY_TOOLTIP: "Wähle aus, ob die Blöcke bearbeitet werden können",
     STAGE: "Bühne",
+    STAGE_TOOLTIP: "Wähle die Art der Bühne aus",
     STAGE_TYPES: {
       CODE: "Code",
       CANVAS: "Leinwand",
     },
     AVAILABLE_BLOCKS: "Verfügbare Bausteine",
+    AVAILABLE_BLOCKS_TOOLTIP: "Wähle die Bausteine aus, die im Werkzeugkasten verfügbar sind",
   },
   BLOCKS: {
     // Events

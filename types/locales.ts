@@ -19,9 +19,12 @@ export type Dictionary = {
   };
   OPTIONS: {
     READONLY: string;
+    READONLY_TOOLTIP: string;
     STAGE: string;
+    STAGE_TOOLTIP: string;
     STAGE_TYPES: Record<Uppercase<StageType | "code">, string>;
     AVAILABLE_BLOCKS: string;
+    AVAILABLE_BLOCKS_TOOLTIP: string;
   }
   BLOCKS: Partial<Record<Uppercase<string>, string>>
   CATEGORY: Partial<Record<Uppercase<CategoryTypes>, string>>
