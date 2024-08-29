@@ -6,8 +6,10 @@ export const dictionary: Dictionary = {
   STOP: "Stoppe Ausführung",
   FULLSCREEN: "Vollbildmodus",
   FULLSCREEN_EXIT: "Vollbildmodus verlassen",
+  HELP: "Hilfe",
   ERROR: "Es ist ein Fehler aufgetreten!",
   EXECUTION_OPTIONS: "Ausführungsoptionen",
+  SHORTCUTS: "Tastenkürzel",
   ZOOM: {
     IN: "Vergrößern",
     OUT: "Verkleinern",
@@ -24,6 +26,12 @@ export const dictionary: Dictionary = {
     },
     AVAILABLE_BLOCKS: "Verfügbare Bausteine",
     AVAILABLE_BLOCKS_TOOLTIP: "Wähle die Bausteine aus, die im Werkzeugkasten verfügbar sind",
+  },
+  CONTROLS: {
+    DUPLICATE_BLOCK: "Duplizieren",
+    CROSS_TAB_COPY: "Kopieren",
+    CROSS_TAB_PASTE: "Einfügen",
+    DELETE: "Löschen",
   },
   BLOCKS: {
     // Events

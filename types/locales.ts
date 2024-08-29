@@ -10,8 +10,10 @@ export type Dictionary = {
   STOP: string;
   FULLSCREEN: string;
   FULLSCREEN_EXIT: string;
+  HELP: string;
   ERROR: string;
   EXECUTION_OPTIONS: string;
+  SHORTCUTS: string;
   ZOOM: {
     IN: string;
     OUT: string;
@@ -26,6 +28,12 @@ export type Dictionary = {
     AVAILABLE_BLOCKS: string;
     AVAILABLE_BLOCKS_TOOLTIP: string;
   }
+  CONTROLS: {
+    DUPLICATE_BLOCK: string;
+    CROSS_TAB_COPY: string;
+    CROSS_TAB_PASTE: string;
+    DELETE: string;
+  };
   BLOCKS: Partial<Record<Uppercase<string>, string>>
   CATEGORY: Partial<Record<Uppercase<CategoryTypes>, string>>
 };

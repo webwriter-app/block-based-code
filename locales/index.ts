@@ -27,6 +27,7 @@ export const setLocale = (lang: string) => {
     de: {
       ...blocklyDe,
       ...webwriterDe.BLOCKS,
+      ...webwriterDe.CONTROLS,
     },
     en: {
       ...blocklyEn,

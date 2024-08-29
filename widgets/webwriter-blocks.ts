@@ -20,6 +20,7 @@ import { BlockTypes, SelectedBlocks } from "../lib/blockly";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { ToolbarButton } from "../components/toolbar-button";
+import { Help } from "../components/help";
 
 @customElement("webwriter-blocks")
 export class WebwriterBlocks extends LitElementWw {
@@ -58,6 +59,7 @@ export class WebwriterBlocks extends LitElementWw {
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
       "webwriter-blocks-options": Options,
+      "webwriter-blocks-help": Help,
     };
   }
 
@@ -83,7 +85,7 @@ export class WebwriterBlocks extends LitElementWw {
 
           :host * {
               user-select: none;
-          }
+          };
       `,
     ];
   }
@@ -116,14 +118,18 @@ export class WebwriterBlocks extends LitElementWw {
                 <div>
                     <webwriter-blocks-toolbar-button icon=${this.isFullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}
                                                      label=${this.isFullscreen ? msg("FULLSCREEN_EXIT") : msg("FULLSCREEN")}
-                                                     @click=${this.handleFullscreenToggle}></webwriter-blocks-toolbar-button>
+                                                     @click=${this.handleFullscreenToggle}>
+                    </webwriter-blocks-toolbar-button>
+                </div>
+                <div>
+                    <webwriter-blocks-help></webwriter-blocks-help>
                 </div>
             </webwriter-blocks-toolbar>
             <webwriter-blocks-editor slot="editor"
                                      id="editor"
                                      .state=${this.editorState}
                                      .selectedBlocks=${this.selectedBlocks}
-                                     .readonly=${this.readonly === 1 && !(this.contentEditable === "true" || this.contentEditable === "")}
+                                     .readonly=${this.readonly === 1 && !this.isContentEditable}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
             
@@ -135,7 +141,7 @@ export class WebwriterBlocks extends LitElementWw {
                                     @highlight=${this.handleCodeHighlighting}>
             </webwriter-blocks-stage>
         </webwriter-blocks-application>
-        ${!this.isFullscreen && (this.contentEditable === "true" || this.contentEditable === "") ? html`
+        ${!this.isFullscreen && this.isContentEditable ? html`
             <webwriter-blocks-options part="options"
                                       readonly=${this.readonly}
                                       stageType=${this.stageType}
@@ -155,6 +161,10 @@ export class WebwriterBlocks extends LitElementWw {
 
   private get isFullscreen(): boolean {
     return this.ownerDocument.fullscreenElement === this;
+  }
+
+  private get isContentEditable(): boolean {
+    return this.contentEditable === "true" || this.contentEditable === "";
   }
 
   private handleFullscreenToggle(): void {

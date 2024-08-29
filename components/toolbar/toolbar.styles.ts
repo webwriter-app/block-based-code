@@ -13,12 +13,12 @@ export const styles = css`
     }
     
     ::slotted(div) {
+        position: relative;
         display: flex;
 
         border: 1px solid var(--sl-color-gray-300);
         border-radius: var(--sl-border-radius-medium);
 
-        overflow: hidden;
         box-sizing: border-box;
     }
 `;

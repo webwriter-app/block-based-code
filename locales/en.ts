@@ -7,8 +7,10 @@ export const dictionary: Dictionary = {
   STOP: "Stop Execution",
   FULLSCREEN: "Enter Fullscreen",
   FULLSCREEN_EXIT: "Leave Fullscreen",
+  HELP: "Help",
   ERROR: "An error occurred!",
   EXECUTION_OPTIONS: "Execution Options",
+  SHORTCUTS: "Shortcuts",
   ZOOM: {
     IN: "Zoom In",
     OUT: "Zoom Out",
@@ -25,6 +27,12 @@ export const dictionary: Dictionary = {
     },
     AVAILABLE_BLOCKS: "Available Blocks",
     AVAILABLE_BLOCKS_TOOLTIP: "Choose the blocks that are available in the toolbox",
+  },
+  CONTROLS: {
+    DUPLICATE_BLOCK: "Duplicate",
+    CROSS_TAB_COPY: "Copy",
+    CROSS_TAB_PASTE: "Paste",
+    DELETE: "Delete",
   },
   BLOCKS: {
     // Events
