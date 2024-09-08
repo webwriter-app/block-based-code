@@ -7,15 +7,17 @@
     "webwriter-widget"
   ],
   "scripts": {
-    "build": "node scripts/esbuild.config.mjs",
-    "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
     "lint:fix": "eslint --fix .",
     "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
     "release": "release-it --config scripts/release-it.config.ts"
   },
   "exports": {
-    "./widgets/webwriter-blocks": "./dist/webwriter-blocks.js",
-    "./snippets/dvd-bounce": "./snippets/dvd.html"
+    "./widgets/webwriter-blocks.*": {
+      "source": "./widgets/webwriter-blocks.ts",
+      "default": "./dist/webwriter-blocks.*"
+    },
+    "./snippets/dvd-bounce.html": "./snippets/dvd-bounce.html",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
@@ -37,7 +39,7 @@
   "devDependencies": {
     "@release-it/conventional-changelog": "^8.0.1",
     "@types/lodash": "^4.17.6",
-    "esbuild": "0.23.0",
+    "@webwriter/build": "^1.0.1",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
