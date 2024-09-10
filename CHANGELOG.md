@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.5.0-rc.1](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.5.0-rc.0...v1.5.0-rc.1) (2024-09-10)
+
 ## [1.5.0-rc.0](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.4.0...v1.5.0-rc.0) (2024-09-08)
 
 ## [1.4.0](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.3.1...v1.4.0) (2024-08-29)
