@@ -1,6 +1,18 @@
 # Changelog
 
+## [1.5.3](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.5.2...v1.5.3) (2024-09-20)
+
+
+### Bug Fixes
+
+* replaces local images with static links ([51e1e8b](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/commit/51e1e8b18437e7b9672c8d7786f442b1c2baf6f5))
+
 ## [1.5.2](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.5.1...v1.5.2) (2024-09-20)
+
+
+### Bug Fixes
+
+* adds export for images in readme
 
 ## [1.5.1](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.5.0...v1.5.1) (2024-09-20)
 
