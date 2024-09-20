@@ -73,7 +73,7 @@ export class Editor extends LitElementWw {
   public disconnectedCallback() {
     super.disconnectedCallback();
     this.resizeObserver.disconnect();
-    this.editorApplication.disconnect();
+    this.editorApplication.destroy();
   }
 
   public render(): TemplateResult {

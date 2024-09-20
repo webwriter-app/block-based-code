@@ -7,8 +7,14 @@ import { SlIcon, SlSplitPanel } from "@shoelace-style/shoelace";
 import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
 import { styles } from "./application.styles";
 
+/**
+ * The application component.
+ */
 @customElement("webwriter-blocks-application")
 export class Application extends LitElementWw {
+  /**
+   * @inheritDoc
+   */
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-split-panel": SlSplitPanel,
@@ -16,12 +22,18 @@ export class Application extends LitElementWw {
     };
   }
 
+  /**
+   * @inheritDoc
+   */
   public static get styles(): CSSResult[] {
     return [
       styles,
     ];
   }
 
+  /**
+   * @inheritDoc
+   */
   public render(): TemplateResult {
     return html`
         <sl-split-panel position="33" primary="end">

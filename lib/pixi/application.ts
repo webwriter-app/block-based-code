@@ -6,39 +6,64 @@ import bunny from "../../assets/bunny.png";
 import { StageApplication } from "../types";
 import { PixiVirtualMachine } from "./vm";
 
+/**
+ * The PixiApplication class represents a Pixi application.
+ */
 export class PixiApplication extends StageApplication {
+  /**
+   * The virtual machine used by the application.
+   */
   public override virtualMachine: PixiVirtualMachine;
 
-  protected declare application: Application;
+  /**
+   * The Pixi application.
+   * @private
+   */
+  private declare application: Application;
 
   constructor() {
     super();
     this.virtualMachine = new PixiVirtualMachine(this.application);
   }
 
+  /**
+   * @inheritDoc
+   */
   public override destroy(): void {
     this.virtualMachine.stop();
     this.application.destroy();
     super.destroy();
   }
 
+  /**
+   * @inheritDoc
+   */
   public override show(): void {
     this.container.appendChild(this.application.canvas);
     this.application.render();
     this.resize();
   }
 
+  /**
+   * @inheritDoc
+   */
   public override resize(): void {
     if (!this.application) return;
     this.application.canvas.style.transform = `scale(${this.container.clientWidth / this.application.canvas.width})`;
   }
 
+  /**
+   * @inheritDoc
+   */
   protected override createContainer(): void {
     super.createContainer();
     this.container.style.height = "0";
     this.container.style.paddingTop = "calc(100% * 3 / 4)";
   }
 
+  /**
+   * @inheritDoc
+   */
   protected override get specialBlocks(): BlockTypes[] {
     return [
       "motions:move",
@@ -53,6 +78,9 @@ export class PixiApplication extends StageApplication {
     ];
   }
 
+  /**
+   * @inheritDoc
+   */
   protected override async init(): Promise<void> {
     this.application = new Application();
     await this.application.init({
@@ -67,6 +95,10 @@ export class PixiApplication extends StageApplication {
     this.application.ticker.start();
   }
 
+  /**
+   * Styles the Pixi canvas element.
+   * @private
+   */
   private styleCanvas(): void {
     this.application.canvas.style.position = "absolute";
     this.application.canvas.style.transformOrigin = "top left";
@@ -74,6 +106,10 @@ export class PixiApplication extends StageApplication {
     this.application.canvas.style.left = "0";
   }
 
+  /**
+   * Adds a sprite to the stage.
+   * @private
+   */
   private addSprite(): void {
     const sprite = Sprite.from(bunny);
     sprite.label = "bunny";

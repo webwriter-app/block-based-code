@@ -1,5 +1,8 @@
 import { BlockStyle, CategoryStyle } from "../theme";
 
+/**
+ * The block definition type.
+ */
 export interface BlockDefinition {
   type: `${CategoryStyle}:${string}`;
   category: CategoryStyle;

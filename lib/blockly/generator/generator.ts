@@ -8,6 +8,9 @@ import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators } from "./operators";
 import { generators as variableGenerators } from "./variables";
 
+/**
+ * The custom code generator for Blockly. This generator is used to generate executable code.
+ */
 export class ExecutableGenerator extends JavascriptGenerator {
   constructor() {
     super("executable");
@@ -16,6 +19,9 @@ export class ExecutableGenerator extends JavascriptGenerator {
   }
 }
 
+/**
+ * The custom code generator for Blockly. This generator is used to generate readable code.
+ */
 export class ReadableGenerator extends JavascriptGenerator {
   constructor() {
     super("readable");

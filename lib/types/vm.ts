@@ -1,10 +1,30 @@
+/**
+ * The VirtualMachine class is an abstract class that provides a simple interface to run code in a worker.
+ */
 export abstract class VirtualMachine {
+  /**
+   * The worker instance.
+   * @private
+   */
   private worker?: Worker;
 
+  /**
+   * The highlight callback function. This function is called when the worker wants to highlight a block.
+   * @private
+   */
   private highlightCallback: ((id: string) => void) | undefined;
 
+  /**
+   * The complete resolve function. This function is called when the worker is stopped.
+   * @private
+   */
   private completeResolveFunction: () => void;
 
+  /**
+   * Starts the worker with the given code and delay.
+   * @param code The code to run in the worker.
+   * @param delay The delay between each step in milliseconds.
+   */
   public async start(code: string, delay: number): Promise<void> {
     this.stop();
 
@@ -14,6 +34,9 @@ export abstract class VirtualMachine {
     });
   }
 
+  /**
+   * Stops the worker.
+   */
   public stop(): void {
     if (!this.worker) return;
 
@@ -25,17 +48,26 @@ export abstract class VirtualMachine {
     this.worker.terminate();
   }
 
+  /**
+   * Sets the highlight callback function.
+   * @param callback The highlight callback function.
+   */
   public setHighlightCallback(callback: (id: string) => void): void {
     this.highlightCallback = callback;
   }
 
-  protected get callables(): ((...args: any[]) => void)[] {
-    return [
-      this.highlight,
-      this.stop,
-    ];
-  }
+  /**
+   * The callables that can be called from the worker. This method should be overridden in the child class.
+   * @protected
+   */
+  protected abstract get callables(): ((...args: any[]) => void)[];
 
+  /**
+   * Initializes the worker with the given code and delay.
+   * @param code The code to run in the worker.
+   * @param delay The delay between each step in milliseconds.
+   * @private
+   */
   private initWorker(code: string, delay: number): void {
     const script = this.generateWorkerScript(code, delay);
     const url = this.generateWorkerScriptUrl(script);
@@ -53,6 +85,12 @@ export abstract class VirtualMachine {
     };
   }
 
+  /**
+   * Generates the worker script with the given code and delay.
+   * @param code The code to run in the worker.
+   * @param delay The delay between each step in milliseconds.
+   * @private
+   */
   private generateWorkerScript(code: string, delay: number): string {
     let script = "";
     script += "let resultResolveFunction;\n";
@@ -60,7 +98,11 @@ export abstract class VirtualMachine {
     script += `async function delay() { await new Promise((resolve) => { setTimeout(resolve, ${delay === 0 ? 16.6 : delay}) }); }\n`;
     script += "onmessage = function (event) { if (event.data.type === 'result') { resultResolveFunction(event.data.args[0]); } };\n";
 
-    this.callables.forEach((callable) => {
+    [
+      this.highlight,
+      this.stop,
+      ...this.callables,
+    ].forEach((callable) => {
       const args = Array(callable.length).fill("x").map((x, i) => `${x}${i}`).join(", ");
       const message = `{ type: "${callable.name}", args: [${args}] }`;
       if (callable.name.startsWith("get")) {
@@ -76,11 +118,21 @@ export abstract class VirtualMachine {
     return script;
   }
 
+  /**
+   * Generates the blob URL from the given script.
+   * @param script The script to run in the worker.
+   * @private
+   */
   private generateWorkerScriptUrl(script: string): string {
     const blob = new Blob([script], { type: "application/javascript" });
     return URL.createObjectURL(blob);
   }
 
+  /**
+   * Highlights the block with the given id.
+   * @param id The id of the block to highlight.
+   * @private
+   */
   private highlight(id: string): void {
     if (this.highlightCallback) {
       this.highlightCallback(id);

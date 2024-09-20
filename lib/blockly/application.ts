@@ -13,13 +13,26 @@ import { WebWriterFlyout } from "./toolbox/flyout";
 import { ToolbarButton } from "../../components/toolbar-button";
 import { msg } from "../../locales";
 
+/**
+ * The BlocklyApplication class represents a Blockly application.
+ */
 export class BlocklyApplication extends Application {
-  private static readonly newVariableButtonCallback = "CREATE_VARIABLE_NEW";
-
+  /**
+   * The renderer used by Blockly.
+   * @private
+   */
   private static readonly renderer = "zelos";
 
+  /**
+   * The theme used by Blockly.
+   * @private
+   */
   private static readonly theme = "webwriter";
 
+  /**
+   * The Blockly events supported by the widget.
+   * @private
+   */
   private static readonly supportedBlocklyEvents: Set<string> = new Set([
     Events.BLOCK_CHANGE,
     Events.BLOCK_CREATE,
@@ -30,51 +43,95 @@ export class BlocklyApplication extends Application {
     Events.VAR_RENAME,
   ]);
 
+  /**
+   * The prompt callback function.
+   */
   public promptCallback: (promptText: string, defaultText: string, callback: (newText: string) => void) => void;
 
+  /**
+   * The confirm callback function.
+   */
   public confirmCallback: (message: string, callback: (confirmed: boolean) => void) => void;
 
+  /**
+   * The alert callback function.
+   */
   public alertCallback: (message: string) => void;
 
+  /**
+   * Whether the application is readonly.
+   * @private
+   */
   private readonly: boolean;
 
-  private selectedBlocks: SelectedBlocks;
+  /**
+   * The usable blocks.
+   * @private
+   */
+  private usableBlocks: SelectedBlocks;
 
+  /**
+   * The Blockly workspace.
+   * @private
+   */
   private workspace: WorkspaceSvg;
 
-  constructor(readonly: boolean, selectedBlocks: SelectedBlocks) {
+  constructor(readonly: boolean, usableBlocks: SelectedBlocks) {
     super();
     BlocklyInitializer.define(this);
     this.readonly = readonly;
-    this.selectedBlocks = selectedBlocks;
+    this.usableBlocks = usableBlocks;
 
     this.injectWorkspace();
   }
 
-  public resize(): void {
+  /**
+   * @inheritDoc
+   */
+  public override resize(): void {
     svgResize(this.workspace);
   }
 
+  /**
+   * Returns the workspace state.
+   */
   public save(): object {
     return serialization.workspaces.save(this.workspace);
   }
 
+  /**
+   * Returns the generated executable code.
+   */
   public get executableCode(): string {
     return executableCodeGenerator.workspaceToCode(this.workspace);
   }
 
+  /**
+   * Returns the generated readable code.
+   */
   public get readableCode(): string {
     return readableCodeGenerator.workspaceToCode(this.workspace).replaceAll("await ", "");
   }
 
+  /**
+   * Loads the workspace state.
+   * @param state The workspace state.
+   */
   public load(state: object): void {
     serialization.workspaces.load(state, this.workspace);
   }
 
+  /**
+   * Highlights the block with the given id.
+   * @param id The block id.
+   */
   public highlight(id: string): void {
     this.workspace.highlightBlock(id);
   }
 
+  /**
+   * Adds an event listener to the Blockly application.
+   */
   public addEventListener(key: "PROMPT", callback: (promptText: string, defaultText: string, callback: (newText: string) => void) => void): void;
   public addEventListener(key: "CONFIRM", callback: (message: string, callback: (confirmed: boolean) => void) => void): void;
   public addEventListener(key: "ALERT", callback: (message: string) => void): void;
@@ -103,6 +160,9 @@ export class BlocklyApplication extends Application {
     }
   }
 
+  /**
+   * Creates a variable with the given name inside the workspace.
+   */
   public createVariable(name: string): void | never {
     if (!name) {
       throw new Error("Please enter a variable name");
@@ -113,20 +173,31 @@ export class BlocklyApplication extends Application {
     this.workspace.createVariable(name);
   }
 
-  public disconnect(): void {
+  /**
+   * @inheritDoc
+   */
+  public override destroy(): void {
     this.workspace.dispose();
+    super.destroy();
   }
 
-  public updateToolbox(selectedBlocks: SelectedBlocks): void {
+  /**
+   * Updates the toolbox in the workspace with the given usable blocks.
+   * @param usableBlocks The usable blocks.
+   */
+  public updateToolbox(usableBlocks: SelectedBlocks): void {
     if (!this.readonly) {
-      this.selectedBlocks = selectedBlocks;
-      const toolbox = createToolboxFromBlockList(this.selectedBlocks);
+      this.usableBlocks = usableBlocks;
+      const toolbox = createToolboxFromBlockList(this.usableBlocks);
       this.workspace.updateToolbox(toolbox);
       this.workspace.refreshToolboxSelection();
     }
   }
 
-  protected createContainer(): void {
+  /**
+   * @inheritDoc
+   */
+  protected override createContainer(): void {
     super.createContainer();
     this.container.style.height = "100%";
     this.container.style.overflow = "visible";
@@ -137,6 +208,10 @@ export class BlocklyApplication extends Application {
     setParentContainer(this.container);
   }
 
+  /**
+   * Injects the Blockly workspace into the container.
+   * @private
+   */
   private injectWorkspace(): void {
     this.workspace = inject(this.container, {
       renderer: BlocklyApplication.renderer,
@@ -162,7 +237,7 @@ export class BlocklyApplication extends Application {
         pinch: true,
       },
       trashcan: false,
-      toolbox: createToolboxFromBlockList(this.selectedBlocks),
+      toolbox: createToolboxFromBlockList(this.usableBlocks),
       maxInstances: {
         "events:when_start_clicked": 1,
       } satisfies Partial<Record<BlockTypes, number>>,
@@ -181,6 +256,10 @@ export class BlocklyApplication extends Application {
     }
   }
 
+  /**
+   * Registers the variables category in the workspace.
+   * @private
+   */
   private registerVariablesCategory(): void {
     this.workspace.registerToolboxCategoryCallback("VARIABLE", (workspace: WorkspaceSvg): Element[] => {
       const blocks = Variables.flyoutCategory(workspace);
@@ -197,6 +276,10 @@ export class BlocklyApplication extends Application {
     });
   }
 
+  /**
+   * Moves the Blockly style elements to the container.
+   * @private
+   */
   private moveStyleElementsToContainer(): void {
     ["blockly-common-style", `blockly-renderer-style-${BlocklyApplication.renderer}-${BlocklyApplication.theme}`].forEach((styleElementId) => {
       const styleElement = document.querySelector<HTMLStyleElement>(`#${styleElementId}`);
@@ -208,11 +291,19 @@ export class BlocklyApplication extends Application {
     });
   }
 
+  /**
+   * Removes the Blockly compute canvas from the workspace. Some weird canvas that appears in the worksheet.
+   * @private
+   */
   private removeComputeCanvas(): void {
     const computeCanvas = document.querySelectorAll<HTMLCanvasElement>(".blocklyComputeCanvas");
     computeCanvas.forEach((canvas) => canvas.remove());
   }
 
+  /**
+   * Generates the zoom group elements.
+   * @private
+   */
   private generateZoomGroup(): HTMLDivElement {
     const groupDiv = document.createElement("div");
     groupDiv.style.position = "absolute";
@@ -234,6 +325,13 @@ export class BlocklyApplication extends Application {
     return groupDiv;
   }
 
+  /**
+   * Generates a zoom button.
+   * @param icon The icon of the button.
+   * @param label The label of the button.
+   * @param onClick The onClick event of the button.
+   * @private
+   */
   private generateZoomButton(icon: string, label: string, onClick: () => void): ToolbarButton {
     const zoomInButton = document.createElement("webwriter-blocks-toolbar-button");
     zoomInButton.icon = icon;

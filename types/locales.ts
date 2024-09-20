@@ -1,9 +1,19 @@
 import { CategoryTypes } from "../lib/blockly";
 import { StageType } from "./stage";
 
+/**
+ * The available languages.
+ */
 export const languages = ["en", "de"] as const;
+
+/**
+ * The type of the available languages.
+ */
 export type Lang = typeof languages[number];
 
+/**
+ * The type of dictionary for widget.
+ */
 export type Dictionary = {
   START: string;
   RESTART: string;
@@ -37,4 +47,8 @@ export type Dictionary = {
   BLOCKS: Partial<Record<Uppercase<string>, string>>
   CATEGORY: Partial<Record<Uppercase<CategoryTypes>, string>>
 };
+
+/**
+ * The type of dictionaries for the widget.
+ */
 export type Dictionaries = Record<Lang, Dictionary>;

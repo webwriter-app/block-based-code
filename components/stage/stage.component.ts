@@ -32,37 +32,83 @@ import { CodeHighlightingEvent, StageApplication, StageType } from "../../types"
 import { Toolbar } from "../toolbar";
 import { ToolbarButton } from "../toolbar-button";
 
+/**
+ * The stage component.
+ */
 @customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
+  /**
+   * The application that is used to render the stage.
+   */
   public stageApplication: StageApplication;
 
+  /**
+   * The selected stage type.
+   */
   @property({ type: String })
   public accessor stageType: StageType;
 
+  /**
+   * The readable code.
+   */
   @property({ type: String })
   public accessor readableCode: string;
 
+  /**
+   * The executable code.
+   */
   @property({ type: String })
   public accessor executableCode: string;
 
+  /**
+   * The stage element.
+   * @private
+   */
   @query("#stage")
   private accessor stageElement!: SlTabPanel;
 
+  /**
+   * The VM options dialog element.
+   * @private
+   */
   @query("#vm-options-dialog")
   private accessor vmOptionsDialog!: SlDialog;
 
+  /**
+   * Whether block highlighting is enabled.
+   * @private
+   */
   @state()
   private accessor vmBlockHighlighting: boolean = true;
 
+  /**
+   * The delay between each block execution.
+   * @private
+   */
   @state()
   private accessor vmDelay: number = 100;
 
+  /**
+   * The resize observer.
+   * @private
+   */
   private readonly resizeObserver: ResizeObserver;
 
+  /**
+   * The application ready task.
+   * @private
+   */
   private readonly applicationReady: Task;
 
+  /**
+   * The execution running task.
+   * @private
+   */
   private readonly executionRunning: Task;
 
+  /**
+   * @inheritDoc
+   */
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "webwriter-blocks-toolbar": Toolbar,
@@ -79,6 +125,9 @@ export class Stage extends LitElementWw {
     };
   }
 
+  /**
+   * @inheritDoc
+   */
   public static get styles(): CSSResult[] {
     return [
       styles,
@@ -118,6 +167,9 @@ export class Stage extends LitElementWw {
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
 
+  /**
+   * @inheritDoc
+   */
   public connectedCallback() {
     super.connectedCallback();
 
@@ -126,6 +178,9 @@ export class Stage extends LitElementWw {
     this.applyStageType();
   }
 
+  /**
+   * @inheritDoc
+   */
   public disconnectedCallback() {
     super.disconnectedCallback();
 
@@ -133,6 +188,9 @@ export class Stage extends LitElementWw {
     this.applicationReady.abort();
   }
 
+  /**
+   * @inheritDoc
+   */
   public render(): TemplateResult {
     const renderer: Parameters<typeof this.applicationReady["render"]>[0] = {
       pending: () => html`<sl-spinner></sl-spinner>`,
@@ -211,44 +269,82 @@ export class Stage extends LitElementWw {
     `;
   }
 
+  /**
+   * @inheritDoc
+   */
   protected updated(changedProperties: Map<string | number | symbol, unknown>): void {
     if (changedProperties.get("stageType")) {
       this.applyStageType();
     }
   }
 
+  /**
+   * Handles the resize event.
+   * @private
+   */
   private handleResize(): void {
     this.stageApplication.resize();
   }
 
+  /**
+   * Handles the VM options click event.
+   * @private
+   */
   private handleVmOptionsClick(): void {
     this.vmOptionsDialog.show().catch();
   }
 
+  /**
+   * Handles the start click event.
+   * @private
+   */
   private async handleStartClick(): Promise<void> {
     await this.executionRunning.run([this.executableCode, this.vmDelay]);
   }
 
+  /**
+   * Handles the stop click event.
+   * @private
+   */
   private handleStopClick(): void {
     this.executionRunning.abort();
   }
 
+  /**
+   * Handles the block highlighting change event.
+   * @param event The change event.
+   * @private
+   */
   private handleBlockHighlightingChange(event: Event): void {
     const checkbox = event.target as SlCheckbox;
     this.vmBlockHighlighting = checkbox.checked;
   }
 
+  /**
+   * Handles the delay change event.
+   * @param event The change event.
+   * @private
+   */
   private handleDelayChange(event: Event): void {
     const range = event.target as SlRange;
     this.vmDelay = range.value as number;
   }
 
+  /**
+   * Handles the code highlighting event.
+   * @param id The block ID.
+   * @private
+   */
   private handleCodeHighlighting(id: string): void {
     if (!this.vmBlockHighlighting) return;
     const event = new CodeHighlightingEvent(id);
     this.dispatchEvent(event);
   }
 
+  /**
+   * Applies the selected stage type.
+   * @private
+   */
   private applyStageType(): void {
     if (this.stageApplication) {
       this.stageApplication.destroy();

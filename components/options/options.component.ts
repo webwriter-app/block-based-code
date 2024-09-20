@@ -12,20 +12,38 @@ import { msg } from "../../locales";
 import { OptionsChangeEvent, StageType } from "../../types";
 import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 
+/**
+ * The options component.
+ */
 @customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
+  /**
+   * Whether the widget are readonly.
+   */
   @property({ type: Number })
   public accessor readonly: 0 | 1;
 
+  /**
+   * The selected stage type.
+   */
   @property({ type: String })
   public accessor stageType: StageType;
 
+  /**
+   * The selected blocks.
+   */
   @property({ type: Array })
   public accessor selectedBlocks: SelectedBlocks;
 
+  /**
+   * The available blocks.
+   */
   @property({ type: Array })
   public accessor availableBlocks: BlockTypes[];
 
+  /**
+   * @inheritDoc
+   */
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-checkbox": SlCheckbox,
@@ -38,16 +56,25 @@ export class Options extends LitElementWw {
     };
   }
 
+  /**
+   * @inheritDoc
+   */
   public static get styles(): CSSResult[] {
     return [
       styles,
     ];
   }
 
+  /**
+   * @inheritDoc
+   */
   public connectedCallback(): void {
     super.connectedCallback();
   }
 
+  /**
+   * @inheritDoc
+   */
   public render(): TemplateResult {
     const selectedBlocksSet = new Set(this.selectedBlocks);
     const availableBlocksMap = new Map<string, string[]>();
@@ -120,20 +147,35 @@ export class Options extends LitElementWw {
     `;
   }
 
-  private handleReadonlyChange(e): void {
+  /**
+   * Handles the readonly change event.
+   * @param event The change event.
+   * @private
+   */
+  private handleReadonlyChange(event): void {
     const changeEvent = new OptionsChangeEvent({
-      readonly: e.target.checked ? 1 : 0,
+      readonly: event.target.checked ? 1 : 0,
     });
     this.dispatchEvent(changeEvent);
   }
 
-  private handleStageTypeChange(e): void {
+  /**
+   * Handles the stage type change event.
+   * @param event The change event.
+   * @private
+   */
+  private handleStageTypeChange(event): void {
     const changeEvent = new OptionsChangeEvent({
-      stageType: e.target.value,
+      stageType: event.target.value,
     });
     this.dispatchEvent(changeEvent);
   }
 
+  /**
+   * Handles the selected blocks change event.
+   * @param event The change event.
+   * @private
+   */
   private handleSelectedBlocksChange(event: CustomEvent<{ selection: SlTreeItem[] }>): void {
     const selectedBlocks = event.detail.selection
       .filter((item) => item.getAttribute("data-block-key"))

@@ -1,5 +1,8 @@
 import { ToolboxCategory } from "blockly";
 
+/**
+ * The custom WebWriter toolbox for Blockly.
+ */
 export class WebWriterToolboxCategory extends ToolboxCategory {
   protected override createLabelDom_(name: string): Element {
     const label = document.createElement("span");

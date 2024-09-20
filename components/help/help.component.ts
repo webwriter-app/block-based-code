@@ -9,11 +9,21 @@ import { styles } from "./help.styles";
 import { msg } from "../../locales";
 import { ToolbarButton } from "../toolbar-button";
 
+/**
+ * The help component.
+ */
 @customElement("webwriter-blocks-help")
 export class Help extends LitElementWw {
+  /**
+   * The popup element.
+   * @private
+   */
   @query("sl-popup")
   private accessor popup!: SlPopup;
 
+  /**
+   * @inheritDoc
+   */
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "sl-popup": SlPopup,
@@ -21,12 +31,18 @@ export class Help extends LitElementWw {
     };
   }
 
+  /**
+   * @inheritDoc
+   */
   public static get styles(): CSSResult[] {
     return [
       styles,
     ];
   }
 
+  /**
+   * @inheritDoc
+   */
   public render(): TemplateResult {
     const ctrlKey = /Mac|iPod|iPhone|iPad/.test(navigator.userAgent) ? "cmd" : "ctrl";
 
@@ -57,10 +73,18 @@ export class Help extends LitElementWw {
     `;
   }
 
+  /**
+   * Handles the focus event on the help button.
+   * @private
+   */
   private handleHelpButtonFocus(): void {
     this.popup.active = true;
   }
 
+  /**
+   * Handles the blur event on the help button.
+   * @private
+   */
   private handleHelpButtonBlur(): void {
     this.popup.active = false;
   }

@@ -4,6 +4,9 @@ import { toKebabCase } from "./string";
 
 const base = "[webwriter-blocks]".toUpperCase();
 
+/**
+ * The logger.
+ */
 export const Logger = {
   log: (origin: {
     constructor: {

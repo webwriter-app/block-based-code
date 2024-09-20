@@ -19,6 +19,11 @@ interface IToolbox {
   }[];
 }
 export type SelectedBlocks = BlockTypes[];
+
+/**
+ * Generates a toolbox config from a list of blocks.
+ * @param blocks The list of blocks.
+ */
 export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => {
   const toolbox = new Map<CategoryStyle, IToolbox["contents"][number]["contents"][number][]>();
   blocks.unshift("events:when_start_clicked");

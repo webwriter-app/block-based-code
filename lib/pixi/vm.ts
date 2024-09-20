@@ -1,5 +1,5 @@
 import { Application, ColorMatrixFilter, Sprite } from "pixi.js";
-import { VirtualMachine } from "../vm";
+import { VirtualMachine } from "../types";
 
 export class PixiVirtualMachine extends VirtualMachine {
   private application: Application;
@@ -11,7 +11,6 @@ export class PixiVirtualMachine extends VirtualMachine {
 
   protected override get callables(): ((...args: any[]) => void)[] {
     return [
-      ...super.callables,
       this.move,
       this.rotate,
       this.setRotation,
