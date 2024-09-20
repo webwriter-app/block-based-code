@@ -22,7 +22,6 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "assets/built-with",
     "dist",
     "snippets"
   ],
