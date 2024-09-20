@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.1](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.5.0...v1.5.1) (2024-09-20)
+
+
+### Features
+
+* updates readme, adds attribution ([15d116a](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/commit/15d116a2e83302090c6e93be59eed1186e9c19e6))
+
+
+### Bug Fixes
+
+* no active/hover states for buttons (!41) ([3db77fc](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/commit/3db77fcce277572b57d7ca350f50072f3d82cce0)), closes [#33](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/issues/33)
+
 ## [1.5.0](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.5.0-rc.1...v1.5.0) (2024-09-20)
 
 ## [1.5.0-rc.1](https://git.rwth-aachen.de/learntech-lufgi9/bama/webwriter/webwriter-block-based-code/compare/v1.5.0-rc.0...v1.5.0-rc.1) (2024-09-10)
