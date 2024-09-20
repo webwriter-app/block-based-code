@@ -14,7 +14,7 @@ export default {
     releaseName: "v${version}",
   },
   hooks: {
-    "before:init": ["npx @webwriter/build"],
+    "before:init": ["npm run build"],
   },
   plugins: {
     "@release-it/conventional-changelog": {
