@@ -18,7 +18,7 @@
       "source": "./dist/webwriter-blocks.js",
       "default": "./dist/webwriter-blocks.*"
     },
-    "./snippets/dvd-bounce.html": "./snippets/dvd.html",
+    "./snippets/bouncing-dvd.html": "./snippets/dvd.html",
     "./package.json": "./package.json"
   },
   "files": [
