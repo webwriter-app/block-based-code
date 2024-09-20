@@ -1,6 +1,14 @@
 import { css } from "lit";
 
 export const styles = css`
+    :host {
+        transition: var(--sl-transition-medium);
+    }
+    
+    :host(:hover) {
+        background-color: var(--sl-color-gray-100);
+    }
+    
     sl-button {
         display: flex;
         align-content: center;

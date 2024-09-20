@@ -12,6 +12,12 @@ import { styles } from "./toolbar-button.styles";
 @customElement("webwriter-blocks-toolbar-button")
 export class ToolbarButton extends LitElementWw {
   /**
+   * The id of the button.
+   */
+  @property({ type: String })
+  public accessor id: string;
+
+  /**
    * The label of the button.
    */
   @property({ type: String })
@@ -55,7 +61,7 @@ export class ToolbarButton extends LitElementWw {
   public render(): TemplateResult {
     return html`
         <sl-tooltip content=${this.label}>
-            <sl-button part="button" variant="text" .disabled=${this.disabled}>
+            <sl-button id=${this.id} part="button" variant="text" .disabled=${this.disabled}>
                 <sl-icon part="icon" src=${this.icon}></sl-icon>
             </sl-button>
         </sl-tooltip>

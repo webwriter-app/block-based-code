@@ -7,11 +7,14 @@ export const styles = css`
         display: flex;
         flex-direction: column;
         gap: var(--sl-spacing-x-small);
-        overflow: hidden;
     }
 
     webwriter-blocks-toolbar-button#stop {
         background-color: var(--sl-color-danger-50);
+    }
+
+    webwriter-blocks-toolbar-button#stop:hover {
+        background-color: var(--sl-color-danger-100);
     }
     
     webwriter-blocks-toolbar-button#stop::part(icon) {
@@ -20,6 +23,10 @@ export const styles = css`
 
     webwriter-blocks-toolbar-button#start {
         background-color: var(--sl-color-success-50);
+    }
+    
+    webwriter-blocks-toolbar-button#start:hover {
+        background-color: var(--sl-color-success-100);
     }
 
     webwriter-blocks-toolbar-button#start::part(icon) {
