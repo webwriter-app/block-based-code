@@ -81,7 +81,6 @@ export class BlocklyApplication extends Application {
     BlocklyInitializer.define(this);
     this.readonly = readonly;
     this.usableBlocks = usableBlocks;
-
     this.injectWorkspace();
   }
 

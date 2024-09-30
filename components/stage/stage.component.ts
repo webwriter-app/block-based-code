@@ -223,10 +223,10 @@ export class Stage extends LitElementWw {
             </div>
         </webwriter-blocks-toolbar>
         <sl-tab-group placement="bottom">
-            <sl-tab slot="nav" panel="stage">${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}</sl-tab>
+            <sl-tab slot="nav" panel="stage" active>${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}
+            </sl-tab>
             <sl-tab slot="nav" panel="code">${msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
-            
-            <sl-tab-panel name="stage" id="stage">
+            <sl-tab-panel name="stage" id="stage" active>
                 ${this.applicationReady.render(renderer)}
             </sl-tab-panel>
             <sl-tab-panel name="code" id="code">

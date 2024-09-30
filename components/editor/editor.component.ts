@@ -56,14 +56,12 @@ export class Editor extends LitElementWw {
 
   constructor() {
     super();
-
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
 
   public connectedCallback() {
     super.connectedCallback();
     this.resizeObserver.observe(this);
-
     this.editorApplication = new BlocklyApplication(this.readonly, this.selectedBlocks);
     this.editorApplication.load(this.state);
     this.editorApplication.addEventListener("CHANGE", this.handleChange.bind(this));

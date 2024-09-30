@@ -1,6 +1,6 @@
 {
   "name": "@webwriter/block-based-code",
-  "version": "1.5.4",
+  "version": "1.5.6",
   "description": "Write block-based code (e.g. Scratch) and run it.",
   "license": "MIT",
   "author": "Philipp Lentzen",
@@ -16,7 +16,7 @@
   },
   "exports": {
     "./widgets/webwriter-block-based-code.*": {
-      "source": "./dist/webwriter-block-based-code.js",
+      "source": "./widgets/webwriter-block-based-code.ts",
       "default": "./dist/webwriter-block-based-code.*"
     },
     "./snippets/bouncing-dvd.html": "./snippets/dvd.html",

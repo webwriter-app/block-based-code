@@ -12,6 +12,7 @@ import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.
 /**
  * The toolbar button component.
  */
+@customElement("webwriter-blocks-toolbar-button")
 export class ToolbarButton extends LitElementWw {
   /**
    * The id of the button.

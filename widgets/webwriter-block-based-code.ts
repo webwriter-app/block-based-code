@@ -141,17 +141,12 @@ export class WebwriterBlocks extends LitElementWw {
     };
   }
 
-  constructor() {
-    super();
-    setLocale(this.ownerDocument.documentElement.lang);
-  }
-
   /**
    * @inheritDoc
    */
   public connectedCallback() {
     super.connectedCallback();
-
+    setLocale(document.documentElement.lang?.split("-")[0] || navigator.language?.split("-")[0]);
     this.addEventListener("fullscreenchange", () => this.requestUpdate());
     const styleElement = this.ownerDocument.createElement("style");
     styleElement.textContent = ".sl-scroll-lock {--sl-scroll-lock-size: 0!important; overflow-x: hidden!important; overflow-y: scroll!important}";
@@ -197,7 +192,7 @@ export class WebwriterBlocks extends LitElementWw {
                                       stageType=${this.stageType}
                                       .availableBlocks=${this.availableBlocks}
                                       .selectedBlocks=${this.usableBlocks}
-                                      @change=${this.handleOptionsChange}>
+                                      @change=${this.handleOptionsChange}></webwriter-blocks-options>
         ` : null}
         </webwriter-blocks-options>
     `;
@@ -205,7 +200,6 @@ export class WebwriterBlocks extends LitElementWw {
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
-
     this.setBlocks();
   }
 
@@ -218,23 +212,17 @@ export class WebwriterBlocks extends LitElementWw {
   }
 
   /**
-   * Whether the editor is content editable.
-   * @private
-   */
-  private get isContentEditable(): boolean {
-    return this.contentEditable === "true" || this.contentEditable === "";
-  }
-
-  /**
    * Handles the fullscreen toggle event.
    * @private
    */
-  private handleFullscreenToggle(): void {
+  private async handleFullscreenToggle() {
     if (this.isFullscreen) {
-      this.ownerDocument.exitFullscreen();
+      await this.ownerDocument.exitFullscreen();
+      this.requestUpdate()
     } else {
       try {
-        this.requestFullscreen();
+        await this.requestFullscreen();
+        this.requestUpdate()
       } catch (error) {
         Logger.error("Failed to enter fullscreen mode.");
         Logger.log(this, error);
