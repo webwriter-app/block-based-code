@@ -25,7 +25,7 @@ import { Help } from "../components/help";
 /**
  * The main component of the Blocks widget.
  */
-@customElement("webwriter-blocks")
+@customElement("webwriter-block-based-code")
 export class WebwriterBlocks extends LitElementWw {
   /**
    * Whether the widget is in read-only mode, only effective when contentEditable is false.

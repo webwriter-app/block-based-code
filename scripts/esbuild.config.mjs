@@ -6,7 +6,7 @@ const options = {
   write: true,
   bundle: true,
   entryPoints: [
-    path.resolve("./widgets/webwriter-blocks.ts"),
+    path.resolve("./widgets/webwriter-block-based-code.ts"),
   ],
   outdir: path.resolve("./dist"),
   target: "es2022",
@@ -16,10 +16,7 @@ const options = {
     ".png": "dataurl",
     ".svg": "dataurl",
   },
-  tsconfig: path.resolve("./tsconfig.json"),
-  external: [
-    "@shoelace-style/shoelace",
-  ],
+  tsconfig: path.resolve("./tsconfig.json")
 };
 
 const dev = process.env.NODE_ENV === "development";

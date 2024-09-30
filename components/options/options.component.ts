@@ -3,19 +3,24 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import {
-  SlCheckbox, SlIcon, SlOption, SlSelect, SlTooltip, SlTree, SlTreeItem,
-} from "@shoelace-style/shoelace";
 import HelpCircleIcon from "@tabler/icons/outline/help-circle.svg";
 import { styles } from "./options.styles";
 import { msg } from "../../locales";
 import { OptionsChangeEvent, StageType } from "../../types";
 import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 
+import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js"
+import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js"
+import SlOption from "@shoelace-style/shoelace/dist/components/option/option.component.js"
+import SlSelect from "@shoelace-style/shoelace/dist/components/select/select.component.js"
+import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js"
+import SlTree from "@shoelace-style/shoelace/dist/components/tree/tree.component.js"
+import SlTreeItem from "@shoelace-style/shoelace/dist/components/tree-item/tree-item.component.js"
+
+
 /**
  * The options component.
  */
-@customElement("webwriter-blocks-options")
 export class Options extends LitElementWw {
   /**
    * Whether the widget are readonly.

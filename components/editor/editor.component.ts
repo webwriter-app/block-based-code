@@ -4,7 +4,6 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { PropertyValues } from "@lit/reactive-element";
-import { SlButton, SlDialog, SlInput } from "@shoelace-style/shoelace";
 import { styles } from "./editor.styles";
 import { BlocklyApplication, SelectedBlocks } from "../../lib/blockly";
 import { EditorChangeEvent } from "../../types";
@@ -12,7 +11,10 @@ import { Toolbar } from "../toolbar";
 import { ToolbarButton } from "../toolbar-button";
 import { Logger } from "../../utils";
 
-@customElement("webwriter-blocks-editor")
+import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog.component.js"
+import SlInput from "@shoelace-style/shoelace/dist/components/input/input.component.js"
+import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
+
 export class Editor extends LitElementWw {
   public editorApplication: BlocklyApplication;
 

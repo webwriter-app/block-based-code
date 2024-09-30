@@ -6,17 +6,6 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { Task, TaskStatus } from "@lit/task";
-import {
-  SlButton,
-  SlCheckbox,
-  SlDialog,
-  SlDivider,
-  SlRange,
-  SlSpinner,
-  SlTab,
-  SlTabGroup,
-  SlTabPanel,
-} from "@shoelace-style/shoelace";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
@@ -32,10 +21,19 @@ import { CodeHighlightingEvent, StageApplication, StageType } from "../../types"
 import { Toolbar } from "../toolbar";
 import { ToolbarButton } from "../toolbar-button";
 
+import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
+import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js"
+import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog.component.js"
+import SlDivider from "@shoelace-style/shoelace/dist/components/divider/divider.component.js"
+import SlRange from "@shoelace-style/shoelace/dist/components/range/range.component.js"
+import SlSpinner from "@shoelace-style/shoelace/dist/components/spinner/spinner.component.js"
+import SlTab from "@shoelace-style/shoelace/dist/components/tab/tab.component.js"
+import SlTabGroup from "@shoelace-style/shoelace/dist/components/tab-group/tab-group.component.js"
+import SlTabPanel from "@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.component.js"
+
 /**
  * The stage component.
  */
-@customElement("webwriter-blocks-stage")
 export class Stage extends LitElementWw {
   /**
    * The application that is used to render the stage.

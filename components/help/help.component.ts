@@ -4,15 +4,15 @@ import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import QuestionMarkIcon from "@tabler/icons/outline/question-mark.svg";
-import { SlPopup } from "@shoelace-style/shoelace";
 import { styles } from "./help.styles";
 import { msg } from "../../locales";
 import { ToolbarButton } from "../toolbar-button";
 
+import SlPopup from "@shoelace-style/shoelace/dist/components/popup/popup.component.js"
+
 /**
  * The help component.
  */
-@customElement("webwriter-blocks-help")
 export class Help extends LitElementWw {
   /**
    * The popup element.

@@ -3,14 +3,15 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { SlIcon, SlSplitPanel } from "@shoelace-style/shoelace";
 import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
 import { styles } from "./application.styles";
+
+import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js"
+import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.component.js"
 
 /**
  * The application component.
  */
-@customElement("webwriter-blocks-application")
 export class Application extends LitElementWw {
   /**
    * @inheritDoc

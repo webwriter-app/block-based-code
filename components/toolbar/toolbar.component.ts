@@ -3,13 +3,15 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { SlButton, SlIcon, SlTooltip } from "@shoelace-style/shoelace";
 import { styles } from "./toolbar.styles";
+
+import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
+import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js"
+import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js"
 
 /**
  * The toolbar component.
  */
-@customElement("webwriter-blocks-toolbar")
 export class Toolbar extends LitElementWw {
   /**
    * @inheritDoc
