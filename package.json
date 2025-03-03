@@ -1,53 +1,53 @@
 {
-  "name": "@webwriter/block-based-code",
-  "version": "1.5.7",
-  "description": "Write block-based code (e.g. Scratch) and run it.",
-  "license": "MIT",
-  "author": "Philipp Lentzen",
-  "keywords": [
-    "webwriter-widget"
-  ],
-  "scripts": {
-    "build": "node scripts/esbuild.config.mjs",
-    "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
-    "lint:fix": "eslint --fix .",
-    "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
-    "release": "release-it --config scripts/release-it.config.ts"
-  },
-  "exports": {
-    "./widgets/webwriter-block-based-code.*": {
-      "source": "./widgets/webwriter-block-based-code.ts",
-      "default": "./dist/webwriter-block-based-code.*"
+    "name": "@webwriter/block-based-code",
+    "version": "1.5.9",
+    "description": "Write block-based code (e.g. Scratch) and run it.",
+    "keywords": [
+        "webwriter-widget"
+    ],
+    "license": "MIT",
+    "author": "Philipp Lentzen",
+    "files": [
+        "dist",
+        "snippets"
+    ],
+    "scripts": {
+        "build": "node scripts/esbuild.config.mjs",
+        "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
+        "lint:fix": "eslint --fix .",
+        "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
+        "release": "release-it --config scripts/release-it.config.ts"
     },
-    "./snippets/bouncing-dvd.html": "./snippets/dvd.html",
-    "./package.json": "./package.json",
-    "./icon": "./icon.svg"
-  },
-  "files": [
-    "dist",
-    "snippets"
-  ],
-  "dependencies": {
-    "@blockly/continuous-toolbox": "^6.0.2",
-    "@blockly/plugin-cross-tab-copy-paste": "^6.0.8",
-    "@lit/task": "^1.0.1",
-    "@shoelace-style/shoelace": "^2.15.1",
-    "@tabler/icons": "^3.6.0",
-    "@webwriter/lit": "^2.0.0",
-    "blockly": "^11.1.0",
-    "highlight.js": "^11.10.0",
-    "lit": "^3.1.4",
-    "lodash": "^4.17.21",
-    "pixi.js": "^8.1.6"
-  },
-  "devDependencies": {
-    "@release-it/conventional-changelog": "^8.0.1",
-    "@types/lodash": "^4.17.6",
-    "esbuild": "^0.23.1",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-import": "^2.29.1",
-    "release-it": "^17.6.0"
-  }
+    "dependencies": {
+        "@blockly/continuous-toolbox": "^6.0.2",
+        "@blockly/plugin-cross-tab-copy-paste": "^6.0.8",
+        "@lit/task": "^1.0.1",
+        "@shoelace-style/shoelace": "^2.15.1",
+        "@tabler/icons": "^3.6.0",
+        "@webwriter/lit": "^2.0.0",
+        "blockly": "^11.1.0",
+        "highlight.js": "^11.10.0",
+        "lit": "^3.1.4",
+        "lodash": "^4.17.21",
+        "pixi.js": "^8.1.6"
+    },
+    "devDependencies": {
+        "@release-it/conventional-changelog": "^8.0.1",
+        "@types/lodash": "^4.17.6",
+        "esbuild": "^0.23.1",
+        "eslint": "^8.57.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-airbnb-typescript": "^18.0.0",
+        "eslint-plugin-import": "^2.29.1",
+        "release-it": "^17.6.0"
+    },
+    "exports": {
+        "./widgets/webwriter-block-based-code.*": {
+            "source": "./widgets/webwriter-block-based-code.ts",
+            "default": "./dist/webwriter-block-based-code.*"
+        },
+        "./snippets/bouncing-dvd.html": "./snippets/dvd.html",
+        "./package.json": "./package.json",
+        "./icon": "./icon.svg"
+    }
 }
