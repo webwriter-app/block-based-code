@@ -1,16 +1,12 @@
 {
     "name": "@webwriter/block-based-code",
-    "version": "1.5.9",
+    "version": "1.6.0",
     "description": "Write block-based code (e.g. Scratch) and run it.",
     "keywords": [
         "webwriter-widget"
     ],
     "license": "MIT",
     "author": "Philipp Lentzen",
-    "files": [
-        "dist",
-        "snippets"
-    ],
     "scripts": {
         "build": "node scripts/esbuild.config.mjs",
         "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
