@@ -1,10 +1,13 @@
 {
     "name": "@webwriter/block-based-code",
-    "version": "1.6.2",
+    "version": "1.6.3",
     "description": "Write block-based code (e.g. Scratch) and run it.",
     "keywords": [
         "webwriter-widget",
+        "widget-simulational",
+        "widget-conceptual",
         "widget-lang-en",
+        "widget-lang-de",
         "iscedf2013-06",
         "isced2011-2",
         "isced2011-3",
