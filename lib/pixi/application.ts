@@ -1,5 +1,6 @@
 import {
   Application, Assets, ColorMatrixFilter, Point, Sprite,
+  TextureStyle,
 } from "pixi.js";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
@@ -89,6 +90,7 @@ export class PixiApplication extends StageApplication {
       background: "white",
       autoStart: false,
     });
+    TextureStyle.defaultOptions.scaleMode = "nearest";
     await Assets.load(bunny);
     this.styleCanvas();
     this.addSprite();
