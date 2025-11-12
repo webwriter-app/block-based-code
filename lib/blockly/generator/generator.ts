@@ -6,6 +6,7 @@ import { generators as controlGenerators } from "./controls";
 import { generators as lookGenerators } from "./looks";
 import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators } from "./operators";
+import { generators as sensingGenerators } from "./sensing";
 import { generators as variableGenerators } from "./variables";
 
 /**
@@ -38,6 +39,7 @@ const generators: Record<BlockTypes, GeneratorFunction> = {
   ...lookGenerators,
   ...motionGenerators,
   ...operatorGenerators,
+  ...sensingGenerators,
   ...variableGenerators,
   "math:number": (block) => {
     const number = Number(block.getFieldValue("NUM"));

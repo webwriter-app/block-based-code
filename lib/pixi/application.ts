@@ -76,6 +76,8 @@ export class PixiApplication extends StageApplication {
       "motions:get_x",
       "motions:get_y",
       "looks:set_color",
+      "sensing:timer",
+      "sensing:reset_timer",
     ];
   }
 

@@ -61,6 +61,9 @@ export const dictionary: Dictionary = {
     SET_XY: "set x to %1 and y to %2",
     GET_X: "x-position",
     GET_Y: "y-position",
+    // Sensing
+    TIMER: "timer",
+    RESET_TIMER: "reset timer",
   },
   CATEGORY: {
     CONTROLS: "Controls",
@@ -69,5 +72,6 @@ export const dictionary: Dictionary = {
     LOOKS: "Looks",
     MOTIONS: "Motions",
     VARIABLES: "Variables",
+    SENSING: "Sensing",
   },
 };

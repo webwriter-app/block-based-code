@@ -3,6 +3,7 @@ import { blocks as eventBlocks } from "./events";
 import { blocks as lookBlocks } from "./looks";
 import { blocks as motionBlocks } from "./motions";
 import { blocks as operatorBlocks } from "./operators";
+import { blocks as sensingBlocks } from "./sensing";
 import { numberBlock } from "./math";
 import { BlockDefinition } from "../types";
 
@@ -12,6 +13,7 @@ export const blocks = [
   ...lookBlocks,
   ...motionBlocks,
   ...operatorBlocks,
+  ...sensingBlocks,
   numberBlock,
 ] satisfies BlockDefinition[];
 
