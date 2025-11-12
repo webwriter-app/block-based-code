@@ -35,6 +35,11 @@ const blockStyles = {
     colourSecondary: "#ff8000",
     colourTertiary: "#db6e00",
   },
+  sensing_blocks: {
+    colourPrimary: "#5cb1d6",
+    colourSecondary: "#47a4d4",
+    colourTertiary: "#2d90cc",
+  },
 } satisfies { [key: string]: Pick<Blockly.Theme.BlockStyle, "colourPrimary" | "colourSecondary" | "colourTertiary"> };
 export type BlockStyle = keyof typeof blockStyles;
 
@@ -56,6 +61,9 @@ const categoryStyles = {
   },
   variables: {
     colour: "#ff8c1a",
+  },
+  sensing: {
+    colour: "#5cb1d6",
   },
 } satisfies { [key: string]: Pick<Blockly.Theme.CategoryStyle, "colour"> };
 export type CategoryStyle = keyof typeof categoryStyles | "math";

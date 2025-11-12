@@ -60,6 +60,9 @@ export const dictionary: Dictionary = {
     SET_XY: "setze x auf %1 und y auf %2",
     GET_X: "x-Position",
     GET_Y: "y-Position",
+    // Sensing
+    TIMER: "Stoppuhr",
+    RESET_TIMER: "setze Stoppuhr zurück",
   },
   CATEGORY: {
     CONTROLS: "Steuerung",
@@ -68,5 +71,6 @@ export const dictionary: Dictionary = {
     LOOKS: "Aussehen",
     MOTIONS: "Bewegungen",
     VARIABLES: "Variablen",
+    SENSING: "Fühlen",
   },
 };

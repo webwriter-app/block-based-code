@@ -3,10 +3,16 @@ import { VirtualMachine } from "../types";
 
 export class PixiVirtualMachine extends VirtualMachine {
   private application: Application;
+  private timerStartTime: number = 0;
 
   constructor(application: Application) {
     super();
     this.application = application;
+  }
+
+  public override async start(code: string, delay: number): Promise<void> {
+    this.timerStartTime = Date.now();
+    await super.start(code, delay);
   }
 
   protected override get callables(): ((...args: any[]) => void)[] {
@@ -20,6 +26,8 @@ export class PixiVirtualMachine extends VirtualMachine {
       this.getX,
       this.getY,
       this.setColor,
+      this.getTimer,
+      this.resetTimer,
     ];
   }
 
@@ -60,6 +68,14 @@ export class PixiVirtualMachine extends VirtualMachine {
   private setColor(color: number): void {
     const filter = this.bunny.filters[0] as ColorMatrixFilter;
     filter.hue(color, false);
+  }
+
+  private getTimer(): number {
+    return (Date.now() - this.timerStartTime) / 1000;
+  }
+
+  private resetTimer(): void {
+    this.timerStartTime = Date.now();
   }
 
   private get bunny(): Sprite {
