@@ -46,6 +46,11 @@ const generators: Record<BlockTypes, GeneratorFunction> = {
     const order = number >= 0 ? Order.ATOMIC : Order.UNARY_NEGATION;
     return [String(number), order];
   },
+  "text:string": (block) => {
+    const text = String(block.getFieldValue("TEXT"));
+    const code = executableCodeGenerator.quote_(text);
+    return [code, Order.ATOMIC];
+  },
   variables: null,
 };
 

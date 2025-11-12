@@ -3,6 +3,17 @@ import { BlockTypes } from "../blocks";
 import type { GeneratorFunction } from "../types/generator";
 
 export const generators = {
+  "looks:say": (block, generator) => {
+    const text = generator.valueToCode(block, "TEXT", Order.NONE);
+
+    return `say(${text});\n`;
+  },
+  "looks:say_for_seconds": (block, generator) => {
+    const text = generator.valueToCode(block, "TEXT", Order.NONE);
+    const seconds = generator.valueToCode(block, "SECONDS", Order.NONE);
+
+    return `sayForSeconds(${text}, ${seconds});\n`;
+  },
   "looks:set_color": (block, generator) => {
     const color = generator.valueToCode(block, "COLOR", Order.NONE);
 

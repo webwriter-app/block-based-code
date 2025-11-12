@@ -14,6 +14,7 @@ export interface BlockDefinition {
     name?: Uppercase<string>;
     check?: "Number" | "String" | "Boolean";
     value?: string | number;
+    text?: string;
   }[];
   [key: string]: unknown;
 }

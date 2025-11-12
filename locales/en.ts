@@ -51,6 +51,8 @@ export const dictionary: Dictionary = {
     NOT: "not %1",
     ABSOLUTE: "absolute of %1",
     // Looks
+    SAY: "say %1",
+    SAY_FOR_SECONDS: "say %1 for %2 seconds",
     SET_COLOR: "set color effect to %1",
     // Motions
     MOVE: "move %1 steps",
