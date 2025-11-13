@@ -99,6 +99,7 @@ export class PixiApplication extends StageApplication {
     this.styleCanvas();
     this.addSprite();
     this.application.ticker.start();
+    this.virtualMachine.initSpeechBubble();
   }
 
   /**

@@ -12,7 +12,8 @@ export const generators = {
     const text = generator.valueToCode(block, "TEXT", Order.NONE);
     const seconds = generator.valueToCode(block, "SECONDS", Order.NONE);
 
-    return `sayForSeconds(${text}, ${seconds});\n`;
+    // Show the speech bubble, wait, then hide it
+    return `say(${text});\nawait wait(${seconds});\nsay('');\n`;
   },
   "looks:set_color": (block, generator) => {
     const color = generator.valueToCode(block, "COLOR", Order.NONE);
