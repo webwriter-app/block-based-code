@@ -8,7 +8,7 @@ export const blocks = [
       {
         type: "input_value",
         name: "TEXT",
-        check: "String",
+        check: ["String", "Number"],
       },
     ],
     nextStatement: null,
@@ -23,7 +23,7 @@ export const blocks = [
       {
         type: "input_value",
         name: "TEXT",
-        check: "String",
+        check: ["String", "Number"],
       },
       {
         type: "input_value",

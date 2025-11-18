@@ -6,14 +6,33 @@ export const generators = {
   "looks:say": (block, generator) => {
     const text = generator.valueToCode(block, "TEXT", Order.NONE);
 
-    return `say(${text});\n`;
+    return `say(String(${text}));\n`;
   },
   "looks:say_for_seconds": (block, generator) => {
     const text = generator.valueToCode(block, "TEXT", Order.NONE);
     const seconds = generator.valueToCode(block, "SECONDS", Order.NONE);
 
     // Show the speech bubble, wait, then hide it
-    return `say(${text});\nawait wait(${seconds});\nsay('');\n`;
+    return `say(String(${text}));\nawait wait(${seconds});\nsay('');\n`;
+  },
+  "looks:set_color": (block, generator) => {
+    const color = generator.valueToCode(block, "COLOR", Order.NONE);
+
+    return `setColor(${color});\n`;
+  },
+} satisfies Partial<Record<BlockTypes, GeneratorFunction>>;
+
+export const readableGenerators = {
+  "looks:say": (block, generator) => {
+    const text = generator.valueToCode(block, "TEXT", Order.NONE);
+
+    return `say(${text});\n`;
+  },
+  "looks:say_for_seconds": (block, generator) => {
+    const text = generator.valueToCode(block, "TEXT", Order.NONE);
+    const seconds = generator.valueToCode(block, "SECONDS", Order.NONE);
+
+    return `say_for_seconds(${text}, ${seconds});\n`;
   },
   "looks:set_color": (block, generator) => {
     const color = generator.valueToCode(block, "COLOR", Order.NONE);

@@ -48,7 +48,7 @@ export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => 
           if (arg.check && arg.check === "Number") {
             inputs[arg.name] = { shadow: { type: "math:number", fields: { NUM: "0" } } };
           }
-          if (arg.check && arg.check === "String") {
+          if (arg.check && Array.isArray(arg.check) && arg.check.includes("String")) {
             inputs[arg.name] = { shadow: { type: "text:string", fields: { TEXT: "" } } };
           }
         }
