@@ -62,9 +62,25 @@ export const generators = {
 
     return [`!${value}`, Order.LOGICAL_NOT];
   },
+  "operators:join": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.NONE) || "''";
+    const right = generator.valueToCode(block, "B", Order.NONE) || "''";
+
+    return [`String(${left}) + String(${right})`, Order.NONE];
+  },
   "operators:absolute": (block, generator) => {
     const value = generator.valueToCode(block, "VALUE", Order.NONE);
 
     return [`Math.abs(${value})`, Order.NONE];
+  },
+} satisfies Partial<Record<BlockTypes, GeneratorFunction>>;
+
+export const readableGenerators = {
+  ...generators,
+  "operators:join": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.NONE) || "''";
+    const right = generator.valueToCode(block, "B", Order.NONE) || "''";
+
+    return [`join(${left}, ${right})`, Order.NONE];
   },
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

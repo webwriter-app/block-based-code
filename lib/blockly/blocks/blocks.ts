@@ -5,6 +5,7 @@ import { blocks as motionBlocks } from "./motions";
 import { blocks as operatorBlocks } from "./operators";
 import { blocks as sensingBlocks } from "./sensing";
 import { numberBlock } from "./math";
+import { stringBlock } from "./string";
 import { BlockDefinition } from "../types";
 
 export const blocks = [
@@ -15,6 +16,7 @@ export const blocks = [
   ...operatorBlocks,
   ...sensingBlocks,
   numberBlock,
+  stringBlock,
 ] satisfies BlockDefinition[];
 
 export type BlockTypes = typeof blocks[number]["type"] | "variables";

@@ -49,8 +49,11 @@ export const dictionary: Dictionary = {
     AND: "%1 and %2",
     OR: "%1 or %2",
     NOT: "not %1",
+    JOIN: "join %1 %2",
     ABSOLUTE: "absolute of %1",
     // Looks
+    SAY: "say %1",
+    SAY_FOR_SECONDS: "say %1 for %2 seconds",
     SET_COLOR: "set color effect to %1",
     // Motions
     MOVE: "move %1 steps",

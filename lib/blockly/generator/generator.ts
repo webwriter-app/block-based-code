@@ -3,9 +3,9 @@ import type { GeneratorFunction } from "../types/generator";
 import { BlockTypes } from "../blocks";
 import { generators as eventGenerators } from "./events";
 import { generators as controlGenerators } from "./controls";
-import { generators as lookGenerators } from "./looks";
+import { generators as lookGenerators, readableGenerators as readableLookGenerators } from "./looks";
 import { generators as motionGenerators } from "./motions";
-import { generators as operatorGenerators } from "./operators";
+import { generators as operatorGenerators, readableGenerators as readableOperatorGenerators } from "./operators";
 import { generators as sensingGenerators } from "./sensing";
 import { generators as variableGenerators } from "./variables";
 
@@ -46,8 +46,34 @@ const generators: Record<BlockTypes, GeneratorFunction> = {
     const order = number >= 0 ? Order.ATOMIC : Order.UNARY_NEGATION;
     return [String(number), order];
   },
+  "text:string": (block) => {
+    const text = String(block.getFieldValue("TEXT"));
+    const code = executableCodeGenerator.quote_(text);
+    return [code, Order.ATOMIC];
+  },
+  variables: null,
+};
+
+const readableGenerators: Record<BlockTypes, GeneratorFunction> = {
+  ...eventGenerators,
+  ...controlGenerators,
+  ...readableLookGenerators,
+  ...motionGenerators,
+  ...readableOperatorGenerators,
+  ...sensingGenerators,
+  ...variableGenerators,
+  "math:number": (block) => {
+    const number = Number(block.getFieldValue("NUM"));
+    const order = number >= 0 ? Order.ATOMIC : Order.UNARY_NEGATION;
+    return [String(number), order];
+  },
+  "text:string": (block) => {
+    const text = String(block.getFieldValue("TEXT"));
+    const code = executableCodeGenerator.quote_(text);
+    return [code, Order.ATOMIC];
+  },
   variables: null,
 };
 
 executableCodeGenerator.forBlock = generators;
-readableCodeGenerator.forBlock = generators;
+readableCodeGenerator.forBlock = readableGenerators;

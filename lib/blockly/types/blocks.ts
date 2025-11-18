@@ -12,8 +12,9 @@ export interface BlockDefinition {
   [key: `args${number}`]: {
     type: string;
     name?: Uppercase<string>;
-    check?: "Number" | "String" | "Boolean";
+    check?: "Number" | "String" | "Boolean" | ("Number" | "String" | "Boolean")[];
     value?: string | number;
+    text?: string;
   }[];
   [key: string]: unknown;
 }

@@ -66,7 +66,7 @@ const categoryStyles = {
     colour: "#5cb1d6",
   },
 } satisfies { [key: string]: Pick<Blockly.Theme.CategoryStyle, "colour"> };
-export type CategoryStyle = keyof typeof categoryStyles | "math";
+export type CategoryStyle = keyof typeof categoryStyles | "math" | "text";
 
 const componentStyles: ComponentStyle = {
   workspaceBackgroundColour: "var(--sl-color-neutral-0)",

@@ -1,13 +1,45 @@
 import { Application, ColorMatrixFilter, Sprite } from "pixi.js";
 import { VirtualMachine } from "../types";
+import { SpeechBubble } from "./speech-bubble";
 
 export class PixiVirtualMachine extends VirtualMachine {
   private application: Application;
+
   private timerStartTime: number = 0;
+
+  private speechBubble: SpeechBubble;
+
+  private tickerCallback: () => void;
 
   constructor(application: Application) {
     super();
     this.application = application;
+  }
+
+  /**
+   * Initializes the speech bubble and adds it to the stage
+   * Must be called after the PIXI application is initialized
+   */
+  public initSpeechBubble(): void {
+    if (this.speechBubble) {
+      return; // Already initialized
+    }
+
+    this.speechBubble = new SpeechBubble(
+      this.application.canvas.width,
+      this.application.canvas.height,
+    );
+    this.application.stage.addChild(this.speechBubble);
+
+    // Add ticker callback to update bubble position when sprite moves
+    this.tickerCallback = () => {
+      if (this.speechBubble.visible) {
+        const sprite = this.bunny;
+        const dims = this.speechBubble.getDimensions();
+        this.speechBubble.updatePosition(sprite, dims.width, dims.height);
+      }
+    };
+    this.application.ticker.add(this.tickerCallback);
   }
 
   public override async start(code: string, delay: number): Promise<void> {
@@ -28,6 +60,7 @@ export class PixiVirtualMachine extends VirtualMachine {
       this.setColor,
       this.getTimer,
       this.resetTimer,
+      this.say,
     ];
   }
 
@@ -76,6 +109,10 @@ export class PixiVirtualMachine extends VirtualMachine {
 
   private resetTimer(): void {
     this.timerStartTime = Date.now();
+  }
+
+  private say(text: string): void {
+    this.speechBubble.setText(String(text), this.bunny);
   }
 
   private get bunny(): Sprite {
