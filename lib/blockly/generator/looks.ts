@@ -23,6 +23,7 @@ export const generators = {
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;
 
 export const readableGenerators = {
+  ...generators,
   "looks:say": (block, generator) => {
     const text = generator.valueToCode(block, "TEXT", Order.NONE);
 
@@ -33,10 +34,5 @@ export const readableGenerators = {
     const seconds = generator.valueToCode(block, "SECONDS", Order.NONE);
 
     return `say_for_seconds(${text}, ${seconds});\n`;
-  },
-  "looks:set_color": (block, generator) => {
-    const color = generator.valueToCode(block, "COLOR", Order.NONE);
-
-    return `setColor(${color});\n`;
   },
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

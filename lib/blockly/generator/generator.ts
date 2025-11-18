@@ -5,7 +5,7 @@ import { generators as eventGenerators } from "./events";
 import { generators as controlGenerators } from "./controls";
 import { generators as lookGenerators, readableGenerators as readableLookGenerators } from "./looks";
 import { generators as motionGenerators } from "./motions";
-import { generators as operatorGenerators } from "./operators";
+import { generators as operatorGenerators, readableGenerators as readableOperatorGenerators } from "./operators";
 import { generators as sensingGenerators } from "./sensing";
 import { generators as variableGenerators } from "./variables";
 
@@ -59,7 +59,7 @@ const readableGenerators: Record<BlockTypes, GeneratorFunction> = {
   ...controlGenerators,
   ...readableLookGenerators,
   ...motionGenerators,
-  ...operatorGenerators,
+  ...readableOperatorGenerators,
   ...sensingGenerators,
   ...variableGenerators,
   "math:number": (block) => {

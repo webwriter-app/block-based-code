@@ -48,6 +48,7 @@ export const dictionary: Dictionary = {
     AND: "%1 und %2",
     OR: "%1 oder %2",
     NOT: "nicht %1",
+    JOIN: "verbinde %1 und %2",
     ABSOLUTE: "Betrag von %1",
     // Looks
     SAY: "sage %1",

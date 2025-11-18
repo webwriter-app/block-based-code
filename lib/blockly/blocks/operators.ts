@@ -196,6 +196,26 @@ export const blocks = [
     style: "operator_blocks",
   },
   {
+    type: "operators:join",
+    message0: "%{BKY_JOIN}",
+    args0: [
+      {
+        type: "input_value",
+        name: "A",
+        check: ["String", "Number"],
+      },
+      {
+        type: "input_value",
+        name: "B",
+        check: ["String", "Number"],
+      },
+    ],
+    inputsInline: true,
+    output: "String",
+    category: "operators",
+    style: "operator_blocks",
+  },
+  {
     type: "operators:absolute",
     message0: "%{BKY_ABSOLUTE}",
     args0: [
