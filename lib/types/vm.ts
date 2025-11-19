@@ -3,10 +3,16 @@
  */
 export abstract class VirtualMachine {
   /**
-   * The worker instance.
+   * Map of event types to their worker instances.
    * @private
    */
-  private worker?: Worker;
+  private workers: Map<string, Worker> = new Map();
+
+  /**
+   * Map of event types to their complete resolve functions.
+   * @private
+   */
+  private completeResolveFunctions: Map<string, () => void> = new Map();
 
   /**
    * The highlight callback function. This function is called when the worker wants to highlight a block.
@@ -15,37 +21,63 @@ export abstract class VirtualMachine {
   private highlightCallback: ((id: string) => void) | undefined;
 
   /**
-   * The complete resolve function. This function is called when the worker is stopped.
+   * The execution state callback function. This function is called when the execution state changes.
    * @private
    */
-  private completeResolveFunction: () => void;
+  private executionStateCallback: ((runningEventTypes: Set<string>) => void) | undefined;
 
   /**
    * Starts the worker with the given code and delay.
    * @param code The code to run in the worker.
    * @param delay The delay between each step in milliseconds.
+   * @param eventType The event type to trigger (e.g., "whenStartClicked", "whenSpriteClicked").
    */
-  public async start(code: string, delay: number): Promise<void> {
-    this.stop();
+  public async start(code: string, delay: number, eventType: string = "whenStartClicked"): Promise<void> {
+    // Stop any existing worker for this event type
+    this.stopEvent(eventType);
 
-    this.initWorker(code, delay);
+    this.initWorker(code, delay, eventType);
+
+    // Notify about execution state change
+    if (this.executionStateCallback) {
+      this.executionStateCallback(new Set(this.workers.keys()));
+    }
+
     await new Promise<void>((resolve) => {
-      this.completeResolveFunction = resolve;
+      this.completeResolveFunctions.set(eventType, resolve);
     });
   }
 
   /**
-   * Stops the worker.
+   * Stops a specific event worker.
+   * @param eventType The event type to stop.
    */
-  public stop(): void {
-    if (!this.worker) return;
+  public stopEvent(eventType: string): void {
+    const worker = this.workers.get(eventType);
+    if (!worker) return;
 
     this.highlight(null);
-    if (this.completeResolveFunction) {
-      this.completeResolveFunction();
+    const resolveFunction = this.completeResolveFunctions.get(eventType);
+    if (resolveFunction) {
+      resolveFunction();
     }
-    this.completeResolveFunction = undefined;
-    this.worker.terminate();
+    this.completeResolveFunctions.delete(eventType);
+    worker.terminate();
+    this.workers.delete(eventType);
+
+    // Notify about execution state change
+    if (this.executionStateCallback) {
+      this.executionStateCallback(new Set(this.workers.keys()));
+    }
+  }
+
+  /**
+   * Stops all workers.
+   */
+  public stop(): void {
+    for (const eventType of this.workers.keys()) {
+      this.stopEvent(eventType);
+    }
   }
 
   /**
@@ -54,6 +86,14 @@ export abstract class VirtualMachine {
    */
   public setHighlightCallback(callback: (id: string) => void): void {
     this.highlightCallback = callback;
+  }
+
+  /**
+   * Sets the execution state callback function.
+   * @param callback The execution state callback function. Receives a Set of currently running event types.
+   */
+  public setExecutionStateCallback(callback: (runningEventTypes: Set<string>) => void): void {
+    this.executionStateCallback = callback;
   }
 
   /**
@@ -66,21 +106,24 @@ export abstract class VirtualMachine {
    * Initializes the worker with the given code and delay.
    * @param code The code to run in the worker.
    * @param delay The delay between each step in milliseconds.
+   * @param eventType The event type to trigger.
    * @private
    */
-  private initWorker(code: string, delay: number): void {
-    const script = this.generateWorkerScript(code, delay);
+  private initWorker(code: string, delay: number, eventType: string): void {
+    const script = this.generateWorkerScript(code, delay, eventType);
     const url = this.generateWorkerScriptUrl(script);
-    this.worker = new Worker(url);
-    this.worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
+    const worker = new Worker(url);
+    this.workers.set(eventType, worker);
+
+    worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
       if (event.data.type === "complete") {
-        this.stop();
+        this.stopEvent(eventType);
         return;
       }
 
       const result = this[event.data.type](...event.data.args);
       if (result != null) {
-        this.worker.postMessage({ type: "result", args: [result] });
+        worker.postMessage({ type: "result", args: [result] });
       }
     };
   }
@@ -89,9 +132,10 @@ export abstract class VirtualMachine {
    * Generates the worker script with the given code and delay.
    * @param code The code to run in the worker.
    * @param delay The delay between each step in milliseconds.
+   * @param eventType The event type to trigger.
    * @private
    */
-  private generateWorkerScript(code: string, delay: number): string {
+  private generateWorkerScript(code: string, delay: number, eventType: string): string {
     let script = "";
     script += "let resultResolveFunction;\n";
     script += "async function wait(s) { await new Promise((resolve) => { setTimeout(resolve, s * 1e3) }); }\n";
@@ -113,6 +157,7 @@ export abstract class VirtualMachine {
     });
     script += "(async function () {\n";
     script += code;
+    script += `if (typeof ${eventType} === 'function') { await ${eventType}(); }\n`;
     script += "postMessage({ type: 'complete', args: [] });\n";
     script += "})()\n";
     return script;

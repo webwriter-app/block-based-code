@@ -35,7 +35,8 @@ export const dictionary: Dictionary = {
   },
   BLOCKS: {
     // Events
-    WHEN_START_CLICKED: "wenn %1 angeklickt wird",
+    WHEN_START_CLICKED: "Wenn %1 angeklickt wird",
+    WHEN_SPRITE_CLICKED: "Wenn diese Figur angeklickt wird",
     // Controls
     WAIT: "warte %1 Sekunden",
     REPEAT: "wiederhole %1 mal",

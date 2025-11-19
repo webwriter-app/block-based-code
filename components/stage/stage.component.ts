@@ -5,7 +5,7 @@ import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { Task, TaskStatus } from "@lit/task";
+import { Task } from "@lit/task";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
@@ -87,6 +87,20 @@ export class Stage extends LitElementWw {
   private accessor vmDelay: number = 100;
 
   /**
+   * Whether any event is currently running.
+   * @private
+   */
+  @state()
+  private accessor isAnyEventRunning: boolean = false;
+
+  /**
+   * Whether whenStartClicked is currently running.
+   * @private
+   */
+  @state()
+  private accessor isWhenStartClickedRunning: boolean = false;
+
+  /**
    * The resize observer.
    * @private
    */
@@ -97,12 +111,6 @@ export class Stage extends LitElementWw {
    * @private
    */
   private readonly applicationReady: Task;
-
-  /**
-   * The execution running task.
-   * @private
-   */
-  private readonly executionRunning: Task;
 
   /**
    * @inheritDoc
@@ -144,22 +152,9 @@ export class Stage extends LitElementWw {
       onComplete: () => {
         this.stageElement.appendChild(this.stageApplication.container);
         this.stageApplication.virtualMachine.setHighlightCallback(this.handleCodeHighlighting.bind(this));
+        this.stageApplication.virtualMachine.setExecutionStateCallback(this.handleExecutionStateChange.bind(this));
         this.stageApplication.show();
         Logger.log(this, "Initialized!");
-      },
-    });
-    this.executionRunning = new Task<[string, number]>(this, {
-      task: async ([code, delay], options) => {
-        Logger.log(this, "Starting execution...");
-        options.signal.addEventListener("abort", () => {
-          this.stageApplication.virtualMachine.stop();
-          Logger.log(this, "Execution aborted!");
-        });
-        await this.stageApplication.virtualMachine.start(code, delay);
-      },
-      autoRun: false,
-      onComplete: () => {
-        Logger.log(this, "Execution completed!");
       },
     });
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
@@ -204,7 +199,7 @@ export class Stage extends LitElementWw {
                 <webwriter-blocks-toolbar-button id="settings"
                                                  label=${msg("EXECUTION_OPTIONS")}
                                                  icon=${AdjustmentsIcon}
-                                                 .disabled=${this.executionRunning.status === TaskStatus.PENDING}
+                                                 .disabled=${this.isAnyEventRunning}
                                                  @click=${this.handleVmOptionsClick}>
                 </webwriter-blocks-toolbar-button>
             </div>
@@ -212,12 +207,12 @@ export class Stage extends LitElementWw {
                 <webwriter-blocks-toolbar-button id="stop"
                                                  label=${msg("STOP")}
                                                  icon=${PlayerStopIcon}
-                                                 .disabled=${this.executionRunning.status !== TaskStatus.PENDING}
+                                                 .disabled=${!this.isAnyEventRunning}
                                                  @click=${this.handleStopClick}>
                 </webwriter-blocks-toolbar-button>
                 <webwriter-blocks-toolbar-button id="start"
-                                                 label=${this.executionRunning.status === TaskStatus.PENDING ? msg("RESTART") : msg("START")}
-                                                 icon=${this.executionRunning.status === TaskStatus.PENDING ? RefreshIcon : PlayerPlayIcon}
+                                                 label=${this.isWhenStartClickedRunning ? msg("RESTART") : msg("START")}
+                                                 icon=${this.isWhenStartClickedRunning ? RefreshIcon : PlayerPlayIcon}
                                                  @click=${this.handleStartClick}>
                 </webwriter-blocks-toolbar-button>
             </div>
@@ -274,6 +269,11 @@ export class Stage extends LitElementWw {
     if (changedProperties.get("stageType")) {
       this.applyStageType();
     }
+    if (changedProperties.has("executableCode") || changedProperties.has("vmDelay")) {
+      if (this.stageApplication) {
+        this.stageApplication.setExecutionContext(this.executableCode, this.vmDelay);
+      }
+    }
   }
 
   /**
@@ -297,7 +297,9 @@ export class Stage extends LitElementWw {
    * @private
    */
   private async handleStartClick(): Promise<void> {
-    await this.executionRunning.run([this.executableCode, this.vmDelay]);
+    Logger.log(this, "Starting execution...");
+    await this.stageApplication.virtualMachine.start(this.executableCode, this.vmDelay, "whenStartClicked");
+    Logger.log(this, "Execution completed!");
   }
 
   /**
@@ -305,7 +307,18 @@ export class Stage extends LitElementWw {
    * @private
    */
   private handleStopClick(): void {
-    this.executionRunning.abort();
+    Logger.log(this, "Stopping all executions...");
+    this.stageApplication.virtualMachine.stop();
+  }
+
+  /**
+   * Handles the execution state change event.
+   * @param runningEventTypes The set of currently running event types.
+   * @private
+   */
+  private handleExecutionStateChange(runningEventTypes: Set<string>): void {
+    this.isAnyEventRunning = runningEventTypes.size > 0;
+    this.isWhenStartClickedRunning = runningEventTypes.has("whenStartClicked");
   }
 
   /**

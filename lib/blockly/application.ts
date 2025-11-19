@@ -239,6 +239,7 @@ export class BlocklyApplication extends Application {
       toolbox: createToolboxFromBlockList(this.usableBlocks),
       maxInstances: {
         "events:when_start_clicked": 1,
+        "events:when_sprite_clicked": 1,
       } satisfies Partial<Record<BlockTypes, number>>,
       maxTrashcanContents: 0,
       plugins: {

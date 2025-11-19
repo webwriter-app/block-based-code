@@ -16,6 +16,18 @@ export abstract class StageApplication extends Application {
    */
   public abstract virtualMachine: VirtualMachine;
 
+  /**
+   * The current executable code.
+   * @protected
+   */
+  protected executableCode: string = "";
+
+  /**
+   * The current VM delay.
+   * @protected
+   */
+  protected vmDelay: number = 100;
+
   protected constructor() {
     super();
 
@@ -29,10 +41,22 @@ export abstract class StageApplication extends Application {
   }
 
   /**
+   * Sets the executable code and VM delay for event handlers.
+   * @param code The executable code.
+   * @param delay The VM delay.
+   */
+  public setExecutionContext(code: string, delay: number): void {
+    this.executableCode = code;
+    this.vmDelay = delay;
+  }
+
+  /**
    * The blocks that can be used in the stage.
    */
   public get usableBlocks(): BlockTypes[] {
     return [
+      "events:when_start_clicked",
+      "events:when_sprite_clicked",
       "controls:wait",
       "controls:repeat",
       "controls:forever",

@@ -26,7 +26,6 @@ export type SelectedBlocks = BlockTypes[];
  */
 export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => {
   const toolbox = new Map<CategoryStyle, IToolbox["contents"][number]["contents"][number][]>();
-  blocks.unshift("events:when_start_clicked");
 
   let variables: boolean = false;
   blocks.forEach((block) => {

@@ -14,6 +14,7 @@ export class PixiVirtualMachine extends VirtualMachine {
   constructor(application: Application) {
     super();
     this.application = application;
+    this.timerStartTime = Date.now();
   }
 
   /**
@@ -42,9 +43,11 @@ export class PixiVirtualMachine extends VirtualMachine {
     this.application.ticker.add(this.tickerCallback);
   }
 
-  public override async start(code: string, delay: number): Promise<void> {
-    this.timerStartTime = Date.now();
-    await super.start(code, delay);
+  public override async start(code: string, delay: number, eventType: string = "whenStartClicked"): Promise<void> {
+    if (eventType === "whenStartClicked") {
+      this.timerStartTime = Date.now();
+    }
+    await super.start(code, delay, eventType);
   }
 
   protected override get callables(): ((...args: any[]) => void)[] {

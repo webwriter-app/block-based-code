@@ -6,6 +6,7 @@ import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
 import { StageApplication } from "../types";
 import { PixiVirtualMachine } from "./vm";
+import { Logger } from "../../utils";
 
 /**
  * The PixiApplication class represents a Pixi application.
@@ -128,6 +129,23 @@ export class PixiApplication extends StageApplication {
     const filter = new ColorMatrixFilter();
     sprite.filters = [filter];
 
+    // Make sprite interactive and add click handler
+    sprite.eventMode = "static";
+    sprite.on("pointerdown", () => this.handleSpriteClick());
+
     this.application.stage.addChild(sprite);
+  }
+
+  /**
+   * Handles the sprite click event.
+   * @private
+   */
+  private handleSpriteClick(): void {
+    if (this.executableCode) {
+      // Start the VM with the whenSpriteClicked event
+      this.virtualMachine.start(this.executableCode, this.vmDelay, "whenSpriteClicked").catch((error) => {
+        Logger.error("Error starting VM on sprite click:", error);
+      });
+    }
   }
 }

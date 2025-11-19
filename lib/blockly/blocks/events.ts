@@ -25,4 +25,19 @@ export const blocks = [
     style: "event_blocks",
     suppressPrefixSuffix: true,
   } as const,
+  {
+    type: "events:when_sprite_clicked",
+    message0: "%{BKY_WHEN_SPRITE_CLICKED}",
+    args0: [],
+    message1: "%1",
+    args1: [
+      {
+        type: "input_statement",
+        name: "SUBSTACK",
+      },
+    ],
+    category: "events",
+    style: "event_blocks",
+    suppressPrefixSuffix: true,
+  } as const,
 ] satisfies BlockDefinition[];
