@@ -16,6 +16,24 @@ export abstract class StageApplication extends Application {
    */
   public abstract virtualMachine: VirtualMachine;
 
+  /**
+   * The current executable code.
+   * @protected
+   */
+  protected executableCode: string = "";
+
+  /**
+   * The current VM delay.
+   * @protected
+   */
+  protected vmDelay: number = 100;
+
+  /**
+   * The host element (custom element) that contains this application.
+   * @protected
+   */
+  protected hostElement: HTMLElement | null = null;
+
   protected constructor() {
     super();
 
@@ -29,10 +47,40 @@ export abstract class StageApplication extends Application {
   }
 
   /**
+   * Sets the executable code and VM delay for event handlers.
+   * @param code The executable code.
+   * @param delay The VM delay.
+   */
+  public setExecutionContext(code: string, delay: number): void {
+    this.executableCode = code;
+    this.vmDelay = delay;
+  }
+
+  /**
+   * Sets the host element (custom element) that contains this application.
+   * @param element The host element.
+   */
+  public setHostElement(element: HTMLElement): void {
+    this.hostElement = element;
+    this.onHostElementSet();
+  }
+
+  /**
+   * Called after the host element is set.
+   * @protected
+   */
+  protected onHostElementSet(): void {
+    // Set by subclasses
+  }
+
+  /**
    * The blocks that can be used in the stage.
    */
   public get usableBlocks(): BlockTypes[] {
     return [
+      "events:when_start_clicked",
+      "events:when_sprite_clicked",
+      "events:when_key_pressed",
       "controls:wait",
       "controls:repeat",
       "controls:forever",

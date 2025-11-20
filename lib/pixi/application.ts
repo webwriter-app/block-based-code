@@ -6,6 +6,7 @@ import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
 import { StageApplication } from "../types";
 import { PixiVirtualMachine } from "./vm";
+import { Logger } from "../../utils";
 
 /**
  * The PixiApplication class represents a Pixi application.
@@ -22,6 +23,12 @@ export class PixiApplication extends StageApplication {
    */
   private declare application: Application;
 
+  /**
+   * The keyboard event listener.
+   * @private
+   */
+  private keyboardEventListener: ((event: KeyboardEvent) => void) | null = null;
+
   constructor() {
     super();
     this.virtualMachine = new PixiVirtualMachine(this.application);
@@ -32,6 +39,7 @@ export class PixiApplication extends StageApplication {
    */
   public override destroy(): void {
     this.virtualMachine.stop();
+    this.removeKeyboardListener();
     this.application.destroy();
     super.destroy();
   }
@@ -103,6 +111,79 @@ export class PixiApplication extends StageApplication {
   }
 
   /**
+   * Sets up the keyboard event listener.
+   * @private
+   */
+  private setupKeyboardListener(): void {
+    this.removeKeyboardListener();
+
+    this.keyboardEventListener = (event: KeyboardEvent) => this.handleKeyPress(event);
+    const target = this.hostElement || document;
+    target.addEventListener("keydown", this.keyboardEventListener);
+  }
+
+  /**
+   * Removes the keyboard event listener.
+   * @private
+   */
+  private removeKeyboardListener(): void {
+    if (this.keyboardEventListener) {
+      const target = this.hostElement || document;
+      target.removeEventListener("keydown", this.keyboardEventListener);
+      this.keyboardEventListener = null;
+    }
+  }
+
+  /**
+   * @inheritDoc
+   */
+  protected override onHostElementSet(): void {
+    super.onHostElementSet();
+    this.setupKeyboardListener();
+  }
+
+  /**
+   * Handles the key press event.
+   * @param event The keyboard event.
+   * @private
+   */
+  private handleKeyPress(event: KeyboardEvent): void {
+    if (!this.executableCode) return;
+
+    const path = event.composedPath();
+    const target = path[0] as HTMLElement;
+
+    // Ignore events from input elements (including Blockly fields)
+    if (this.isInputElement(target)) return;
+
+    const { key } = event;
+    const normalizedKey = key === " " ? "space" : key;
+
+    // specific key handler
+    this.virtualMachine.start(this.executableCode, this.vmDelay, `whenKeyPressed_${normalizedKey}`).catch(() => {
+      // Ignore errors if the event handler doesn't exist
+    });
+
+    // any key handler
+    this.virtualMachine.start(this.executableCode, this.vmDelay, "whenKeyPressed_any").catch(() => {
+      // Ignore errors if the event handler doesn't exist
+    });
+  }
+
+  /**
+   * Checks if the target is an input element where we should ignore keyboard events.
+   * @param target The event target.
+   * @private
+   */
+  private isInputElement(target: HTMLElement): boolean {
+    const tagName = target.tagName.toLowerCase();
+
+    if (["input", "textarea", "select"].includes(tagName)) return true;
+
+    return false;
+  }
+
+  /**
    * Styles the Pixi canvas element.
    * @private
    */
@@ -128,6 +209,23 @@ export class PixiApplication extends StageApplication {
     const filter = new ColorMatrixFilter();
     sprite.filters = [filter];
 
+    // Make sprite interactive and add click handler
+    sprite.eventMode = "static";
+    sprite.on("pointerdown", () => this.handleSpriteClick());
+
     this.application.stage.addChild(sprite);
+  }
+
+  /**
+   * Handles the sprite click event.
+   * @private
+   */
+  private handleSpriteClick(): void {
+    if (this.executableCode) {
+      // Start the VM with the whenSpriteClicked event
+      this.virtualMachine.start(this.executableCode, this.vmDelay, "whenSpriteClicked").catch((error) => {
+        Logger.error("Error starting VM on sprite click:", error);
+      });
+    }
   }
 }

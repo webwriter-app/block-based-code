@@ -8,6 +8,17 @@ import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators, readableGenerators as readableOperatorGenerators } from "./operators";
 import { generators as sensingGenerators } from "./sensing";
 import { generators as variableGenerators } from "./variables";
+import type { WorkspaceSvg } from "blockly";
+
+// Event block types that trigger code execution
+const EVENT_BLOCKS = ["events:when_start_clicked", "events:when_sprite_clicked", "events:when_key_pressed"] as const;
+
+// Map event block types to function name patterns
+const EVENT_TO_FUNCTION_NAME: Record<string, string> = {
+  "events:when_start_clicked": "whenStartClicked",
+  "events:when_sprite_clicked": "whenSpriteClicked",
+  "events:when_key_pressed": "whenKeyPressed",
+};
 
 /**
  * The custom code generator for Blockly. This generator is used to generate executable code.
@@ -18,6 +29,52 @@ export class ExecutableGenerator extends JavascriptGenerator {
     this.STATEMENT_PREFIX = "highlight(%1);\n";
     this.STATEMENT_SUFFIX = "await delay();\n";
   }
+
+  /**
+   * Generate code for the workspace, creating separate functions for each event handler
+   */
+  public override workspaceToCode(workspace: WorkspaceSvg): string {
+    this.init(workspace);
+
+    const eventFunctions: Record<string, string> = {};
+
+    const topBlocks = workspace.getTopBlocks(true);
+
+    for (const block of topBlocks) {
+      const blockType = block.type as BlockTypes;
+
+      if (EVENT_BLOCKS.includes(blockType as any)) {
+        let functionName = EVENT_TO_FUNCTION_NAME[blockType];
+        if (!functionName) continue;
+
+        // For whenKeyPressed, append the key value to the function name
+        if (blockType === "events:when_key_pressed") {
+          const key = block.getFieldValue("KEY");
+          const normalizedKey = key === " " ? "space" : key;
+          functionName = `${functionName}_${normalizedKey}`;
+        }
+
+        const blockCode = this.blockToCode(block);
+
+        if (eventFunctions[functionName]) {
+          eventFunctions[functionName] += blockCode;
+        } else {
+          eventFunctions[functionName] = blockCode;
+        }
+      }
+    }
+
+    this.finish("");
+
+    let code = "";
+    for (const [functionName, functionBody] of Object.entries(eventFunctions)) {
+      code += `async function ${functionName}() {\n`;
+      code += functionBody;
+      code += "}\n\n";
+    }
+
+    return code;
+  }
 }
 
 /**
@@ -27,6 +84,52 @@ export class ReadableGenerator extends JavascriptGenerator {
   constructor() {
     super("readable");
     this.STATEMENT_PREFIX = "";
+  }
+
+  /**
+   * Generate code for the workspace, creating separate functions for each event handler
+   */
+  public override workspaceToCode(workspace: WorkspaceSvg): string {
+    this.init(workspace);
+
+    const eventFunctions: Record<string, string> = {};
+
+    const topBlocks = workspace.getTopBlocks(true);
+
+    for (const block of topBlocks) {
+      const blockType = block.type as BlockTypes;
+
+      if (EVENT_BLOCKS.includes(blockType as any)) {
+        let functionName = EVENT_TO_FUNCTION_NAME[blockType];
+        if (!functionName) continue;
+
+        // For whenKeyPressed, append the key value to the function name
+        if (blockType === "events:when_key_pressed") {
+          const key = block.getFieldValue("KEY");
+          const normalizedKey = key === " " ? "space" : key;
+          functionName = `${functionName}_${normalizedKey}`;
+        }
+
+        const blockCode = this.blockToCode(block);
+
+        if (eventFunctions[functionName]) {
+          eventFunctions[functionName] += blockCode;
+        } else {
+          eventFunctions[functionName] = blockCode;
+        }
+      }
+    }
+
+    this.finish("");
+
+    let code = "";
+    for (const [functionName, functionBody] of Object.entries(eventFunctions)) {
+      code += `function ${functionName}() {\n`;
+      code += functionBody;
+      code += "}\n\n";
+    }
+
+    return code;
   }
 }
 
