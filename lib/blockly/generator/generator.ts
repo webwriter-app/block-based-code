@@ -11,12 +11,13 @@ import { generators as variableGenerators } from "./variables";
 import type { WorkspaceSvg } from "blockly";
 
 // Event block types that trigger code execution
-const EVENT_BLOCKS = ["events:when_start_clicked", "events:when_sprite_clicked"] as const;
+const EVENT_BLOCKS = ["events:when_start_clicked", "events:when_sprite_clicked", "events:when_key_pressed"] as const;
 
-// Map event block types to function names
+// Map event block types to function name patterns
 const EVENT_TO_FUNCTION_NAME: Record<string, string> = {
   "events:when_start_clicked": "whenStartClicked",
   "events:when_sprite_clicked": "whenSpriteClicked",
+  "events:when_key_pressed": "whenKeyPressed",
 };
 
 /**
@@ -43,8 +44,15 @@ export class ExecutableGenerator extends JavascriptGenerator {
       const blockType = block.type as BlockTypes;
 
       if (EVENT_BLOCKS.includes(blockType as any)) {
-        const functionName = EVENT_TO_FUNCTION_NAME[blockType];
+        let functionName = EVENT_TO_FUNCTION_NAME[blockType];
         if (!functionName) continue;
+
+        // For whenKeyPressed, append the key value to the function name
+        if (blockType === "events:when_key_pressed") {
+          const key = block.getFieldValue("KEY");
+          const normalizedKey = key === " " ? "space" : key;
+          functionName = `${functionName}_${normalizedKey}`;
+        }
 
         const blockCode = this.blockToCode(block);
 
@@ -92,8 +100,15 @@ export class ReadableGenerator extends JavascriptGenerator {
       const blockType = block.type as BlockTypes;
 
       if (EVENT_BLOCKS.includes(blockType as any)) {
-        const functionName = EVENT_TO_FUNCTION_NAME[blockType];
+        let functionName = EVENT_TO_FUNCTION_NAME[blockType];
         if (!functionName) continue;
+
+        // For whenKeyPressed, append the key value to the function name
+        if (blockType === "events:when_key_pressed") {
+          const key = block.getFieldValue("KEY");
+          const normalizedKey = key === " " ? "space" : key;
+          functionName = `${functionName}_${normalizedKey}`;
+        }
 
         const blockCode = this.blockToCode(block);
 

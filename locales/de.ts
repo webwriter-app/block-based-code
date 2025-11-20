@@ -37,6 +37,13 @@ export const dictionary: Dictionary = {
     // Events
     WHEN_START_CLICKED: "Wenn %1 angeklickt wird",
     WHEN_SPRITE_CLICKED: "Wenn diese Figur angeklickt wird",
+    WHEN_KEY_PRESSED: "Wenn Taste %1 gedrückt wird",
+    KEY_ANY: "beliebiges",
+    KEY_SPACE: "Leertaste",
+    KEY_ARROW_UP: "Pfeil nach oben",
+    KEY_ARROW_DOWN: "Pfeil nach unten",
+    KEY_ARROW_LEFT: "Pfeil nach links",
+    KEY_ARROW_RIGHT: "Pfeil nach rechts",
     // Controls
     WAIT: "warte %1 Sekunden",
     REPEAT: "wiederhole %1 mal",

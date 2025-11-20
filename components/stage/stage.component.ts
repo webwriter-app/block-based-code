@@ -153,6 +153,14 @@ export class Stage extends LitElementWw {
         this.stageElement.appendChild(this.stageApplication.container);
         this.stageApplication.virtualMachine.setHighlightCallback(this.handleCodeHighlighting.bind(this));
         this.stageApplication.virtualMachine.setExecutionStateCallback(this.handleExecutionStateChange.bind(this));
+
+        // Set stage's host element to the webwriter-block-based-code root
+        const rootNode = this.getRootNode() as ShadowRoot;
+        const hostElement = rootNode?.host as HTMLElement;
+        if (hostElement) {
+          this.stageApplication.setHostElement(hostElement);
+        }
+
         this.stageApplication.show();
         Logger.log(this, "Initialized!");
       },

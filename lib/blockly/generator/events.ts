@@ -16,4 +16,11 @@ export const generators = {
     code += branch;
     return code;
   },
+  "events:when_key_pressed": (block, generator) => {
+    let code = generator.injectId(generator.STATEMENT_PREFIX, block);
+    let branch = generator.statementToCode(block, "SUBSTACK");
+    branch = generator.prefixLines(branch, generator.INDENT);
+    code += branch;
+    return code;
+  },
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

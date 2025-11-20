@@ -38,6 +38,13 @@ export const dictionary: Dictionary = {
     // Events
     WHEN_START_CLICKED: "when %1 clicked",
     WHEN_SPRITE_CLICKED: "when this sprite clicked",
+    WHEN_KEY_PRESSED: "when %1 key pressed",
+    KEY_ANY: "any",
+    KEY_SPACE: "space",
+    KEY_ARROW_UP: "up arrow",
+    KEY_ARROW_DOWN: "down arrow",
+    KEY_ARROW_LEFT: "left arrow",
+    KEY_ARROW_RIGHT: "right arrow",
     // Controls
     WAIT: "wait %1 seconds",
     REPEAT: "repeat %1",
