@@ -145,6 +145,7 @@ export abstract class VirtualMachine {
     script += "let resultResolveFunction;\n";
     script += "async function wait(s) { await new Promise((resolve) => { setTimeout(resolve, s * 1e3) }); }\n";
     script += `async function delay() { await new Promise((resolve) => { setTimeout(resolve, ${delay === 0 ? 16.6 : delay}) }); }\n`;
+    script += "function random(from, to) { return Math.floor(Math.random() * (to - from + 1)) + from; }\n";
     script += "onmessage = function (event) { if (event.data.type === 'result') { resultResolveFunction(event.data.args[0]); } };\n";
 
     [

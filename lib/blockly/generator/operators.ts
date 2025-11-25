@@ -27,6 +27,12 @@ export const generators = {
 
     return [`${left} / ${right}`, Order.ADDITION];
   },
+  "operators:random": (block, generator) => {
+    const from = generator.valueToCode(block, "FROM", Order.NONE);
+    const to = generator.valueToCode(block, "TO", Order.NONE);
+
+    return [`random(${from}, ${to})`, Order.NONE];
+  },
   "operators:greater": (block, generator) => {
     const left = generator.valueToCode(block, "A", Order.RELATIONAL);
     const right = generator.valueToCode(block, "B", Order.RELATIONAL);

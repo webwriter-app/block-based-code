@@ -52,7 +52,7 @@ export const dictionary: Dictionary = {
     ELSE: "sonst",
     STOP: "stoppe",
     // Operators
-    RANDOM: "zufallszahl zwischen %1 und %2",
+    RANDOM: "Zufallszahl von %1 bis %2",
     AND: "%1 und %2",
     OR: "%1 oder %2",
     NOT: "nicht %1",
