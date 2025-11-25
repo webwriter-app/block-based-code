@@ -53,7 +53,7 @@ export const dictionary: Dictionary = {
     ELSE: "else",
     STOP: "stop",
     // Operators
-    RANDOM: "random between %1 and %2",
+    RANDOM: "pick random %1 to %2",
     AND: "%1 and %2",
     OR: "%1 or %2",
     NOT: "not %1",
