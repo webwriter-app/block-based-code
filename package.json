@@ -20,6 +20,7 @@
   "scripts": {
     "build": "node scripts/esbuild.config.mjs",
     "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
+    "prepublishOnly": "npx @webwriter/build",
     "lint:fix": "eslint --fix .",
     "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
     "release": "release-it --config scripts/release-it.config.ts"
