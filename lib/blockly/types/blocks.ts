@@ -15,6 +15,11 @@ export interface BlockDefinition {
     check?: "Number" | "String" | "Boolean" | ("Number" | "String" | "Boolean")[];
     value?: string | number;
     text?: string;
+    options?: [string, string][];
+    src?: string;
+    width?: number;
+    height?: number;
+    alt?: string;
   }[];
   [key: string]: unknown;
 }

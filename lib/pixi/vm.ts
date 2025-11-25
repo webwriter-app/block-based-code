@@ -1,4 +1,5 @@
 import { Application, ColorMatrixFilter, Sprite } from "pixi.js";
+import { sound } from "@pixi/sound";
 import { VirtualMachine } from "../types";
 import { SpeechBubble } from "./speech-bubble";
 
@@ -10,6 +11,8 @@ export class PixiVirtualMachine extends VirtualMachine {
   private speechBubble: SpeechBubble;
 
   private tickerCallback: () => void;
+
+  private pendingSoundPromises: Set<() => void> = new Set();
 
   constructor(application: Application) {
     super();
@@ -50,6 +53,11 @@ export class PixiVirtualMachine extends VirtualMachine {
     await super.start(code, delay, eventType);
   }
 
+  public override stop(): void {
+    this.stopAllSounds();
+    super.stop();
+  }
+
   protected override get callables(): ((...args: any[]) => void)[] {
     return [
       this.move,
@@ -64,6 +72,9 @@ export class PixiVirtualMachine extends VirtualMachine {
       this.getTimer,
       this.resetTimer,
       this.say,
+      this.playSound,
+      this.playSoundUntilDone,
+      this.stopAllSounds,
     ];
   }
 
@@ -116,6 +127,29 @@ export class PixiVirtualMachine extends VirtualMachine {
 
   private say(text: string): void {
     this.speechBubble.setText(String(text), this.bunny);
+  }
+
+  private playSound(soundName: string): void {
+    sound.play(soundName);
+  }
+
+  private playSoundUntilDone(soundName: string): Promise<void> {
+    return new Promise((resolve) => {
+      this.pendingSoundPromises.add(resolve);
+      sound.play(soundName, {
+        complete: () => {
+          this.pendingSoundPromises.delete(resolve);
+          resolve();
+        },
+      });
+    });
+  }
+
+  private stopAllSounds(): void {
+    sound.stopAll();
+    // Resolve all pending promises to prevent scripts from hanging
+    this.pendingSoundPromises.forEach((resolve) => resolve());
+    this.pendingSoundPromises.clear();
   }
 
   private get bunny(): Sprite {

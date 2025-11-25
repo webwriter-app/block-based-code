@@ -8,6 +8,7 @@ import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators, readableGenerators as readableOperatorGenerators } from "./operators";
 import { generators as sensingGenerators } from "./sensing";
 import { generators as variableGenerators } from "./variables";
+import { generators as soundGenerators } from "./sounds";
 import type { WorkspaceSvg } from "blockly";
 
 // Event block types that trigger code execution
@@ -144,6 +145,7 @@ const generators: Record<BlockTypes, GeneratorFunction> = {
   ...operatorGenerators,
   ...sensingGenerators,
   ...variableGenerators,
+  ...soundGenerators,
   "math:number": (block) => {
     const number = Number(block.getFieldValue("NUM"));
     const order = number >= 0 ? Order.ATOMIC : Order.UNARY_NEGATION;
@@ -165,6 +167,7 @@ const readableGenerators: Record<BlockTypes, GeneratorFunction> = {
   ...readableOperatorGenerators,
   ...sensingGenerators,
   ...variableGenerators,
+  ...soundGenerators,
   "math:number": (block) => {
     const number = Number(block.getFieldValue("NUM"));
     const order = number >= 0 ? Order.ATOMIC : Order.UNARY_NEGATION;
