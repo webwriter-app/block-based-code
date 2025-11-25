@@ -1,68 +1,70 @@
 {
-    "name": "@webwriter/block-based-code",
-    "version": "1.6.3",
-    "description": "Write block-based code (e.g. Scratch) and run it.",
-    "keywords": [
-        "webwriter-widget",
-        "widget-simulational",
-        "widget-conceptual",
-        "widget-lang-en",
-        "widget-lang-de",
-        "iscedf2013-06",
-        "isced2011-2",
-        "isced2011-3",
-        "code",
-        "blocks",
-        "JS"
-    ],
-    "license": "MIT",
-    "author": "Philipp Lentzen",
-    "scripts": {
-        "build": "node scripts/esbuild.config.mjs",
-        "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
-        "lint:fix": "eslint --fix .",
-        "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
-        "release": "release-it --config scripts/release-it.config.ts"
+  "name": "@webwriter/block-based-code",
+  "version": "1.7.0",
+  "description": "Write block-based code (e.g. Scratch) and run it.",
+  "keywords": [
+    "webwriter-widget",
+    "widget-simulational",
+    "widget-conceptual",
+    "widget-lang-en",
+    "widget-lang-de",
+    "iscedf2013-06",
+    "isced2011-2",
+    "isced2011-3",
+    "code",
+    "blocks",
+    "JS"
+  ],
+  "license": "MIT",
+  "author": "Philipp Lentzen",
+  "scripts": {
+    "build": "node scripts/esbuild.config.mjs",
+    "dev": "NODE_ENV=development node scripts/esbuild.config.mjs",
+    "lint:fix": "eslint --fix .",
+    "pre-release": "release-it --config scripts/release-it.config.ts --preRelease=rc",
+    "release": "release-it --config scripts/release-it.config.ts"
+  },
+  "dependencies": {
+    "@blockly/continuous-toolbox": "^6.0.2",
+    "@blockly/field-colour": "^5.0.19",
+    "@blockly/plugin-cross-tab-copy-paste": "^6.0.8",
+    "@lit/task": "^1.0.1",
+    "@pixi/sound": "^6.0.1",
+    "@shoelace-style/shoelace": "^2.15.1",
+    "@tabler/icons": "^3.6.0",
+    "@webwriter/lit": "^2.0.0",
+    "blockly": "^11.1.0",
+    "highlight.js": "^11.10.0",
+    "lit": "^3.1.4",
+    "lodash": "^4.17.21",
+    "pixi.js": "^8.1.6"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
+    "@types/lodash": "^4.17.6",
+    "esbuild": "^0.23.1",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "release-it": "^17.6.0"
+  },
+  "exports": {
+    "./widgets/webwriter-block-based-code.*": {
+      "source": "./widgets/webwriter-block-based-code.ts",
+      "default": "./dist/webwriter-block-based-code.*"
     },
-    "dependencies": {
-        "@blockly/continuous-toolbox": "^6.0.2",
-        "@blockly/field-colour": "^5.0.19",
-        "@blockly/plugin-cross-tab-copy-paste": "^6.0.8",
-        "@lit/task": "^1.0.1",
-        "@pixi/sound": "^6.0.1",
-        "@shoelace-style/shoelace": "^2.15.1",
-        "@tabler/icons": "^3.6.0",
-        "@webwriter/lit": "^2.0.0",
-        "blockly": "^11.1.0",
-        "highlight.js": "^11.10.0",
-        "lit": "^3.1.4",
-        "lodash": "^4.17.21",
-        "pixi.js": "^8.1.6"
-    },
-    "devDependencies": {
-        "@release-it/conventional-changelog": "^8.0.1",
-        "@types/lodash": "^4.17.6",
-        "esbuild": "^0.23.1",
-        "eslint": "^8.57.0",
-        "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-config-airbnb-typescript": "^18.0.0",
-        "eslint-plugin-import": "^2.29.1",
-        "release-it": "^17.6.0"
-    },
-    "exports": {
-        "./widgets/webwriter-block-based-code.*": {
-            "source": "./widgets/webwriter-block-based-code.ts",
-            "default": "./dist/webwriter-block-based-code.*"
-        },
-        "./snippets/bouncing-dvd.html": "./snippets/dvd.html",
-        "./package.json": "./package.json",
-        "./icon": "./icon.svg"
-    },
-    "editingConfig": {
-        ".": {
-            "description": {
-                "de": "Schreiben Sie blockbasierten Code (wie Scratch) und führen Sie ihn aus."
-            }
-        }
+    "./snippets/bouncing-dvd.html": "./snippets/dvd.html",
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg",
+    "./custom-elements.json": "./custom-elements.json"
+  },
+  "editingConfig": {
+    ".": {
+      "description": {
+        "de": "Schreiben Sie blockbasierten Code (wie Scratch) und führen Sie ihn aus."
+      }
     }
+  },
+  "customElements": "custom-elements.json"
 }
