@@ -1,7 +1,7 @@
 import {
-  Blocks, common, ContextMenuRegistry, dialog, registry, ToolboxCategory,
+  Blocks, common, ContextMenuRegistry, dialog, registry, ToolboxCategory, fieldRegistry,
 } from "blockly";
-
+import { FieldColour } from "@blockly/field-colour";
 import { CrossTabCopyPaste } from "@blockly/plugin-cross-tab-copy-paste";
 import { WebWriterTheme } from "./theme";
 import { blocks } from "./blocks";
@@ -25,6 +25,7 @@ export class BlocklyInitializer {
   public static define(dialogReceiver: BlocklyApplication): void {
     if (BlocklyInitializer.initialized) return;
     BlocklyInitializer.addCopyPastePlugin();
+    BlocklyInitializer.registerFields();
     BlocklyInitializer.defineTheme();
     BlocklyInitializer.defineToolboxCategory();
     BlocklyInitializer.defineDialog(dialogReceiver);
@@ -43,6 +44,14 @@ export class BlocklyInitializer {
       contextMenu: true,
       shortcut: true,
     });
+  }
+
+  /**
+   * Registers custom fields.
+   * @private
+   */
+  private static registerFields(): void {
+    fieldRegistry.register("field_colour", FieldColour);
   }
 
   /**

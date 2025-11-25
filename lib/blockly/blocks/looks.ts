@@ -51,4 +51,19 @@ export const blocks = [
     category: "looks",
     style: "look_blocks",
   } as const,
+  {
+    type: "looks:set_background_color",
+    message0: "%{BKY_SET_BACKGROUND_COLOR}",
+    args0: [
+      {
+        type: "field_colour",
+        name: "COLOR",
+        value: "#ffffff",
+      },
+    ],
+    nextStatement: null,
+    previousStatement: null,
+    category: "looks",
+    style: "look_blocks",
+  } as const,
 ] satisfies BlockDefinition[];

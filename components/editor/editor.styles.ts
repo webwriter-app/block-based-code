@@ -86,6 +86,10 @@ export const styles = css`
     .blocklyWidgetDiv, .blocklyDropDownDiv, .blocklyTooltipDiv {
         position: fixed;
     }
+
+    .blocklyColourTable tr {
+        line-height: 0;
+    }
     
     sl-dialog::part(base) {
         position: absolute !important;
