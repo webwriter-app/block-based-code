@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "widgets/webwriter-block-based-code.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The main component of the Blocks widget.",
+          "name": "WebwriterBlocks",
+          "members": [
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "0 | 1"
+              },
+              "privacy": "public",
+              "default": "0",
+              "description": "Whether the widget is in read-only mode, only effective when contentEditable is false.",
+              "attribute": "readonly",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "stageType",
+              "type": {
+                "text": "StageType"
+              },
+              "privacy": "public",
+              "description": "The selected stage type.",
+              "attribute": "stageType",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "usableBlocks",
+              "type": {
+                "text": "SelectedBlocks"
+              },
+              "privacy": "public",
+              "default": "[\"events:when_start_clicked\"]",
+              "description": "The usable blocks. Only blocks in this list can be used in the editor.",
+              "attribute": "usableBlocks",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "editorState",
+              "type": {
+                "text": "object"
+              },
+              "privacy": "public",
+              "default": "{}",
+              "description": "The editor state.",
+              "attribute": "editorState",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "availableBlocks",
+              "type": {
+                "text": "BlockTypes[]"
+              },
+              "privacy": "private",
+              "default": "[]",
+              "description": "The available blocks. These are all blocks that can be understood by the stage."
+            },
+            {
+              "kind": "field",
+              "name": "readableCode",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "\"\"",
+              "description": "The readable generated code."
+            },
+            {
+              "kind": "field",
+              "name": "executableCode",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "\"\"",
+              "description": "The executable generated code."
+            },
+            {
+              "kind": "field",
+              "name": "editor",
+              "type": {
+                "text": "Editor"
+              },
+              "privacy": "private",
+              "description": "The editor element."
+            },
+            {
+              "kind": "field",
+              "name": "stage",
+              "type": {
+                "text": "Stage"
+              },
+              "privacy": "private",
+              "description": "The stage element."
+            },
+            {
+              "kind": "field",
+              "name": "scopedElements",
+              "type": {
+                "text": "Record<string, typeof LitElement>"
+              },
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "shadowRootOptions",
+              "type": {
+                "text": "ShadowRootInit"
+              },
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "isFullscreen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "description": "Whether the editor is in fullscreen mode.",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "handleFullscreenToggle",
+              "privacy": "private",
+              "description": "Handles the fullscreen toggle event."
+            },
+            {
+              "kind": "method",
+              "name": "handleEditorChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "EditorChangeEvent"
+                  },
+                  "description": "The editor change event."
+                }
+              ],
+              "description": "Handles the editor change event."
+            },
+            {
+              "kind": "method",
+              "name": "handleCodeHighlighting",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CodeHighlightingEvent"
+                  },
+                  "description": "The code highlighting event."
+                }
+              ],
+              "description": "Handles the code highlighting event."
+            },
+            {
+              "kind": "method",
+              "name": "handleOptionsChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "OptionsChangeEvent"
+                  },
+                  "description": "The options change event."
+                }
+              ],
+              "description": "Handles the options change event."
+            },
+            {
+              "kind": "method",
+              "name": "setBlocks",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Sets the available and usable blocks after changing the stage type."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "readonly",
+              "type": {
+                "text": "0 | 1"
+              },
+              "default": "0",
+              "description": "Whether the widget is in read-only mode, only effective when contentEditable is false.",
+              "fieldName": "readonly"
+            },
+            {
+              "name": "stageType",
+              "type": {
+                "text": "StageType"
+              },
+              "description": "The selected stage type.",
+              "fieldName": "stageType"
+            },
+            {
+              "name": "usableBlocks",
+              "type": {
+                "text": "SelectedBlocks"
+              },
+              "default": "[\"events:when_start_clicked\"]",
+              "description": "The usable blocks. Only blocks in this list can be used in the editor.",
+              "fieldName": "usableBlocks"
+            },
+            {
+              "name": "editorState",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}",
+              "description": "The editor state.",
+              "fieldName": "editorState"
+            }
+          ],
+          "superclass": {
+            "name": "LitElementWw",
+            "package": "@webwriter/lit"
+          },
+          "tagName": "webwriter-block-based-code",
+          "customElement": true,
+          "modulePath": "widgets/webwriter-block-based-code.ts",
+          "definitionPath": "widgets/webwriter-block-based-code.ts"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WebwriterBlocks",
+          "declaration": {
+            "name": "WebwriterBlocks",
+            "module": "widgets/webwriter-block-based-code.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "webwriter-block-based-code",
+          "declaration": {
+            "name": "WebwriterBlocks",
+            "module": "widgets/webwriter-block-based-code.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
