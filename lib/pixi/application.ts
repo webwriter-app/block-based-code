@@ -62,7 +62,10 @@ export class PixiApplication extends StageApplication {
    */
   public override resize(): void {
     if (!this.application) return;
-    this.application.canvas.style.transform = `scale(${this.container.clientWidth / this.application.canvas.width})`;
+    // +2 fixes a small gap caused by the canvas' parent having a border
+    this.application.canvas.style.transform = `
+      scale(${(this.container.clientWidth + 2) / this.application.canvas.width})
+    `;
   }
 
   /**
@@ -90,6 +93,7 @@ export class PixiApplication extends StageApplication {
       "looks:say",
       "looks:say_for_seconds",
       "looks:set_color",
+      "looks:set_background_color",
       "sensing:timer",
       "sensing:reset_timer",
       "sounds:play",

@@ -63,6 +63,7 @@ export const dictionary: Dictionary = {
     SAY: "say %1",
     SAY_FOR_SECONDS: "say %1 for %2 seconds",
     SET_COLOR: "set color effect to %1",
+    SET_BACKGROUND_COLOR: "set background color to %1",
     // Motions
     MOVE: "move %1 steps",
     ROTATE: "rotate by %1 degrees",

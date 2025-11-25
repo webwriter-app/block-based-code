@@ -20,6 +20,11 @@ export const generators = {
 
     return `setColor(${color});\n`;
   },
+  "looks:set_background_color": (block) => {
+    const color = block.getFieldValue("COLOR");
+
+    return `setBackgroundColor("${color}");\n`;
+  },
 } satisfies Partial<Record<BlockTypes, GeneratorFunction>>;
 
 export const readableGenerators = {

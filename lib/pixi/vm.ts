@@ -69,6 +69,7 @@ export class PixiVirtualMachine extends VirtualMachine {
       this.getX,
       this.getY,
       this.setColor,
+      this.setBackgroundColor,
       this.getTimer,
       this.resetTimer,
       this.say,
@@ -115,6 +116,10 @@ export class PixiVirtualMachine extends VirtualMachine {
   private setColor(color: number): void {
     const filter = this.bunny.filters[0] as ColorMatrixFilter;
     filter.hue(color, false);
+  }
+
+  private setBackgroundColor(color: string): void {
+    this.application.renderer.background.color = color;
   }
 
   private getTimer(): number {
