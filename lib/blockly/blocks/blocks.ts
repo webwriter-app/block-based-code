@@ -4,6 +4,7 @@ import { blocks as lookBlocks } from "./looks";
 import { blocks as motionBlocks } from "./motions";
 import { blocks as operatorBlocks } from "./operators";
 import { blocks as sensingBlocks } from "./sensing";
+import { blocks as soundsBlocks } from "./sounds";
 import { numberBlock } from "./math";
 import { stringBlock } from "./string";
 import { BlockDefinition } from "../types";
@@ -15,6 +16,7 @@ export const blocks = [
   ...motionBlocks,
   ...operatorBlocks,
   ...sensingBlocks,
+  ...soundsBlocks,
   numberBlock,
   stringBlock,
 ] satisfies BlockDefinition[];

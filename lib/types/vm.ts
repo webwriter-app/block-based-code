@@ -115,7 +115,7 @@ export abstract class VirtualMachine {
     const worker = new Worker(url);
     this.workers.set(eventType, worker);
 
-    worker.onmessage = (event: MessageEvent<{ type: string, args: any[] }>) => {
+    worker.onmessage = async (event: MessageEvent<{ type: string, args: any[] }>) => {
       if (event.data.type === "complete") {
         this.stopEvent(eventType);
         return;
@@ -123,7 +123,12 @@ export abstract class VirtualMachine {
 
       const result = this[event.data.type](...event.data.args);
       if (result != null) {
-        worker.postMessage({ type: "result", args: [result] });
+        if (result instanceof Promise) {
+          const resolvedValue = await result;
+          worker.postMessage({ type: "result", args: [resolvedValue] });
+        } else {
+          worker.postMessage({ type: "result", args: [result] });
+        }
       }
     };
   }
@@ -149,7 +154,7 @@ export abstract class VirtualMachine {
     ].forEach((callable) => {
       const args = Array(callable.length).fill("x").map((x, i) => `${x}${i}`).join(", ");
       const message = `{ type: "${callable.name}", args: [${args}] }`;
-      if (callable.name.startsWith("get")) {
+      if (callable.name.startsWith("get") || callable.name.includes("UntilDone")) {
         script += `async function ${callable.name}(${args}) { postMessage(${message.toString()}); return await new Promise((resolve) => { resultResolveFunction = resolve; }); } \n`;
       } else {
         script += `function ${callable.name}(${args}) { postMessage(${message.toString()}); } \n`;

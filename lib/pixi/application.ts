@@ -2,8 +2,12 @@ import {
   Application, Assets, ColorMatrixFilter, Point, Sprite,
   TextureStyle,
 } from "pixi.js";
+import { sound } from "@pixi/sound";
 import { BlockTypes } from "../blockly";
 import bunny from "../../assets/bunny.png";
+import popSound from "../../assets/sounds/pop.mp3";
+import failureSound from "../../assets/sounds/failure.mp3";
+import successSound from "../../assets/sounds/success.mp3";
 import { StageApplication } from "../types";
 import { PixiVirtualMachine } from "./vm";
 import { Logger } from "../../utils";
@@ -88,6 +92,9 @@ export class PixiApplication extends StageApplication {
       "looks:set_color",
       "sensing:timer",
       "sensing:reset_timer",
+      "sounds:play",
+      "sounds:play_until_done",
+      "sounds:stop_all_sounds",
     ];
   }
 
@@ -104,6 +111,9 @@ export class PixiApplication extends StageApplication {
     });
     TextureStyle.defaultOptions.scaleMode = "nearest";
     await Assets.load(bunny);
+    sound.add("pop", popSound);
+    sound.add("failure", failureSound);
+    sound.add("success", successSound);
     this.styleCanvas();
     this.addSprite();
     this.application.ticker.start();

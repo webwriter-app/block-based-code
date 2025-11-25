@@ -75,6 +75,13 @@ export const dictionary: Dictionary = {
     // Sensing
     TIMER: "timer",
     RESET_TIMER: "reset timer",
+    // Sounds
+    PLAY_SOUND: "play sound %1",
+    PLAY_SOUND_UNTIL_DONE: "play sound %1 until done",
+    STOP_ALL_SOUNDS: "stop all sounds",
+    SOUND_POP: "pop",
+    SOUND_FAILURE: "failure",
+    SOUND_SUCCESS: "success",
   },
   CATEGORY: {
     CONTROLS: "Controls",
@@ -84,5 +91,6 @@ export const dictionary: Dictionary = {
     MOTIONS: "Motions",
     VARIABLES: "Variables",
     SENSING: "Sensing",
+    SOUNDS: "Sounds",
   },
 };

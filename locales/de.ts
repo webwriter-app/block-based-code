@@ -74,6 +74,13 @@ export const dictionary: Dictionary = {
     // Sensing
     TIMER: "Stoppuhr",
     RESET_TIMER: "setze Stoppuhr zurück",
+    // Sounds
+    PLAY_SOUND: "spiele Klang %1",
+    PLAY_SOUND_UNTIL_DONE: "spiele Klang %1 ganz",
+    STOP_ALL_SOUNDS: "stoppe alle Klänge",
+    SOUND_POP: "Ploppen",
+    SOUND_FAILURE: "Fehler",
+    SOUND_SUCCESS: "Erfolg",
   },
   CATEGORY: {
     CONTROLS: "Steuerung",
@@ -83,5 +90,6 @@ export const dictionary: Dictionary = {
     MOTIONS: "Bewegungen",
     VARIABLES: "Variablen",
     SENSING: "Fühlen",
+    SOUNDS: "Klang",
   },
 };
