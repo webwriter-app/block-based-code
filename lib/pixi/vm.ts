@@ -58,6 +58,31 @@ export class PixiVirtualMachine extends VirtualMachine {
     super.stop();
   }
 
+  /**
+   * Resets the stage to its initial state
+   */
+  public reset(): void {
+    // Reset background color to white
+    this.application.renderer.background.color = "white";
+
+    // Reset sprite position to center
+    const sprite = this.bunny;
+    sprite.x = this.application.canvas.width / 2;
+    sprite.y = this.application.canvas.height / 2;
+
+    // Reset rotation to 0
+    sprite.angle = 0;
+
+    // Reset color filter
+    const filter = sprite.filters[0] as ColorMatrixFilter;
+    filter.reset();
+
+    // Hide speech bubble
+    if (this.speechBubble) {
+      this.speechBubble.visible = false;
+    }
+  }
+
   protected override get callables(): ((...args: any[]) => void)[] {
     return [
       this.move,

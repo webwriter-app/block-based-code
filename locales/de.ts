@@ -9,6 +9,7 @@ export const dictionary: Dictionary = {
   HELP: "Hilfe",
   ERROR: "Es ist ein Fehler aufgetreten!",
   EXECUTION_OPTIONS: "Ausführungsoptionen",
+  RESET_STAGE: "Bühne zurücksetzen",
   SHORTCUTS: "Tastenkürzel",
   ZOOM: {
     IN: "Vergrößern",
