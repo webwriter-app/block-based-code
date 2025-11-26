@@ -81,6 +81,11 @@ export abstract class VirtualMachine {
   }
 
   /**
+   * Resets the stage to its initial state.
+   */
+  public abstract reset(): void;
+
+  /**
    * Sets the highlight callback function.
    * @param callback The highlight callback function.
    */

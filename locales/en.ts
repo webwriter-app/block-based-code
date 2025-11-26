@@ -10,6 +10,7 @@ export const dictionary: Dictionary = {
   HELP: "Help",
   ERROR: "An error occurred!",
   EXECUTION_OPTIONS: "Execution Options",
+  RESET_STAGE: "Reset Stage",
   SHORTCUTS: "Shortcuts",
   ZOOM: {
     IN: "Zoom In",

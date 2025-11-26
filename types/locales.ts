@@ -23,6 +23,7 @@ export type Dictionary = {
   HELP: string;
   ERROR: string;
   EXECUTION_OPTIONS: string;
+  RESET_STAGE: string;
   SHORTCUTS: string;
   ZOOM: {
     IN: string;

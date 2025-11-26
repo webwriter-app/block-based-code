@@ -1,5 +1,5 @@
 import {
-  customElement, property, query, state,
+  property, query, state,
 } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
@@ -13,6 +13,18 @@ import AdjustmentsIcon from "@tabler/icons/outline/adjustments.svg";
 import PlayerStopIcon from "@tabler/icons/outline/player-stop.svg";
 import PlayerPlayIcon from "@tabler/icons/outline/player-play.svg";
 import RefreshIcon from "@tabler/icons/outline/refresh.svg";
+import RestoreIcon from "@tabler/icons/outline/restore.svg";
+
+import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js";
+import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js";
+import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog.component.js";
+import SlDivider from "@shoelace-style/shoelace/dist/components/divider/divider.component.js";
+import SlRange from "@shoelace-style/shoelace/dist/components/range/range.component.js";
+import SlSpinner from "@shoelace-style/shoelace/dist/components/spinner/spinner.component.js";
+import SlTab from "@shoelace-style/shoelace/dist/components/tab/tab.component.js";
+import SlTabGroup from "@shoelace-style/shoelace/dist/components/tab-group/tab-group.component.js";
+import SlTabPanel from "@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.component.js";
+
 import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
 import { msg } from "../../locales";
@@ -20,16 +32,6 @@ import { PixiApplication } from "../../lib/pixi";
 import { CodeHighlightingEvent, StageApplication, StageType } from "../../types";
 import { Toolbar } from "../toolbar";
 import { ToolbarButton } from "../toolbar-button";
-
-import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
-import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js"
-import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog.component.js"
-import SlDivider from "@shoelace-style/shoelace/dist/components/divider/divider.component.js"
-import SlRange from "@shoelace-style/shoelace/dist/components/range/range.component.js"
-import SlSpinner from "@shoelace-style/shoelace/dist/components/spinner/spinner.component.js"
-import SlTab from "@shoelace-style/shoelace/dist/components/tab/tab.component.js"
-import SlTabGroup from "@shoelace-style/shoelace/dist/components/tab-group/tab-group.component.js"
-import SlTabPanel from "@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.component.js"
 
 /**
  * The stage component.
@@ -210,6 +212,12 @@ export class Stage extends LitElementWw {
                                                  .disabled=${this.isAnyEventRunning}
                                                  @click=${this.handleVmOptionsClick}>
                 </webwriter-blocks-toolbar-button>
+                <webwriter-blocks-toolbar-button id="reset"
+                                                 label=${msg("RESET_STAGE")}
+                                                 icon=${RestoreIcon}
+                                                 .disabled=${this.isAnyEventRunning}
+                                                 @click=${this.handleResetStageClick}>
+                </webwriter-blocks-toolbar-button>
             </div>
             <div>
                 <webwriter-blocks-toolbar-button id="stop"
@@ -298,6 +306,15 @@ export class Stage extends LitElementWw {
    */
   private handleVmOptionsClick(): void {
     this.vmOptionsDialog.show().catch();
+  }
+
+  /**
+   * Handles the reset stage click event.
+   * @private
+   */
+  private handleResetStageClick(): void {
+    Logger.log(this, "Resetting stage...");
+    this.stageApplication.virtualMachine.reset();
   }
 
   /**
