@@ -81,6 +81,9 @@ export class PixiVirtualMachine extends VirtualMachine {
     if (this.speechBubble) {
       this.speechBubble.visible = false;
     }
+
+    // Reset variables
+    this.resetVariables();
   }
 
   protected override get callables(): ((...args: any[]) => void)[] {
