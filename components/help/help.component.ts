@@ -1,14 +1,13 @@
-import { customElement, query } from "lit/decorators.js";
+import { query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
+import SlPopup from "@shoelace-style/shoelace/dist/components/popup/popup.component.js"
 import QuestionMarkIcon from "@tabler/icons/outline/question-mark.svg";
-import { styles } from "./help.styles";
 import { msg } from "../../locales";
 import { ToolbarButton } from "../toolbar-button";
-
-import SlPopup from "@shoelace-style/shoelace/dist/components/popup/popup.component.js"
+import { styles } from "./help.styles";
 
 /**
  * The help component.
@@ -63,10 +62,6 @@ export class Help extends LitElementWw {
                     <b>${ctrlKey}</b> + <b>c</b>: ${msg("CONTROLS.CROSS_TAB_COPY")} <br>
                     <b>${ctrlKey}</b> + <b>v</b>: ${msg("CONTROLS.CROSS_TAB_PASTE")} <br>
                     <b>delete</b>: ${msg("CONTROLS.DELETE")}
-                </p>
-                <p>
-                    <b>${ctrlKey}</b> + <b>+</b>: ${msg("ZOOM.IN")} <br>
-                    <b>${ctrlKey}</b> + <b>-</b>: ${msg("ZOOM.OUT")}
                 </p>
             </article>
         </sl-popup>
