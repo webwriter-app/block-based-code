@@ -247,6 +247,7 @@ export class BlocklyApplication extends Application {
       },
     });
     this.registerVariablesCategory();
+    this.addVariableBlockShadowListener();
     this.workspace.addChangeListener(() => {
       this.removeComputeCanvas();
     });
@@ -273,6 +274,32 @@ export class BlocklyApplication extends Application {
       });
 
       return blocks;
+    });
+  }
+
+  /**
+   * Ensure that variables_set blocks always have a math:number shadow block.
+   * @private
+   */
+  private addVariableBlockShadowListener(): void {
+    this.workspace.addChangeListener((event) => {
+      if (event.type !== Events.BLOCK_CREATE) return;
+      if (!(event instanceof Events.BlockCreate)) return;
+
+      const block = this.workspace.getBlockById(event.blockId);
+      if (!block || block.type !== "variables_set") return;
+
+      const valueInput = block.getInput("VALUE");
+      if (!valueInput) return;
+
+      if (valueInput.connection?.targetBlock()) return;
+
+      const shadowBlock = this.workspace.newBlock("math:number");
+      shadowBlock.setShadow(true);
+      shadowBlock.setFieldValue("0", "NUM");
+      shadowBlock.initSvg();
+      shadowBlock.render();
+      valueInput.connection?.connect(shadowBlock.outputConnection!);
     });
   }
 
