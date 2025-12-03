@@ -108,36 +108,36 @@ export class PixiVirtualMachine extends VirtualMachine {
   }
 
   private move(steps: number): void {
-    if (Number.isNaN(steps)) return;
+    if (!Number.isFinite(steps)) return;
     this.bunny.x += steps * Math.cos(this.bunny.rotation);
     this.bunny.y += steps * Math.sin(this.bunny.rotation);
   }
 
   private rotate(angle: number): void {
-    if (Number.isNaN(angle)) return;
+    if (!Number.isFinite(angle)) return;
     this.bunny.angle += angle;
   }
 
   private setRotation(angle: number): void {
-    if (Number.isNaN(angle)) return;
+    if (!Number.isFinite(angle)) return;
     this.bunny.angle = angle;
   }
 
   private setX(x: number): void {
-    if (Number.isNaN(x)) return;
+    if (!Number.isFinite(x)) return;
     this.bunny.x = x;
   }
 
   private setY(y: number): void {
-    if (Number.isNaN(y)) return;
+    if (!Number.isFinite(y)) return;
     this.bunny.y = y;
   }
 
   private setXY(x: number, y: number): void {
-    if (!Number.isNaN(x)) {
+    if (Number.isFinite(x)) {
       this.bunny.x = x;
     }
-    if (!Number.isNaN(y)) {
+    if (Number.isFinite(y)) {
       this.bunny.y = y;
     }
   }
@@ -151,7 +151,7 @@ export class PixiVirtualMachine extends VirtualMachine {
   }
 
   private setColor(color: number): void {
-    if (Number.isNaN(color)) return;
+    if (!Number.isFinite(color)) return;
     const filter = this.bunny.filters[0] as ColorMatrixFilter;
     filter.hue(color, false);
   }
