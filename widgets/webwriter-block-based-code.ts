@@ -162,7 +162,7 @@ export class WebwriterBlocks extends LitElementWw {
     setLocale(document.documentElement.lang?.split("-")[0] || navigator.language?.split("-")[0]);
     this.addEventListener("fullscreenchange", () => this.requestUpdate());
     const styleElement = this.ownerDocument.createElement("style");
-    styleElement.textContent = ".sl-scroll-lock {--sl-scroll-lock-size: 0!important; overflow-x: hidden!important; overflow-y: scroll!important}";
+    styleElement.textContent = `:fullscreen .sl-scroll-lock {scrollbar-gutter: stable!important; overflow: hidden!important}`;
     this.ownerDocument.head.appendChild(styleElement);
   }
 
