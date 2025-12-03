@@ -42,7 +42,20 @@ export class WebwriterBlocks extends LitElementWw {
   /**
    * The usable blocks. Only blocks in this list can be used in the editor.
    */
-  @property({ type: Array, reflect: true })
+  @property({
+    reflect: true,
+    converter: {
+      fromAttribute: (value: string | null) => {
+        if (!value) return ["events:when_start_clicked"];
+        try {
+          return JSON.parse(value);
+        } catch {
+          return ["events:when_start_clicked"];
+        }
+      },
+      toAttribute: (value: SelectedBlocks) => JSON.stringify(value),
+    },
+  })
   public accessor usableBlocks: SelectedBlocks = ["events:when_start_clicked"];
 
   /**
@@ -279,6 +292,15 @@ export class WebwriterBlocks extends LitElementWw {
   private setBlocks(): void {
     const { usableBlocks } = this.stage.stageApplication;
     this.availableBlocks = usableBlocks;
-    this.usableBlocks = [...usableBlocks];
+
+    const isDefaultValue = this.usableBlocks.length === 1
+      && this.usableBlocks[0] === "events:when_start_clicked";
+
+    if (isDefaultValue) {
+      this.usableBlocks = [...usableBlocks];
+    } else {
+      const availableSet = new Set(usableBlocks);
+      this.usableBlocks = this.usableBlocks.filter((block) => availableSet.has(block));
+    }
   }
 }
