@@ -1,22 +1,28 @@
-import { customElement, property } from "lit/decorators.js";
+import { property, query } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import HelpCircleIcon from "@tabler/icons/outline/help-circle.svg";
+
+import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js";
+import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js";
+import SlOption from "@shoelace-style/shoelace/dist/components/option/option.component.js";
+import SlSelect from "@shoelace-style/shoelace/dist/components/select/select.component.js";
+import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js";
+import SlTree from "@shoelace-style/shoelace/dist/components/tree/tree.component.js";
+import SlTreeItem from "@shoelace-style/shoelace/dist/components/tree-item/tree-item.component.js";
+
 import { styles } from "./options.styles";
 import { msg } from "../../locales";
 import { OptionsChangeEvent, StageType } from "../../types";
 import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 
-import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js"
-import SlCheckbox from "@shoelace-style/shoelace/dist/components/checkbox/checkbox.component.js"
-import SlOption from "@shoelace-style/shoelace/dist/components/option/option.component.js"
-import SlSelect from "@shoelace-style/shoelace/dist/components/select/select.component.js"
-import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.component.js"
-import SlTree from "@shoelace-style/shoelace/dist/components/tree/tree.component.js"
-import SlTreeItem from "@shoelace-style/shoelace/dist/components/tree-item/tree-item.component.js"
-
+enum TreeItemState {
+  UNSELECTED,
+  INDETERMINATE,
+  SELECTED,
+}
 
 /**
  * The options component.
@@ -78,13 +84,34 @@ export class Options extends LitElementWw {
   }
 
   /**
+   * Determines in which state a tree item folder should be.
+   * @param category The category of the tree item.
+   * @param blocks The blocks under the category.
+   * @param selectedBlocksSet The set of selected blocks.
+   * @returns True if the tree item should be indeterminate, false otherwise.
+   * @private
+   */
+  private getTreeItemFolderState(category: string, blocks: string[], selectedBlocksSet: Set<BlockTypes>): TreeItemState {
+    const totalBlocks = blocks.length;
+    const selectedBlocks = blocks.filter((name) => selectedBlocksSet.has(`${category}:${name}` as BlockTypes)).length;
+
+    if (selectedBlocks === 0) {
+      return TreeItemState.UNSELECTED;
+    }
+    if (selectedBlocks === totalBlocks) {
+      return TreeItemState.SELECTED;
+    }
+    return TreeItemState.INDETERMINATE;
+  }
+
+  /**
    * @inheritDoc
    */
   public render(): TemplateResult {
     const selectedBlocksSet = new Set(this.selectedBlocks);
     const availableBlocksMap = new Map<string, string[]>();
 
-    this.availableBlocks.sort().forEach((block: BlockTypes) => {
+    this.availableBlocks.forEach((block: BlockTypes) => {
       const [category, name] = block.split(":") as [string, string];
       if (!availableBlocksMap.has(category)) {
         availableBlocksMap.set(category, []);
@@ -130,22 +157,30 @@ export class Options extends LitElementWw {
             <sl-tree selection="multiple" @sl-selection-change=${this.handleSelectedBlocksChange}>
                 <sl-tree-item expanded>
                     all
-                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => (blocks.length === 0 ? html`
-                        <sl-tree-item .selected=${selectedBlocksSet.has(category as BlockTypes)}
-                                      data-block-key=${`${category}`}>
-                            ${category}
-                        </sl-tree-item>
-                      ` : html`
-                          <sl-tree-item>
-                              ${category}
-                              ${blocks.map((name) => html`
-                              <sl-tree-item .selected=${selectedBlocksSet.has(`${category}:${name}` as BlockTypes)}
-                                            data-block-key=${`${category}:${name}`}>
-                                  ${name}
-                              </sl-tree-item>
-                              `)}
-                          </sl-tree-item>
-                      `))}
+                    ${Array.from(availableBlocksMap.entries()).map(([category, blocks]) => {
+    if (blocks.length === 0) {
+      return html`
+                  <sl-tree-item ?selected=${selectedBlocksSet.has(category as BlockTypes)}
+                                data-block-key=${`${category}`}>
+                      ${category}
+                  </sl-tree-item>
+      `;
+    }
+    const folderState = this.getTreeItemFolderState(category, blocks, selectedBlocksSet);
+    return html`
+                  <sl-tree-item 
+                    .indeterminate=${folderState === TreeItemState.INDETERMINATE}
+                    ?selected=${folderState === TreeItemState.SELECTED}>
+                      ${category}
+                      ${blocks.map((name) => html`
+                      <sl-tree-item ?selected=${selectedBlocksSet.has(`${category}:${name}` as BlockTypes)}
+                                    data-block-key=${`${category}:${name}`}>
+                          ${name}
+                      </sl-tree-item>
+                      `)}
+                  </sl-tree-item>
+                `;
+  })}
                 </sl-tree-item>
             </sl-tree>
         </div>

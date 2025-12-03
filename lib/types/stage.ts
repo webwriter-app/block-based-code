@@ -100,8 +100,8 @@ export abstract class StageApplication extends Application {
       "operators:not",
       "operators:join",
       "operators:absolute",
-      "variables",
       ...this.specialBlocks,
+      "variables",
     ];
   }
 
