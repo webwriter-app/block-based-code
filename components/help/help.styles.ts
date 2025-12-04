@@ -21,6 +21,10 @@ export const styles = css`
       
       z-index: 1000;
   }
+
+  h1 {
+      font-size: 1.25em;
+  }
     
   h1, p {
       margin: 0;

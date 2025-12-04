@@ -115,9 +115,15 @@ export class PixiApplication extends StageApplication {
     });
     TextureStyle.defaultOptions.scaleMode = "nearest";
     await Assets.load(bunny);
-    sound.add("pop", popSound);
-    sound.add("failure", failureSound);
-    sound.add("success", successSound);
+    if (!sound.exists("pop")) {
+      sound.add("pop", popSound);
+    }
+    if (!sound.exists("failure")) {
+      sound.add("failure", failureSound);
+    }
+    if (!sound.exists("success")) {
+      sound.add("success", successSound);
+    }
     this.styleCanvas();
     this.addSprite();
     this.application.ticker.start();

@@ -7,7 +7,7 @@ import { generators as lookGenerators, readableGenerators as readableLookGenerat
 import { generators as motionGenerators } from "./motions";
 import { generators as operatorGenerators, readableGenerators as readableOperatorGenerators } from "./operators";
 import { generators as sensingGenerators } from "./sensing";
-import { generators as variableGenerators } from "./variables";
+import { generators as variableGenerators, readableGenerators as readableVariableGenerators } from "./variables";
 import { generators as soundGenerators } from "./sounds";
 import type { WorkspaceSvg } from "blockly";
 
@@ -166,7 +166,7 @@ const readableGenerators: Record<BlockTypes, GeneratorFunction> = {
   ...motionGenerators,
   ...readableOperatorGenerators,
   ...sensingGenerators,
-  ...variableGenerators,
+  ...readableVariableGenerators,
   ...soundGenerators,
   "math:number": (block) => {
     const number = Number(block.getFieldValue("NUM"));

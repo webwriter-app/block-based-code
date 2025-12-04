@@ -4,6 +4,18 @@ import type { GeneratorFunction } from "../types/generator";
 export const generators = {
   variables_get: (block, generator) => {
     const variableName = generator.getVariableName(block.getFieldValue("VAR"));
+    return [`await getVariable(${generator.quote_(variableName)})`, Order.ATOMIC];
+  },
+  variables_set: (block, generator) => {
+    const variableName = generator.getVariableName(block.getFieldValue("VAR"));
+    const value = generator.valueToCode(block, "VALUE", Order.ASSIGNMENT);
+    return `setVariable(${generator.quote_(variableName)}, ${value});\n`;
+  },
+} satisfies Record<"variables_get" | "variables_set", GeneratorFunction>;
+
+export const readableGenerators = {
+  variables_get: (block, generator) => {
+    const variableName = generator.getVariableName(block.getFieldValue("VAR"));
     return [variableName, Order.ATOMIC];
   },
   variables_set: (block, generator) => {

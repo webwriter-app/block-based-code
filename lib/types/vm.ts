@@ -15,6 +15,12 @@ export abstract class VirtualMachine {
   private completeResolveFunctions: Map<string, () => void> = new Map();
 
   /**
+   * Shared variable state across all workers.
+   * @private
+   */
+  private variables: Map<string, number> = new Map();
+
+  /**
    * The highlight callback function. This function is called when the worker wants to highlight a block.
    * @private
    */
@@ -75,15 +81,20 @@ export abstract class VirtualMachine {
    * Stops all workers.
    */
   public stop(): void {
-    for (const eventType of this.workers.keys()) {
-      this.stopEvent(eventType);
-    }
+    Array.from(this.workers.keys()).forEach((eventType) => this.stopEvent(eventType));
   }
 
   /**
    * Resets the stage to its initial state.
    */
   public abstract reset(): void;
+
+  /**
+   * Resets all variables to their initial state.
+   */
+  public resetVariables(): void {
+    this.variables.clear();
+  }
 
   /**
    * Sets the highlight callback function.
@@ -156,6 +167,8 @@ export abstract class VirtualMachine {
     [
       this.highlight,
       this.stop,
+      this.getVariable,
+      this.setVariable,
       ...this.callables,
     ].forEach((callable) => {
       const args = Array(callable.length).fill("x").map((x, i) => `${x}${i}`).join(", ");
@@ -193,5 +206,25 @@ export abstract class VirtualMachine {
     if (this.highlightCallback) {
       this.highlightCallback(id);
     }
+  }
+
+  /**
+   * Gets a variable value from the shared state.
+   * @param name The name of the variable.
+   * @returns The value of the variable, or undefined if not set.
+   * @private
+   */
+  private getVariable(name: string): number {
+    return this.variables.get(name) ?? 0;
+  }
+
+  /**
+   * Sets a variable value in the shared state.
+   * @param name The name of the variable.
+   * @param value The value to set.
+   * @private
+   */
+  private setVariable(name: string, value: number): void {
+    this.variables.set(name, value);
   }
 }
