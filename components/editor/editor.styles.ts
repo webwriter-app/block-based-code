@@ -30,7 +30,8 @@ export const styles = css`
         background-color: var(--sl-color-neutral-0);
         border-right: 1px solid var(--sl-color-gray-300);
 
-        overflow-y: visible;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .blocklyTreeRow {
