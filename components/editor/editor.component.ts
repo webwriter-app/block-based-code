@@ -38,6 +38,8 @@ export class Editor extends LitElementWw {
   @query("#alert")
   private accessor alertDialog!: SlDialog;
 
+  private dialogOpenedAt = 0;
+
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
       "webwriter-blocks-toolbar": Toolbar,
@@ -78,7 +80,7 @@ export class Editor extends LitElementWw {
 
   public render(): TemplateResult {
     return html`
-        <sl-dialog id="prompt" no-header>
+        <sl-dialog id="prompt" no-header @sl-request-close=${this.handleDialogRequestClose}>
             <span></span>
             <sl-input autofocus placeholder=""></sl-input>
             <sl-button slot="footer" @click="${() => this.promptDialog.hide()}">Cancel</sl-button>
@@ -143,7 +145,16 @@ export class Editor extends LitElementWw {
       this.promptDialog.hide().catch();
     });
     button.parentNode.replaceChild(clonedButton, button);
+    this.dialogOpenedAt = Date.now();
     this.promptDialog.show().catch();
+  }
+
+  private handleDialogRequestClose(event: CustomEvent): void {
+    // Prevent dialog from closing by the same event that opened it
+    // (affected change value pop-up on mobile devices)
+    if (event.detail.source === "overlay" && Date.now() - this.dialogOpenedAt < 100) {
+      event.preventDefault();
+    }
   }
 
   private handleConfirm(message: string, callback: (confirmed: boolean) => void): void {
