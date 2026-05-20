@@ -1,5 +1,5 @@
-# Block Based Code (`@webwriter/block-based-code@1.7.2`)
-[License: MIT](LICENSE) | Version: 1.7.2
+# Block Based Code (`@webwriter/block-based-code@1.7.3`)
+[License: MIT](LICENSE) | Version: 1.7.3
 
 Write block-based code (e.g. Scratch) and run it.
 
