@@ -41,7 +41,8 @@ export const styles = css`
     }
     
     sl-tab-group {
-        height: 100%;
+        flex: 1;
+        min-height: 0;
     }
     
     sl-tab-group::part(base) {
@@ -49,8 +50,10 @@ export const styles = css`
     }
     
     sl-tab-group::part(body) {
-        height: 100%;
+        flex: 1;
+        min-height: 0;
         position: relative;
+        overflow: hidden;
     }
     
     sl-tab::part(base) {
