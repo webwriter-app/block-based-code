@@ -233,7 +233,7 @@ export class Stage extends LitElementWw {
                 </webwriter-blocks-toolbar-button>
             </div>
         </webwriter-blocks-toolbar>
-        <sl-tab-group placement="bottom">
+        <sl-tab-group placement="bottom" @sl-tab-show=${this.handleTabShow}>
             <sl-tab slot="nav" panel="stage" active>${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}
             </sl-tab>
             <sl-tab slot="nav" panel="code">${msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
@@ -298,6 +298,17 @@ export class Stage extends LitElementWw {
    */
   private handleResize(): void {
     this.stageApplication.resize();
+  }
+
+  /**
+   * Handles the tab show event.
+   * Resizes the stage when its tab is shown to ensure it is visible if the width has changed.
+   * @private
+   */
+  private handleTabShow(event: CustomEvent): void {
+    if (event.detail.name === "stage") {
+      requestAnimationFrame(() => this.stageApplication.resize());
+    }
   }
 
   /**
