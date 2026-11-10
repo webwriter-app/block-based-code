@@ -8,10 +8,11 @@ import { BlocklyInitializer } from "./blockly-initializer";
 import { createToolboxFromBlockList, SelectedBlocks } from "./toolbox";
 import { BlockTypes } from "./blocks";
 import { executableCodeGenerator, readableCodeGenerator } from "./generator";
+import type { Lang } from "../../types";
 import { Application } from "../types";
 import { WebWriterFlyout } from "./toolbox/flyout";
 import { ToolbarButton } from "../../components/toolbar-button";
-import { msg } from "../../locales";
+import { messageFor, setBlocklyLocale } from "../../locales";
 
 /**
  * The BlocklyApplication class represents a Blockly application.
@@ -76,12 +77,33 @@ export class BlocklyApplication extends Application {
    */
   private workspace: WorkspaceSvg;
 
-  constructor(readonly: boolean, usableBlocks: SelectedBlocks) {
+  constructor(readonly: boolean, usableBlocks: SelectedBlocks, private locale: Lang) {
     super();
-    BlocklyInitializer.define(this);
+    setBlocklyLocale(locale);
+    BlocklyInitializer.define();
+    BlocklyInitializer.activate(this);
     this.readonly = readonly;
     this.usableBlocks = usableBlocks;
     this.injectWorkspace();
+    this.zoomGroup = this.generateZoomGroup();
+    this.container.appendChild(this.zoomGroup);
+    for (const type of ["pointerdown", "contextmenu", "keydown", "focusin"]) {
+      this.container.addEventListener(type, this.activateLocale, { capture: true });
+    }
+  }
+
+  private zoomGroup: HTMLDivElement;
+  private activateLocale = () => {
+    setBlocklyLocale(this.locale);
+    BlocklyInitializer.activate(this);
+  };
+
+  public setLocale(locale: Lang) {
+    if (locale === this.locale) return false;
+    this.locale = locale;
+    this.zoomGroup.replaceWith(this.zoomGroup = this.generateZoomGroup());
+    this.updateToolbox(this.usableBlocks);
+    return true;
   }
 
   /**
@@ -117,6 +139,7 @@ export class BlocklyApplication extends Application {
    * @param state The workspace state.
    */
   public load(state: object): void {
+    this.activateLocale();
     serialization.workspaces.load(state, this.workspace);
   }
 
@@ -176,6 +199,7 @@ export class BlocklyApplication extends Application {
    * @inheritDoc
    */
   public override destroy(): void {
+    BlocklyInitializer.deactivate(this);
     this.workspace.dispose();
     super.destroy();
   }
@@ -187,7 +211,8 @@ export class BlocklyApplication extends Application {
   public updateToolbox(usableBlocks: SelectedBlocks): void {
     if (!this.readonly) {
       this.usableBlocks = usableBlocks;
-      const toolbox = createToolboxFromBlockList(this.usableBlocks);
+      this.activateLocale();
+      const toolbox = createToolboxFromBlockList(this.usableBlocks, messageFor(this.locale));
       this.workspace.updateToolbox(toolbox);
       this.workspace.refreshToolboxSelection();
     }
@@ -200,9 +225,6 @@ export class BlocklyApplication extends Application {
     super.createContainer();
     this.container.style.height = "100%";
     this.container.style.overflow = "visible";
-
-    const zoomGroup = this.generateZoomGroup();
-    this.container.appendChild(zoomGroup);
 
     setParentContainer(this.container);
   }
@@ -236,7 +258,7 @@ export class BlocklyApplication extends Application {
         pinch: true,
       },
       trashcan: false,
-      toolbox: createToolboxFromBlockList(this.usableBlocks),
+      toolbox: createToolboxFromBlockList(this.usableBlocks, messageFor(this.locale)),
       maxInstances: {
         "events:when_start_clicked": 1,
         "events:when_sprite_clicked": 1,
@@ -332,6 +354,7 @@ export class BlocklyApplication extends Application {
    * @private
    */
   private generateZoomGroup(): HTMLDivElement {
+    const msg = messageFor(this.locale);
     const groupDiv = document.createElement("div");
     groupDiv.style.position = "absolute";
     groupDiv.style.top = "var(--sl-spacing-small)";

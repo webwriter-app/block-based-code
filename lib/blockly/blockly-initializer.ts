@@ -17,18 +17,26 @@ export class BlocklyInitializer {
    * @private
    */
   private static initialized = false;
+  private static activeApplication?: BlocklyApplication;
+
+  public static activate(application: BlocklyApplication) {
+    this.activeApplication = application;
+  }
+
+  public static deactivate(application: BlocklyApplication) {
+    if (this.activeApplication === application) this.activeApplication = undefined;
+  }
 
   /**
    * Initializes Blockly.
-   * @param dialogReceiver The dialog event receiver.
    */
-  public static define(dialogReceiver: BlocklyApplication): void {
+  public static define(): void {
     if (BlocklyInitializer.initialized) return;
     BlocklyInitializer.addCopyPastePlugin();
     BlocklyInitializer.registerFields();
     BlocklyInitializer.defineTheme();
     BlocklyInitializer.defineToolboxCategory();
-    BlocklyInitializer.defineDialog(dialogReceiver);
+    BlocklyInitializer.defineDialog();
     BlocklyInitializer.defineContextMenu();
     BlocklyInitializer.defineBlocks();
     BlocklyInitializer.initialized = true;
@@ -76,24 +84,11 @@ export class BlocklyInitializer {
     );
   }
 
-  /**
-   * Defines the dialog event receiver.
-   * @param promptReceiver
-   * @private
-   */
-  private static defineDialog(promptReceiver: BlocklyApplication): void {
-    dialog.setPrompt((...args) => {
-      if (!promptReceiver.promptCallback) return;
-      promptReceiver.promptCallback(...args);
-    });
-    dialog.setConfirm((...args) => {
-      if (!promptReceiver.confirmCallback) return;
-      promptReceiver.confirmCallback(...args);
-    });
-    dialog.setAlert((message) => {
-      if (!promptReceiver.alertCallback) return;
-      promptReceiver.alertCallback(message);
-    });
+  /** Dispatch global Blockly dialogs to the active workspace. */
+  private static defineDialog(): void {
+    dialog.setPrompt((...args) => this.activeApplication?.promptCallback?.(...args));
+    dialog.setConfirm((...args) => this.activeApplication?.confirmCallback?.(...args));
+    dialog.setAlert(message => this.activeApplication?.alertCallback?.(message));
   }
 
   /**

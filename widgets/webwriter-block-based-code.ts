@@ -1,7 +1,6 @@
 import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import {
   customElement, property, query, state,
 } from "lit/decorators.js";
@@ -11,12 +10,12 @@ import { styleMap } from "lit/directives/style-map.js";
 import {
   Application, Editor, Stage, Toolbar,
 } from "../components";
-import { msg, setLocale } from "../locales";
+import { localizeElement, LocalizedElement } from "../locales";
 import { Logger } from "../utils";
 import {
   CodeHighlightingEvent, EditorChangeEvent, StageType,
 } from "../types";
-import { BlockTypes, SelectedBlocks } from "../lib/blockly";
+import { BlockTypes, CategoryTypes, SelectedBlocks } from "../lib/blockly";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { ToolbarButton } from "../components/toolbar-button";
@@ -27,18 +26,22 @@ import { readData, writeData } from "./data-block";
  * The main component of the Blocks widget.
  */
 @customElement("webwriter-block-based-code")
-export class WebwriterBlocks extends LitElementWw {
+export class WebwriterBlocks extends LocalizedElement {
+  private readonly messages = localizeElement(this);
   @property({ type: Boolean, reflect: true, attribute: "read-only" })
   public accessor readOnly = false;
 
   @property({ type: String, reflect: true, attribute: "stage-type" })
   public accessor stageType: StageType = StageType.CANVAS;
 
-  static optionGroups = {
-    blocks: { label: { _: "Blocks", de: "Blöcke" }, collapsible: true },
-  };
+  get optionGroups() {
+    return { blocks: { label: { _: this.messages.msg("OPTIONS.AVAILABLE_BLOCKS") }, collapsible: true } };
+  }
 
-  readonly options = {};
+  constructor() {
+    super();
+    Object.defineProperty(this, "options", { configurable: true, get: () => this.getDrawerOptions() });
+  }
 
   private getDrawerOptions() {
     const categories = new Map<string, { value: string; label: { _: string } }[]>();
@@ -49,13 +52,14 @@ export class WebwriterBlocks extends LitElementWw {
       categories.set(category, children);
     }
     return {
-      readOnly: { type: Boolean, label: { _: msg("OPTIONS.READONLY") }, description: { _: msg("OPTIONS.READONLY_TOOLTIP") } },
+      readOnly: { type: Boolean, label: { _: this.messages.msg("OPTIONS.READONLY") }, description: { _: this.messages.msg("OPTIONS.READONLY_TOOLTIP") } },
       usableBlocks: {
         type: "select", control: "tree", multiple: true, attribute: false, group: "blocks",
-        label: { _: msg("OPTIONS.AVAILABLE_BLOCKS") },
-        description: { _: msg("OPTIONS.AVAILABLE_BLOCKS_TOOLTIP") },
-        options: [...categories].flatMap(([category, children]) =>
-          children.length === 1 && children[0].value === category ? children : [{ label: { _: category }, children }]
+        label: { _: this.messages.msg("OPTIONS.AVAILABLE_BLOCKS") },
+        description: { _: this.messages.msg("OPTIONS.AVAILABLE_BLOCKS_TOOLTIP") },
+        options: Array.from(categories, ([category, children]) =>
+          children.length === 1 && children[0].value === category
+            ? children[0] : { label: { _: this.messages.msg(`CATEGORY.${category.toUpperCase()}` as `CATEGORY.${Uppercase<NonNullable<CategoryTypes> | "variables">}`) }, children }
         ),
       },
     } as const;
@@ -177,7 +181,6 @@ export class WebwriterBlocks extends LitElementWw {
    */
   public connectedCallback() {
     super.connectedCallback();
-    setLocale(document.documentElement.lang?.split("-")[0] || navigator.language?.split("-")[0]);
     this.programObserver.observe(this, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ["slot", "type", "src"] });
     this.syncProgram();
     this.addEventListener("fullscreenchange", this.onFullscreenChange);
@@ -206,7 +209,7 @@ export class WebwriterBlocks extends LitElementWw {
             <webwriter-blocks-toolbar slot="editor">
                 <div>
                     <webwriter-blocks-toolbar-button icon=${this.isFullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}
-                                                     label=${this.isFullscreen ? msg("FULLSCREEN_EXIT") : msg("FULLSCREEN")}
+                                                     label=${this.isFullscreen ? this.messages.msg("FULLSCREEN_EXIT") : this.messages.msg("FULLSCREEN")}
                                                      @click=${this.handleFullscreenToggle}>
                     </webwriter-blocks-toolbar-button>
                 </div>
@@ -237,7 +240,6 @@ export class WebwriterBlocks extends LitElementWw {
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
     this.availableBlocks = this.stage.stageApplication.usableBlocks;
-    Object.assign(this.options, this.getDrawerOptions());
     this.dispatchEvent(new Event("optionschange", { bubbles: true }));
   }
 

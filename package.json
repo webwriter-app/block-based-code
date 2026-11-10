@@ -13,7 +13,14 @@
     "isced2011-3",
     "code",
     "blocks",
-    "JS"
+    "JS",
+    "widget-lang-en-US",
+    "widget-lang-en-GB",
+    "widget-lang-en-CA",
+    "widget-lang-en-AU",
+    "widget-lang-en-IN",
+    "widget-lang-fr",
+    "widget-lang-es"
   ],
   "license": "MIT",
   "author": "Philipp Lentzen",
@@ -64,7 +71,56 @@
   "editingConfig": {
     ".": {
       "description": {
-        "de": "Schreiben Sie blockbasierten Code (wie Scratch) und führen Sie ihn aus."
+        "de": "Schreiben Sie blockbasierten Code (wie Scratch) und führen Sie ihn aus.",
+        "_": "Write block-based code (e.g. Scratch) and run it.",
+        "en": "Write block-based code (e.g. Scratch) and run it.",
+        "en-US": "Write block-based code (e.g. Scratch) and run it.",
+        "en-GB": "Write block-based code (e.g. Scratch) and run it.",
+        "en-CA": "Write block-based code (e.g. Scratch) and run it.",
+        "en-AU": "Write block-based code (e.g. Scratch) and run it.",
+        "en-IN": "Write block-based code (e.g. Scratch) and run it.",
+        "fr": "Écrivez et exécutez du code par blocs, comme dans Scratch.",
+        "es": "Escribe y ejecuta código por bloques, como en Scratch."
+      },
+      "label": {
+        "_": "Block Based Code",
+        "en": "Block Based Code",
+        "en-US": "Block Based Code",
+        "en-GB": "Block Based Code",
+        "en-CA": "Block Based Code",
+        "en-AU": "Block Based Code",
+        "en-IN": "Block Based Code",
+        "fr": "Code par blocs",
+        "de": "Blockbasierter Code",
+        "es": "Código por bloques"
+      }
+    },
+    "./widgets/webwriter-block-based-code": {
+      "label": {
+        "_": "Block Based Code",
+        "en": "Block Based Code",
+        "en-US": "Block Based Code",
+        "en-GB": "Block Based Code",
+        "en-CA": "Block Based Code",
+        "en-AU": "Block Based Code",
+        "en-IN": "Block Based Code",
+        "fr": "Code par blocs",
+        "de": "Blockbasierter Code",
+        "es": "Código por bloques"
+      }
+    },
+    "./snippets/bouncing-dvd": {
+      "label": {
+        "_": "Bouncing Dvd",
+        "en": "Bouncing Dvd",
+        "en-US": "Bouncing Dvd",
+        "en-GB": "Bouncing Dvd",
+        "en-CA": "Bouncing Dvd",
+        "en-AU": "Bouncing Dvd",
+        "en-IN": "Bouncing Dvd",
+        "fr": "Logo DVD rebondissant",
+        "de": "Springendes DVD-Logo",
+        "es": "Logotipo de DVD que rebota"
       }
     }
   },

@@ -4,7 +4,7 @@ import { StageType } from "./stage";
 /**
  * The available languages.
  */
-export const languages = ["en", "de"] as const;
+export const languages = ["en", "de", "fr", "es"] as const;
 
 /**
  * The type of the available languages.
@@ -25,6 +25,7 @@ export type Dictionary = {
   EXECUTION_OPTIONS: string;
   RESET_STAGE: string;
   SHORTCUTS: string;
+  DIALOG: { CANCEL: string; SAVE: string; NO: string; YES: string; OK: string };
   ZOOM: {
     IN: string;
     OUT: string;
@@ -46,7 +47,7 @@ export type Dictionary = {
     DELETE: string;
   };
   BLOCKS: Partial<Record<Uppercase<string>, string>>
-  CATEGORY: Partial<Record<Uppercase<CategoryTypes>, string>>
+  CATEGORY: Partial<Record<Uppercase<NonNullable<CategoryTypes> | "variables">, string>>
 };
 
 /**

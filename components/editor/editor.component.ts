@@ -1,5 +1,4 @@
 import { customElement, property, query } from "lit/decorators.js";
-import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
@@ -9,14 +8,16 @@ import { BlocklyApplication, SelectedBlocks } from "../../lib/blockly";
 import { EditorChangeEvent } from "../../types";
 import { Toolbar } from "../toolbar";
 import { ToolbarButton } from "../toolbar-button";
+import { localizeElement, LocalizedElement } from "../../locales";
 import { Logger } from "../../utils";
 
 import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog.component.js"
 import SlInput from "@shoelace-style/shoelace/dist/components/input/input.component.js"
 import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
 
-export class Editor extends LitElementWw {
+export class Editor extends LocalizedElement {
   public editorApplication: BlocklyApplication;
+  private readonly messages = localizeElement(this);
 
   @property({ type: Boolean })
   public accessor readonly: boolean;
@@ -65,7 +66,7 @@ export class Editor extends LitElementWw {
   public connectedCallback() {
     super.connectedCallback();
     this.resizeObserver.observe(this);
-    this.editorApplication = new BlocklyApplication(this.readonly, this.selectedBlocks);
+    this.editorApplication = new BlocklyApplication(this.readonly, this.selectedBlocks, this.messages.getLocale());
     this.editorApplication.load(this.state);
     this.editorApplication.addEventListener("CHANGE", this.handleChange.bind(this));
     this.editorApplication.addEventListener("PROMPT", this.handlePrompt.bind(this));
@@ -85,23 +86,23 @@ export class Editor extends LitElementWw {
         <sl-dialog id="prompt" no-header @sl-request-close=${this.handleDialogRequestClose}>
             <span></span>
             <sl-input autofocus placeholder=""></sl-input>
-            <sl-button slot="footer" @click="${() => this.promptDialog.hide()}">Cancel</sl-button>
-            <sl-button slot="footer" variant="primary">Save</sl-button>
+            <sl-button slot="footer" @click="${() => this.promptDialog.hide()}">${this.messages.msg("DIALOG.CANCEL")}</sl-button>
+            <sl-button slot="footer" variant="primary">${this.messages.msg("DIALOG.SAVE")}</sl-button>
         </sl-dialog>
         <sl-dialog id="confirm" no-header>
             <span></span>
-            <sl-button slot="footer">No</sl-button>
-            <sl-button slot="footer" variant="primary">Yes</sl-button>
+            <sl-button slot="footer">${this.messages.msg("DIALOG.NO")}</sl-button>
+            <sl-button slot="footer" variant="primary">${this.messages.msg("DIALOG.YES")}</sl-button>
         </sl-dialog>
         <sl-dialog id="alert" no-header>
             <span></span>
-            <sl-button slot="footer" variant="primary" @click=${() => this.alertDialog.hide()}>Ok</sl-button>
+            <sl-button slot="footer" variant="primary" @click=${() => this.alertDialog.hide()}>${this.messages.msg("DIALOG.OK")}</sl-button>
         </sl-dialog>
     `;
   }
 
   protected shouldUpdate(changedProperties: PropertyValues): boolean {
-    let shouldUpdate = false;
+    let shouldUpdate = this.editorApplication.setLocale(this.messages.getLocale());
     if (changedProperties.has("readonly")) {
       shouldUpdate = true;
     }
