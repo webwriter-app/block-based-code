@@ -39,6 +39,7 @@ export class Editor extends LitElementWw {
   private accessor alertDialog!: SlDialog;
 
   private dialogOpenedAt = 0;
+  private loadingProgram = false;
 
   public static get scopedElements(): Record<string, typeof LitElement> {
     return {
@@ -70,6 +71,7 @@ export class Editor extends LitElementWw {
     this.editorApplication.addEventListener("PROMPT", this.handlePrompt.bind(this));
     this.editorApplication.addEventListener("CONFIRM", this.handleConfirm.bind(this));
     this.editorApplication.addEventListener("ALERT", this.handleAlert.bind(this));
+    if (this.hasUpdated) this.shadowRoot.appendChild(this.editorApplication.container);
   }
 
   public disconnectedCallback() {
@@ -103,7 +105,17 @@ export class Editor extends LitElementWw {
     if (changedProperties.has("readonly")) {
       shouldUpdate = true;
     }
-    if (changedProperties.get("selectedBlocks")) {
+    if (changedProperties.has("state") && this.state &&
+        JSON.stringify(this.state) !== JSON.stringify(this.editorApplication.save())) {
+      this.loadingProgram = true;
+      try {
+        this.editorApplication.load(this.state);
+        this.handleChange();
+      } finally {
+        this.loadingProgram = false;
+      }
+    }
+    if (changedProperties.has("selectedBlocks")) {
       this.editorApplication.updateToolbox(this.selectedBlocks);
     }
 
@@ -198,6 +210,6 @@ export class Editor extends LitElementWw {
       this.editorApplication.readableCode,
       this.editorApplication.executableCode,
     );
-    this.dispatchEvent(changeEvent);
+    this.dispatchEvent(this.loadingProgram ? new CustomEvent("programloaded", {detail: changeEvent.detail}) : changeEvent);
   }
 }
