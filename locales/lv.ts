@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Sākt izpildi", RESTART: "Restartēt izpildi", STOP: "Apturēt izpildi", FULLSCREEN: "Atvērt pilnekrāna režīmu", FULLSCREEN_EXIT: "Iziet no pilnekrāna režīma", HELP: "Palīdzība", ERROR: "Radās kļūda!", EXECUTION_OPTIONS: "Izpildes opcijas", RESET_STAGE: "Atiestatīt skatuvi", SHORTCUTS: "Tastatūras saīsnes",
+ DIALOG: { CANCEL: "Atcelt", SAVE: "Saglabāt", NO: "Nē", YES: "Jā", OK: "Labi" }, ZOOM: { IN: "Tuvināt", OUT: "Tālināt", RESET: "Atiestatīt mērogu" },
+ OPTIONS: { READONLY: "Tikai lasāms", READONLY_TOOLTIP: "Izvēlieties, vai blokus var rediģēt", STAGE: "Skatuve", STAGE_TOOLTIP: "Izvēlieties skatuves veidu", STAGE_TYPES: { CODE: "Kods", CANVAS: "Audekls" }, AVAILABLE_BLOCKS: "Pieejamie bloki", AVAILABLE_BLOCKS_TOOLTIP: "Izvēlieties, kuri bloki ir pieejami rīku komplektā" },
+ CONTROLS: { DUPLICATE_BLOCK: "Dublēt", CROSS_TAB_COPY: "Kopēt", CROSS_TAB_PASTE: "Ielīmēt", DELETE: "Dzēst" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "kad tiek noklikšķināts uz %1", WHEN_SPRITE_CLICKED: "kad tiek noklikšķināts uz šī tēla", WHEN_KEY_PRESSED: "kad nospiests taustiņš %1", KEY_ANY: "jebkurš taustiņš", KEY_SPACE: "atstarpes taustiņš", KEY_ARROW_UP: "augšupvērstā bultiņa", KEY_ARROW_DOWN: "lejupvērstā bultiņa", KEY_ARROW_LEFT: "kreisā bultiņa", KEY_ARROW_RIGHT: "labā bultiņa",
+ WAIT: "gaidīt %1 sekundes", REPEAT: "atkārtot %1 reizes", FOREVER: "nepārtraukti", IF: "ja %1, tad", ELSE: "citādi", STOP: "apturēt", RANDOM: "izvēlēties nejaušu skaitli no %1 līdz %2", AND: "%1 un %2", OR: "%1 vai %2", NOT: "ne %1", JOIN: "savienot %1 un %2", ABSOLUTE: "%1 absolūtā vērtība",
+ SAY: "saki %1", SAY_FOR_SECONDS: "saki %1 %2 sekundes", SET_COLOR: "iestatīt krāsas efektu uz %1", SET_BACKGROUND_COLOR: "iestatīt fona krāsu uz %1", MOVE: "pārvietoties par %1 soļiem", ROTATE: "pagriezt par %1 grādiem", SET_ROTATION: "iestatīt virzienu uz %1 grādiem", SET_X: "iestatīt x uz %1", SET_Y: "iestatīt y uz %1", SET_XY: "iestatīt x uz %1 un y uz %2", GET_X: "x pozīcija", GET_Y: "y pozīcija", TIMER: "taimeris", RESET_TIMER: "atiestatīt taimeri", PLAY_SOUND: "atskaņot skaņu %1", PLAY_SOUND_UNTIL_DONE: "atskaņot skaņu %1 līdz beigām", STOP_ALL_SOUNDS: "apturēt visas skaņas", SOUND_POP: "plaukšķis", SOUND_FAILURE: "neveiksme", SOUND_SUCCESS: "izdošanās"
+ }, CATEGORY: { CONTROLS: "Vadība", EVENTS: "Notikumi", OPERATORS: "Operatori", LOOKS: "Izskats", MOTIONS: "Kustība", VARIABLES: "Mainīgie", SENSING: "Uztveršana", SOUNDS: "Skaņas" }
+};

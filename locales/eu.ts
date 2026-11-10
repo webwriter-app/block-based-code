@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Exekuzioa hasi", RESTART: "Exekuzioa berrabiarazi", STOP: "Exekuzioa gelditu", FULLSCREEN: "Pantaila osoan ireki", FULLSCREEN_EXIT: "Pantaila osotik irten", HELP: "Laguntza", ERROR: "Errore bat gertatu da!", EXECUTION_OPTIONS: "Exekuzio-aukerak", RESET_STAGE: "Eszenatokia berrezarri", SHORTCUTS: "Teklatu-lasterbideak",
+ DIALOG: { CANCEL: "Utzi", SAVE: "Gorde", NO: "Ez", YES: "Bai", OK: "Ados" }, ZOOM: { IN: "Handiagotu", OUT: "Txikiagotu", RESET: "Zooma berrezarri" },
+ OPTIONS: { READONLY: "Irakurtzeko soilik", READONLY_TOOLTIP: "Aukeratu blokeak edita daitezkeen ala ez", STAGE: "Eszenatokia", STAGE_TOOLTIP: "Aukeratu eszenatoki mota", STAGE_TYPES: { CODE: "Kodea", CANVAS: "Mihisea" }, AVAILABLE_BLOCKS: "Bloke erabilgarriak", AVAILABLE_BLOCKS_TOOLTIP: "Aukeratu tresna-kutxan erabilgarri egongo diren blokeak" },
+ CONTROLS: { DUPLICATE_BLOCK: "Bikoiztu", CROSS_TAB_COPY: "Kopiatu", CROSS_TAB_PASTE: "Itsatsi", DELETE: "Ezabatu" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "%1 sakatzean", WHEN_SPRITE_CLICKED: "pertsonaia hau sakatzean", WHEN_KEY_PRESSED: "%1 tekla sakatzean", KEY_ANY: "edozein tekla", KEY_SPACE: "zuriune-barra", KEY_ARROW_UP: "gorako gezia", KEY_ARROW_DOWN: "beherako gezia", KEY_ARROW_LEFT: "ezkerreko gezia", KEY_ARROW_RIGHT: "eskuineko gezia",
+ WAIT: "itxaron %1 segundo", REPEAT: "errepikatu %1 aldiz", FOREVER: "betiko", IF: "%1 bada, orduan", ELSE: "bestela", STOP: "gelditu", RANDOM: "aukeratu ausazko zenbaki bat %1 eta %2 artean", AND: "%1 eta %2", OR: "%1 edo %2", NOT: "ez %1", JOIN: "elkartu %1 eta %2", ABSOLUTE: "%1 balio absolutua",
+ SAY: "esan %1", SAY_FOR_SECONDS: "esan %1 %2 segundoz", SET_COLOR: "ezarri kolore-efektua %1", SET_BACKGROUND_COLOR: "ezarri atzeko planoaren kolorea %1", MOVE: "mugitu %1 urrats", ROTATE: "biratu %1 gradu", SET_ROTATION: "ezarri norabidea %1 gradu", SET_X: "ezarri x %1", SET_Y: "ezarri y %1", SET_XY: "ezarri x %1 eta y %2", GET_X: "x posizioa", GET_Y: "y posizioa", TIMER: "tenporizadorea", RESET_TIMER: "berrezarri tenporizadorea", PLAY_SOUND: "erreproduzitu %1 soinua", PLAY_SOUND_UNTIL_DONE: "erreproduzitu %1 soinua amaitu arte", STOP_ALL_SOUNDS: "gelditu soinu guztiak", SOUND_POP: "pop", SOUND_FAILURE: "hutsegitea", SOUND_SUCCESS: "arrakasta"
+ }, CATEGORY: { CONTROLS: "Kontrola", EVENTS: "Gertaerak", OPERATORS: "Eragileak", LOOKS: "Itxura", MOTIONS: "Mugimendua", VARIABLES: "Aldagaiak", SENSING: "Sentsoreak", SOUNDS: "Soinuak" }
+};

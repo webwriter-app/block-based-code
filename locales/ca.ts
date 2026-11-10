@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Inicia l'execució", RESTART: "Reinicia l'execució", STOP: "Atura l'execució", FULLSCREEN: "Entra al mode de pantalla completa", FULLSCREEN_EXIT: "Surt del mode de pantalla completa", HELP: "Ajuda", ERROR: "S'ha produït un error!", EXECUTION_OPTIONS: "Opcions d'execució", RESET_STAGE: "Reinicia l'escenari", SHORTCUTS: "Dreceres de teclat",
+ DIALOG: { CANCEL: "Cancel·la", SAVE: "Desa", NO: "No", YES: "Sí", OK: "D'acord" }, ZOOM: { IN: "Amplia", OUT: "Redueix", RESET: "Restableix el zoom" },
+ OPTIONS: { READONLY: "Només lectura", READONLY_TOOLTIP: "Tria si es poden editar els blocs", STAGE: "Escenari", STAGE_TOOLTIP: "Tria el tipus d'escenari", STAGE_TYPES: { CODE: "Codi", CANVAS: "Llenç" }, AVAILABLE_BLOCKS: "Blocs disponibles", AVAILABLE_BLOCKS_TOOLTIP: "Tria quins blocs estan disponibles a la caixa d'eines" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplica", CROSS_TAB_COPY: "Copia", CROSS_TAB_PASTE: "Enganxa", DELETE: "Suprimeix" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "quan es faci clic a %1", WHEN_SPRITE_CLICKED: "quan es faci clic en aquest personatge", WHEN_KEY_PRESSED: "quan es premi la tecla %1", KEY_ANY: "qualsevol tecla", KEY_SPACE: "espai", KEY_ARROW_UP: "fletxa amunt", KEY_ARROW_DOWN: "fletxa avall", KEY_ARROW_LEFT: "fletxa esquerra", KEY_ARROW_RIGHT: "fletxa dreta",
+ WAIT: "espera %1 segons", REPEAT: "repeteix %1 vegades", FOREVER: "per sempre", IF: "si %1, llavors", ELSE: "si no", STOP: "atura", RANDOM: "tria un nombre aleatori entre %1 i %2", AND: "%1 i %2", OR: "%1 o %2", NOT: "no %1", JOIN: "uneix %1 i %2", ABSOLUTE: "valor absolut de %1",
+ SAY: "digues %1", SAY_FOR_SECONDS: "digues %1 durant %2 segons", SET_COLOR: "estableix l'efecte de color a %1", SET_BACKGROUND_COLOR: "estableix el color del fons a %1", MOVE: "mou-te %1 passos", ROTATE: "gira %1 graus", SET_ROTATION: "estableix la direcció a %1 graus", SET_X: "estableix x a %1", SET_Y: "estableix y a %1", SET_XY: "estableix x a %1 i y a %2", GET_X: "posició x", GET_Y: "posició y", TIMER: "temporitzador", RESET_TIMER: "reinicia el temporitzador", PLAY_SOUND: "reprodueix el so %1", PLAY_SOUND_UNTIL_DONE: "reprodueix el so %1 fins que acabi", STOP_ALL_SOUNDS: "atura tots els sons", SOUND_POP: "pop", SOUND_FAILURE: "fracàs", SOUND_SUCCESS: "èxit"
+ }, CATEGORY: { CONTROLS: "Control", EVENTS: "Esdeveniments", OPERATORS: "Operadors", LOOKS: "Aspecte", MOTIONS: "Moviment", VARIABLES: "Variables", SENSING: "Sensors", SOUNDS: "Sons" }
+};

@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Iniciar execución", RESTART: "Reiniciar execución", STOP: "Deter a execución", FULLSCREEN: "Poñer en pantalla completa", FULLSCREEN_EXIT: "Saír da pantalla completa", HELP: "Axuda", ERROR: "Produciuse un erro!", EXECUTION_OPTIONS: "Opcións de execución", RESET_STAGE: "Restablecer o escenario", SHORTCUTS: "Atallos de teclado",
+ DIALOG: { CANCEL: "Cancelar", SAVE: "Gardar", NO: "Non", YES: "Si", OK: "Aceptar" }, ZOOM: { IN: "Ampliar", OUT: "Reducir", RESET: "Restablecer o zoom" },
+ OPTIONS: { READONLY: "Só lectura", READONLY_TOOLTIP: "Escolle se se poden editar os bloques", STAGE: "Escenario", STAGE_TOOLTIP: "Escolle o tipo de escenario", STAGE_TYPES: { CODE: "Código", CANVAS: "Lenzo" }, AVAILABLE_BLOCKS: "Bloques dispoñibles", AVAILABLE_BLOCKS_TOOLTIP: "Escolle que bloques estarán dispoñibles na caixa de ferramentas" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplicar", CROSS_TAB_COPY: "Copiar", CROSS_TAB_PASTE: "Pegar", DELETE: "Eliminar" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "ao facer clic en %1", WHEN_SPRITE_CLICKED: "ao facer clic neste personaxe", WHEN_KEY_PRESSED: "ao premer a tecla %1", KEY_ANY: "calquera tecla", KEY_SPACE: "espazo", KEY_ARROW_UP: "frecha cara arriba", KEY_ARROW_DOWN: "frecha cara abaixo", KEY_ARROW_LEFT: "frecha cara á esquerda", KEY_ARROW_RIGHT: "frecha cara á dereita",
+ WAIT: "agardar %1 segundos", REPEAT: "repetir %1 veces", FOREVER: "para sempre", IF: "se %1, entón", ELSE: "se non", STOP: "deter", RANDOM: "escoller un número aleatorio entre %1 e %2", AND: "%1 e %2", OR: "%1 ou %2", NOT: "non %1", JOIN: "xuntar %1 e %2", ABSOLUTE: "valor absoluto de %1",
+ SAY: "dicir %1", SAY_FOR_SECONDS: "dicir %1 durante %2 segundos", SET_COLOR: "definir o efecto de cor como %1", SET_BACKGROUND_COLOR: "definir a cor de fondo como %1", MOVE: "mover %1 pasos", ROTATE: "xirar %1 graos", SET_ROTATION: "definir a dirección en %1 graos", SET_X: "definir x como %1", SET_Y: "definir y como %1", SET_XY: "definir x como %1 e y como %2", GET_X: "posición x", GET_Y: "posición y", TIMER: "temporizador", RESET_TIMER: "restablecer o temporizador", PLAY_SOUND: "reproducir o son %1", PLAY_SOUND_UNTIL_DONE: "reproducir o son %1 ata que remate", STOP_ALL_SOUNDS: "deter todos os sons", SOUND_POP: "pop", SOUND_FAILURE: "fallo", SOUND_SUCCESS: "éxito"
+ }, CATEGORY: { CONTROLS: "Control", EVENTS: "Eventos", OPERATORS: "Operadores", LOOKS: "Aparencia", MOTIONS: "Movemento", VARIABLES: "Variables", SENSING: "Detección", SOUNDS: "Sons" }
+};

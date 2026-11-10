@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Futtatás indítása", RESTART: "Futtatás újraindítása", STOP: "Futtatás leállítása", FULLSCREEN: "Teljes képernyő", FULLSCREEN_EXIT: "Kilépés a teljes képernyőből", HELP: "Súgó", ERROR: "Hiba történt!", EXECUTION_OPTIONS: "Futtatási beállítások", RESET_STAGE: "Színpad visszaállítása", SHORTCUTS: "Billentyűparancsok",
+ DIALOG: { CANCEL: "Mégse", SAVE: "Mentés", NO: "Nem", YES: "Igen", OK: "OK" }, ZOOM: { IN: "Nagyítás", OUT: "Kicsinyítés", RESET: "Nagyítás visszaállítása" },
+ OPTIONS: { READONLY: "Csak olvasható", READONLY_TOOLTIP: "Válaszd ki, hogy szerkeszthetők-e a blokkok", STAGE: "Színpad", STAGE_TOOLTIP: "Válaszd ki a színpad típusát", STAGE_TYPES: { CODE: "Kód", CANVAS: "Vászon" }, AVAILABLE_BLOCKS: "Elérhető blokkok", AVAILABLE_BLOCKS_TOOLTIP: "Válaszd ki az eszköztárban elérhető blokkokat" },
+ CONTROLS: { DUPLICATE_BLOCK: "Másolás", CROSS_TAB_COPY: "Másolás", CROSS_TAB_PASTE: "Beillesztés", DELETE: "Törlés" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "amikor a(z) %1 elemre kattintanak", WHEN_SPRITE_CLICKED: "amikor erre a szereplőre kattintanak", WHEN_KEY_PRESSED: "a(z) %1 billentyű lenyomásakor", KEY_ANY: "bármely billentyű", KEY_SPACE: "szóköz", KEY_ARROW_UP: "felfelé nyíl", KEY_ARROW_DOWN: "lefelé nyíl", KEY_ARROW_LEFT: "balra nyíl", KEY_ARROW_RIGHT: "jobbra nyíl",
+ WAIT: "várj %1 másodpercet", REPEAT: "ismételd %1 alkalommal", FOREVER: "mindig", IF: "ha %1, akkor", ELSE: "különben", STOP: "állj le", RANDOM: "véletlen szám %1 és %2 között", AND: "%1 és %2", OR: "%1 vagy %2", NOT: "nem %1", JOIN: "%1 és %2 összefűzése", ABSOLUTE: "%1 abszolút értéke",
+ SAY: "mondd: %1", SAY_FOR_SECONDS: "mondd: %1 (%2 másodpercig)", SET_COLOR: "színeffektus beállítása erre: %1", SET_BACKGROUND_COLOR: "háttérszín beállítása erre: %1", MOVE: "lépj %1 lépést", ROTATE: "fordulj el %1 fokkal", SET_ROTATION: "irány beállítása %1 fokra", SET_X: "x beállítása erre: %1", SET_Y: "y beállítása erre: %1", SET_XY: "x beállítása %1, y beállítása %2", GET_X: "x pozíció", GET_Y: "y pozíció", TIMER: "időzítő", RESET_TIMER: "időzítő nullázása", PLAY_SOUND: "%1 hang lejátszása", PLAY_SOUND_UNTIL_DONE: "%1 hang lejátszása a végéig", STOP_ALL_SOUNDS: "minden hang leállítása", SOUND_POP: "pukkanás", SOUND_FAILURE: "sikertelenség", SOUND_SUCCESS: "siker"
+ }, CATEGORY: { CONTROLS: "Vezérlés", EVENTS: "Események", OPERATORS: "Operátorok", LOOKS: "Megjelenés", MOTIONS: "Mozgás", VARIABLES: "Változók", SENSING: "Érzékelés", SOUNDS: "Hangok" }
+};

@@ -15,6 +15,7 @@ import { Logger } from "../utils";
 import {
   CodeHighlightingEvent, EditorChangeEvent, StageType,
 } from "../types";
+import { blocks } from "../lib/blockly/blocks/blocks";
 import { BlockTypes, CategoryTypes, SelectedBlocks } from "../lib/blockly";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
@@ -43,12 +44,28 @@ export class WebwriterBlocks extends LocalizedElement {
     Object.defineProperty(this, "options", { configurable: true, get: () => this.getDrawerOptions() });
   }
 
+  private getBlockOptionLabel(type: BlockTypes): string {
+    if (type === "variables") return this.messages.msg("CATEGORY.VARIABLES");
+    const symbols: Record<string, string> = {
+      "operators:sum": "+", "operators:subtract": "-", "operators:multiply": "*", "operators:divide": "/",
+      "operators:smaller": "<", "operators:greater": ">", "operators:equal": "=", "math:number": "0", "text:string": "\"\"",
+    };
+    if (symbols[type]) return symbols[type];
+    const definition = blocks.find(block => block.type === type);
+    if (!definition || typeof definition.message0 !== "string") return this.messages.msg("OPTIONS.AVAILABLE_BLOCKS");
+    return definition.message0
+      .replace(/%\{BKY_([A-Z0-9_]+)\}/g, (_match, key: string) => this.messages.msg(`BLOCKS.${key}` as `BLOCKS.${Uppercase<string>}`))
+      .replace(/%\d+/g, "…")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
   private getDrawerOptions() {
     const categories = new Map<string, { value: string; label: { _: string } }[]>();
     for (const value of this.availableBlocks) {
-      const [category, name] = value.split(":");
+      const [category] = value.split(":");
       const children = categories.get(category) ?? [];
-      children.push({ value, label: { _: (name ?? category).replaceAll("_", " ") } });
+      children.push({ value, label: { _: this.getBlockOptionLabel(value as BlockTypes) } });
       categories.set(category, children);
     }
     return {

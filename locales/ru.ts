@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Запустить выполнение", RESTART: "Перезапустить выполнение", STOP: "Остановить выполнение", FULLSCREEN: "На весь экран", FULLSCREEN_EXIT: "Выйти из полноэкранного режима", HELP: "Справка", ERROR: "Произошла ошибка!", EXECUTION_OPTIONS: "Параметры выполнения", RESET_STAGE: "Сбросить сцену", SHORTCUTS: "Сочетания клавиш",
+ DIALOG: { CANCEL: "Отмена", SAVE: "Сохранить", NO: "Нет", YES: "Да", OK: "ОК" }, ZOOM: { IN: "Увеличить", OUT: "Уменьшить", RESET: "Сбросить масштаб" },
+ OPTIONS: { READONLY: "Только чтение", READONLY_TOOLTIP: "Выберите, можно ли редактировать блоки", STAGE: "Сцена", STAGE_TOOLTIP: "Выберите тип сцены", STAGE_TYPES: { CODE: "Код", CANVAS: "Холст" }, AVAILABLE_BLOCKS: "Доступные блоки", AVAILABLE_BLOCKS_TOOLTIP: "Выберите блоки, доступные на панели инструментов" },
+ CONTROLS: { DUPLICATE_BLOCK: "Дублировать", CROSS_TAB_COPY: "Копировать", CROSS_TAB_PASTE: "Вставить", DELETE: "Удалить" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "когда щёлкнут по %1", WHEN_SPRITE_CLICKED: "когда щёлкнут по этому спрайту", WHEN_KEY_PRESSED: "когда нажата клавиша %1", KEY_ANY: "любая клавиша", KEY_SPACE: "пробел", KEY_ARROW_UP: "стрелка вверх", KEY_ARROW_DOWN: "стрелка вниз", KEY_ARROW_LEFT: "стрелка влево", KEY_ARROW_RIGHT: "стрелка вправо",
+ WAIT: "ждать %1 секунд", REPEAT: "повторить %1 раз", FOREVER: "всегда", IF: "если %1, то", ELSE: "иначе", STOP: "остановить", RANDOM: "выбрать случайное число от %1 до %2", AND: "%1 и %2", OR: "%1 или %2", NOT: "не %1", JOIN: "соединить %1 и %2", ABSOLUTE: "модуль числа %1",
+ SAY: "сказать %1", SAY_FOR_SECONDS: "сказать %1 на %2 секунд", SET_COLOR: "установить цветовой эффект в %1", SET_BACKGROUND_COLOR: "установить цвет фона в %1", MOVE: "переместиться на %1 шагов", ROTATE: "повернуться на %1 градусов", SET_ROTATION: "установить направление на %1 градусов", SET_X: "установить x в %1", SET_Y: "установить y в %1", SET_XY: "установить x в %1 и y в %2", GET_X: "координата x", GET_Y: "координата y", TIMER: "таймер", RESET_TIMER: "сбросить таймер", PLAY_SOUND: "воспроизвести звук %1", PLAY_SOUND_UNTIL_DONE: "воспроизводить звук %1 до конца", STOP_ALL_SOUNDS: "остановить все звуки", SOUND_POP: "хлопок", SOUND_FAILURE: "неудача", SOUND_SUCCESS: "успех"
+ }, CATEGORY: { CONTROLS: "Управление", EVENTS: "События", OPERATORS: "Операторы", LOOKS: "Внешний вид", MOTIONS: "Движение", VARIABLES: "Переменные", SENSING: "Датчики", SOUNDS: "Звуки" }
+};

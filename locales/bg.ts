@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Стартиране на изпълнението", RESTART: "Рестартиране на изпълнението", STOP: "Спиране на изпълнението", FULLSCREEN: "На цял екран", FULLSCREEN_EXIT: "Изход от цял екран", HELP: "Помощ", ERROR: "Възникна грешка!", EXECUTION_OPTIONS: "Настройки за изпълнение", RESET_STAGE: "Нулиране на сцената", SHORTCUTS: "Клавишни комбинации",
+ DIALOG: { CANCEL: "Отказ", SAVE: "Запазване", NO: "Не", YES: "Да", OK: "Добре" }, ZOOM: { IN: "Увеличаване", OUT: "Намаляване", RESET: "Нулиране на мащаба" },
+ OPTIONS: { READONLY: "Само за четене", READONLY_TOOLTIP: "Изберете дали блоковете могат да се редактират", STAGE: "Сцена", STAGE_TOOLTIP: "Изберете типа на сцената", STAGE_TYPES: { CODE: "Код", CANVAS: "Платно" }, AVAILABLE_BLOCKS: "Налични блокове", AVAILABLE_BLOCKS_TOOLTIP: "Изберете кои блокове да са налични в кутията с инструменти" },
+ CONTROLS: { DUPLICATE_BLOCK: "Дублиране", CROSS_TAB_COPY: "Копиране", CROSS_TAB_PASTE: "Поставяне", DELETE: "Изтриване" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "когато се щракне върху %1", WHEN_SPRITE_CLICKED: "когато се щракне върху този спрайт", WHEN_KEY_PRESSED: "когато се натисне клавиш %1", KEY_ANY: "който и да е клавиш", KEY_SPACE: "интервал", KEY_ARROW_UP: "стрелка нагоре", KEY_ARROW_DOWN: "стрелка надолу", KEY_ARROW_LEFT: "стрелка наляво", KEY_ARROW_RIGHT: "стрелка надясно",
+ WAIT: "изчакай %1 секунди", REPEAT: "повтори %1 пъти", FOREVER: "завинаги", IF: "ако %1, тогава", ELSE: "иначе", STOP: "спри", RANDOM: "избери случайно число от %1 до %2", AND: "%1 и %2", OR: "%1 или %2", NOT: "не %1", JOIN: "съедини %1 и %2", ABSOLUTE: "абсолютна стойност на %1",
+ SAY: "кажи %1", SAY_FOR_SECONDS: "кажи %1 за %2 секунди", SET_COLOR: "задай цветови ефект %1", SET_BACKGROUND_COLOR: "задай цвят на фона %1", MOVE: "премести се с %1 стъпки", ROTATE: "завърти с %1 градуса", SET_ROTATION: "задай посока %1 градуса", SET_X: "задай x на %1", SET_Y: "задай y на %1", SET_XY: "задай x на %1 и y на %2", GET_X: "позиция x", GET_Y: "позиция y", TIMER: "таймер", RESET_TIMER: "нулирай таймера", PLAY_SOUND: "пусни звук %1", PLAY_SOUND_UNTIL_DONE: "пусни звук %1 до края", STOP_ALL_SOUNDS: "спри всички звуци", SOUND_POP: "пук", SOUND_FAILURE: "неуспех", SOUND_SUCCESS: "успех"
+ }, CATEGORY: { CONTROLS: "Управление", EVENTS: "Събития", OPERATORS: "Оператори", LOOKS: "Външен вид", MOTIONS: "Движение", VARIABLES: "Променливи", SENSING: "Усещане", SOUNDS: "Звуци" }
+};

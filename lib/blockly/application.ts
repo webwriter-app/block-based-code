@@ -1,5 +1,5 @@
 import {
-  Events, inject, serialization, setParentContainer, svgResize, utils, Variables, WorkspaceSvg,
+  common, Events, inject, serialization, setParentContainer, svgResize, utils, Variables, WorkspaceSvg,
 } from "blockly";
 import ZoomResetIcon from "@tabler/icons/outline/zoom-reset.svg";
 import ZoomOutIcon from "@tabler/icons/outline/zoom-out.svg";
@@ -81,10 +81,10 @@ export class BlocklyApplication extends Application {
     super();
     setBlocklyLocale(locale);
     BlocklyInitializer.define();
-    BlocklyInitializer.activate(this);
     this.readonly = readonly;
     this.usableBlocks = usableBlocks;
     this.injectWorkspace();
+    BlocklyInitializer.activate(this);
     this.zoomGroup = this.generateZoomGroup();
     this.container.appendChild(this.zoomGroup);
     for (const type of ["pointerdown", "contextmenu", "keydown", "focusin"]) {
@@ -100,10 +100,43 @@ export class BlocklyApplication extends Application {
 
   public setLocale(locale: Lang) {
     if (locale === this.locale) return false;
+    const state = this.save();
+    const scale = this.workspace.getScale();
+    const scrollX = this.workspace.scrollX;
+    const scrollY = this.workspace.scrollY;
+    const selected = common.getSelected() as { id?: unknown; workspace?: unknown } | null;
+    const selectedId = selected?.workspace === this.workspace && typeof selected.id === "string"
+      ? selected.id : undefined;
+
     this.locale = locale;
+    this.activateLocale();
+    Events.disable();
+    try {
+      this.workspace.clear();
+      serialization.workspaces.load(state, this.workspace);
+      this.workspace.setScale(scale);
+      this.workspace.scroll(scrollX, scrollY);
+      if (selectedId) {
+        const replacement = this.workspace.getBlockById(selectedId) ?? this.workspace.getCommentById(selectedId);
+        if (replacement && "select" in replacement && typeof replacement.select === "function") replacement.select();
+      }
+    } finally {
+      Events.enable();
+    }
+
     this.zoomGroup.replaceWith(this.zoomGroup = this.generateZoomGroup());
     this.updateToolbox(this.usableBlocks);
     return true;
+  }
+
+  /** Locale used when this workspace creates package-defined blocks. */
+  public getLocale(): Lang {
+    return this.locale;
+  }
+
+  /** Workspace lookup used by Blockly's globally registered block definitions. */
+  public getWorkspace(): WorkspaceSvg {
+    return this.workspace;
   }
 
   /**

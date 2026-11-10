@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Ýerine ýetirmäge başla", RESTART: "Ýerine ýetirmegi täzeden başla", STOP: "Ýerine ýetirmegi duruz", FULLSCREEN: "Doly ekrana geç", FULLSCREEN_EXIT: "Doly ekrandan çyk", HELP: "Kömek", ERROR: "Ýalňyşlyk ýüze çykdy!", EXECUTION_OPTIONS: "Ýerine ýetiriş sazlamalary", RESET_STAGE: "Sahnany täzeden düz", SHORTCUTS: "Klawiatura gysga ýollary",
+ DIALOG: { CANCEL: "Ýatyr", SAVE: "Ýatda sakla", NO: "Ýok", YES: "Hawa", OK: "Bolýar" }, ZOOM: { IN: "Ulalt", OUT: "Kiçelt", RESET: "Masştaby täzeden düz" },
+ OPTIONS: { READONLY: "Diňe okamak", READONLY_TOOLTIP: "Bloklary redaktirläp bolýandygyny saýlaň", STAGE: "Sahna", STAGE_TOOLTIP: "Sahnanyň görnüşini saýlaň", STAGE_TYPES: { CODE: "Kod", CANVAS: "Çyzgy meýdany" }, AVAILABLE_BLOCKS: "Elýeterli bloklar", AVAILABLE_BLOCKS_TOOLTIP: "Gurallar gutusynda elýeterli boljak bloklary saýlaň" },
+ CONTROLS: { DUPLICATE_BLOCK: "Göçür", CROSS_TAB_COPY: "Göçür", CROSS_TAB_PASTE: "Goý", DELETE: "Poz" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "%1 basylanda", WHEN_SPRITE_CLICKED: "şu keşbe basylanda", WHEN_KEY_PRESSED: "%1 düwmesi basylanda", KEY_ANY: "islendik düwme", KEY_SPACE: "boşluk", KEY_ARROW_UP: "ýokary ok", KEY_ARROW_DOWN: "aşak ok", KEY_ARROW_LEFT: "çep ok", KEY_ARROW_RIGHT: "sag ok",
+ WAIT: "%1 sekunt garaş", REPEAT: "%1 gezek gaýtala", FOREVER: "hemişe", IF: "eger %1 bolsa, onda", ELSE: "bolmasa", STOP: "duruz", RANDOM: "%1 bilen %2 aralygynda tötänleýin san saýla", AND: "%1 we %2", OR: "%1 ýa-da %2", NOT: "%1 däl", JOIN: "%1 bilen %2-ni birleşdir", ABSOLUTE: "%1-iň absolýut bahasy",
+ SAY: "%1 diý", SAY_FOR_SECONDS: "%1-i %2 sekuntlap diý", SET_COLOR: "reňk täsirini %1 edip sazla", SET_BACKGROUND_COLOR: "arka fon reňkini %1 edip sazla", MOVE: "%1 ädim hereket et", ROTATE: "%1 gradus öwrül", SET_ROTATION: "ugry %1 gradus edip sazla", SET_X: "x-i %1 edip sazla", SET_Y: "y-ni %1 edip sazla", SET_XY: "x-i %1, y-ni %2 edip sazla", GET_X: "x ýagdaýy", GET_Y: "y ýagdaýy", TIMER: "taymer", RESET_TIMER: "taymeri täzeden düz", PLAY_SOUND: "%1 sesini çal", PLAY_SOUND_UNTIL_DONE: "%1 sesini gutarýança çal", STOP_ALL_SOUNDS: "ähli sesleri duruz", SOUND_POP: "pop", SOUND_FAILURE: "şowsuzlyk", SOUND_SUCCESS: "üstünlik"
+ }, CATEGORY: { CONTROLS: "Dolandyryş", EVENTS: "Wakalar", OPERATORS: "Operatorlar", LOOKS: "Daşky görnüş", MOTIONS: "Hereket", VARIABLES: "Üýtgeýänler", SENSING: "Duýmak", SOUNDS: "Sesler" }
+};

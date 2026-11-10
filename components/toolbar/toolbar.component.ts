@@ -1,9 +1,9 @@
 import { customElement } from "lit/decorators.js";
-import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import { styles } from "./toolbar.styles";
+import { LocalizedElement } from "../../locales";
 
 import SlButton from "@shoelace-style/shoelace/dist/components/button/button.component.js"
 import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js"
@@ -12,7 +12,7 @@ import SlTooltip from "@shoelace-style/shoelace/dist/components/tooltip/tooltip.
 /**
  * The toolbar component.
  */
-export class Toolbar extends LitElementWw {
+export class Toolbar extends LocalizedElement {
   /**
    * @inheritDoc
    */

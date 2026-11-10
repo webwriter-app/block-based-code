@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "ማስኬድ ጀምር",
+  "RESTART": "ዳግም አስኪድ",
+  "STOP": "ማስኬድ አቁም",
+  "FULLSCREEN": "ሙሉ ማያ ገጽ ክፈት",
+  "FULLSCREEN_EXIT": "ከሙሉ ማያ ገጽ ውጣ",
+  "HELP": "እገዛ",
+  "ERROR": "ስህተት ተፈጥሯል!",
+  "EXECUTION_OPTIONS": "የማስኬጃ አማራጮች",
+  "RESET_STAGE": "መድረኩን ዳግም አስጀምር",
+  "SHORTCUTS": "አቋራጮች",
+  "DIALOG": {
+    "CANCEL": "ሰርዝ",
+    "SAVE": "አስቀምጥ",
+    "NO": "አይ",
+    "YES": "አዎ",
+    "OK": "እሺ"
+  },
+  "ZOOM": {
+    "IN": "አጉላ",
+    "OUT": "አሳንስ",
+    "RESET": "ማጉላትን ዳግም አስጀምር"
+  },
+  "OPTIONS": {
+    "READONLY": "ንባብ ብቻ",
+    "READONLY_TOOLTIP": "ብሎኮቹ ሊታረሙ ይችሉ እንደሆነ ምረጥ",
+    "STAGE": "መድረክ",
+    "STAGE_TOOLTIP": "የመድረኩን ዓይነት ምረጥ",
+    "STAGE_TYPES": {
+      "CODE": "ኮድ",
+      "CANVAS": "የስዕል ቦታ"
+    },
+    "AVAILABLE_BLOCKS": "የሚገኙ ብሎኮች",
+    "AVAILABLE_BLOCKS_TOOLTIP": "በመሣሪያ ሳጥኑ የሚገኙትን ብሎኮች ምረጥ"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "አባዛ",
+    "CROSS_TAB_COPY": "ቅዳ",
+    "CROSS_TAB_PASTE": "ለጥፍ",
+    "DELETE": "ሰርዝ"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 ሲጫን",
+    "WHEN_SPRITE_CLICKED": "ይህ ምስል ሲጫን",
+    "WHEN_KEY_PRESSED": "የ%1 ቁልፍ ሲጫን",
+    "KEY_ANY": "ማንኛውም",
+    "KEY_SPACE": "ክፍተት",
+    "KEY_ARROW_UP": "የላይ ቀስት",
+    "KEY_ARROW_DOWN": "የታች ቀስት",
+    "KEY_ARROW_LEFT": "የግራ ቀስት",
+    "KEY_ARROW_RIGHT": "የቀኝ ቀስት",
+    "WAIT": "%1 ሰከንድ ጠብቅ",
+    "REPEAT": "%1 ጊዜ ድገም",
+    "FOREVER": "ሁልጊዜ",
+    "IF": "%1 ከሆነ",
+    "ELSE": "ካልሆነ",
+    "STOP": "አቁም",
+    "RANDOM": "ከ%1 እስከ %2 የዘፈቀደ ቁጥር ምረጥ",
+    "AND": "%1 እና %2",
+    "OR": "%1 ወይም %2",
+    "NOT": "%1 አይደለም",
+    "JOIN": "%1 እና %2 አጣምር",
+    "ABSOLUTE": "የ%1 ፍጹም ዋጋ",
+    "SAY": "%1 በል",
+    "SAY_FOR_SECONDS": "%1ን ለ%2 ሰከንድ በል",
+    "SET_COLOR": "የቀለም ውጤቱን ወደ %1 አስተካክል",
+    "SET_BACKGROUND_COLOR": "የጀርባ ቀለምን ወደ %1 አስተካክል",
+    "MOVE": "%1 እርምጃ ተንቀሳቀስ",
+    "ROTATE": "በ%1 ዲግሪ አዙር",
+    "SET_ROTATION": "ዙርን ወደ %1 ዲግሪ አስተካክል",
+    "SET_X": "x ወደ %1 አስተካክል",
+    "SET_Y": "y ወደ %1 አስተካክል",
+    "SET_XY": "x ወደ %1 እና y ወደ %2 አስተካክል",
+    "GET_X": "የx ቦታ",
+    "GET_Y": "የy ቦታ",
+    "TIMER": "ጊዜ ቆጣሪ",
+    "RESET_TIMER": "ጊዜ ቆጣሪን ዳግም አስጀምር",
+    "PLAY_SOUND": "ድምፅ %1ን አጫውት",
+    "PLAY_SOUND_UNTIL_DONE": "ድምፅ %1ን እስኪያልቅ አጫውት",
+    "STOP_ALL_SOUNDS": "ሁሉንም ድምፆች አቁም",
+    "SOUND_POP": "ፖፕ",
+    "SOUND_FAILURE": "ውድቀት",
+    "SOUND_SUCCESS": "ስኬት"
+  },
+  "CATEGORY": {
+    "CONTROLS": "ቁጥጥሮች",
+    "EVENTS": "ክስተቶች",
+    "OPERATORS": "ኦፕሬተሮች",
+    "LOOKS": "ገጽታ",
+    "MOTIONS": "እንቅስቃሴ",
+    "VARIABLES": "ተለዋዋጮች",
+    "SENSING": "መዳሰሻ",
+    "SOUNDS": "ድምፆች"
+  }
+};

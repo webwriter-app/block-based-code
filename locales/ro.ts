@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Pornește execuția", RESTART: "Repornește execuția", STOP: "Oprește execuția", FULLSCREEN: "Intră în modul ecran complet", FULLSCREEN_EXIT: "Ieși din modul ecran complet", HELP: "Ajutor", ERROR: "A apărut o eroare!", EXECUTION_OPTIONS: "Opțiuni de execuție", RESET_STAGE: "Resetează scena", SHORTCUTS: "Comenzi rapide de la tastatură",
+ DIALOG: { CANCEL: "Anulează", SAVE: "Salvează", NO: "Nu", YES: "Da", OK: "OK" }, ZOOM: { IN: "Mărește", OUT: "Micșorează", RESET: "Resetează zoomul" },
+ OPTIONS: { READONLY: "Doar în citire", READONLY_TOOLTIP: "Alege dacă blocurile pot fi editate", STAGE: "Scenă", STAGE_TOOLTIP: "Alege tipul scenei", STAGE_TYPES: { CODE: "Cod", CANVAS: "Pânză" }, AVAILABLE_BLOCKS: "Blocuri disponibile", AVAILABLE_BLOCKS_TOOLTIP: "Alege ce blocuri sunt disponibile în caseta de instrumente" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplică", CROSS_TAB_COPY: "Copiază", CROSS_TAB_PASTE: "Lipește", DELETE: "Șterge" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "când se face clic pe %1", WHEN_SPRITE_CLICKED: "când se face clic pe acest personaj", WHEN_KEY_PRESSED: "când se apasă tasta %1", KEY_ANY: "orice tastă", KEY_SPACE: "spațiu", KEY_ARROW_UP: "săgeată în sus", KEY_ARROW_DOWN: "săgeată în jos", KEY_ARROW_LEFT: "săgeată la stânga", KEY_ARROW_RIGHT: "săgeată la dreapta",
+ WAIT: "așteaptă %1 secunde", REPEAT: "repetă de %1 ori", FOREVER: "pentru totdeauna", IF: "dacă %1, atunci", ELSE: "altfel", STOP: "oprește", RANDOM: "alege un număr aleatoriu între %1 și %2", AND: "%1 și %2", OR: "%1 sau %2", NOT: "nu %1", JOIN: "unește %1 și %2", ABSOLUTE: "valoarea absolută a lui %1",
+ SAY: "spune %1", SAY_FOR_SECONDS: "spune %1 timp de %2 secunde", SET_COLOR: "setează efectul de culoare la %1", SET_BACKGROUND_COLOR: "setează culoarea de fundal la %1", MOVE: "deplasează-te %1 pași", ROTATE: "rotește cu %1 grade", SET_ROTATION: "setează direcția la %1 grade", SET_X: "setează x la %1", SET_Y: "setează y la %1", SET_XY: "setează x la %1 și y la %2", GET_X: "poziția x", GET_Y: "poziția y", TIMER: "cronometru", RESET_TIMER: "resetează cronometrul", PLAY_SOUND: "redă sunetul %1", PLAY_SOUND_UNTIL_DONE: "redă sunetul %1 până se termină", STOP_ALL_SOUNDS: "oprește toate sunetele", SOUND_POP: "poc", SOUND_FAILURE: "eșec", SOUND_SUCCESS: "succes"
+ }, CATEGORY: { CONTROLS: "Control", EVENTS: "Evenimente", OPERATORS: "Operatori", LOOKS: "Aspect", MOTIONS: "Mișcare", VARIABLES: "Variabile", SENSING: "Detectare", SOUNDS: "Sunete" }
+};
