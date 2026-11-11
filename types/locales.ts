@@ -4,7 +4,7 @@ import { StageType } from "./stage";
 /**
  * The available languages.
  */
-export const languages = ["en", "en-US", "en-GB", "en-CA", "en-AU", "en-IN", "ar", "bg", "zh", "zh-Hans", "zh-Hant", "hr", "cs", "da", "nl", "et", "fi", "fr", "de", "el", "hu", "ga", "it", "lv", "lt", "mt", "pl", "pt", "pt-PT", "pt-BR", "ro", "ru", "sk", "sl", "es", "sv", "fa", "hi", "ja", "ko", "no", "nb", "nn", "tr", "uk", "sr", "sr-Cyrl", "sr-Latn", "sr-ijekavsk", "cnr", "sq", "mk", "is", "bs", "ca", "ca-ES-valencia", "eu", "gl", "cy", "lb", "bn", "pa", "gu", "mr", "te", "ur", "kn", "or", "ne", "si", "ta", "ml", "ps", "jv", "id", "ms", "tl", "my", "th", "lo", "vi", "km", "kk", "ky", "mn", "uz", "tg", "ka", "hy", "he", "az", "tk", "dv", "be", "la", "tpi", "am", "om", "so", "ti", "sw", "ha"] as const;
+export const languages = ["en", "en-US", "en-GB", "en-CA", "en-AU", "en-IN", "ar", "bg", "zh", "zh-Hans", "zh-Hant", "hr", "cs", "da", "nl", "et", "fi", "fr", "de", "el", "hu", "ga", "it", "lv", "lt", "mt", "pl", "pt", "pt-PT", "pt-BR", "ro", "ru", "sk", "sl", "es", "sv", "fa", "hi", "ja", "ko", "no", "nb", "nn", "tr", "uk", "sr", "sr-Cyrl", "sr-Latn", "sr-ijekavsk", "cnr", "sq", "mk", "is", "bs", "ca", "ca-ES-valencia", "eu", "gl", "cy", "lb", "bn", "pa", "gu", "mr", "te", "ur", "kn", "or", "ne", "si", "ta", "ml", "ps", "jv", "id", "ms", "tl", "my", "th", "lo", "vi", "km", "kk", "ky", "mn", "uz", "tg", "ka", "hy", "he", "az", "tk", "dv", "be", "la", "tpi", "am", "om", "so", "ti", "sw", "ha", "yue-Hans", "yue-Hant", "kmr", "kmr-Latn", "kmr-Arab", "ckb", "ckb-Arab", "af-ZA", "af-NA"] as const;
 
 /**
  * The type of the available languages.

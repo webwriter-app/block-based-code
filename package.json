@@ -113,7 +113,16 @@
     "widget-lang-hy",
     "widget-lang-he",
     "widget-lang-az",
-    "widget-lang-tk"
+    "widget-lang-tk",
+    "widget-lang-yue-Hans",
+    "widget-lang-yue-Hant",
+    "widget-lang-kmr",
+    "widget-lang-kmr-Latn",
+    "widget-lang-kmr-Arab",
+    "widget-lang-ckb",
+    "widget-lang-ckb-Arab",
+    "widget-lang-af-ZA",
+    "widget-lang-af-NA"
   ],
   "license": "MIT",
   "author": "Philipp Lentzen",
@@ -267,7 +276,16 @@
         "hy": "Գրեք և գործարկեք բլոկային կոդ, օրինակ՝ Scratch-ի նման։",
         "he": "כתבו והפעילו קוד מבוסס בלוקים, כמו ב־Scratch.",
         "az": "Scratch kimi bloklarla kod yazın və icra edin.",
-        "tk": "Scratch ýaly bloklar bilen kod ýazyň we işlediň."
+        "tk": "Scratch ýaly bloklar bilen kod ýazyň we işlediň.",
+        "yue-Hans": "编写积木式程式（例如 Scratch）并执行。",
+        "yue-Hant": "編寫積木式程式（例如 Scratch）並執行。",
+        "kmr": "Koda bi blokan binivîse (mînak Scratch) û wê bimeşîne.",
+        "kmr-Latn": "Koda bi blokan binivîse (mînak Scratch) û wê bimeşîne.",
+        "kmr-Arab": "کۆدا ب بلۆکان بنڤیسە (میناک سجراتجه) ئوو وێ بمەشینە.",
+        "ckb": "کۆدی بە بلۆک بنووسە (بۆ نموونە Scratch) و جێبەجێی بکە.",
+        "ckb-Arab": "کۆدی بە بلۆک بنووسە (بۆ نموونە Scratch) و جێبەجێی بکە.",
+        "af-ZA": "Skryf blokgebaseerde kode (bv. Scratch) en voer dit uit.",
+        "af-NA": "Skryf blokgebaseerde kode (bv. Scratch) en voer dit uit."
       },
       "label": {
         "_": "Block Based Code",
@@ -372,7 +390,16 @@
         "hy": "Բլոկային ծրագրավորում",
         "he": "תכנות מבוסס בלוקים",
         "az": "Blok əsaslı proqramlaşdırma",
-        "tk": "Bloklar bilen programma düzmek"
+        "tk": "Bloklar bilen programma düzmek",
+        "yue-Hans": "积木式程式编写",
+        "yue-Hant": "積木式程式編寫",
+        "kmr": "Koda Blokê",
+        "kmr-Latn": "Koda Blokê",
+        "kmr-Arab": "کۆدا بلۆکێ",
+        "ckb": "کۆدنووسی بە بلۆک",
+        "ckb-Arab": "کۆدنووسی بە بلۆک",
+        "af-ZA": "Blokgebaseerde Kode",
+        "af-NA": "Blokgebaseerde Kode"
       }
     },
     "./widgets/webwriter-block-based-code": {
@@ -479,7 +506,16 @@
         "hy": "Բլոկային ծրագրավորում",
         "he": "תכנות מבוסס בלוקים",
         "az": "Blok əsaslı proqramlaşdırma",
-        "tk": "Bloklar bilen programma düzmek"
+        "tk": "Bloklar bilen programma düzmek",
+        "yue-Hans": "积木式程式编写",
+        "yue-Hant": "積木式程式編寫",
+        "kmr": "Koda Blokê",
+        "kmr-Latn": "Koda Blokê",
+        "kmr-Arab": "کۆدا بلۆکێ",
+        "ckb": "کۆدنووسی بە بلۆک",
+        "ckb-Arab": "کۆدنووسی بە بلۆک",
+        "af-ZA": "Blokgebaseerde Kode",
+        "af-NA": "Blokgebaseerde Kode"
       }
     },
     "./snippets/bouncing-dvd": {
@@ -586,7 +622,16 @@
         "hy": "Ցատկող DVD լոգո",
         "he": "לוגו DVD קופץ",
         "az": "Tullanaraq hərəkət edən DVD loqosu",
-        "tk": "Bökýän DVD nyşany"
+        "tk": "Bökýän DVD nyşany",
+        "yue-Hans": "弹跳 DVD 标志",
+        "yue-Hant": "彈跳 DVD 標誌",
+        "kmr": "DVD ya bazdayî",
+        "kmr-Latn": "DVD ya bazdayî",
+        "kmr-Arab": "DVD یا بازدایی",
+        "ckb": "DVDی بازدەر",
+        "ckb-Arab": "DVDی بازدەر",
+        "af-ZA": "Bonsende DVD-logo",
+        "af-NA": "Bonsende DVD-logo"
       }
     }
   },

@@ -1,6 +1,8 @@
 // Blockly ships a broad set of core UI translations. The 15 locale tags absent
 // from Blockly v11 use the explicitly selected closest available catalog below;
 // the widget's own messages still resolve independently per element.
+import * as locale_af from "blockly/msg/af";
+import * as locale_kuLatn from "blockly/msg/ku-latn";
 import * as locale_0 from "blockly/msg/am";
 import * as locale_1 from "blockly/msg/ar";
 import * as locale_2 from "blockly/msg/az";
@@ -180,6 +182,15 @@ const byTag: Record<string, Record<string, unknown>> = {
   "ti": locale_66,
   "sw": locale_62,
   "ha": locale_21,
+  "yue-Hans": locale_12,
+  "yue-Hant": locale_12,
+  "kmr": locale_kuLatn,
+  "kmr-Latn": locale_kuLatn,
+  "kmr-Arab": locale_12,
+  "ckb": locale_12,
+  "ckb-Arab": locale_12,
+  "af-ZA": locale_af,
+  "af-NA": locale_af,
 };
 
 export function blocklyLocaleFor(tag: string): Record<string, unknown> {
@@ -289,4 +300,13 @@ export const blocklyModuleFor = Object.freeze({
   "ti": "ti",
   "sw": "sw",
   "ha": "ha",
+  "yue-Hans": "en",
+  "yue-Hant": "en",
+  "kmr": "ku-latn",
+  "kmr-Latn": "ku-latn",
+  "kmr-Arab": "en",
+  "ckb": "en",
+  "ckb-Arab": "en",
+  "af-ZA": "af",
+  "af-NA": "af",
 });

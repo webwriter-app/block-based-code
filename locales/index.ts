@@ -103,6 +103,12 @@ import { dictionary as webwriterHy } from "./hy";
 import { dictionary as webwriterHe } from "./he";
 import { dictionary as webwriterAz } from "./az";
 import { dictionary as webwriterTk } from "./tk";
+import { dictionary as webwriterYueHans } from "./yue-Hans";
+import { dictionary as webwriterYueHant } from "./yue-Hant";
+import { dictionary as webwriterKmrLatn } from "./kmr-Latn";
+import { dictionary as webwriterKmrArab } from "./kmr-Arab";
+import { dictionary as webwriterCkbArab } from "./ckb-Arab";
+import { dictionary as webwriterAf } from "./af";
 import type { Leaves } from "../types/leaves";
 
 export const dictionaries: Partial<Record<Lang, Partial<Dictionary>>> = {
@@ -203,6 +209,15 @@ export const dictionaries: Partial<Record<Lang, Partial<Dictionary>>> = {
   "he": webwriterHe,
   "az": webwriterAz,
   "tk": { ...webwriterTk, BLOCKLY: blocklyCoreOverrides.tk },
+  "yue-Hans": webwriterYueHans,
+  "yue-Hant": webwriterYueHant,
+  "kmr": webwriterKmrLatn,
+  "kmr-Latn": webwriterKmrLatn,
+  "kmr-Arab": webwriterKmrArab,
+  "ckb": webwriterCkbArab,
+  "ckb-Arab": webwriterCkbArab,
+  "af-ZA": webwriterAf,
+  "af-NA": webwriterAf,
 };
 const dictionaryFor = (locale: Lang): Dictionary => {
   const partial = dictionaries[locale]

@@ -15,6 +15,7 @@ const options = {
   loader: {
     ".png": "dataurl",
     ".svg": "dataurl",
+    ".mp3": "dataurl",
   },
   tsconfig: path.resolve("./tsconfig.json")
 };
