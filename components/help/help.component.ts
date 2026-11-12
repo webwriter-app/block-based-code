@@ -1,18 +1,18 @@
 import { query } from "lit/decorators.js";
-import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import SlPopup from "@shoelace-style/shoelace/dist/components/popup/popup.component.js"
 import QuestionMarkIcon from "@tabler/icons/outline/question-mark.svg";
-import { msg } from "../../locales";
+import { localizeElement, LocalizedElement } from "../../locales";
 import { ToolbarButton } from "../toolbar-button";
 import { styles } from "./help.styles";
 
 /**
  * The help component.
  */
-export class Help extends LitElementWw {
+export class Help extends LocalizedElement {
+  private readonly messages = localizeElement(this);
   /**
    * The popup element.
    * @private
@@ -52,16 +52,16 @@ export class Help extends LitElementWw {
                   shift>
             <webwriter-blocks-toolbar-button slot="anchor"
                                              icon=${QuestionMarkIcon}
-                                             label=${msg("HELP")}
+                                             label=${this.messages.msg("HELP")}
                                              @focus=${this.handleHelpButtonFocus} 
                                              @blur=${this.handleHelpButtonBlur}>
             </webwriter-blocks-toolbar-button>
             <article>
-                <h1>${msg("SHORTCUTS")}</h1>
+                <h1>${this.messages.msg("SHORTCUTS")}</h1>
                 <p>
-                    <b>${ctrlKey}</b> + <b>c</b>: ${msg("CONTROLS.CROSS_TAB_COPY")} <br>
-                    <b>${ctrlKey}</b> + <b>v</b>: ${msg("CONTROLS.CROSS_TAB_PASTE")} <br>
-                    <b>delete</b>: ${msg("CONTROLS.DELETE")}
+                    <b>${ctrlKey}</b> + <b>c</b>: ${this.messages.msg("CONTROLS.CROSS_TAB_COPY")} <br>
+                    <b>${ctrlKey}</b> + <b>v</b>: ${this.messages.msg("CONTROLS.CROSS_TAB_PASTE")} <br>
+                    <b>delete</b>: ${this.messages.msg("CONTROLS.DELETE")}
                 </p>
             </article>
         </sl-popup>

@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Սկսել կատարումը", RESTART: "Վերագործարկել կատարումը", STOP: "Կանգնեցնել կատարումը", FULLSCREEN: "Անցնել լիաէկրան ռեժիմի", FULLSCREEN_EXIT: "Դուրս գալ լիաէկրան ռեժիմից", HELP: "Օգնություն", ERROR: "Սխալ է տեղի ունեցել։", EXECUTION_OPTIONS: "Կատարման ընտրանքներ", RESET_STAGE: "Վերականգնել բեմը", SHORTCUTS: "Ստեղնաշարի դյուրանցումներ",
+ DIALOG: { CANCEL: "Չեղարկել", SAVE: "Պահպանել", NO: "Ոչ", YES: "Այո", OK: "Լավ" }, ZOOM: { IN: "Մեծացնել", OUT: "Փոքրացնել", RESET: "Վերականգնել մասշտաբը" },
+ OPTIONS: { READONLY: "Միայն կարդալու համար", READONLY_TOOLTIP: "Ընտրեք՝ կարելի՞ է խմբագրել բլոկները", STAGE: "Բեմ", STAGE_TOOLTIP: "Ընտրեք բեմի տեսակը", STAGE_TYPES: { CODE: "Կոդ", CANVAS: "Կտավ" }, AVAILABLE_BLOCKS: "Հասանելի բլոկներ", AVAILABLE_BLOCKS_TOOLTIP: "Ընտրեք գործիքների տուփում հասանելի բլոկները" },
+ CONTROLS: { DUPLICATE_BLOCK: "Կրկնօրինակել", CROSS_TAB_COPY: "Պատճենել", CROSS_TAB_PASTE: "Տեղադրել", DELETE: "Ջնջել" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "երբ սեղմում են %1", WHEN_SPRITE_CLICKED: "երբ սեղմում են այս կերպարի վրա", WHEN_KEY_PRESSED: "երբ սեղմում են %1 ստեղնը", KEY_ANY: "ցանկացած ստեղն", KEY_SPACE: "բացատ", KEY_ARROW_UP: "վերև սլաք", KEY_ARROW_DOWN: "ներքև սլաք", KEY_ARROW_LEFT: "ձախ սլաք", KEY_ARROW_RIGHT: "աջ սլաք",
+ WAIT: "սպասել %1 վայրկյան", REPEAT: "կրկնել %1 անգամ", FOREVER: "միշտ", IF: "եթե %1, ապա", ELSE: "հակառակ դեպքում", STOP: "կանգնեցնել", RANDOM: "ընտրել պատահական թիվ %1-ից մինչև %2", AND: "%1 և %2", OR: "%1 կամ %2", NOT: "ոչ %1", JOIN: "միացնել %1 և %2", ABSOLUTE: "%1-ի բացարձակ արժեքը",
+ SAY: "ասել %1", SAY_FOR_SECONDS: "ասել %1՝ %2 վայրկյան", SET_COLOR: "գույնի էֆեկտը սահմանել %1", SET_BACKGROUND_COLOR: "ֆոնի գույնը սահմանել %1", MOVE: "շարժվել %1 քայլ", ROTATE: "պտտվել %1 աստիճան", SET_ROTATION: "ուղղությունը սահմանել %1 աստիճան", SET_X: "x-ը սահմանել %1", SET_Y: "y-ը սահմանել %1", SET_XY: "x-ը սահմանել %1, y-ը՝ %2", GET_X: "x դիրք", GET_Y: "y դիրք", TIMER: "ժամաչափ", RESET_TIMER: "զրոյացնել ժամաչափը", PLAY_SOUND: "նվագարկել %1 ձայնը", PLAY_SOUND_UNTIL_DONE: "նվագարկել %1 ձայնը մինչև ավարտը", STOP_ALL_SOUNDS: "դադարեցնել բոլոր ձայները", SOUND_POP: "փոփ", SOUND_FAILURE: "ձախողում", SOUND_SUCCESS: "հաջողություն"
+ }, CATEGORY: { CONTROLS: "Կառավարում", EVENTS: "Իրադարձություններ", OPERATORS: "Օպերատորներ", LOOKS: "Արտաքին տեսք", MOTIONS: "Շարժում", VARIABLES: "Փոփոխականներ", SENSING: "Զգայություն", SOUNDS: "Ձայներ" }
+};

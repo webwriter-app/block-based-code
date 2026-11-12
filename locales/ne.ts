@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "कोड चलाउनुहोस्",
+  "RESTART": "कोड फेरि चलाउनुहोस्",
+  "STOP": "कोड रोक्नुहोस्",
+  "FULLSCREEN": "पूरा पर्दा खोल्नुहोस्",
+  "FULLSCREEN_EXIT": "पूरा पर्दाबाट बाहिर निस्कनुहोस्",
+  "HELP": "मद्दत",
+  "ERROR": "त्रुटि भयो!",
+  "EXECUTION_OPTIONS": "कोड चलाउने विकल्प",
+  "RESET_STAGE": "मञ्च रिसेट गर्नुहोस्",
+  "SHORTCUTS": "सर्टकटहरू",
+  "DIALOG": {
+    "CANCEL": "रद्द गर्नुहोस्",
+    "SAVE": "सुरक्षित गर्नुहोस्",
+    "NO": "होइन",
+    "YES": "हो",
+    "OK": "ठीक छ"
+  },
+  "ZOOM": {
+    "IN": "ठूलो पार्नुहोस्",
+    "OUT": "सानो पार्नुहोस्",
+    "RESET": "सुरुको आकारमा फर्काउनुहोस्"
+  },
+  "OPTIONS": {
+    "READONLY": "पढ्न मात्र मिल्ने",
+    "READONLY_TOOLTIP": "ब्लक सम्पादन गर्न मिल्ने हो वा होइन छान्नुहोस्",
+    "STAGE": "मञ्च",
+    "STAGE_TOOLTIP": "मञ्चको प्रकार छान्नुहोस्",
+    "STAGE_TYPES": {
+      "CODE": "कोड",
+      "CANVAS": "क्यानभास"
+    },
+    "AVAILABLE_BLOCKS": "उपलब्ध ब्लकहरू",
+    "AVAILABLE_BLOCKS_TOOLTIP": "उपकरण बाकसमा देखिने ब्लक छान्नुहोस्"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "प्रतिलिपि बनाउनुहोस्",
+    "CROSS_TAB_COPY": "प्रतिलिपि गर्नुहोस्",
+    "CROSS_TAB_PASTE": "टाँस्नुहोस्",
+    "DELETE": "मेटाउनुहोस्"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 थिच्दा",
+    "WHEN_SPRITE_CLICKED": "यो स्प्राइटमा क्लिक गर्दा",
+    "WHEN_KEY_PRESSED": "%1 कुञ्जी थिच्दा",
+    "KEY_ANY": "जुनसुकै",
+    "KEY_SPACE": "स्पेस",
+    "KEY_ARROW_UP": "माथिको तीर",
+    "KEY_ARROW_DOWN": "तलको तीर",
+    "KEY_ARROW_LEFT": "बायाँ तीर",
+    "KEY_ARROW_RIGHT": "दायाँ तीर",
+    "WAIT": "%1 सेकेन्ड पर्ख",
+    "REPEAT": "%1 पटक दोहोर्‍याऊ",
+    "FOREVER": "सधैँ",
+    "IF": "यदि %1 भने",
+    "ELSE": "नत्र",
+    "STOP": "रोक",
+    "RANDOM": "%1 देखि %2 सम्मको अनियमित सङ्ख्या छान",
+    "AND": "%1 र %2",
+    "OR": "%1 वा %2",
+    "NOT": "%1 होइन",
+    "JOIN": "%1 र %2 जोड",
+    "ABSOLUTE": "%1 को निरपेक्ष मान",
+    "SAY": "%1 भन",
+    "SAY_FOR_SECONDS": "%2 सेकेन्डसम्म %1 भन",
+    "SET_COLOR": "रङको प्रभाव %1 बनाऊ",
+    "SET_BACKGROUND_COLOR": "पृष्ठभूमिको रङ %1 बनाऊ",
+    "MOVE": "%1 पाइला सर",
+    "ROTATE": "%1 डिग्री घुम",
+    "SET_ROTATION": "घुमाइ %1 डिग्री बनाऊ",
+    "SET_X": "x लाई %1 बनाऊ",
+    "SET_Y": "y लाई %1 बनाऊ",
+    "SET_XY": "x लाई %1 र y लाई %2 बनाऊ",
+    "GET_X": "x को स्थान",
+    "GET_Y": "y को स्थान",
+    "TIMER": "टाइमर",
+    "RESET_TIMER": "टाइमर रिसेट गर",
+    "PLAY_SOUND": "%1 ध्वनि बजाऊ",
+    "PLAY_SOUND_UNTIL_DONE": "%1 ध्वनि सकिएसम्म बजाऊ",
+    "STOP_ALL_SOUNDS": "सबै ध्वनि रोक",
+    "SOUND_POP": "पप",
+    "SOUND_FAILURE": "असफलता",
+    "SOUND_SUCCESS": "सफलता"
+  },
+  "CATEGORY": {
+    "CONTROLS": "नियन्त्रण",
+    "EVENTS": "घटना",
+    "OPERATORS": "अपरेटर",
+    "LOOKS": "स्वरूप",
+    "MOTIONS": "चाल",
+    "VARIABLES": "चरहरू",
+    "SENSING": "संवेदन",
+    "SOUNDS": "ध्वनि"
+  }
+};

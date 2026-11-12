@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Uitvoering starten", RESTART: "Uitvoering opnieuw starten", STOP: "Uitvoering stoppen", FULLSCREEN: "Volledig scherm openen", FULLSCREEN_EXIT: "Volledig scherm sluiten", HELP: "Help", ERROR: "Er is een fout opgetreden!", EXECUTION_OPTIONS: "Uitvoeringsopties", RESET_STAGE: "Speelveld herstellen", SHORTCUTS: "Sneltoetsen",
+ DIALOG: { CANCEL: "Annuleren", SAVE: "Opslaan", NO: "Nee", YES: "Ja", OK: "OK" }, ZOOM: { IN: "Inzoomen", OUT: "Uitzoomen", RESET: "Zoom herstellen" },
+ OPTIONS: { READONLY: "Alleen-lezen", READONLY_TOOLTIP: "Kies of de blokken kunnen worden bewerkt", STAGE: "Speelveld", STAGE_TOOLTIP: "Kies het type speelveld", STAGE_TYPES: { CODE: "Code", CANVAS: "Canvas" }, AVAILABLE_BLOCKS: "Beschikbare blokken", AVAILABLE_BLOCKS_TOOLTIP: "Kies welke blokken beschikbaar zijn in de gereedschapskist" },
+ CONTROLS: { DUPLICATE_BLOCK: "Dupliceren", CROSS_TAB_COPY: "Kopiëren", CROSS_TAB_PASTE: "Plakken", DELETE: "Verwijderen" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "wanneer op %1 wordt geklikt", WHEN_SPRITE_CLICKED: "wanneer op deze sprite wordt geklikt", WHEN_KEY_PRESSED: "wanneer toets %1 wordt ingedrukt", KEY_ANY: "willekeurige toets", KEY_SPACE: "spatie", KEY_ARROW_UP: "pijl omhoog", KEY_ARROW_DOWN: "pijl omlaag", KEY_ARROW_LEFT: "pijl naar links", KEY_ARROW_RIGHT: "pijl naar rechts",
+ WAIT: "wacht %1 seconden", REPEAT: "herhaal %1 keer", FOREVER: "herhaal voortdurend", IF: "als %1, dan", ELSE: "anders", STOP: "stop", RANDOM: "kies een willekeurig getal van %1 tot %2", AND: "%1 en %2", OR: "%1 of %2", NOT: "niet %1", JOIN: "voeg %1 en %2 samen", ABSOLUTE: "absolute waarde van %1",
+ SAY: "zeg %1", SAY_FOR_SECONDS: "zeg %1 gedurende %2 seconden", SET_COLOR: "stel kleureffect in op %1", SET_BACKGROUND_COLOR: "stel achtergrondkleur in op %1", MOVE: "verplaats %1 stappen", ROTATE: "draai %1 graden", SET_ROTATION: "stel richting in op %1 graden", SET_X: "stel x in op %1", SET_Y: "stel y in op %1", SET_XY: "stel x in op %1 en y op %2", GET_X: "x-positie", GET_Y: "y-positie", TIMER: "timer", RESET_TIMER: "timer terugzetten", PLAY_SOUND: "speel geluid %1 af", PLAY_SOUND_UNTIL_DONE: "speel geluid %1 af tot het klaar is", STOP_ALL_SOUNDS: "stop alle geluiden", SOUND_POP: "plop", SOUND_FAILURE: "mislukt", SOUND_SUCCESS: "gelukt"
+ }, CATEGORY: { CONTROLS: "Besturing", EVENTS: "Gebeurtenissen", OPERATORS: "Operatoren", LOOKS: "Uiterlijk", MOTIONS: "Beweging", VARIABLES: "Variabelen", SENSING: "Waarneming", SOUNDS: "Geluiden" }
+};

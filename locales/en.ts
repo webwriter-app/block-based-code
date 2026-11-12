@@ -12,6 +12,7 @@ export const dictionary: Dictionary = {
   EXECUTION_OPTIONS: "Execution Options",
   RESET_STAGE: "Reset Stage",
   SHORTCUTS: "Shortcuts",
+  DIALOG: { CANCEL: "Cancel", SAVE: "Save", NO: "No", YES: "Yes", OK: "OK" },
   ZOOM: {
     IN: "Zoom In",
     OUT: "Zoom Out",

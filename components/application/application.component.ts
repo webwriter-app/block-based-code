@@ -1,10 +1,10 @@
 import { customElement } from "lit/decorators.js";
-import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
 import GripVerticalIcon from "@tabler/icons/outline/grip-vertical.svg";
 import { styles } from "./application.styles";
+import { LocalizedElement } from "../../locales";
 
 import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon.component.js"
 import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/split-panel.component.js"
@@ -12,7 +12,7 @@ import SlSplitPanel from "@shoelace-style/shoelace/dist/components/split-panel/s
 /**
  * The application component.
  */
-export class Application extends LitElementWw {
+export class Application extends LocalizedElement {
   /**
    * @inheritDoc
    */

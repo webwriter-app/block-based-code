@@ -1,5 +1,4 @@
 import { property, query } from "lit/decorators.js";
-import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
@@ -14,7 +13,7 @@ import SlTree from "@shoelace-style/shoelace/dist/components/tree/tree.component
 import SlTreeItem from "@shoelace-style/shoelace/dist/components/tree-item/tree-item.component.js";
 
 import { styles } from "./options.styles";
-import { msg } from "../../locales";
+import { localizeElement, LocalizedElement } from "../../locales";
 import { OptionsChangeEvent, StageType } from "../../types";
 import { BlockTypes, SelectedBlocks } from "../../lib/blockly";
 
@@ -27,7 +26,8 @@ enum TreeItemState {
 /**
  * The options component.
  */
-export class Options extends LitElementWw {
+export class Options extends LocalizedElement {
+  private readonly messages = localizeElement(this);
   /**
    * Whether the widget are readonly.
    */
@@ -125,8 +125,8 @@ export class Options extends LitElementWw {
         <div class="group">
             <sl-checkbox .checked=${this.readonly === 1} @sl-change=${this.handleReadonlyChange}>
               <span class="label">
-                ${msg("OPTIONS.READONLY")}
-                <sl-tooltip content=${msg("OPTIONS.READONLY_TOOLTIP")}>
+                ${this.messages.msg("OPTIONS.READONLY")}
+                <sl-tooltip content=${this.messages.msg("OPTIONS.READONLY_TOOLTIP")}>
                     <sl-icon src="${HelpCircleIcon}"></sl-icon>
                 </sl-tooltip>
               </span>
@@ -134,23 +134,23 @@ export class Options extends LitElementWw {
         </div>
         <div class="group">
             <span class="label">
-              ${msg("OPTIONS.STAGE")}
-              <sl-tooltip content=${msg("OPTIONS.STAGE_TOOLTIP")}>
+              ${this.messages.msg("OPTIONS.STAGE")}
+              <sl-tooltip content=${this.messages.msg("OPTIONS.STAGE_TOOLTIP")}>
                   <sl-icon src="${HelpCircleIcon}"></sl-icon>
               </sl-tooltip>
             </span>
             <sl-select value=${this.stageType} @sl-change=${this.handleStageTypeChange} hoist>
                 ${Object.values(StageType).map((type) => html`
                     <sl-option value=${type}>
-                        ${msg(`OPTIONS.STAGE_TYPES.${type.toUpperCase() as Uppercase<StageType>}`)}
+                        ${this.messages.msg(`OPTIONS.STAGE_TYPES.${type.toUpperCase() as Uppercase<StageType>}`)}
                     </sl-option>
                 `)}
             </sl-select>
         </div>
         <div class="group">
             <span class="label">
-              ${msg("OPTIONS.AVAILABLE_BLOCKS")}
-              <sl-tooltip content=${msg("OPTIONS.AVAILABLE_BLOCKS_TOOLTIP")}>
+              ${this.messages.msg("OPTIONS.AVAILABLE_BLOCKS")}
+              <sl-tooltip content=${this.messages.msg("OPTIONS.AVAILABLE_BLOCKS_TOOLTIP")}>
                   <sl-icon src="${HelpCircleIcon}"></sl-icon>
               </sl-tooltip>
             </span>

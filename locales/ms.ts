@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Mulakan pelaksanaan", RESTART: "Mulakan semula", STOP: "Hentikan pelaksanaan", FULLSCREEN: "Paparan skrin penuh", FULLSCREEN_EXIT: "Keluar daripada skrin penuh", HELP: "Bantuan", ERROR: "Ralat telah berlaku!", EXECUTION_OPTIONS: "Pilihan pelaksanaan", RESET_STAGE: "Tetapkan semula pentas", SHORTCUTS: "Pintasan papan kekunci",
+ DIALOG: { CANCEL: "Batal", SAVE: "Simpan", NO: "Tidak", YES: "Ya", OK: "Baik" }, ZOOM: { IN: "Zum masuk", OUT: "Zum keluar", RESET: "Tetapkan semula zum" },
+ OPTIONS: { READONLY: "Baca sahaja", READONLY_TOOLTIP: "Pilih sama ada blok boleh disunting", STAGE: "Pentas", STAGE_TOOLTIP: "Pilih jenis pentas", STAGE_TYPES: { CODE: "Kod", CANVAS: "Kanvas" }, AVAILABLE_BLOCKS: "Blok tersedia", AVAILABLE_BLOCKS_TOOLTIP: "Pilih blok yang tersedia dalam kotak alat" },
+ CONTROLS: { DUPLICATE_BLOCK: "Gandakan", CROSS_TAB_COPY: "Salin", CROSS_TAB_PASTE: "Tampal", DELETE: "Padam" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "apabila %1 diklik", WHEN_SPRITE_CLICKED: "apabila sprite ini diklik", WHEN_KEY_PRESSED: "apabila kekunci %1 ditekan", KEY_ANY: "mana-mana kekunci", KEY_SPACE: "ruang", KEY_ARROW_UP: "anak panah atas", KEY_ARROW_DOWN: "anak panah bawah", KEY_ARROW_LEFT: "anak panah kiri", KEY_ARROW_RIGHT: "anak panah kanan",
+ WAIT: "tunggu %1 saat", REPEAT: "ulang %1 kali", FOREVER: "selama-lamanya", IF: "jika %1, maka", ELSE: "jika tidak", STOP: "henti", RANDOM: "pilih nombor rawak dari %1 hingga %2", AND: "%1 dan %2", OR: "%1 atau %2", NOT: "bukan %1", JOIN: "cantumkan %1 dan %2", ABSOLUTE: "nilai mutlak bagi %1",
+ SAY: "sebut %1", SAY_FOR_SECONDS: "sebut %1 selama %2 saat", SET_COLOR: "tetapkan kesan warna kepada %1", SET_BACKGROUND_COLOR: "tetapkan warna latar belakang kepada %1", MOVE: "bergerak %1 langkah", ROTATE: "putar sebanyak %1 darjah", SET_ROTATION: "tetapkan arah kepada %1 darjah", SET_X: "tetapkan x kepada %1", SET_Y: "tetapkan y kepada %1", SET_XY: "tetapkan x kepada %1 dan y kepada %2", GET_X: "kedudukan x", GET_Y: "kedudukan y", TIMER: "pemasa", RESET_TIMER: "tetapkan semula pemasa", PLAY_SOUND: "mainkan bunyi %1", PLAY_SOUND_UNTIL_DONE: "mainkan bunyi %1 sehingga selesai", STOP_ALL_SOUNDS: "hentikan semua bunyi", SOUND_POP: "pop", SOUND_FAILURE: "gagal", SOUND_SUCCESS: "berjaya"
+ }, CATEGORY: { CONTROLS: "Kawalan", EVENTS: "Peristiwa", OPERATORS: "Operator", LOOKS: "Rupa", MOTIONS: "Pergerakan", VARIABLES: "Pemboleh ubah", SENSING: "Pengesanan", SOUNDS: "Bunyi" }
+};

@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Ibda t-tħaddim", RESTART: "Erġa' ibda t-tħaddim", STOP: "Waqqaf it-tħaddim", FULLSCREEN: "Uri fuq l-iskrin kollu", FULLSCREEN_EXIT: "Oħroġ mill-iskrin kollu", HELP: "Għajnuna", ERROR: "Seħħ żball!", EXECUTION_OPTIONS: "Għażliet tat-tħaddim", RESET_STAGE: "Irrisettja l-palk", SHORTCUTS: "Shortcuts tat-tastiera",
+ DIALOG: { CANCEL: "Ikkanċella", SAVE: "Issejvja", NO: "Le", YES: "Iva", OK: "Tajjeb" }, ZOOM: { IN: "Kabbar", OUT: "Ċekken", RESET: "Irrisettja ż-żum" },
+ OPTIONS: { READONLY: "Qari biss", READONLY_TOOLTIP: "Agħżel jekk jistgħux jiġu editjati l-blokki", STAGE: "Palk", STAGE_TOOLTIP: "Agħżel it-tip tal-palk", STAGE_TYPES: { CODE: "Kodiċi", CANVAS: "Kanva" }, AVAILABLE_BLOCKS: "Blokki disponibbli", AVAILABLE_BLOCKS_TOOLTIP: "Agħżel liema blokki jkunu disponibbli fil-kaxxa tal-għodda" },
+ CONTROLS: { DUPLICATE_BLOCK: "Idduplika", CROSS_TAB_COPY: "Ikkopja", CROSS_TAB_PASTE: "Waħħal", DELETE: "Ħassar" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "meta tikklikkja fuq %1", WHEN_SPRITE_CLICKED: "meta tikklikkja fuq dan il-karattru", WHEN_KEY_PRESSED: "meta tagħfas it-tast %1", KEY_ANY: "kwalunkwe tast", KEY_SPACE: "spazju", KEY_ARROW_UP: "vleġġa 'l fuq", KEY_ARROW_DOWN: "vleġġa 'l isfel", KEY_ARROW_LEFT: "vleġġa lejn ix-xellug", KEY_ARROW_RIGHT: "vleġġa lejn il-lemin",
+ WAIT: "stenna %1 sekondi", REPEAT: "irrepeti %1 darbiet", FOREVER: "għal dejjem", IF: "jekk %1, allura", ELSE: "inkella", STOP: "waqqaf", RANDOM: "agħżel numru każwali minn %1 sa %2", AND: "%1 u %2", OR: "%1 jew %2", NOT: "mhux %1", JOIN: "għaqqad %1 u %2", ABSOLUTE: "il-valur assolut ta' %1",
+ SAY: "għid %1", SAY_FOR_SECONDS: "għid %1 għal %2 sekondi", SET_COLOR: "issettja l-effett tal-kulur għal %1", SET_BACKGROUND_COLOR: "issettja l-kulur tal-isfond għal %1", MOVE: "imxi %1 passi", ROTATE: "dawwar b'%1 grad", SET_ROTATION: "issettja d-direzzjoni għal %1 grad", SET_X: "issettja x għal %1", SET_Y: "issettja y għal %1", SET_XY: "issettja x għal %1 u y għal %2", GET_X: "il-pożizzjoni x", GET_Y: "il-pożizzjoni y", TIMER: "arloġġ", RESET_TIMER: "irrisettja l-arloġġ", PLAY_SOUND: "daqq il-ħoss %1", PLAY_SOUND_UNTIL_DONE: "daqq il-ħoss %1 sakemm jintemm", STOP_ALL_SOUNDS: "waqqaf il-ħsejjes kollha", SOUND_POP: "pop", SOUND_FAILURE: "falliment", SOUND_SUCCESS: "suċċess"
+ }, CATEGORY: { CONTROLS: "Kontroll", EVENTS: "Avvenimenti", OPERATORS: "Operaturi", LOOKS: "Dehra", MOTIONS: "Moviment", VARIABLES: "Varjabbli", SENSING: "Sensing", SOUNDS: "Ħsejjes" }
+};

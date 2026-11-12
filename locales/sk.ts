@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Spustiť vykonávanie", RESTART: "Reštartovať vykonávanie", STOP: "Zastaviť vykonávanie", FULLSCREEN: "Prejsť na celú obrazovku", FULLSCREEN_EXIT: "Ukončiť režim celej obrazovky", HELP: "Pomocník", ERROR: "Vyskytla sa chyba!", EXECUTION_OPTIONS: "Možnosti vykonávania", RESET_STAGE: "Obnoviť scénu", SHORTCUTS: "Klávesové skratky",
+ DIALOG: { CANCEL: "Zrušiť", SAVE: "Uložiť", NO: "Nie", YES: "Áno", OK: "OK" }, ZOOM: { IN: "Priblížiť", OUT: "Oddialiť", RESET: "Obnoviť priblíženie" },
+ OPTIONS: { READONLY: "Iba na čítanie", READONLY_TOOLTIP: "Vyberte, či možno bloky upravovať", STAGE: "Scéna", STAGE_TOOLTIP: "Vyberte typ scény", STAGE_TYPES: { CODE: "Kód", CANVAS: "Plátno" }, AVAILABLE_BLOCKS: "Dostupné bloky", AVAILABLE_BLOCKS_TOOLTIP: "Vyberte, ktoré bloky budú dostupné v paneli nástrojov" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplikovať", CROSS_TAB_COPY: "Kopírovať", CROSS_TAB_PASTE: "Prilepiť", DELETE: "Odstrániť" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "po kliknutí na %1", WHEN_SPRITE_CLICKED: "po kliknutí na túto postavu", WHEN_KEY_PRESSED: "po stlačení klávesu %1", KEY_ANY: "ľubovoľný kláves", KEY_SPACE: "medzerník", KEY_ARROW_UP: "šípka nahor", KEY_ARROW_DOWN: "šípka nadol", KEY_ARROW_LEFT: "šípka doľava", KEY_ARROW_RIGHT: "šípka doprava",
+ WAIT: "čakaj %1 sekúnd", REPEAT: "opakuj %1-krát", FOREVER: "navždy", IF: "ak %1, potom", ELSE: "inak", STOP: "zastaviť", RANDOM: "náhodné číslo od %1 do %2", AND: "%1 a %2", OR: "%1 alebo %2", NOT: "nie %1", JOIN: "spoj %1 a %2", ABSOLUTE: "absolútna hodnota %1",
+ SAY: "povedz %1", SAY_FOR_SECONDS: "hovor %1 počas %2 sekúnd", SET_COLOR: "nastav farebný efekt na %1", SET_BACKGROUND_COLOR: "nastav farbu pozadia na %1", MOVE: "posuň sa o %1 krokov", ROTATE: "otoč sa o %1 stupňov", SET_ROTATION: "nastav smer na %1 stupňov", SET_X: "nastav x na %1", SET_Y: "nastav y na %1", SET_XY: "nastav x na %1 a y na %2", GET_X: "poloha x", GET_Y: "poloha y", TIMER: "časovač", RESET_TIMER: "vynulovať časovač", PLAY_SOUND: "prehraj zvuk %1", PLAY_SOUND_UNTIL_DONE: "prehraj zvuk %1 až do konca", STOP_ALL_SOUNDS: "zastav všetky zvuky", SOUND_POP: "prask", SOUND_FAILURE: "neúspech", SOUND_SUCCESS: "úspech"
+ }, CATEGORY: { CONTROLS: "Ovládanie", EVENTS: "Udalosti", OPERATORS: "Operátory", LOOKS: "Vzhľad", MOTIONS: "Pohyb", VARIABLES: "Premenné", SENSING: "Vnímanie", SOUNDS: "Zvuky" }
+};

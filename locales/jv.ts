@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Lakokaké kodhe",
+  "RESTART": "Lakokaké kodhe manèh",
+  "STOP": "Mandhegaké kodhe",
+  "FULLSCREEN": "Bukak layar wutuh",
+  "FULLSCREEN_EXIT": "Metu saka layar wutuh",
+  "HELP": "Pitulung",
+  "ERROR": "Ana kaluputan!",
+  "EXECUTION_OPTIONS": "Pilihan kanggo nglakokaké kodhe",
+  "RESET_STAGE": "Wiwiti panggung manèh",
+  "SHORTCUTS": "Dalan pintas",
+  "DIALOG": {
+    "CANCEL": "Batalaké",
+    "SAVE": "Simpen",
+    "NO": "Ora",
+    "YES": "Ya",
+    "OK": "OK"
+  },
+  "ZOOM": {
+    "IN": "Gedhèkaké",
+    "OUT": "Cilikaké",
+    "RESET": "Balèkaké ukuran"
+  },
+  "OPTIONS": {
+    "READONLY": "Mung diwaca",
+    "READONLY_TOOLTIP": "Pilih apa blok bisa disunting",
+    "STAGE": "Panggung",
+    "STAGE_TOOLTIP": "Pilih jinis panggung",
+    "STAGE_TYPES": {
+      "CODE": "Kodhe",
+      "CANVAS": "Kanvas"
+    },
+    "AVAILABLE_BLOCKS": "Blok sing kasedhiya",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Pilih blok sing ditampilaké ing kothak piranti"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Gawé salinan",
+    "CROSS_TAB_COPY": "Salin",
+    "CROSS_TAB_PASTE": "Tèmpèl",
+    "DELETE": "Busak"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "nalika %1 diklik",
+    "WHEN_SPRITE_CLICKED": "nalika gambar iki diklik",
+    "WHEN_KEY_PRESSED": "nalika tombol %1 dipencet",
+    "KEY_ANY": "apa waé",
+    "KEY_SPACE": "spasi",
+    "KEY_ARROW_UP": "panah munggah",
+    "KEY_ARROW_DOWN": "panah mudhun",
+    "KEY_ARROW_LEFT": "panah kiwa",
+    "KEY_ARROW_RIGHT": "panah tengen",
+    "WAIT": "entènana %1 detik",
+    "REPEAT": "balèni %1 kaping",
+    "FOREVER": "salawasé",
+    "IF": "yèn %1, banjur",
+    "ELSE": "yèn ora",
+    "STOP": "mandheg",
+    "RANDOM": "pilih angka acak saka %1 nganti %2",
+    "AND": "%1 lan %2",
+    "OR": "%1 utawa %2",
+    "NOT": "dudu %1",
+    "JOIN": "gabungaké %1 lan %2",
+    "ABSOLUTE": "nilai mutlak %1",
+    "SAY": "omongna %1",
+    "SAY_FOR_SECONDS": "omongna %1 suwéné %2 detik",
+    "SET_COLOR": "setèl èfèk warna dadi %1",
+    "SET_BACKGROUND_COLOR": "setèl warna latar dadi %1",
+    "MOVE": "obah %1 langkah",
+    "ROTATE": "puter %1 drajat",
+    "SET_ROTATION": "setèl puteran dadi %1 drajat",
+    "SET_X": "setèl x dadi %1",
+    "SET_Y": "setèl y dadi %1",
+    "SET_XY": "setèl x dadi %1 lan y dadi %2",
+    "GET_X": "posisi x",
+    "GET_Y": "posisi y",
+    "TIMER": "pangétung wektu",
+    "RESET_TIMER": "wiwiti pangétung wektu manèh",
+    "PLAY_SOUND": "puter swara %1",
+    "PLAY_SOUND_UNTIL_DONE": "puter swara %1 nganti rampung",
+    "STOP_ALL_SOUNDS": "mandhegaké kabèh swara",
+    "SOUND_POP": "pop",
+    "SOUND_FAILURE": "gagal",
+    "SOUND_SUCCESS": "kasiling"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Kontrol",
+    "EVENTS": "Kedadéan",
+    "OPERATORS": "Operator",
+    "LOOKS": "Tampilan",
+    "MOTIONS": "Obah",
+    "VARIABLES": "Variabel",
+    "SENSING": "Pangindra",
+    "SOUNDS": "Swara"
+  }
+};

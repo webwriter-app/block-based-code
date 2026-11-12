@@ -1,7 +1,6 @@
 import {
   property, query, state,
 } from "lit/decorators.js";
-import { LitElementWw } from "@webwriter/lit";
 import {
   CSSResult, html, LitElement, TemplateResult,
 } from "lit";
@@ -27,7 +26,7 @@ import SlTabPanel from "@shoelace-style/shoelace/dist/components/tab-panel/tab-p
 
 import { codeStyles, styles } from "./stage.styles";
 import { Logger } from "../../utils";
-import { msg } from "../../locales";
+import { localizeElement, LocalizedElement } from "../../locales";
 import { PixiApplication } from "../../lib/pixi";
 import { CodeHighlightingEvent, StageApplication, StageType } from "../../types";
 import { Toolbar } from "../toolbar";
@@ -36,7 +35,8 @@ import { ToolbarButton } from "../toolbar-button";
 /**
  * The stage component.
  */
-export class Stage extends LitElementWw {
+export class Stage extends LocalizedElement {
+  private readonly messages = localizeElement(this);
   /**
    * The application that is used to render the stage.
    */
@@ -199,7 +199,7 @@ export class Stage extends LitElementWw {
       pending: () => html`<sl-spinner></sl-spinner>`,
       error: (error: Error) => {
         Logger.log(this, error);
-        return html`<div class="error">${msg("ERROR")}</div>`;
+        return html`<div class="error">${this.messages.msg("ERROR")}</div>`;
       },
     };
 
@@ -207,13 +207,13 @@ export class Stage extends LitElementWw {
         <webwriter-blocks-toolbar>
             <div>
                 <webwriter-blocks-toolbar-button id="settings"
-                                                 label=${msg("EXECUTION_OPTIONS")}
+                                                 label=${this.messages.msg("EXECUTION_OPTIONS")}
                                                  icon=${AdjustmentsIcon}
                                                  .disabled=${this.isAnyEventRunning}
                                                  @click=${this.handleVmOptionsClick}>
                 </webwriter-blocks-toolbar-button>
                 <webwriter-blocks-toolbar-button id="reset"
-                                                 label=${msg("RESET_STAGE")}
+                                                 label=${this.messages.msg("RESET_STAGE")}
                                                  icon=${RestoreIcon}
                                                  .disabled=${this.isAnyEventRunning}
                                                  @click=${this.handleResetStageClick}>
@@ -221,22 +221,22 @@ export class Stage extends LitElementWw {
             </div>
             <div>
                 <webwriter-blocks-toolbar-button id="stop"
-                                                 label=${msg("STOP")}
+                                                 label=${this.messages.msg("STOP")}
                                                  icon=${PlayerStopIcon}
                                                  .disabled=${!this.isAnyEventRunning}
                                                  @click=${this.handleStopClick}>
                 </webwriter-blocks-toolbar-button>
                 <webwriter-blocks-toolbar-button id="start"
-                                                 label=${this.isWhenStartClickedRunning ? msg("RESTART") : msg("START")}
+                                                 label=${this.isWhenStartClickedRunning ? this.messages.msg("RESTART") : this.messages.msg("START")}
                                                  icon=${this.isWhenStartClickedRunning ? RefreshIcon : PlayerPlayIcon}
                                                  @click=${this.handleStartClick}>
                 </webwriter-blocks-toolbar-button>
             </div>
         </webwriter-blocks-toolbar>
         <sl-tab-group placement="bottom" @sl-tab-show=${this.handleTabShow}>
-            <sl-tab slot="nav" panel="stage" active>${msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}
+            <sl-tab slot="nav" panel="stage" active>${this.messages.msg(`OPTIONS.STAGE_TYPES.${this.stageType.toUpperCase() as Uppercase<StageType>}`)}
             </sl-tab>
-            <sl-tab slot="nav" panel="code">${msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
+            <sl-tab slot="nav" panel="code">${this.messages.msg("OPTIONS.STAGE_TYPES.CODE")}</sl-tab>
             <sl-tab-panel name="stage" id="stage" active>
                 ${this.applicationReady.render(renderer)}
             </sl-tab-panel>

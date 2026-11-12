@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Аткарууну баштоо", RESTART: "Аткарууну кайра баштоо", STOP: "Аткарууну токтотуу", FULLSCREEN: "Толук экранга өтүү", FULLSCREEN_EXIT: "Толук экрандан чыгуу", HELP: "Жардам", ERROR: "Ката чыкты!", EXECUTION_OPTIONS: "Аткаруу параметрлери", RESET_STAGE: "Сахнаны баштапкы абалга келтирүү", SHORTCUTS: "Баскычтоп жарлыктары",
+ DIALOG: { CANCEL: "Жокко чыгаруу", SAVE: "Сактоо", NO: "Жок", YES: "Ооба", OK: "Макул" }, ZOOM: { IN: "Чоңойтуу", OUT: "Кичирейтүү", RESET: "Масштабды баштапкы абалга келтирүү" },
+ OPTIONS: { READONLY: "Окуу үчүн гана", READONLY_TOOLTIP: "Блокторду түзөтүүгө болорун тандаңыз", STAGE: "Сахна", STAGE_TOOLTIP: "Сахнанын түрүн тандаңыз", STAGE_TYPES: { CODE: "Код", CANVAS: "Сүрөт тартуу аянты" }, AVAILABLE_BLOCKS: "Жеткиликтүү блоктор", AVAILABLE_BLOCKS_TOOLTIP: "Куралдар кутусунда жеткиликтүү блокторду тандаңыз" },
+ CONTROLS: { DUPLICATE_BLOCK: "Көчүрүү", CROSS_TAB_COPY: "Көчүрүү", CROSS_TAB_PASTE: "Чаптоо", DELETE: "Өчүрүү" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "%1 басылганда", WHEN_SPRITE_CLICKED: "бул каарман басылганда", WHEN_KEY_PRESSED: "%1 баскычы басылганда", KEY_ANY: "каалаган баскыч", KEY_SPACE: "боштук", KEY_ARROW_UP: "өйдө жебе", KEY_ARROW_DOWN: "ылдый жебе", KEY_ARROW_LEFT: "сол жебе", KEY_ARROW_RIGHT: "оң жебе",
+ WAIT: "%1 секунд күтүү", REPEAT: "%1 жолу кайталоо", FOREVER: "түбөлүк", IF: "эгер %1 болсо, анда", ELSE: "болбосо", STOP: "токтотуу", RANDOM: "%1 менен %2 ортосунан туш келди сан тандоо", AND: "%1 жана %2", OR: "%1 же %2", NOT: "%1 эмес", JOIN: "%1 жана %2 бириктирүү", ABSOLUTE: "%1 абсолюттук мааниси",
+ SAY: "%1 деп айтуу", SAY_FOR_SECONDS: "%1 деп %2 секунд айтуу", SET_COLOR: "түс эффектин %1 деп коюу", SET_BACKGROUND_COLOR: "фон түсүн %1 деп коюу", MOVE: "%1 кадам жылуу", ROTATE: "%1 градуска бурулуу", SET_ROTATION: "багытты %1 градус кылып коюу", SET_X: "x маанисин %1 кылып коюу", SET_Y: "y маанисин %1 кылып коюу", SET_XY: "x маанисин %1, y маанисин %2 кылып коюу", GET_X: "x орду", GET_Y: "y орду", TIMER: "таймер", RESET_TIMER: "таймерди баштапкы абалга келтирүү", PLAY_SOUND: "%1 үнүн ойнотуу", PLAY_SOUND_UNTIL_DONE: "%1 үнүн аягына чейин ойнотуу", STOP_ALL_SOUNDS: "бардык үндөрдү токтотуу", SOUND_POP: "поп", SOUND_FAILURE: "ийгиликсиз", SOUND_SUCCESS: "ийгилик"
+ }, CATEGORY: { CONTROLS: "Башкаруу", EVENTS: "Окуялар", OPERATORS: "Операторлор", LOOKS: "Көрүнүш", MOTIONS: "Кыймыл", VARIABLES: "Өзгөрмөлөр", SENSING: "Сезүү", SOUNDS: "Үндөр" }
+};

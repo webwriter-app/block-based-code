@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Pokreni izvršavanje", RESTART: "Ponovo pokreni izvršavanje", STOP: "Zaustavi izvršavanje", FULLSCREEN: "Prikaži preko cijelog ekrana", FULLSCREEN_EXIT: "Izađi iz prikaza preko cijelog ekrana", HELP: "Pomoć", ERROR: "Došlo je do greške!", EXECUTION_OPTIONS: "Opcije izvršavanja", RESET_STAGE: "Resetuj scenu", SHORTCUTS: "Prečice na tastaturi",
+ DIALOG: { CANCEL: "Otkaži", SAVE: "Sačuvaj", NO: "Ne", YES: "Da", OK: "U redu" }, ZOOM: { IN: "Uvećaj", OUT: "Umanji", RESET: "Resetuj zum" },
+ OPTIONS: { READONLY: "Samo za čitanje", READONLY_TOOLTIP: "Odaberite da li se blokovi mogu uređivati", STAGE: "Scena", STAGE_TOOLTIP: "Odaberite vrstu scene", STAGE_TYPES: { CODE: "Kod", CANVAS: "Platno" }, AVAILABLE_BLOCKS: "Dostupni blokovi", AVAILABLE_BLOCKS_TOOLTIP: "Odaberite koji su blokovi dostupni u kutiji s alatima" },
+ CONTROLS: { DUPLICATE_BLOCK: "Dupliciraj", CROSS_TAB_COPY: "Kopiraj", CROSS_TAB_PASTE: "Zalijepi", DELETE: "Obriši" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "kada se klikne na %1", WHEN_SPRITE_CLICKED: "kada se klikne na ovaj lik", WHEN_KEY_PRESSED: "kada se pritisne tipka %1", KEY_ANY: "bilo koja tipka", KEY_SPACE: "razmak", KEY_ARROW_UP: "strelica gore", KEY_ARROW_DOWN: "strelica dolje", KEY_ARROW_LEFT: "strelica lijevo", KEY_ARROW_RIGHT: "strelica desno",
+ WAIT: "čekaj %1 sekundi", REPEAT: "ponovi %1 puta", FOREVER: "zauvijek", IF: "ako je %1, onda", ELSE: "inače", STOP: "zaustavi", RANDOM: "odaberi slučajan broj od %1 do %2", AND: "%1 i %2", OR: "%1 ili %2", NOT: "nije %1", JOIN: "spoji %1 i %2", ABSOLUTE: "apsolutna vrijednost broja %1",
+ SAY: "reci %1", SAY_FOR_SECONDS: "reci %1 tokom %2 sekundi", SET_COLOR: "postavi efekat boje na %1", SET_BACKGROUND_COLOR: "postavi boju pozadine na %1", MOVE: "pomjeri se za %1 koraka", ROTATE: "rotiraj za %1 stepeni", SET_ROTATION: "postavi smjer na %1 stepeni", SET_X: "postavi x na %1", SET_Y: "postavi y na %1", SET_XY: "postavi x na %1 i y na %2", GET_X: "x-pozicija", GET_Y: "y-pozicija", TIMER: "štoperica", RESET_TIMER: "resetuj štopericu", PLAY_SOUND: "pusti zvuk %1", PLAY_SOUND_UNTIL_DONE: "puštaj zvuk %1 do kraja", STOP_ALL_SOUNDS: "zaustavi sve zvukove", SOUND_POP: "puc", SOUND_FAILURE: "neuspjeh", SOUND_SUCCESS: "uspjeh"
+ }, CATEGORY: { CONTROLS: "Upravljanje", EVENTS: "Događaji", OPERATORS: "Operatori", LOOKS: "Izgled", MOTIONS: "Kretanje", VARIABLES: "Varijable", SENSING: "Opažanje", SOUNDS: "Zvukovi" }
+};

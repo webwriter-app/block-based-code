@@ -1,7 +1,6 @@
 import {
   css, CSSResult, html, LitElement, TemplateResult,
 } from "lit";
-import { LitElementWw } from "@webwriter/lit";
 import {
   customElement, property, query, state,
 } from "lit/decorators.js";
@@ -9,67 +8,108 @@ import ArrowsMaximizeIcon from "@tabler/icons/outline/arrows-maximize.svg";
 import ArrowsMinimizeIcon from "@tabler/icons/outline/arrows-minimize.svg";
 import { styleMap } from "lit/directives/style-map.js";
 import {
-  Application, Editor, Options, Stage, Toolbar,
+  Application, Editor, Stage, Toolbar,
 } from "../components";
-import { msg, setLocale } from "../locales";
+import { localizeElement, LocalizedElement } from "../locales";
 import { Logger } from "../utils";
 import {
-  CodeHighlightingEvent, EditorChangeEvent, OptionsChangeEvent, StageType,
+  CodeHighlightingEvent, EditorChangeEvent, StageType,
 } from "../types";
-import { BlockTypes, SelectedBlocks } from "../lib/blockly";
+import { blocks } from "../lib/blockly/blocks/blocks";
+import { BlockTypes, CategoryTypes, SelectedBlocks } from "../lib/blockly";
 
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { ToolbarButton } from "../components/toolbar-button";
 import { Help } from "../components/help";
+import { readData, writeData } from "./data-block";
 
 /**
  * The main component of the Blocks widget.
  */
 @customElement("webwriter-block-based-code")
-export class WebwriterBlocks extends LitElementWw {
-  /**
-   * Whether the widget is in read-only mode, only effective when contentEditable is false.
-   */
-  @property({ type: Number, reflect: true })
-  public accessor readonly: 0 | 1 = 0;
+export class WebwriterBlocks extends LocalizedElement {
+  private readonly messages = localizeElement(this);
+  @property({ type: Boolean, reflect: true, attribute: "read-only" })
+  public accessor readOnly = false;
 
-  /**
-   * The selected stage type.
-   */
-  @property({ type: String, reflect: true })
+  @property({ type: String, reflect: true, attribute: "stage-type" })
   public accessor stageType: StageType = StageType.CANVAS;
 
-  /**
-   * The usable blocks. Only blocks in this list can be used in the editor.
-   */
-  @property({
-    reflect: true,
-    converter: {
-      fromAttribute: (value: string | null) => {
-        if (!value) return ["events:when_start_clicked"];
-        try {
-          return JSON.parse(value);
-        } catch {
-          return ["events:when_start_clicked"];
-        }
+  get optionGroups() {
+    return { blocks: { label: { _: this.messages.msg("OPTIONS.AVAILABLE_BLOCKS") }, collapsible: true } };
+  }
+
+  constructor() {
+    super();
+    Object.defineProperty(this, "options", { configurable: true, get: () => this.getDrawerOptions() });
+  }
+
+  private getBlockOptionLabel(type: BlockTypes): string {
+    if (type === "variables") return this.messages.msg("CATEGORY.VARIABLES");
+    const symbols: Record<string, string> = {
+      "operators:sum": "+", "operators:subtract": "-", "operators:multiply": "*", "operators:divide": "/",
+      "operators:smaller": "<", "operators:greater": ">", "operators:equal": "=", "math:number": "0", "text:string": "\"\"",
+    };
+    if (symbols[type]) return symbols[type];
+    const definition = blocks.find(block => block.type === type);
+    if (!definition || typeof definition.message0 !== "string") return this.messages.msg("OPTIONS.AVAILABLE_BLOCKS");
+    return definition.message0
+      .replace(/%\{BKY_([A-Z0-9_]+)\}/g, (_match, key: string) => this.messages.msg(`BLOCKS.${key}` as `BLOCKS.${Uppercase<string>}`))
+      .replace(/%\d+/g, "…")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  private getDrawerOptions() {
+    const categories = new Map<string, { value: string; label: { _: string } }[]>();
+    for (const value of this.availableBlocks) {
+      const [category] = value.split(":");
+      const children = categories.get(category) ?? [];
+      children.push({ value, label: { _: this.getBlockOptionLabel(value as BlockTypes) } });
+      categories.set(category, children);
+    }
+    return {
+      readOnly: { type: Boolean, label: { _: this.messages.msg("OPTIONS.READONLY") }, description: { _: this.messages.msg("OPTIONS.READONLY_TOOLTIP") } },
+      usableBlocks: {
+        type: "select", control: "tree", multiple: true, attribute: false, group: "blocks",
+        label: { _: this.messages.msg("OPTIONS.AVAILABLE_BLOCKS") },
+        description: { _: this.messages.msg("OPTIONS.AVAILABLE_BLOCKS_TOOLTIP") },
+        options: Array.from(categories, ([category, children]) =>
+          children.length === 1 && children[0].value === category
+            ? children[0] : { label: { _: this.messages.msg(`CATEGORY.${category.toUpperCase()}` as `CATEGORY.${Uppercase<NonNullable<CategoryTypes> | "variables">}`) }, children }
+        ),
       },
-      toAttribute: (value: SelectedBlocks) => JSON.stringify(value),
-    },
-  })
-  public accessor usableBlocks: SelectedBlocks = ["events:when_start_clicked"];
+    } as const;
+  }
 
-  /**
-   * The editor state.
-   */
-  @property({ type: Object, reflect: true })
-  public accessor editorState: object = {};
+  private readProgram() {
+    return readData<{ editorState: object; usableBlocks: SelectedBlocks }>(this);
+  }
 
-  /**
-   * The available blocks. These are all blocks that can be understood by the stage.
-   * @private
-   */
+  private editorState: object = {};
+
+  get usableBlocks(): SelectedBlocks {
+    const { usableBlocks } = this.readProgram();
+    return Array.isArray(usableBlocks) ? usableBlocks : this.availableBlocks;
+  }
+
+  set usableBlocks(blocks: SelectedBlocks | null) {
+    const selected = Array.isArray(blocks)
+      ? blocks.filter(block => this.availableBlocks.includes(block))
+      : this.availableBlocks;
+    writeData(this, { ...this.readProgram(), usableBlocks: selected });
+  }
+
   @state()
   private accessor availableBlocks: BlockTypes[] = [];
+
+  private programObserver = new MutationObserver(() => this.syncProgram());
+
+  private syncProgram() {
+    const next = this.readProgram().editorState ?? {};
+    if (JSON.stringify(next) !== JSON.stringify(this.editorState)) this.editorState = next;
+    this.requestUpdate();
+  }
 
   /**
    * The readable generated code.
@@ -109,7 +149,6 @@ export class WebwriterBlocks extends LitElementWw {
       "webwriter-blocks-application": Application,
       "webwriter-blocks-editor": Editor,
       "webwriter-blocks-stage": Stage,
-      "webwriter-blocks-options": Options,
       "webwriter-blocks-help": Help,
     };
   }
@@ -159,11 +198,23 @@ export class WebwriterBlocks extends LitElementWw {
    */
   public connectedCallback() {
     super.connectedCallback();
-    setLocale(document.documentElement.lang?.split("-")[0] || navigator.language?.split("-")[0]);
-    this.addEventListener("fullscreenchange", () => this.requestUpdate());
+    this.programObserver.observe(this, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ["slot", "type", "src"] });
+    this.syncProgram();
+    this.addEventListener("fullscreenchange", this.onFullscreenChange);
     const styleElement = this.ownerDocument.createElement("style");
     styleElement.textContent = `:fullscreen .sl-scroll-lock {scrollbar-gutter: stable!important; overflow: hidden!important}`;
     this.ownerDocument.head.appendChild(styleElement);
+    this.fullscreenStyle = styleElement;
+  }
+
+  private onFullscreenChange = () => this.requestUpdate();
+  private fullscreenStyle?: HTMLStyleElement;
+
+  disconnectedCallback() {
+    this.programObserver.disconnect();
+    this.removeEventListener("fullscreenchange", this.onFullscreenChange);
+    this.fullscreenStyle?.remove();
+    super.disconnectedCallback();
   }
 
   /**
@@ -175,7 +226,7 @@ export class WebwriterBlocks extends LitElementWw {
             <webwriter-blocks-toolbar slot="editor">
                 <div>
                     <webwriter-blocks-toolbar-button icon=${this.isFullscreen ? ArrowsMinimizeIcon : ArrowsMaximizeIcon}
-                                                     label=${this.isFullscreen ? msg("FULLSCREEN_EXIT") : msg("FULLSCREEN")}
+                                                     label=${this.isFullscreen ? this.messages.msg("FULLSCREEN_EXIT") : this.messages.msg("FULLSCREEN")}
                                                      @click=${this.handleFullscreenToggle}>
                     </webwriter-blocks-toolbar-button>
                 </div>
@@ -187,7 +238,8 @@ export class WebwriterBlocks extends LitElementWw {
                                      id="editor"
                                      .state=${this.editorState}
                                      .selectedBlocks=${this.usableBlocks}
-                                     .readonly=${this.readonly === 1 && !this.isContentEditable}
+                                     .readonly=${this.readOnly && !this.isContentEditable}
+                                     @programloaded=${this.handleProgramLoaded}
                                      @change=${this.handleEditorChange}>
             </webwriter-blocks-editor>
             
@@ -199,21 +251,13 @@ export class WebwriterBlocks extends LitElementWw {
                                     @highlight=${this.handleCodeHighlighting}>
             </webwriter-blocks-stage>
         </webwriter-blocks-application>
-        ${!this.isFullscreen && this.isContentEditable ? html`
-            <webwriter-blocks-options part="options"
-                                      readonly=${this.readonly}
-                                      stageType=${this.stageType}
-                                      .availableBlocks=${this.availableBlocks}
-                                      .selectedBlocks=${this.usableBlocks}
-                                      @change=${this.handleOptionsChange}></webwriter-blocks-options>
-        ` : null}
-        </webwriter-blocks-options>
     `;
   }
 
   protected firstUpdated(_changedProperties: Map<string | number | symbol, unknown>): void {
     super.firstUpdated(_changedProperties);
-    this.setBlocks();
+    this.availableBlocks = this.stage.stageApplication.usableBlocks;
+    this.dispatchEvent(new Event("optionschange", { bubbles: true }));
   }
 
   /**
@@ -249,7 +293,14 @@ export class WebwriterBlocks extends LitElementWw {
    * @private
    */
   private handleEditorChange(event: EditorChangeEvent): void {
-    this.editorState = event.detail.state;
+    const current = this.readProgram();
+    if (JSON.stringify(event.detail.state) !== JSON.stringify(current.editorState ?? {})) {
+      writeData(this, { ...current, editorState: event.detail.state });
+    }
+    this.handleProgramLoaded(event);
+  }
+
+  private handleProgramLoaded(event: EditorChangeEvent): void {
     this.readableCode = event.detail.readableCode;
     this.executableCode = event.detail.executableCode;
   }
@@ -263,44 +314,4 @@ export class WebwriterBlocks extends LitElementWw {
     this.editor.editorApplication.highlight(event.detail);
   }
 
-  /**
-   * Handles the options change event.
-   * @param event The options change event.
-   * @private
-   */
-  private async handleOptionsChange(event: OptionsChangeEvent): Promise<void> {
-    const options = event.detail;
-
-    if (options.selectedBlocks) {
-      this.usableBlocks = options.selectedBlocks;
-    }
-    if (options.stageType) {
-      this.stageType = options.stageType;
-      await this.updateComplete;
-
-      this.setBlocks();
-    }
-    if (options.readonly !== undefined) {
-      this.readonly = options.readonly;
-    }
-  }
-
-  /**
-   * Sets the available and usable blocks after changing the stage type.
-   * @private
-   */
-  private setBlocks(): void {
-    const { usableBlocks } = this.stage.stageApplication;
-    this.availableBlocks = usableBlocks;
-
-    const isDefaultValue = this.usableBlocks.length === 1
-      && this.usableBlocks[0] === "events:when_start_clicked";
-
-    if (isDefaultValue) {
-      this.usableBlocks = [...usableBlocks];
-    } else {
-      const availableSet = new Set(usableBlocks);
-      this.usableBlocks = this.usableBlocks.filter((block) => availableSet.has(block));
-    }
-  }
 }
