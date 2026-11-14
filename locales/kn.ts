@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "ಕೋಡ್ ಚಲಾಯಿಸಿ",
+  "RESTART": "ಕೋಡ್ ಮತ್ತೆ ಚಲಾಯಿಸಿ",
+  "STOP": "ಕೋಡ್ ನಿಲ್ಲಿಸಿ",
+  "FULLSCREEN": "ಪೂರ್ಣ ಪರದೆ ತೆರೆಯಿರಿ",
+  "FULLSCREEN_EXIT": "ಪೂರ್ಣ ಪರದೆಯಿಂದ ಹೊರಬನ್ನಿ",
+  "HELP": "ಸಹಾಯ",
+  "ERROR": "ದೋಷ ಸಂಭವಿಸಿದೆ!",
+  "EXECUTION_OPTIONS": "ಕೋಡ್ ಚಲಾಯಿಸುವ ಆಯ್ಕೆಗಳು",
+  "RESET_STAGE": "ವೇದಿಕೆಯನ್ನು ಮರುಹೊಂದಿಸಿ",
+  "SHORTCUTS": "ಶಾರ್ಟ್‌ಕಟ್‌ಗಳು",
+  "DIALOG": {
+    "CANCEL": "ರದ್ದುಮಾಡಿ",
+    "SAVE": "ಉಳಿಸಿ",
+    "NO": "ಇಲ್ಲ",
+    "YES": "ಹೌದು",
+    "OK": "ಸರಿ"
+  },
+  "ZOOM": {
+    "IN": "ದೊಡ್ಡದಾಗಿಸಿ",
+    "OUT": "ಚಿಕ್ಕದಾಗಿಸಿ",
+    "RESET": "ಮೂಲ ಗಾತ್ರಕ್ಕೆ ಮರಳಿಸಿ"
+  },
+  "OPTIONS": {
+    "READONLY": "ಓದಲು ಮಾತ್ರ",
+    "READONLY_TOOLTIP": "ಬ್ಲಾಕ್‌ಗಳನ್ನು ತಿದ್ದಬಹುದೇ ಎಂದು ಆಯ್ಕೆಮಾಡಿ",
+    "STAGE": "ವೇದಿಕೆ",
+    "STAGE_TOOLTIP": "ವೇದಿಕೆಯ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "STAGE_TYPES": {
+      "CODE": "ಕೋಡ್",
+      "CANVAS": "ಕ್ಯಾನ್ವಾಸ್"
+    },
+    "AVAILABLE_BLOCKS": "ಲಭ್ಯ ಬ್ಲಾಕ್‌ಗಳು",
+    "AVAILABLE_BLOCKS_TOOLTIP": "ಟೂಲ್‌ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಕಾಣುವ ಬ್ಲಾಕ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "ನಕಲು ರಚಿಸಿ",
+    "CROSS_TAB_COPY": "ನಕಲಿಸಿ",
+    "CROSS_TAB_PASTE": "ಅಂಟಿಸಿ",
+    "DELETE": "ಅಳಿಸಿ"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 ಕ್ಲಿಕ್ ಮಾಡಿದಾಗ",
+    "WHEN_SPRITE_CLICKED": "ಈ ಸ್ಪ್ರೈಟ್ ಕ್ಲಿಕ್ ಮಾಡಿದಾಗ",
+    "WHEN_KEY_PRESSED": "%1 ಕೀ ಒತ್ತಿದಾಗ",
+    "KEY_ANY": "ಯಾವುದಾದರೂ",
+    "KEY_SPACE": "ಸ್ಪೇಸ್",
+    "KEY_ARROW_UP": "ಮೇಲಿನ ಬಾಣ",
+    "KEY_ARROW_DOWN": "ಕೆಳಗಿನ ಬಾಣ",
+    "KEY_ARROW_LEFT": "ಎಡ ಬಾಣ",
+    "KEY_ARROW_RIGHT": "ಬಲ ಬಾಣ",
+    "WAIT": "%1 ಸೆಕೆಂಡ್ ಕಾಯು",
+    "REPEAT": "%1 ಬಾರಿ ಪುನರಾವರ್ತಿಸು",
+    "FOREVER": "ಎಂದೆಂದಿಗೂ",
+    "IF": "%1 ಆದರೆ",
+    "ELSE": "ಇಲ್ಲದಿದ್ದರೆ",
+    "STOP": "ನಿಲ್ಲಿಸು",
+    "RANDOM": "%1 ಮತ್ತು %2 ನಡುವೆ ಯಾದೃಚ್ಛಿಕ ಸಂಖ್ಯೆಯನ್ನು ಆಯ್ಕೆಮಾಡು",
+    "AND": "%1 ಮತ್ತು %2",
+    "OR": "%1 ಅಥವಾ %2",
+    "NOT": "%1 ಅಲ್ಲ",
+    "JOIN": "%1 ಮತ್ತು %2 ಸೇರಿಸು",
+    "ABSOLUTE": "%1 ರ ನಿರಪೇಕ್ಷ ಮೌಲ್ಯ",
+    "SAY": "%1 ಎಂದು ಹೇಳು",
+    "SAY_FOR_SECONDS": "%2 ಸೆಕೆಂಡ್‌ಗಳ ಕಾಲ %1 ಎಂದು ಹೇಳು",
+    "SET_COLOR": "ಬಣ್ಣದ ಪರಿಣಾಮವನ್ನು %1 ಗೆ ಹೊಂದಿಸು",
+    "SET_BACKGROUND_COLOR": "ಹಿನ್ನೆಲೆ ಬಣ್ಣವನ್ನು %1 ಗೆ ಹೊಂದಿಸು",
+    "MOVE": "%1 ಹೆಜ್ಜೆ ಚಲಿಸು",
+    "ROTATE": "%1 ಡಿಗ್ರಿ ತಿರುಗು",
+    "SET_ROTATION": "ತಿರುಗುವಿಕೆಯನ್ನು %1 ಡಿಗ್ರಿಗೆ ಹೊಂದಿಸು",
+    "SET_X": "x ಅನ್ನು %1 ಗೆ ಹೊಂದಿಸು",
+    "SET_Y": "y ಅನ್ನು %1 ಗೆ ಹೊಂದಿಸು",
+    "SET_XY": "x ಅನ್ನು %1 ಗೆ ಮತ್ತು y ಅನ್ನು %2 ಗೆ ಹೊಂದಿಸು",
+    "GET_X": "x ಸ್ಥಾನ",
+    "GET_Y": "y ಸ್ಥಾನ",
+    "TIMER": "ಟೈಮರ್",
+    "RESET_TIMER": "ಟೈಮರ್ ಮರುಹೊಂದಿಸು",
+    "PLAY_SOUND": "%1 ಧ್ವನಿ ನುಡಿಸು",
+    "PLAY_SOUND_UNTIL_DONE": "%1 ಧ್ವನಿ ಮುಗಿಯುವವರೆಗೆ ನುಡಿಸು",
+    "STOP_ALL_SOUNDS": "ಎಲ್ಲ ಧ್ವನಿಗಳನ್ನು ನಿಲ್ಲಿಸು",
+    "SOUND_POP": "ಪಾಪ್",
+    "SOUND_FAILURE": "ವೈಫಲ್ಯ",
+    "SOUND_SUCCESS": "ಯಶಸ್ಸು"
+  },
+  "CATEGORY": {
+    "CONTROLS": "ನಿಯಂತ್ರಣಗಳು",
+    "EVENTS": "ಘಟನೆಗಳು",
+    "OPERATORS": "ಆಪರೇಟರ್‌ಗಳು",
+    "LOOKS": "ನೋಟ",
+    "MOTIONS": "ಚಲನೆ",
+    "VARIABLES": "ಚರಗಳು",
+    "SENSING": "ಸಂವೇದನೆ",
+    "SOUNDS": "ಧ್ವನಿಗಳು"
+  }
+};

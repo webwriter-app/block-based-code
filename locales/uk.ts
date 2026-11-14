@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Запустити виконання", RESTART: "Перезапустити виконання", STOP: "Зупинити виконання", FULLSCREEN: "На весь екран", FULLSCREEN_EXIT: "Вийти з повноекранного режиму", HELP: "Довідка", ERROR: "Сталася помилка!", EXECUTION_OPTIONS: "Параметри виконання", RESET_STAGE: "Скинути сцену", SHORTCUTS: "Комбінації клавіш",
+ DIALOG: { CANCEL: "Скасувати", SAVE: "Зберегти", NO: "Ні", YES: "Так", OK: "Гаразд" }, ZOOM: { IN: "Збільшити", OUT: "Зменшити", RESET: "Скинути масштаб" },
+ OPTIONS: { READONLY: "Лише читання", READONLY_TOOLTIP: "Виберіть, чи можна редагувати блоки", STAGE: "Сцена", STAGE_TOOLTIP: "Виберіть тип сцени", STAGE_TYPES: { CODE: "Код", CANVAS: "Полотно" }, AVAILABLE_BLOCKS: "Доступні блоки", AVAILABLE_BLOCKS_TOOLTIP: "Виберіть блоки, доступні на панелі інструментів" },
+ CONTROLS: { DUPLICATE_BLOCK: "Дублювати", CROSS_TAB_COPY: "Копіювати", CROSS_TAB_PASTE: "Вставити", DELETE: "Видалити" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "коли натиснуто %1", WHEN_SPRITE_CLICKED: "коли натиснуто на цей спрайт", WHEN_KEY_PRESSED: "коли натиснуто клавішу %1", KEY_ANY: "будь-яка клавіша", KEY_SPACE: "пробіл", KEY_ARROW_UP: "стрілка вгору", KEY_ARROW_DOWN: "стрілка вниз", KEY_ARROW_LEFT: "стрілка ліворуч", KEY_ARROW_RIGHT: "стрілка праворуч",
+ WAIT: "чекати %1 секунд", REPEAT: "повторити %1 разів", FOREVER: "завжди", IF: "якщо %1, то", ELSE: "інакше", STOP: "зупинити", RANDOM: "вибрати випадкове число від %1 до %2", AND: "%1 і %2", OR: "%1 або %2", NOT: "не %1", JOIN: "з'єднати %1 і %2", ABSOLUTE: "абсолютне значення %1",
+ SAY: "сказати %1", SAY_FOR_SECONDS: "сказати %1 протягом %2 секунд", SET_COLOR: "встановити колірний ефект у %1", SET_BACKGROUND_COLOR: "встановити колір тла у %1", MOVE: "переміститися на %1 кроків", ROTATE: "повернутися на %1 градусів", SET_ROTATION: "встановити напрямок на %1 градусів", SET_X: "встановити x у %1", SET_Y: "встановити y у %1", SET_XY: "встановити x у %1 і y у %2", GET_X: "позиція x", GET_Y: "позиція y", TIMER: "таймер", RESET_TIMER: "скинути таймер", PLAY_SOUND: "відтворити звук %1", PLAY_SOUND_UNTIL_DONE: "відтворювати звук %1 до завершення", STOP_ALL_SOUNDS: "зупинити всі звуки", SOUND_POP: "бульк", SOUND_FAILURE: "невдача", SOUND_SUCCESS: "успіх"
+ }, CATEGORY: { CONTROLS: "Керування", EVENTS: "Події", OPERATORS: "Оператори", LOOKS: "Вигляд", MOTIONS: "Рух", VARIABLES: "Змінні", SENSING: "Відчуття", SOUNDS: "Звуки" }
+};

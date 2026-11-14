@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Έναρξη εκτέλεσης", RESTART: "Επανεκκίνηση εκτέλεσης", STOP: "Διακοπή εκτέλεσης", FULLSCREEN: "Μετάβαση σε πλήρη οθόνη", FULLSCREEN_EXIT: "Έξοδος από πλήρη οθόνη", HELP: "Βοήθεια", ERROR: "Παρουσιάστηκε σφάλμα!", EXECUTION_OPTIONS: "Επιλογές εκτέλεσης", RESET_STAGE: "Επαναφορά σκηνής", SHORTCUTS: "Συντομεύσεις πληκτρολογίου",
+ DIALOG: { CANCEL: "Ακύρωση", SAVE: "Αποθήκευση", NO: "Όχι", YES: "Ναι", OK: "Εντάξει" }, ZOOM: { IN: "Μεγέθυνση", OUT: "Σμίκρυνση", RESET: "Επαναφορά ζουμ" },
+ OPTIONS: { READONLY: "Μόνο για ανάγνωση", READONLY_TOOLTIP: "Επιλέξτε αν επιτρέπεται η επεξεργασία των μπλοκ", STAGE: "Σκηνή", STAGE_TOOLTIP: "Επιλέξτε τον τύπο της σκηνής", STAGE_TYPES: { CODE: "Κώδικας", CANVAS: "Καμβάς" }, AVAILABLE_BLOCKS: "Διαθέσιμα μπλοκ", AVAILABLE_BLOCKS_TOOLTIP: "Επιλέξτε ποια μπλοκ θα είναι διαθέσιμα στην εργαλειοθήκη" },
+ CONTROLS: { DUPLICATE_BLOCK: "Αντιγραφή", CROSS_TAB_COPY: "Αντιγραφή", CROSS_TAB_PASTE: "Επικόλληση", DELETE: "Διαγραφή" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "όταν γίνει κλικ στο %1", WHEN_SPRITE_CLICKED: "όταν γίνει κλικ σε αυτό το αντικείμενο", WHEN_KEY_PRESSED: "όταν πατηθεί το πλήκτρο %1", KEY_ANY: "οποιοδήποτε πλήκτρο", KEY_SPACE: "διάστημα", KEY_ARROW_UP: "επάνω βέλος", KEY_ARROW_DOWN: "κάτω βέλος", KEY_ARROW_LEFT: "αριστερό βέλος", KEY_ARROW_RIGHT: "δεξί βέλος",
+ WAIT: "περίμενε %1 δευτερόλεπτα", REPEAT: "επανάλαβε %1 φορές", FOREVER: "για πάντα", IF: "αν %1, τότε", ELSE: "αλλιώς", STOP: "σταμάτα", RANDOM: "διάλεξε τυχαίο αριθμό από %1 έως %2", AND: "%1 και %2", OR: "%1 ή %2", NOT: "όχι %1", JOIN: "ένωσε τα %1 και %2", ABSOLUTE: "απόλυτη τιμή του %1",
+ SAY: "πες %1", SAY_FOR_SECONDS: "πες %1 για %2 δευτερόλεπτα", SET_COLOR: "όρισε το εφέ χρώματος σε %1", SET_BACKGROUND_COLOR: "όρισε το χρώμα φόντου σε %1", MOVE: "κινήσου %1 βήματα", ROTATE: "στρίψε κατά %1 μοίρες", SET_ROTATION: "όρισε την κατεύθυνση σε %1 μοίρες", SET_X: "όρισε το x σε %1", SET_Y: "όρισε το y σε %1", SET_XY: "όρισε το x σε %1 και το y σε %2", GET_X: "θέση x", GET_Y: "θέση y", TIMER: "χρονόμετρο", RESET_TIMER: "μηδένισε το χρονόμετρο", PLAY_SOUND: "αναπαραγωγή ήχου %1", PLAY_SOUND_UNTIL_DONE: "αναπαραγωγή ήχου %1 μέχρι να τελειώσει", STOP_ALL_SOUNDS: "σταμάτησε όλους τους ήχους", SOUND_POP: "ποπ", SOUND_FAILURE: "αποτυχία", SOUND_SUCCESS: "επιτυχία"
+ }, CATEGORY: { CONTROLS: "Έλεγχος", EVENTS: "Συμβάντα", OPERATORS: "Τελεστές", LOOKS: "Όψεις", MOTIONS: "Κίνηση", VARIABLES: "Μεταβλητές", SENSING: "Αισθητήρες", SOUNDS: "Ήχοι" }
+};

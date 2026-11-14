@@ -1,6 +1,6 @@
 import { blockArguments, BlockTypes } from "../blocks";
 import { CategoryStyle } from "../theme";
-import { msg } from "../../../locales";
+import { messageFor } from "../../../locales";
 
 interface IToolbox {
   kind: "categoryToolbox";
@@ -24,7 +24,7 @@ export type SelectedBlocks = BlockTypes[];
  * Generates a toolbox config from a list of blocks.
  * @param blocks The list of blocks.
  */
-export const createToolboxFromBlockList = (blocks: SelectedBlocks): IToolbox => {
+export const createToolboxFromBlockList = (blocks: SelectedBlocks, msg: ReturnType<typeof messageFor>): IToolbox => {
   const toolbox = new Map<CategoryStyle, IToolbox["contents"][number]["contents"][number][]>();
 
   let variables: boolean = false;

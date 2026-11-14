@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "کوډ وچلوئ",
+  "RESTART": "کوډ بیا وچلوئ",
+  "STOP": "کوډ ودروئ",
+  "FULLSCREEN": "بشپړه پرده پرانیزئ",
+  "FULLSCREEN_EXIT": "له بشپړې پردې ووځئ",
+  "HELP": "مرسته",
+  "ERROR": "تېروتنه وشوه!",
+  "EXECUTION_OPTIONS": "د کوډ چلولو غوراوي",
+  "RESET_STAGE": "ډګر بېرته سم کړئ",
+  "SHORTCUTS": "لنډلارې",
+  "DIALOG": {
+    "CANCEL": "لغوه کړئ",
+    "SAVE": "خوندي کړئ",
+    "NO": "نه",
+    "YES": "هو",
+    "OK": "سمه ده"
+  },
+  "ZOOM": {
+    "IN": "لوی یې کړئ",
+    "OUT": "کوچنی یې کړئ",
+    "RESET": "اصلي کچه را وګرځوئ"
+  },
+  "OPTIONS": {
+    "READONLY": "یوازې د لوستلو لپاره",
+    "READONLY_TOOLTIP": "وټاکئ چې بلاکونه سمېدای شي که نه",
+    "STAGE": "ډګر",
+    "STAGE_TOOLTIP": "د ډګر ډول وټاکئ",
+    "STAGE_TYPES": {
+      "CODE": "کوډ",
+      "CANVAS": "د انځور ځای"
+    },
+    "AVAILABLE_BLOCKS": "شته بلاکونه",
+    "AVAILABLE_BLOCKS_TOOLTIP": "د وسیلو په بکس کې ښکارېدونکي بلاکونه وټاکئ"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "نقل جوړ کړئ",
+    "CROSS_TAB_COPY": "کاپي کړئ",
+    "CROSS_TAB_PASTE": "ونښلوئ",
+    "DELETE": "ړنګ کړئ"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "کله چې %1 کېکاږل شي",
+    "WHEN_SPRITE_CLICKED": "کله چې پر دې انځور کلیک وشي",
+    "WHEN_KEY_PRESSED": "کله چې د %1 تڼۍ کېکاږل شي",
+    "KEY_ANY": "هره یوه",
+    "KEY_SPACE": "تش ځای",
+    "KEY_ARROW_UP": "پورته غشی",
+    "KEY_ARROW_DOWN": "ښکته غشی",
+    "KEY_ARROW_LEFT": "چپ غشی",
+    "KEY_ARROW_RIGHT": "ښی غشی",
+    "WAIT": "%1 ثانیې تم شه",
+    "REPEAT": "%1 ځله تکرار کړه",
+    "FOREVER": "تل",
+    "IF": "که %1 وي، نو",
+    "ELSE": "که نه",
+    "STOP": "ودرېږه",
+    "RANDOM": "له %1 تر %2 تصادفي شمېره وټاکه",
+    "AND": "%1 او %2",
+    "OR": "%1 یا %2",
+    "NOT": "%1 نه دی",
+    "JOIN": "%1 او %2 سره یوځای کړه",
+    "ABSOLUTE": "د %1 مطلق ارزښت",
+    "SAY": "%1 ووایه",
+    "SAY_FOR_SECONDS": "%1 د %2 ثانیو لپاره ووایه",
+    "SET_COLOR": "د رنګ اغېز %1 ته واړوه",
+    "SET_BACKGROUND_COLOR": "د شالید رنګ %1 ته واړوه",
+    "MOVE": "%1 ګامه وخوځېږه",
+    "ROTATE": "%1 درجې تاو شه",
+    "SET_ROTATION": "تاو %1 درجو ته وټاکه",
+    "SET_X": "x %1 ته وټاکه",
+    "SET_Y": "y %1 ته وټاکه",
+    "SET_XY": "x %1 او y %2 ته وټاکه",
+    "GET_X": "د x ځای",
+    "GET_Y": "د y ځای",
+    "TIMER": "وخت شمېرونکی",
+    "RESET_TIMER": "وخت شمېرونکی بیا پیل کړه",
+    "PLAY_SOUND": "غږ %1 وغږوه",
+    "PLAY_SOUND_UNTIL_DONE": "غږ %1 تر پایه وغږوه",
+    "STOP_ALL_SOUNDS": "ټول غږونه ودروه",
+    "SOUND_POP": "پاپ",
+    "SOUND_FAILURE": "ناکامي",
+    "SOUND_SUCCESS": "بریا"
+  },
+  "CATEGORY": {
+    "CONTROLS": "کنټرولونه",
+    "EVENTS": "پېښې",
+    "OPERATORS": "چلوونکي",
+    "LOOKS": "بڼه",
+    "MOTIONS": "خوځښت",
+    "VARIABLES": "متحولونه",
+    "SENSING": "درک",
+    "SOUNDS": "غږونه"
+  }
+};

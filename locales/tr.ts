@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Çalıştır", RESTART: "Yeniden çalıştır", STOP: "Çalışmayı durdur", FULLSCREEN: "Tam ekrana geç", FULLSCREEN_EXIT: "Tam ekrandan çık", HELP: "Yardım", ERROR: "Bir hata oluştu!", EXECUTION_OPTIONS: "Çalıştırma seçenekleri", RESET_STAGE: "Sahneyi sıfırla", SHORTCUTS: "Klavye kısayolları",
+ DIALOG: { CANCEL: "İptal", SAVE: "Kaydet", NO: "Hayır", YES: "Evet", OK: "Tamam" }, ZOOM: { IN: "Yakınlaştır", OUT: "Uzaklaştır", RESET: "Yakınlaştırmayı sıfırla" },
+ OPTIONS: { READONLY: "Salt okunur", READONLY_TOOLTIP: "Blokların düzenlenip düzenlenemeyeceğini seçin", STAGE: "Sahne", STAGE_TOOLTIP: "Sahne türünü seçin", STAGE_TYPES: { CODE: "Kod", CANVAS: "Tuval" }, AVAILABLE_BLOCKS: "Kullanılabilir bloklar", AVAILABLE_BLOCKS_TOOLTIP: "Araç kutusunda kullanılabilir blokları seçin" },
+ CONTROLS: { DUPLICATE_BLOCK: "Çoğalt", CROSS_TAB_COPY: "Kopyala", CROSS_TAB_PASTE: "Yapıştır", DELETE: "Sil" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "%1 tıklandığında", WHEN_SPRITE_CLICKED: "bu karakter tıklandığında", WHEN_KEY_PRESSED: "%1 tuşuna basıldığında", KEY_ANY: "herhangi bir tuş", KEY_SPACE: "boşluk", KEY_ARROW_UP: "yukarı oku", KEY_ARROW_DOWN: "aşağı oku", KEY_ARROW_LEFT: "sol oku", KEY_ARROW_RIGHT: "sağ oku",
+ WAIT: "%1 saniye bekle", REPEAT: "%1 kez tekrarla", FOREVER: "sürekli", IF: "eğer %1 ise", ELSE: "değilse", STOP: "durdur", RANDOM: "%1 ile %2 arasında rastgele bir sayı seç", AND: "%1 ve %2", OR: "%1 veya %2", NOT: "%1 değil", JOIN: "%1 ile %2'yi birleştir", ABSOLUTE: "%1 sayısının mutlak değeri",
+ SAY: "%1 de", SAY_FOR_SECONDS: "%1 ifadesini %2 saniye boyunca söyle", SET_COLOR: "renk efektini %1 olarak ayarla", SET_BACKGROUND_COLOR: "arka plan rengini %1 olarak ayarla", MOVE: "%1 adım ilerle", ROTATE: "%1 derece döndür", SET_ROTATION: "yönü %1 derece olarak ayarla", SET_X: "x değerini %1 olarak ayarla", SET_Y: "y değerini %1 olarak ayarla", SET_XY: "x değerini %1, y değerini %2 olarak ayarla", GET_X: "x konumu", GET_Y: "y konumu", TIMER: "zamanlayıcı", RESET_TIMER: "zamanlayıcıyı sıfırla", PLAY_SOUND: "%1 sesini çal", PLAY_SOUND_UNTIL_DONE: "%1 sesini bitene kadar çal", STOP_ALL_SOUNDS: "tüm sesleri durdur", SOUND_POP: "pat", SOUND_FAILURE: "başarısızlık", SOUND_SUCCESS: "başarı"
+ }, CATEGORY: { CONTROLS: "Kontrol", EVENTS: "Olaylar", OPERATORS: "İşleçler", LOOKS: "Görünüm", MOTIONS: "Hareket", VARIABLES: "Değişkenler", SENSING: "Algılama", SOUNDS: "Sesler" }
+};

@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Starta körningen", RESTART: "Starta om körningen", STOP: "Stoppa körningen", FULLSCREEN: "Öppna helskärmsläge", FULLSCREEN_EXIT: "Avsluta helskärmsläge", HELP: "Hjälp", ERROR: "Ett fel inträffade!", EXECUTION_OPTIONS: "Körningsalternativ", RESET_STAGE: "Återställ scenen", SHORTCUTS: "Kortkommandon",
+ DIALOG: { CANCEL: "Avbryt", SAVE: "Spara", NO: "Nej", YES: "Ja", OK: "OK" }, ZOOM: { IN: "Zooma in", OUT: "Zooma ut", RESET: "Återställ zoom" },
+ OPTIONS: { READONLY: "Skrivskyddad", READONLY_TOOLTIP: "Välj om blocken kan redigeras", STAGE: "Scen", STAGE_TOOLTIP: "Välj typ av scen", STAGE_TYPES: { CODE: "Kod", CANVAS: "Rityta" }, AVAILABLE_BLOCKS: "Tillgängliga block", AVAILABLE_BLOCKS_TOOLTIP: "Välj vilka block som är tillgängliga i verktygslådan" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplicera", CROSS_TAB_COPY: "Kopiera", CROSS_TAB_PASTE: "Klistra in", DELETE: "Ta bort" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "när %1 klickas", WHEN_SPRITE_CLICKED: "när den här figuren klickas", WHEN_KEY_PRESSED: "när tangenten %1 trycks ned", KEY_ANY: "valfri tangent", KEY_SPACE: "mellanslag", KEY_ARROW_UP: "uppåtpil", KEY_ARROW_DOWN: "nedåtpil", KEY_ARROW_LEFT: "vänsterpil", KEY_ARROW_RIGHT: "högerpil",
+ WAIT: "vänta %1 sekunder", REPEAT: "upprepa %1 gånger", FOREVER: "för alltid", IF: "om %1, då", ELSE: "annars", STOP: "stoppa", RANDOM: "slumpa ett tal mellan %1 och %2", AND: "%1 och %2", OR: "%1 eller %2", NOT: "inte %1", JOIN: "slå ihop %1 och %2", ABSOLUTE: "absolutvärdet av %1",
+ SAY: "säg %1", SAY_FOR_SECONDS: "säg %1 i %2 sekunder", SET_COLOR: "ställ in färgeffekten på %1", SET_BACKGROUND_COLOR: "ställ in bakgrundsfärgen på %1", MOVE: "flytta %1 steg", ROTATE: "rotera %1 grader", SET_ROTATION: "ställ in riktningen på %1 grader", SET_X: "ställ in x på %1", SET_Y: "ställ in y på %1", SET_XY: "ställ in x på %1 och y på %2", GET_X: "x-position", GET_Y: "y-position", TIMER: "timer", RESET_TIMER: "återställ timern", PLAY_SOUND: "spela upp ljudet %1", PLAY_SOUND_UNTIL_DONE: "spela upp ljudet %1 tills det är klart", STOP_ALL_SOUNDS: "stoppa alla ljud", SOUND_POP: "popp", SOUND_FAILURE: "misslyckande", SOUND_SUCCESS: "lyckat"
+ }, CATEGORY: { CONTROLS: "Styrning", EVENTS: "Händelser", OPERATORS: "Operatorer", LOOKS: "Utseende", MOTIONS: "Rörelse", VARIABLES: "Variabler", SENSING: "Avkänning", SOUNDS: "Ljud" }
+};

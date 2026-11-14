@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Socodsii koodhka",
+  "RESTART": "Dib u socodsii koodhka",
+  "STOP": "Jooji koodhka",
+  "FULLSCREEN": "Fur shaashadda buuxda",
+  "FULLSCREEN_EXIT": "Ka bax shaashadda buuxda",
+  "HELP": "Caawimo",
+  "ERROR": "Khalad ayaa dhacay!",
+  "EXECUTION_OPTIONS": "Xulashooyinka socodsiinta",
+  "RESET_STAGE": "Dib u deji masraxa",
+  "SHORTCUTS": "Jid-gaabyada",
+  "DIALOG": {
+    "CANCEL": "Ka noqo",
+    "SAVE": "Kaydi",
+    "NO": "Maya",
+    "YES": "Haa",
+    "OK": "Hagaag"
+  },
+  "ZOOM": {
+    "IN": "Weynee",
+    "OUT": "Yaree",
+    "RESET": "Dib u deji cabbirka"
+  },
+  "OPTIONS": {
+    "READONLY": "Akhris keliya",
+    "READONLY_TOOLTIP": "Dooro in baloogyada wax laga beddeli karo",
+    "STAGE": "Masrax",
+    "STAGE_TOOLTIP": "Dooro nooca masraxa",
+    "STAGE_TYPES": {
+      "CODE": "Koodh",
+      "CANVAS": "Goobta sawirka"
+    },
+    "AVAILABLE_BLOCKS": "Baloogyada la heli karo",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Dooro baloogyada ka muuqda sanduuqa qalabka"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Nuqul ka samee",
+    "CROSS_TAB_COPY": "Koobi",
+    "CROSS_TAB_PASTE": "Ku dheji",
+    "DELETE": "Tirtir"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "marka %1 la gujiyo",
+    "WHEN_SPRITE_CLICKED": "marka sawirkan la gujiyo",
+    "WHEN_KEY_PRESSED": "marka furaha %1 la riixo",
+    "KEY_ANY": "mid kasta",
+    "KEY_SPACE": "meel bannaan",
+    "KEY_ARROW_UP": "fallaadha kore",
+    "KEY_ARROW_DOWN": "fallaadha hoose",
+    "KEY_ARROW_LEFT": "fallaadha bidix",
+    "KEY_ARROW_RIGHT": "fallaadha midig",
+    "WAIT": "sug %1 ilbidhiqsi",
+    "REPEAT": "ku celi %1 jeer",
+    "FOREVER": "weligaa",
+    "IF": "haddii %1, markaa",
+    "ELSE": "haddii kale",
+    "STOP": "jooji",
+    "RANDOM": "dooro tiro aan kala sooc lahayn oo u dhexeysa %1 iyo %2",
+    "AND": "%1 iyo %2",
+    "OR": "%1 ama %2",
+    "NOT": "ma aha %1",
+    "JOIN": "isku xidh %1 iyo %2",
+    "ABSOLUTE": "qiimaha mutlaq ee %1",
+    "SAY": "dheh %1",
+    "SAY_FOR_SECONDS": "dheh %1 muddo %2 ilbidhiqsi ah",
+    "SET_COLOR": "u deji saamaynta midabka %1",
+    "SET_BACKGROUND_COLOR": "u deji midabka gadaasha %1",
+    "MOVE": "dhaqaaq %1 tallaabo",
+    "ROTATE": "u wareeg %1 darajo",
+    "SET_ROTATION": "u deji wareegga %1 darajo",
+    "SET_X": "u deji x %1",
+    "SET_Y": "u deji y %1",
+    "SET_XY": "u deji x %1 iyo y %2",
+    "GET_X": "booska x",
+    "GET_Y": "booska y",
+    "TIMER": "saacad-tiriye",
+    "RESET_TIMER": "dib u deji saacad-tiriyaha",
+    "PLAY_SOUND": "daar codka %1",
+    "PLAY_SOUND_UNTIL_DONE": "daar codka %1 ilaa uu dhammaado",
+    "STOP_ALL_SOUNDS": "jooji codadka oo dhan",
+    "SOUND_POP": "qarax yar",
+    "SOUND_FAILURE": "guuldarro",
+    "SOUND_SUCCESS": "guul"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Kontaroollo",
+    "EVENTS": "Dhacdooyin",
+    "OPERATORS": "Hawlwadeenno",
+    "LOOKS": "Muuqaal",
+    "MOTIONS": "Dhaqdhaqaaq",
+    "VARIABLES": "Doorsoomayaal",
+    "SENSING": "Dareen",
+    "SOUNDS": "Codad"
+  }
+};

@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "ކޯޑު ހިންގާ",
+  "RESTART": "ކޯޑު އަލުން ހިންގާ",
+  "STOP": "ކޯޑު ހުއްޓާ",
+  "FULLSCREEN": "ފުލްސްކްރީން ހުޅުވާ",
+  "FULLSCREEN_EXIT": "ފުލްސްކްރީންއިން ނިކުމޭ",
+  "HELP": "އެހީ",
+  "ERROR": "މައްސަލައެއް ދިމާވެއްޖެ!",
+  "EXECUTION_OPTIONS": "ކޯޑު ހިންގުމުގެ އޮޕްޝަންތައް",
+  "RESET_STAGE": "ސްޓޭޖު ރީސެޓްކުރޭ",
+  "SHORTCUTS": "ޝޯޓްކަޓުތައް",
+  "DIALOG": {
+    "CANCEL": "ކެންސަލްކުރޭ",
+    "SAVE": "ސޭވުކުރޭ",
+    "NO": "ނޫން",
+    "YES": "އާނ",
+    "OK": "އޯކޭ"
+  },
+  "ZOOM": {
+    "IN": "ބޮޑުކޮށް ބަލާ",
+    "OUT": "ކުޑަކޮށް ބަލާ",
+    "RESET": "ޒޫމް ރީސެޓްކުރޭ"
+  },
+  "OPTIONS": {
+    "READONLY": "ކިޔުމަށް އެކަނި",
+    "READONLY_TOOLTIP": "ބްލޮކުތައް ބަދަލުކުރެވޭނެތޯ ހޮވާ",
+    "STAGE": "ސްޓޭޖު",
+    "STAGE_TOOLTIP": "ސްޓޭޖުގެ ބާވަތް ހޮވާ",
+    "STAGE_TYPES": {
+      "CODE": "ކޯޑު",
+      "CANVAS": "ކެންވަސް"
+    },
+    "AVAILABLE_BLOCKS": "ލިބޭ ބްލޮކުތައް",
+    "AVAILABLE_BLOCKS_TOOLTIP": "ޓޫލްބޮކްސްގައި ހުންނާނެ ބްލޮކުތައް ހޮވާ"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "ކޮޕީއެއް ހަދާ",
+    "CROSS_TAB_COPY": "ކޮޕީކުރޭ",
+    "CROSS_TAB_PASTE": "ޕޭސްޓްކުރޭ",
+    "DELETE": "ފޮހެލާ"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 އަށް ފިތާ އިރު",
+    "WHEN_SPRITE_CLICKED": "މި ސްޕްރައިޓަށް ފިތާ އިރު",
+    "WHEN_KEY_PRESSED": "%1 ކީ ފިތާ އިރު",
+    "KEY_ANY": "ކޮންމެ ކީއެއް",
+    "KEY_SPACE": "ސްޕޭސް",
+    "KEY_ARROW_UP": "މަތި އެރޯ",
+    "KEY_ARROW_DOWN": "ތިރި އެރޯ",
+    "KEY_ARROW_LEFT": "ވާތް އެރޯ",
+    "KEY_ARROW_RIGHT": "ކަނާތް އެރޯ",
+    "WAIT": "%1 ސިކުންތު މަޑުކުރޭ",
+    "REPEAT": "%1 ފަހަރު ކުރޭ",
+    "FOREVER": "އަބަދުވެސް",
+    "IF": "%1 ނަމަ",
+    "ELSE": "ނޫނީ",
+    "STOP": "ހުއްޓާ",
+    "RANDOM": "%1 އިން %2 އަށް ރެންޑަމް އަދަދެއް ހޮވާ",
+    "AND": "%1 އަދި %2",
+    "OR": "%1 ނުވަތަ %2",
+    "NOT": "%1 ނޫން",
+    "JOIN": "%1 އާއި %2 ގުޅުވާ",
+    "ABSOLUTE": "%1 ގެ އެބްސޮލޫޓު އަގު",
+    "SAY": "%1 ބުނޭ",
+    "SAY_FOR_SECONDS": "%1 އަކީ %2 ސިކުންތު ބުނޭ",
+    "SET_COLOR": "ކުލައިގެ އެފެކްޓު %1 އަށް ސެޓްކުރޭ",
+    "SET_BACKGROUND_COLOR": "ފަހުގެ ކުލަ %1 އަށް ސެޓްކުރޭ",
+    "MOVE": "%1 ފިޔަވަޅު ދޭ",
+    "ROTATE": "%1 ޑިގްރީ ބުރުޖަހާ",
+    "SET_ROTATION": "ބުރު %1 ޑިގްރީއަށް ސެޓްކުރޭ",
+    "SET_X": "x އަގު %1 އަށް ސެޓްކުރޭ",
+    "SET_Y": "y އަގު %1 އަށް ސެޓްކުރޭ",
+    "SET_XY": "x އަގު %1 އަށް އަދި y އަގު %2 އަށް ސެޓްކުރޭ",
+    "GET_X": "x ތަން",
+    "GET_Y": "y ތަން",
+    "TIMER": "ޓައިމަރު",
+    "RESET_TIMER": "ޓައިމަރު ރީސެޓްކުރޭ",
+    "PLAY_SOUND": "%1 އަޑު ކުޅޭ",
+    "PLAY_SOUND_UNTIL_DONE": "%1 އަޑު ނިމެންދެން ކުޅޭ",
+    "STOP_ALL_SOUNDS": "ހުރިހާ އަޑެއް ހުއްޓާ",
+    "SOUND_POP": "ޕޮޕް",
+    "SOUND_FAILURE": "ނާކާމިޔާބު",
+    "SOUND_SUCCESS": "ކާމިޔާބު"
+  },
+  "CATEGORY": {
+    "CONTROLS": "ކޮންޓްރޯލްތައް",
+    "EVENTS": "އިވެންޓުތައް",
+    "OPERATORS": "އޮޕަރޭޓަރުތައް",
+    "LOOKS": "ފެންނަގޮތް",
+    "MOTIONS": "ހިނގާ ގޮތް",
+    "VARIABLES": "ވެރިއޭބަލްތައް",
+    "SENSING": "ހޯދާ",
+    "SOUNDS": "އަޑުތައް"
+  }
+};

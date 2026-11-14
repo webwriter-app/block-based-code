@@ -26,6 +26,7 @@ export class PixiApplication extends StageApplication {
    * @private
    */
   private declare application: Application;
+  private destroyed = false;
 
   /**
    * The keyboard event listener.
@@ -42,10 +43,18 @@ export class PixiApplication extends StageApplication {
    * @inheritDoc
    */
   public override destroy(): void {
-    this.virtualMachine.stop();
+    if (this.destroyed) return;
+    this.destroyed = true;
     this.removeKeyboardListener();
-    this.application.destroy();
     super.destroy();
+    // Pixi installs its plugins asynchronously. Wait for their setup before
+    // destroying a stage that was replaced while the renderer was starting.
+    void this.initComplete.then(
+      () => this.application.destroy(),
+      () => {
+        if (this.application.renderer) this.application.destroy();
+      },
+    );
   }
 
   /**
@@ -113,8 +122,10 @@ export class PixiApplication extends StageApplication {
       background: "white",
       autoStart: false,
     });
+    if (this.destroyed) return;
     TextureStyle.defaultOptions.scaleMode = "nearest";
     await Assets.load(bunny);
+    if (this.destroyed) return;
     if (!sound.exists("pop")) {
       sound.add("pop", popSound);
     }

@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "কোড চালান",
+  "RESTART": "কোড আবার চালান",
+  "STOP": "কোড থামান",
+  "FULLSCREEN": "পূর্ণ পর্দা খুলুন",
+  "FULLSCREEN_EXIT": "পূর্ণ পর্দা থেকে বের হন",
+  "HELP": "সাহায্য",
+  "ERROR": "একটি ত্রুটি ঘটেছে!",
+  "EXECUTION_OPTIONS": "কোড চালানোর বিকল্প",
+  "RESET_STAGE": "মঞ্চ রিসেট করুন",
+  "SHORTCUTS": "শর্টকাট",
+  "DIALOG": {
+    "CANCEL": "বাতিল",
+    "SAVE": "সংরক্ষণ",
+    "NO": "না",
+    "YES": "হ্যাঁ",
+    "OK": "ঠিক আছে"
+  },
+  "ZOOM": {
+    "IN": "বড় করুন",
+    "OUT": "ছোট করুন",
+    "RESET": "আগের আকারে ফেরান"
+  },
+  "OPTIONS": {
+    "READONLY": "শুধু পড়ার জন্য",
+    "READONLY_TOOLTIP": "ব্লকগুলো সম্পাদনা করা যাবে কি না বেছে নিন",
+    "STAGE": "মঞ্চ",
+    "STAGE_TOOLTIP": "মঞ্চের ধরন বেছে নিন",
+    "STAGE_TYPES": {
+      "CODE": "কোড",
+      "CANVAS": "ক্যানভাস"
+    },
+    "AVAILABLE_BLOCKS": "উপলভ্য ব্লক",
+    "AVAILABLE_BLOCKS_TOOLTIP": "টুলবক্সে কোন ব্লক থাকবে তা বেছে নিন"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "প্রতিলিপি তৈরি করুন",
+    "CROSS_TAB_COPY": "অনুলিপি",
+    "CROSS_TAB_PASTE": "প্রতিলেপন",
+    "DELETE": "মুছুন"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 ক্লিক করলে",
+    "WHEN_SPRITE_CLICKED": "এই স্প্রাইটে ক্লিক করলে",
+    "WHEN_KEY_PRESSED": "%1 কী চাপলে",
+    "KEY_ANY": "যেকোনো",
+    "KEY_SPACE": "স্পেস",
+    "KEY_ARROW_UP": "ওপরের তীর",
+    "KEY_ARROW_DOWN": "নিচের তীর",
+    "KEY_ARROW_LEFT": "বাঁয়ের তীর",
+    "KEY_ARROW_RIGHT": "ডানের তীর",
+    "WAIT": "%1 সেকেন্ড অপেক্ষা করো",
+    "REPEAT": "%1 বার করো",
+    "FOREVER": "অনবরত",
+    "IF": "যদি %1, তাহলে",
+    "ELSE": "নইলে",
+    "STOP": "থামো",
+    "RANDOM": "%1 থেকে %2-এর মধ্যে এলোমেলো সংখ্যা নাও",
+    "AND": "%1 এবং %2",
+    "OR": "%1 অথবা %2",
+    "NOT": "%1 নয়",
+    "JOIN": "%1 ও %2 জুড়ো",
+    "ABSOLUTE": "%1-এর পরম মান",
+    "SAY": "%1 বলো",
+    "SAY_FOR_SECONDS": "%2 সেকেন্ড ধরে %1 বলো",
+    "SET_COLOR": "রঙের প্রভাব %1 করো",
+    "SET_BACKGROUND_COLOR": "পটভূমির রং %1 করো",
+    "MOVE": "%1 ধাপ চলো",
+    "ROTATE": "%1 ডিগ্রি ঘোরো",
+    "SET_ROTATION": "ঘূর্ণন %1 ডিগ্রি করো",
+    "SET_X": "x-এর মান %1 করো",
+    "SET_Y": "y-এর মান %1 করো",
+    "SET_XY": "x-এর মান %1 ও y-এর মান %2 করো",
+    "GET_X": "x অবস্থান",
+    "GET_Y": "y অবস্থান",
+    "TIMER": "সময় গণক",
+    "RESET_TIMER": "সময় গণক রিসেট করো",
+    "PLAY_SOUND": "%1 শব্দ বাজাও",
+    "PLAY_SOUND_UNTIL_DONE": "%1 শব্দ শেষ হওয়া পর্যন্ত বাজাও",
+    "STOP_ALL_SOUNDS": "সব শব্দ থামাও",
+    "SOUND_POP": "পপ",
+    "SOUND_FAILURE": "ব্যর্থতা",
+    "SOUND_SUCCESS": "সাফল্য"
+  },
+  "CATEGORY": {
+    "CONTROLS": "নিয়ন্ত্রণ",
+    "EVENTS": "ঘটনা",
+    "OPERATORS": "অপারেটর",
+    "LOOKS": "চেহারা",
+    "MOTIONS": "গতি",
+    "VARIABLES": "চলক",
+    "SENSING": "অনুভব",
+    "SOUNDS": "শব্দ"
+  }
+};

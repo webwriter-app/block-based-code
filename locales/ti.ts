@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "ኮድ ኣካይድ",
+  "RESTART": "ኮድ ዳግም ኣካይድ",
+  "STOP": "ኮድ ደው ኣብል",
+  "FULLSCREEN": "ምሉእ ስክሪን ክፈት",
+  "FULLSCREEN_EXIT": "ካብ ምሉእ ስክሪን ውጻእ",
+  "HELP": "ሓገዝ",
+  "ERROR": "ጌጋ ተፈጢሩ!",
+  "EXECUTION_OPTIONS": "ምርጫታት ምክያድ",
+  "RESET_STAGE": "መድረኽ ዳግም ኣዳሉ",
+  "SHORTCUTS": "ኣቋራጺ መጠወቒታት",
+  "DIALOG": {
+    "CANCEL": "ሰርዝ",
+    "SAVE": "ዓቅብ",
+    "NO": "ኣይፋል",
+    "YES": "እወ",
+    "OK": "ሕራይ"
+  },
+  "ZOOM": {
+    "IN": "ኣዕቢ",
+    "OUT": "ኣንእስ",
+    "RESET": "ናብ ቀዳማይ መጠን ምለስ"
+  },
+  "OPTIONS": {
+    "READONLY": "ንንባብ ጥራይ",
+    "READONLY_TOOLTIP": "ብሎካት ክእረሙ ይኽእሉ ድዮም ምረጽ",
+    "STAGE": "መድረኽ",
+    "STAGE_TOOLTIP": "ዓይነት መድረኽ ምረጽ",
+    "STAGE_TYPES": {
+      "CODE": "ኮድ",
+      "CANVAS": "ቦታ ስእሊ"
+    },
+    "AVAILABLE_BLOCKS": "ዘለዉ ብሎካት",
+    "AVAILABLE_BLOCKS_TOOLTIP": "ኣብ ሳጹን መሳርሒ ዘለዉ ብሎካት ምረጽ"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "ቅዳሕ ፍጠር",
+    "CROSS_TAB_COPY": "ቅዳሕ",
+    "CROSS_TAB_PASTE": "ለጥፍ",
+    "DELETE": "ደምስስ"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 ምስ ተጠውቐ",
+    "WHEN_SPRITE_CLICKED": "እዚ ስእሊ ምስ ተጠውቐ",
+    "WHEN_KEY_PRESSED": "መጠወቒ %1 ምስ ተጠውቐ",
+    "KEY_ANY": "ዝኾነ",
+    "KEY_SPACE": "ባዶ ቦታ",
+    "KEY_ARROW_UP": "ናይ ላዕሊ ቀስቲ",
+    "KEY_ARROW_DOWN": "ናይ ታሕቲ ቀስቲ",
+    "KEY_ARROW_LEFT": "ናይ ጸጋም ቀስቲ",
+    "KEY_ARROW_RIGHT": "ናይ የማን ቀስቲ",
+    "WAIT": "%1 ሰከንድ ተጸበ",
+    "REPEAT": "%1 ግዜ ደግም",
+    "FOREVER": "ኩሉ ግዜ",
+    "IF": "%1 እንተኾይኑ",
+    "ELSE": "እንተዘይኮይኑ",
+    "STOP": "ደው ኣብል",
+    "RANDOM": "ካብ %1 ክሳዕ %2 ብዕድል ቁጽሪ ምረጽ",
+    "AND": "%1 እና %2",
+    "OR": "%1 ወይ %2",
+    "NOT": "%1 ኣይኮነን",
+    "JOIN": "%1 እና %2 ኣጣምር",
+    "ABSOLUTE": "ፍጹም ዋጋ %1",
+    "SAY": "%1 በል",
+    "SAY_FOR_SECONDS": "%1 ን%2 ሰከንድ በል",
+    "SET_COLOR": "ጽልዋ ሕብሪ ናብ %1 ኣቐምጥ",
+    "SET_BACKGROUND_COLOR": "ሕብሪ ድሕሪት ናብ %1 ኣቐምጥ",
+    "MOVE": "%1 ስጉምቲ ተንቀሳቐስ",
+    "ROTATE": "ብ%1 ዲግሪ ዙር",
+    "SET_ROTATION": "ዙር ናብ %1 ዲግሪ ኣቐምጥ",
+    "SET_X": "x ናብ %1 ኣቐምጥ",
+    "SET_Y": "y ናብ %1 ኣቐምጥ",
+    "SET_XY": "x ናብ %1 እና y ናብ %2 ኣቐምጥ",
+    "GET_X": "ቦታ x",
+    "GET_Y": "ቦታ y",
+    "TIMER": "ቆጻሪ ግዜ",
+    "RESET_TIMER": "ቆጻሪ ግዜ ዳግም ኣዳሉ",
+    "PLAY_SOUND": "ድምጺ %1 ኣጻውት",
+    "PLAY_SOUND_UNTIL_DONE": "ድምጺ %1 ክሳዕ ዝውዳእ ኣጻውት",
+    "STOP_ALL_SOUNDS": "ኩሎም ድምጽታት ደው ኣብል",
+    "SOUND_POP": "ፖፕ",
+    "SOUND_FAILURE": "ውድቀት",
+    "SOUND_SUCCESS": "ዓወት"
+  },
+  "CATEGORY": {
+    "CONTROLS": "መቆጻጸሪታት",
+    "EVENTS": "ፍጻመታት",
+    "OPERATORS": "ኦፐሬተራት",
+    "LOOKS": "ትርኢት",
+    "MOTIONS": "ምንቅስቓስ",
+    "VARIABLES": "ተለዋወጥቲ",
+    "SENSING": "ምልላይ",
+    "SOUNDS": "ድምጽታት"
+  }
+};

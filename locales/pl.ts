@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Uruchom", RESTART: "Uruchom ponownie", STOP: "Zatrzymaj", FULLSCREEN: "Włącz tryb pełnoekranowy", FULLSCREEN_EXIT: "Wyłącz tryb pełnoekranowy", HELP: "Pomoc", ERROR: "Wystąpił błąd!", EXECUTION_OPTIONS: "Opcje uruchamiania", RESET_STAGE: "Zresetuj scenę", SHORTCUTS: "Skróty klawiszowe",
+ DIALOG: { CANCEL: "Anuluj", SAVE: "Zapisz", NO: "Nie", YES: "Tak", OK: "OK" }, ZOOM: { IN: "Powiększ", OUT: "Pomniejsz", RESET: "Resetuj powiększenie" },
+ OPTIONS: { READONLY: "Tylko do odczytu", READONLY_TOOLTIP: "Wybierz, czy bloki można edytować", STAGE: "Scena", STAGE_TOOLTIP: "Wybierz typ sceny", STAGE_TYPES: { CODE: "Kod", CANVAS: "Obszar roboczy" }, AVAILABLE_BLOCKS: "Dostępne bloki", AVAILABLE_BLOCKS_TOOLTIP: "Wybierz, które bloki będą dostępne w przyborniku" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplikuj", CROSS_TAB_COPY: "Kopiuj", CROSS_TAB_PASTE: "Wklej", DELETE: "Usuń" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "po kliknięciu %1", WHEN_SPRITE_CLICKED: "po kliknięciu tego duszka", WHEN_KEY_PRESSED: "po naciśnięciu klawisza %1", KEY_ANY: "dowolny klawisz", KEY_SPACE: "spacja", KEY_ARROW_UP: "strzałka w górę", KEY_ARROW_DOWN: "strzałka w dół", KEY_ARROW_LEFT: "strzałka w lewo", KEY_ARROW_RIGHT: "strzałka w prawo",
+ WAIT: "czekaj %1 sekund", REPEAT: "powtórz %1 razy", FOREVER: "zawsze", IF: "jeżeli %1, to", ELSE: "w przeciwnym razie", STOP: "zatrzymaj", RANDOM: "losuj liczbę od %1 do %2", AND: "%1 i %2", OR: "%1 lub %2", NOT: "nie %1", JOIN: "połącz %1 i %2", ABSOLUTE: "wartość bezwzględna z %1",
+ SAY: "powiedz %1", SAY_FOR_SECONDS: "powiedz %1 przez %2 sekund", SET_COLOR: "ustaw efekt koloru na %1", SET_BACKGROUND_COLOR: "ustaw kolor tła na %1", MOVE: "przesuń o %1 kroków", ROTATE: "obróć o %1 stopni", SET_ROTATION: "ustaw kierunek na %1 stopni", SET_X: "ustaw x na %1", SET_Y: "ustaw y na %1", SET_XY: "ustaw x na %1 i y na %2", GET_X: "pozycja x", GET_Y: "pozycja y", TIMER: "stoper", RESET_TIMER: "wyzeruj stoper", PLAY_SOUND: "odtwórz dźwięk %1", PLAY_SOUND_UNTIL_DONE: "odtwórz dźwięk %1 do końca", STOP_ALL_SOUNDS: "zatrzymaj wszystkie dźwięki", SOUND_POP: "pyk", SOUND_FAILURE: "porażka", SOUND_SUCCESS: "sukces"
+ }, CATEGORY: { CONTROLS: "Sterowanie", EVENTS: "Zdarzenia", OPERATORS: "Operatory", LOOKS: "Wygląd", MOTIONS: "Ruch", VARIABLES: "Zmienne", SENSING: "Czujniki", SOUNDS: "Dźwięki" }
+};

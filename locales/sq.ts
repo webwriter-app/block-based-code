@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Nis ekzekutimin", RESTART: "Rinis ekzekutimin", STOP: "Ndalo ekzekutimin", FULLSCREEN: "Kalo në ekran të plotë", FULLSCREEN_EXIT: "Dil nga ekrani i plotë", HELP: "Ndihmë", ERROR: "Ndodhi një gabim!", EXECUTION_OPTIONS: "Opsionet e ekzekutimit", RESET_STAGE: "Rivendos skenën", SHORTCUTS: "Shkurtoret e tastierës",
+ DIALOG: { CANCEL: "Anulo", SAVE: "Ruaj", NO: "Jo", YES: "Po", OK: "Në rregull" }, ZOOM: { IN: "Zmadho", OUT: "Zvogëlo", RESET: "Rivendos zmadhimin" },
+ OPTIONS: { READONLY: "Vetëm për lexim", READONLY_TOOLTIP: "Zgjidh nëse blloqet mund të redaktohen", STAGE: "Skena", STAGE_TOOLTIP: "Zgjidh llojin e skenës", STAGE_TYPES: { CODE: "Kod", CANVAS: "Kanavacë" }, AVAILABLE_BLOCKS: "Blloqet e disponueshme", AVAILABLE_BLOCKS_TOOLTIP: "Zgjidh blloqet që janë të disponueshme në kutinë e mjeteve" },
+ CONTROLS: { DUPLICATE_BLOCK: "Dyfisho", CROSS_TAB_COPY: "Kopjo", CROSS_TAB_PASTE: "Ngjit", DELETE: "Fshi" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "kur klikohet %1", WHEN_SPRITE_CLICKED: "kur klikohet ky personazh", WHEN_KEY_PRESSED: "kur shtypet tasti %1", KEY_ANY: "çfarëdo tasti", KEY_SPACE: "hapësirë", KEY_ARROW_UP: "shigjeta lart", KEY_ARROW_DOWN: "shigjeta poshtë", KEY_ARROW_LEFT: "shigjeta majtas", KEY_ARROW_RIGHT: "shigjeta djathtas",
+ WAIT: "prit %1 sekonda", REPEAT: "përsërit %1 herë", FOREVER: "përgjithmonë", IF: "nëse %1, atëherë", ELSE: "përndryshe", STOP: "ndalo", RANDOM: "zgjidh një numër rastësor nga %1 në %2", AND: "%1 dhe %2", OR: "%1 ose %2", NOT: "jo %1", JOIN: "bashko %1 dhe %2", ABSOLUTE: "vlera absolute e %1",
+ SAY: "thuaj %1", SAY_FOR_SECONDS: "thuaj %1 për %2 sekonda", SET_COLOR: "cakto efektin e ngjyrës në %1", SET_BACKGROUND_COLOR: "cakto ngjyrën e sfondit në %1", MOVE: "lëviz %1 hapa", ROTATE: "rrotullohu me %1 gradë", SET_ROTATION: "cakto drejtimin në %1 gradë", SET_X: "cakto x në %1", SET_Y: "cakto y në %1", SET_XY: "cakto x në %1 dhe y në %2", GET_X: "pozicioni x", GET_Y: "pozicioni y", TIMER: "kohëmatës", RESET_TIMER: "rivendos kohëmatësin", PLAY_SOUND: "luaj tingullin %1", PLAY_SOUND_UNTIL_DONE: "luaj tingullin %1 deri në fund", STOP_ALL_SOUNDS: "ndalo të gjithë tingujt", SOUND_POP: "plasje", SOUND_FAILURE: "dështim", SOUND_SUCCESS: "sukses"
+ }, CATEGORY: { CONTROLS: "Kontrolli", EVENTS: "Ngjarjet", OPERATORS: "Operatorët", LOOKS: "Pamja", MOTIONS: "Lëvizja", VARIABLES: "Variablat", SENSING: "Ndjeshmëria", SOUNDS: "Tingujt" }
+};

@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Започни извршување", RESTART: "Рестартирај извршување", STOP: "Запри извршување", FULLSCREEN: "Прикажи на цел екран", FULLSCREEN_EXIT: "Излези од цел екран", HELP: "Помош", ERROR: "Настана грешка!", EXECUTION_OPTIONS: "Опции за извршување", RESET_STAGE: "Ресетирај ја сцената", SHORTCUTS: "Кратенки на тастатура",
+ DIALOG: { CANCEL: "Откажи", SAVE: "Зачувај", NO: "Не", YES: "Да", OK: "Во ред" }, ZOOM: { IN: "Зголеми", OUT: "Намали", RESET: "Ресетирај зумирање" },
+ OPTIONS: { READONLY: "Само за читање", READONLY_TOOLTIP: "Изберете дали блоковите може да се уредуваат", STAGE: "Сцена", STAGE_TOOLTIP: "Изберете тип на сцена", STAGE_TYPES: { CODE: "Код", CANVAS: "Платно" }, AVAILABLE_BLOCKS: "Достапни блокови", AVAILABLE_BLOCKS_TOOLTIP: "Изберете кои блокови се достапни во алатникот" },
+ CONTROLS: { DUPLICATE_BLOCK: "Дуплирај", CROSS_TAB_COPY: "Копирај", CROSS_TAB_PASTE: "Залепи", DELETE: "Избриши" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "кога ќе се кликне на %1", WHEN_SPRITE_CLICKED: "кога ќе се кликне на овој лик", WHEN_KEY_PRESSED: "кога ќе се притисне копчето %1", KEY_ANY: "кое било копче", KEY_SPACE: "празно место", KEY_ARROW_UP: "стрелка нагоре", KEY_ARROW_DOWN: "стрелка надолу", KEY_ARROW_LEFT: "стрелка налево", KEY_ARROW_RIGHT: "стрелка надесно",
+ WAIT: "почекај %1 секунди", REPEAT: "повтори %1 пати", FOREVER: "засекогаш", IF: "ако %1, тогаш", ELSE: "инаку", STOP: "запри", RANDOM: "избери случаен број од %1 до %2", AND: "%1 и %2", OR: "%1 или %2", NOT: "не %1", JOIN: "спои %1 и %2", ABSOLUTE: "апсолутна вредност на %1",
+ SAY: "кажи %1", SAY_FOR_SECONDS: "кажи %1 во времетраење од %2 секунди", SET_COLOR: "постави го ефектот на боја на %1", SET_BACKGROUND_COLOR: "постави ја бојата на заднината на %1", MOVE: "движи се %1 чекори", ROTATE: "заврти се за %1 степени", SET_ROTATION: "постави ја насоката на %1 степени", SET_X: "постави x на %1", SET_Y: "постави y на %1", SET_XY: "постави x на %1 и y на %2", GET_X: "позиција x", GET_Y: "позиција y", TIMER: "тајмер", RESET_TIMER: "ресетирај го тајмерот", PLAY_SOUND: "пушти звук %1", PLAY_SOUND_UNTIL_DONE: "пуштај звук %1 до крај", STOP_ALL_SOUNDS: "запри ги сите звуци", SOUND_POP: "пук", SOUND_FAILURE: "неуспех", SOUND_SUCCESS: "успех"
+ }, CATEGORY: { CONTROLS: "Контрола", EVENTS: "Настани", OPERATORS: "Оператори", LOOKS: "Изглед", MOTIONS: "Движење", VARIABLES: "Променливи", SENSING: "Сензори", SOUNDS: "Звуци" }
+};

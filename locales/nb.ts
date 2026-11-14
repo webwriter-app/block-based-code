@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Start kjøring", RESTART: "Start kjøringen på nytt", STOP: "Stopp kjøringen", FULLSCREEN: "Gå til fullskjerm", FULLSCREEN_EXIT: "Avslutt fullskjerm", HELP: "Hjelp", ERROR: "Det oppstod en feil!", EXECUTION_OPTIONS: "Kjøringsalternativer", RESET_STAGE: "Tilbakestill scenen", SHORTCUTS: "Hurtigtaster",
+ DIALOG: { CANCEL: "Avbryt", SAVE: "Lagre", NO: "Nei", YES: "Ja", OK: "OK" }, ZOOM: { IN: "Zoom inn", OUT: "Zoom ut", RESET: "Tilbakestill zoom" },
+ OPTIONS: { READONLY: "Skrivebeskyttet", READONLY_TOOLTIP: "Velg om blokkene kan redigeres", STAGE: "Scene", STAGE_TOOLTIP: "Velg scenetype", STAGE_TYPES: { CODE: "Kode", CANVAS: "Lerret" }, AVAILABLE_BLOCKS: "Tilgjengelige blokker", AVAILABLE_BLOCKS_TOOLTIP: "Velg hvilke blokker som er tilgjengelige i verktøykassen" },
+ CONTROLS: { DUPLICATE_BLOCK: "Dupliser", CROSS_TAB_COPY: "Kopier", CROSS_TAB_PASTE: "Lim inn", DELETE: "Slett" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "når det klikkes på %1", WHEN_SPRITE_CLICKED: "når det klikkes på denne figuren", WHEN_KEY_PRESSED: "når tasten %1 trykkes", KEY_ANY: "vilkårlig tast", KEY_SPACE: "mellomrom", KEY_ARROW_UP: "pil opp", KEY_ARROW_DOWN: "pil ned", KEY_ARROW_LEFT: "pil venstre", KEY_ARROW_RIGHT: "pil høyre",
+ WAIT: "vent %1 sekunder", REPEAT: "gjenta %1 ganger", FOREVER: "for alltid", IF: "hvis %1, så", ELSE: "ellers", STOP: "stopp", RANDOM: "velg et tilfeldig tall fra %1 til %2", AND: "%1 og %2", OR: "%1 eller %2", NOT: "ikke %1", JOIN: "sett sammen %1 og %2", ABSOLUTE: "absoluttverdien av %1",
+ SAY: "si %1", SAY_FOR_SECONDS: "si %1 i %2 sekunder", SET_COLOR: "sett fargeeffekten til %1", SET_BACKGROUND_COLOR: "sett bakgrunnsfargen til %1", MOVE: "flytt %1 steg", ROTATE: "roter %1 grader", SET_ROTATION: "sett retningen til %1 grader", SET_X: "sett x til %1", SET_Y: "sett y til %1", SET_XY: "sett x til %1 og y til %2", GET_X: "x-posisjon", GET_Y: "y-posisjon", TIMER: "tidtaker", RESET_TIMER: "tilbakestill tidtakeren", PLAY_SOUND: "spill av lyden %1", PLAY_SOUND_UNTIL_DONE: "spill av lyden %1 til den er ferdig", STOP_ALL_SOUNDS: "stopp alle lyder", SOUND_POP: "plopp", SOUND_FAILURE: "mislykket", SOUND_SUCCESS: "vellykket"
+ }, CATEGORY: { CONTROLS: "Styring", EVENTS: "Hendelser", OPERATORS: "Operatorer", LOOKS: "Utseende", MOTIONS: "Bevegelse", VARIABLES: "Variabler", SENSING: "Registrering", SOUNDS: "Lyder" }
+};

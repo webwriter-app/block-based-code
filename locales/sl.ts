@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Začni izvajanje", RESTART: "Znova zaženi izvajanje", STOP: "Ustavi izvajanje", FULLSCREEN: "Preklopi na celozaslonski način", FULLSCREEN_EXIT: "Zapri celozaslonski način", HELP: "Pomoč", ERROR: "Prišlo je do napake!", EXECUTION_OPTIONS: "Možnosti izvajanja", RESET_STAGE: "Ponastavi oder", SHORTCUTS: "Bližnjice na tipkovnici",
+ DIALOG: { CANCEL: "Prekliči", SAVE: "Shrani", NO: "Ne", YES: "Da", OK: "V redu" }, ZOOM: { IN: "Povečaj", OUT: "Pomanjšaj", RESET: "Ponastavi povečavo" },
+ OPTIONS: { READONLY: "Samo za branje", READONLY_TOOLTIP: "Izberite, ali je bloke mogoče urejati", STAGE: "Oder", STAGE_TOOLTIP: "Izberite vrsto odra", STAGE_TYPES: { CODE: "Koda", CANVAS: "Platno" }, AVAILABLE_BLOCKS: "Razpoložljivi bloki", AVAILABLE_BLOCKS_TOOLTIP: "Izberite, kateri bloki so na voljo v orodjarni" },
+ CONTROLS: { DUPLICATE_BLOCK: "Podvoji", CROSS_TAB_COPY: "Kopiraj", CROSS_TAB_PASTE: "Prilepi", DELETE: "Izbriši" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "ko klikneš %1", WHEN_SPRITE_CLICKED: "ko klikneš ta lik", WHEN_KEY_PRESSED: "ko pritisneš tipko %1", KEY_ANY: "poljubna tipka", KEY_SPACE: "preslednica", KEY_ARROW_UP: "puščica gor", KEY_ARROW_DOWN: "puščica dol", KEY_ARROW_LEFT: "puščica levo", KEY_ARROW_RIGHT: "puščica desno",
+ WAIT: "počakaj %1 sekund", REPEAT: "ponovi %1-krat", FOREVER: "za vedno", IF: "če %1, potem", ELSE: "sicer", STOP: "ustavi", RANDOM: "izberi naključno število od %1 do %2", AND: "%1 in %2", OR: "%1 ali %2", NOT: "ne %1", JOIN: "združi %1 in %2", ABSOLUTE: "absolutna vrednost %1",
+ SAY: "reci %1", SAY_FOR_SECONDS: "reci %1 za %2 sekund", SET_COLOR: "nastavi barvni učinek na %1", SET_BACKGROUND_COLOR: "nastavi barvo ozadja na %1", MOVE: "premakni se za %1 korakov", ROTATE: "zavrti za %1 stopinj", SET_ROTATION: "nastavi smer na %1 stopinj", SET_X: "nastavi x na %1", SET_Y: "nastavi y na %1", SET_XY: "nastavi x na %1 in y na %2", GET_X: "položaj x", GET_Y: "položaj y", TIMER: "časovnik", RESET_TIMER: "ponastavi časovnik", PLAY_SOUND: "predvajaj zvok %1", PLAY_SOUND_UNTIL_DONE: "predvajaj zvok %1 do konca", STOP_ALL_SOUNDS: "ustavi vse zvoke", SOUND_POP: "pok", SOUND_FAILURE: "neuspeh", SOUND_SUCCESS: "uspeh"
+ }, CATEGORY: { CONTROLS: "Upravljanje", EVENTS: "Dogodki", OPERATORS: "Operatorji", LOOKS: "Videz", MOTIONS: "Gibanje", VARIABLES: "Spremenljivke", SENSING: "Zaznavanje", SOUNDS: "Zvoki" }
+};

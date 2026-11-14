@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Tosaigh an rith", RESTART: "Atosaigh an rith", STOP: "Stop an rith", FULLSCREEN: "Oscail lánscáileán", FULLSCREEN_EXIT: "Fág an lánscáileán", HELP: "Cabhair", ERROR: "Tharla earráid!", EXECUTION_OPTIONS: "Roghanna rith", RESET_STAGE: "Athshocraigh an stáitse", SHORTCUTS: "Aicearraí méarchláir",
+ DIALOG: { CANCEL: "Cealaigh", SAVE: "Sábháil", NO: "Níl", YES: "Tá", OK: "OK" }, ZOOM: { IN: "Súmáil isteach", OUT: "Súmáil amach", RESET: "Athshocraigh an súmáil" },
+ OPTIONS: { READONLY: "Inléite amháin", READONLY_TOOLTIP: "Roghnaigh an féidir na bloic a chur in eagar", STAGE: "Stáitse", STAGE_TOOLTIP: "Roghnaigh cineál an stáitse", STAGE_TYPES: { CODE: "Cód", CANVAS: "Canbhás" }, AVAILABLE_BLOCKS: "Bloic atá ar fáil", AVAILABLE_BLOCKS_TOOLTIP: "Roghnaigh na bloic a bheidh ar fáil sa bhosca uirlisí" },
+ CONTROLS: { DUPLICATE_BLOCK: "Cóipeáil", CROSS_TAB_COPY: "Cóipeáil", CROSS_TAB_PASTE: "Greamaigh", DELETE: "Scrios" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "nuair a chliceáiltear ar %1", WHEN_SPRITE_CLICKED: "nuair a chliceáiltear ar an sprid seo", WHEN_KEY_PRESSED: "nuair a bhrúitear an eochair %1", KEY_ANY: "eochair ar bith", KEY_SPACE: "spás", KEY_ARROW_UP: "saighead suas", KEY_ARROW_DOWN: "saighead síos", KEY_ARROW_LEFT: "saighead ar chlé", KEY_ARROW_RIGHT: "saighead ar dheis",
+ WAIT: "fan %1 soicind", REPEAT: "déan arís %1 uair", FOREVER: "go deo", IF: "má tá %1, ansin", ELSE: "seachas sin", STOP: "stop", RANDOM: "roghnaigh uimhir randamach ó %1 go %2", AND: "%1 agus %2", OR: "%1 nó %2", NOT: "ní %1", JOIN: "ceangail %1 agus %2", ABSOLUTE: "luach absalóideach %1",
+ SAY: "abair %1", SAY_FOR_SECONDS: "abair %1 ar feadh %2 soicind", SET_COLOR: "socraigh an éifeacht datha go %1", SET_BACKGROUND_COLOR: "socraigh dath an chúlra go %1", MOVE: "bog %1 céim", ROTATE: "rothlaigh %1 céim", SET_ROTATION: "socraigh an treo go %1 céim", SET_X: "socraigh x go %1", SET_Y: "socraigh y go %1", SET_XY: "socraigh x go %1 agus y go %2", GET_X: "suíomh x", GET_Y: "suíomh y", TIMER: "amadóir", RESET_TIMER: "athshocraigh an t-amadóir", PLAY_SOUND: "seinn fuaim %1", PLAY_SOUND_UNTIL_DONE: "seinn fuaim %1 go dtí go gcríochnaíonn sí", STOP_ALL_SOUNDS: "stop gach fuaim", SOUND_POP: "pop", SOUND_FAILURE: "teip", SOUND_SUCCESS: "rath"
+ }, CATEGORY: { CONTROLS: "Rialú", EVENTS: "Imeachtaí", OPERATORS: "Oibreoirí", LOOKS: "Cuma", MOTIONS: "Gluaiseacht", VARIABLES: "Athróga", SENSING: "Braite", SOUNDS: "Fuaimeanna" }
+};

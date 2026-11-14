@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Пачаць выкананне",
+  "RESTART": "Пачаць выкананне нанова",
+  "STOP": "Спыніць выкананне",
+  "FULLSCREEN": "Перайсці ў поўнаэкранны рэжым",
+  "FULLSCREEN_EXIT": "Выйсці з поўнаэкраннага рэжыму",
+  "HELP": "Даведка",
+  "ERROR": "Узнікла памылка!",
+  "EXECUTION_OPTIONS": "Параметры выканання",
+  "RESET_STAGE": "Скінуць сцэну",
+  "SHORTCUTS": "Спалучэнні клавіш",
+  "DIALOG": {
+    "CANCEL": "Скасаваць",
+    "SAVE": "Захаваць",
+    "NO": "Не",
+    "YES": "Так",
+    "OK": "Добра"
+  },
+  "ZOOM": {
+    "IN": "Павялічыць",
+    "OUT": "Паменшыць",
+    "RESET": "Скінуць маштаб"
+  },
+  "OPTIONS": {
+    "READONLY": "Толькі для чытання",
+    "READONLY_TOOLTIP": "Выберыце, ці можна рэдагаваць блокі",
+    "STAGE": "Сцэна",
+    "STAGE_TOOLTIP": "Выберыце тып сцэны",
+    "STAGE_TYPES": {
+      "CODE": "Код",
+      "CANVAS": "Палатно"
+    },
+    "AVAILABLE_BLOCKS": "Даступныя блокі",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Выберыце блокі для панэлі інструментаў"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Дубляваць",
+    "CROSS_TAB_COPY": "Капіяваць",
+    "CROSS_TAB_PASTE": "Уставіць",
+    "DELETE": "Выдаліць"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "калі націснулі %1",
+    "WHEN_SPRITE_CLICKED": "калі націснулі на гэты спрайт",
+    "WHEN_KEY_PRESSED": "калі націснулі клавішу %1",
+    "KEY_ANY": "любая",
+    "KEY_SPACE": "прабел",
+    "KEY_ARROW_UP": "стрэлка ўверх",
+    "KEY_ARROW_DOWN": "стрэлка ўніз",
+    "KEY_ARROW_LEFT": "стрэлка ўлева",
+    "KEY_ARROW_RIGHT": "стрэлка ўправа",
+    "WAIT": "чакаць %1 секунд",
+    "REPEAT": "паўтарыць %1 разоў",
+    "FOREVER": "заўсёды",
+    "IF": "калі %1, то",
+    "ELSE": "інакш",
+    "STOP": "спыніць",
+    "RANDOM": "выбраць выпадковы лік ад %1 да %2",
+    "AND": "%1 і %2",
+    "OR": "%1 або %2",
+    "NOT": "не %1",
+    "JOIN": "злучыць %1 і %2",
+    "ABSOLUTE": "абсалютнае значэнне %1",
+    "SAY": "сказаць %1",
+    "SAY_FOR_SECONDS": "казаць %1 на працягу %2 секунд",
+    "SET_COLOR": "усталяваць каляровы эфект у %1",
+    "SET_BACKGROUND_COLOR": "усталяваць колер фону ў %1",
+    "MOVE": "перайсці на %1 крокаў",
+    "ROTATE": "павярнуцца на %1 градусаў",
+    "SET_ROTATION": "усталяваць паварот у %1 градусаў",
+    "SET_X": "усталяваць x у %1",
+    "SET_Y": "усталяваць y у %1",
+    "SET_XY": "усталяваць x у %1 і y у %2",
+    "GET_X": "пазіцыя x",
+    "GET_Y": "пазіцыя y",
+    "TIMER": "таймер",
+    "RESET_TIMER": "скінуць таймер",
+    "PLAY_SOUND": "прайграць гук %1",
+    "PLAY_SOUND_UNTIL_DONE": "прайграць гук %1 да канца",
+    "STOP_ALL_SOUNDS": "спыніць усе гукі",
+    "SOUND_POP": "пляск",
+    "SOUND_FAILURE": "няўдача",
+    "SOUND_SUCCESS": "поспех"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Кіраванне",
+    "EVENTS": "Падзеі",
+    "OPERATORS": "Аператары",
+    "LOOKS": "Выгляд",
+    "MOTIONS": "Рух",
+    "VARIABLES": "Зменныя",
+    "SENSING": "Датчыкі",
+    "SOUNDS": "Гукі"
+  }
+};

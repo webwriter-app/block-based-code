@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Gudanar da lamba",
+  "RESTART": "Sake gudanar da lamba",
+  "STOP": "Tsayar da lamba",
+  "FULLSCREEN": "Buɗe cikakken allo",
+  "FULLSCREEN_EXIT": "Fita daga cikakken allo",
+  "HELP": "Taimako",
+  "ERROR": "An sami kuskure!",
+  "EXECUTION_OPTIONS": "Zaɓuɓɓukan gudanarwa",
+  "RESET_STAGE": "Sake saita dandali",
+  "SHORTCUTS": "Gajerun hanyoyi",
+  "DIALOG": {
+    "CANCEL": "Soke",
+    "SAVE": "Ajiye",
+    "NO": "A'a",
+    "YES": "I",
+    "OK": "To"
+  },
+  "ZOOM": {
+    "IN": "Ƙara girma",
+    "OUT": "Rage girma",
+    "RESET": "Mayar da girma"
+  },
+  "OPTIONS": {
+    "READONLY": "Karatu kawai",
+    "READONLY_TOOLTIP": "Zaɓi ko ana iya gyara tubalan",
+    "STAGE": "Dandali",
+    "STAGE_TOOLTIP": "Zaɓi nau'in dandali",
+    "STAGE_TYPES": {
+      "CODE": "Lamba",
+      "CANVAS": "Filin zane"
+    },
+    "AVAILABLE_BLOCKS": "Tubalan da ake da su",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Zaɓi tubalan da za su bayyana a akwatin kayan aiki"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Yi kwafi",
+    "CROSS_TAB_COPY": "Kwafa",
+    "CROSS_TAB_PASTE": "Manna",
+    "DELETE": "Goge"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "idan an danna %1",
+    "WHEN_SPRITE_CLICKED": "idan an danna wannan hoto",
+    "WHEN_KEY_PRESSED": "idan an danna maɓallin %1",
+    "KEY_ANY": "kowanne",
+    "KEY_SPACE": "sarari",
+    "KEY_ARROW_UP": "kibiya sama",
+    "KEY_ARROW_DOWN": "kibiya ƙasa",
+    "KEY_ARROW_LEFT": "kibiya hagu",
+    "KEY_ARROW_RIGHT": "kibiya dama",
+    "WAIT": "jira sakan %1",
+    "REPEAT": "maimaita sau %1",
+    "FOREVER": "har abada",
+    "IF": "idan %1, sai",
+    "ELSE": "in ba haka ba",
+    "STOP": "tsaya",
+    "RANDOM": "zaɓi lamba ta bazata tsakanin %1 da %2",
+    "AND": "%1 da %2",
+    "OR": "%1 ko %2",
+    "NOT": "ba %1 ba",
+    "JOIN": "haɗa %1 da %2",
+    "ABSOLUTE": "ƙimar %1 ba tare da alamar korau ba",
+    "SAY": "faɗi %1",
+    "SAY_FOR_SECONDS": "faɗi %1 na sakan %2",
+    "SET_COLOR": "saita tasirin launi zuwa %1",
+    "SET_BACKGROUND_COLOR": "saita launin baya zuwa %1",
+    "MOVE": "motsa matakai %1",
+    "ROTATE": "juya da digiri %1",
+    "SET_ROTATION": "saita juyawa zuwa digiri %1",
+    "SET_X": "saita x zuwa %1",
+    "SET_Y": "saita y zuwa %1",
+    "SET_XY": "saita x zuwa %1 da y zuwa %2",
+    "GET_X": "matsayin x",
+    "GET_Y": "matsayin y",
+    "TIMER": "mai ƙidayar lokaci",
+    "RESET_TIMER": "sake saita mai ƙidayar lokaci",
+    "PLAY_SOUND": "kunna sauti %1",
+    "PLAY_SOUND_UNTIL_DONE": "kunna sauti %1 har ya ƙare",
+    "STOP_ALL_SOUNDS": "tsayar da dukkan sautuka",
+    "SOUND_POP": "ƙarar fashewa",
+    "SOUND_FAILURE": "rashin nasara",
+    "SOUND_SUCCESS": "nasara"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Masu sarrafawa",
+    "EVENTS": "Abubuwan da suka faru",
+    "OPERATORS": "Masu aiwatarwa",
+    "LOOKS": "Kama",
+    "MOTIONS": "Motsi",
+    "VARIABLES": "Masu canzawa",
+    "SENSING": "Ganowa",
+    "SOUNDS": "Sautuka"
+  }
+};

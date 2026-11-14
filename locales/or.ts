@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "କୋଡ୍ ଚଲାନ୍ତୁ",
+  "RESTART": "ପୁଣି କୋଡ୍ ଚଲାନ୍ତୁ",
+  "STOP": "କୋଡ୍ ବନ୍ଦ କରନ୍ତୁ",
+  "FULLSCREEN": "ପୂରା ପରଦା ଖୋଲନ୍ତୁ",
+  "FULLSCREEN_EXIT": "ପୂରା ପରଦାରୁ ବାହାରନ୍ତୁ",
+  "HELP": "ସହାୟତା",
+  "ERROR": "ଏକ ତ୍ରୁଟି ଘଟିଲା!",
+  "EXECUTION_OPTIONS": "କୋଡ୍ ଚଲାଇବା ବିକଳ୍ପ",
+  "RESET_STAGE": "ମଞ୍ଚ ପୁନଃସେଟ୍ କରନ୍ତୁ",
+  "SHORTCUTS": "ସର୍ଟକଟ୍",
+  "DIALOG": {
+    "CANCEL": "ବାତିଲ କରନ୍ତୁ",
+    "SAVE": "ସଞ୍ଚୟ କରନ୍ତୁ",
+    "NO": "ନା",
+    "YES": "ହଁ",
+    "OK": "ଠିକ୍ ଅଛି"
+  },
+  "ZOOM": {
+    "IN": "ବଡ଼ କରନ୍ତୁ",
+    "OUT": "ଛୋଟ କରନ୍ତୁ",
+    "RESET": "ମୂଳ ଆକାରକୁ ଫେରାନ୍ତୁ"
+  },
+  "OPTIONS": {
+    "READONLY": "କେବଳ ପଢ଼ିବା ପାଇଁ",
+    "READONLY_TOOLTIP": "ବ୍ଲକଗୁଡ଼ିକୁ ସମ୍ପାଦନା କରିହେବ କି ନାହିଁ ବାଛନ୍ତୁ",
+    "STAGE": "ମଞ୍ଚ",
+    "STAGE_TOOLTIP": "ମଞ୍ଚର ପ୍ରକାର ବାଛନ୍ତୁ",
+    "STAGE_TYPES": {
+      "CODE": "କୋଡ୍",
+      "CANVAS": "କ୍ୟାନଭାସ୍"
+    },
+    "AVAILABLE_BLOCKS": "ଉପଲବ୍ଧ ବ୍ଲକ୍",
+    "AVAILABLE_BLOCKS_TOOLTIP": "ଟୁଲବକ୍ସରେ ଦେଖାଯିବା ବ୍ଲକ୍ ବାଛନ୍ତୁ"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "ନକଲ ବନାନ୍ତୁ",
+    "CROSS_TAB_COPY": "କପି କରନ୍ତୁ",
+    "CROSS_TAB_PASTE": "ଲଗାନ୍ତୁ",
+    "DELETE": "ବିଲୋପ କରନ୍ତୁ"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 କ୍ଲିକ୍ କଲେ",
+    "WHEN_SPRITE_CLICKED": "ଏହି ସ୍ପ୍ରାଇଟ୍‌ରେ କ୍ଲିକ୍ କଲେ",
+    "WHEN_KEY_PRESSED": "%1 କୀ ଦବାଇଲେ",
+    "KEY_ANY": "ଯେକୌଣସି",
+    "KEY_SPACE": "ସ୍ପେସ୍",
+    "KEY_ARROW_UP": "ଉପର ତୀର",
+    "KEY_ARROW_DOWN": "ତଳ ତୀର",
+    "KEY_ARROW_LEFT": "ବାମ ତୀର",
+    "KEY_ARROW_RIGHT": "ଡାହାଣ ତୀର",
+    "WAIT": "%1 ସେକେଣ୍ଡ ଅପେକ୍ଷା କର",
+    "REPEAT": "%1 ଥର ପୁନରାବୃତ୍ତି କର",
+    "FOREVER": "ସବୁବେଳେ",
+    "IF": "ଯଦି %1 ତେବେ",
+    "ELSE": "ନହେଲେ",
+    "STOP": "ବନ୍ଦ କର",
+    "RANDOM": "%1 ଓ %2 ମଧ୍ୟରେ ଯାଦୃଚ୍ଛିକ ସଂଖ୍ୟା ବାଛ",
+    "AND": "%1 ଏବଂ %2",
+    "OR": "%1 କିମ୍ବା %2",
+    "NOT": "%1 ନୁହେଁ",
+    "JOIN": "%1 ଏବଂ %2 ଯୋଡ଼",
+    "ABSOLUTE": "%1 ର ପରମ ମୂଲ୍ୟ",
+    "SAY": "%1 କୁହ",
+    "SAY_FOR_SECONDS": "%2 ସେକେଣ୍ଡ ପାଇଁ %1 କୁହ",
+    "SET_COLOR": "ରଙ୍ଗର ପ୍ରଭାବ %1 କର",
+    "SET_BACKGROUND_COLOR": "ପୃଷ୍ଠଭୂମିର ରଙ୍ଗ %1 କର",
+    "MOVE": "%1 ପାଦ ଘୁଞ୍ଚ",
+    "ROTATE": "%1 ଡିଗ୍ରୀ ଘୂର",
+    "SET_ROTATION": "ଘୂର୍ଣ୍ଣନକୁ %1 ଡିଗ୍ରୀ କର",
+    "SET_X": "x କୁ %1 କର",
+    "SET_Y": "y କୁ %1 କର",
+    "SET_XY": "x କୁ %1 ଓ y କୁ %2 କର",
+    "GET_X": "x ସ୍ଥାନ",
+    "GET_Y": "y ସ୍ଥାନ",
+    "TIMER": "ଟାଇମର୍",
+    "RESET_TIMER": "ଟାଇମର୍ ପୁନଃସେଟ୍ କର",
+    "PLAY_SOUND": "%1 ଧ୍ୱନି ବଜାଅ",
+    "PLAY_SOUND_UNTIL_DONE": "%1 ଧ୍ୱନି ଶେଷ ଯାଏଁ ବଜାଅ",
+    "STOP_ALL_SOUNDS": "ସମସ୍ତ ଧ୍ୱନି ବନ୍ଦ କର",
+    "SOUND_POP": "ପପ୍",
+    "SOUND_FAILURE": "ବିଫଳତା",
+    "SOUND_SUCCESS": "ସଫଳତା"
+  },
+  "CATEGORY": {
+    "CONTROLS": "ନିୟନ୍ତ୍ରଣ",
+    "EVENTS": "ଘଟଣା",
+    "OPERATORS": "ଅପରେଟର୍",
+    "LOOKS": "ରୂପ",
+    "MOTIONS": "ଗତି",
+    "VARIABLES": "ଚଳ",
+    "SENSING": "ସଂବେଦନ",
+    "SOUNDS": "ଧ୍ୱନି"
+  }
+};

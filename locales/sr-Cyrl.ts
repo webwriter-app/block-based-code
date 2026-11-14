@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Покрени извршавање",
+  "RESTART": "Поново покрени извршавање",
+  "STOP": "Заустави извршавање",
+  "FULLSCREEN": "Прикажи преко целог екрана",
+  "FULLSCREEN_EXIT": "Изађи из приказа преко целог екрана",
+  "HELP": "Помоћ",
+  "ERROR": "Дошло је до грешке!",
+  "EXECUTION_OPTIONS": "Опције извршавања",
+  "RESET_STAGE": "Ресетуј сцену",
+  "SHORTCUTS": "Пречице на тастатури",
+  "DIALOG": {
+    "CANCEL": "Откажи",
+    "SAVE": "Сачувај",
+    "NO": "Не",
+    "YES": "Да",
+    "OK": "У реду"
+  },
+  "ZOOM": {
+    "IN": "Увећај",
+    "OUT": "Умањи",
+    "RESET": "Ресетуј зум"
+  },
+  "OPTIONS": {
+    "READONLY": "Само за читање",
+    "READONLY_TOOLTIP": "Изаберите да ли блокови могу да се уређују",
+    "STAGE": "Сцена",
+    "STAGE_TOOLTIP": "Изаберите тип сцене",
+    "STAGE_TYPES": {
+      "CODE": "Кôд",
+      "CANVAS": "Платно"
+    },
+    "AVAILABLE_BLOCKS": "Доступни блокови",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Изаберите који блокови су доступни у кутији са алаткама"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Дуплирај",
+    "CROSS_TAB_COPY": "Копирај",
+    "CROSS_TAB_PASTE": "Налепи",
+    "DELETE": "Обриши"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "када се кликне на %1",
+    "WHEN_SPRITE_CLICKED": "када се кликне на овај лик",
+    "WHEN_KEY_PRESSED": "када се притисне тастер %1",
+    "KEY_ANY": "било који тастер",
+    "KEY_SPACE": "размак",
+    "KEY_ARROW_UP": "стрелица нагоре",
+    "KEY_ARROW_DOWN": "стрелица надоле",
+    "KEY_ARROW_LEFT": "стрелица налево",
+    "KEY_ARROW_RIGHT": "стрелица надесно",
+    "WAIT": "чекај %1 секунди",
+    "REPEAT": "понови %1 пута",
+    "FOREVER": "заувек",
+    "IF": "ако је %1, онда",
+    "ELSE": "у супротном",
+    "STOP": "заустави",
+    "RANDOM": "изабери случајан број од %1 до %2",
+    "AND": "%1 и %2",
+    "OR": "%1 или %2",
+    "NOT": "није %1",
+    "JOIN": "споји %1 и %2",
+    "ABSOLUTE": "апсолутна вредност броја %1",
+    "SAY": "реци %1",
+    "SAY_FOR_SECONDS": "реци %1 током %2 секунди",
+    "SET_COLOR": "постави ефекат боје на %1",
+    "SET_BACKGROUND_COLOR": "постави боју позадине на %1",
+    "MOVE": "помери се за %1 корака",
+    "ROTATE": "ротирај за %1 степени",
+    "SET_ROTATION": "постави смер на %1 степени",
+    "SET_X": "постави x на %1",
+    "SET_Y": "постави y на %1",
+    "SET_XY": "постави x на %1 и y на %2",
+    "GET_X": "x-позиција",
+    "GET_Y": "y-позиција",
+    "TIMER": "штоперица",
+    "RESET_TIMER": "ресетуј штоперицу",
+    "PLAY_SOUND": "пусти звук %1",
+    "PLAY_SOUND_UNTIL_DONE": "пуштај звук %1 до краја",
+    "STOP_ALL_SOUNDS": "заустави све звукове",
+    "SOUND_POP": "пуц",
+    "SOUND_FAILURE": "неуспех",
+    "SOUND_SUCCESS": "успех"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Управљање",
+    "EVENTS": "Догађаји",
+    "OPERATORS": "Оператори",
+    "LOOKS": "Изглед",
+    "MOTIONS": "Кретање",
+    "VARIABLES": "Променљиве",
+    "SENSING": "Опажање",
+    "SOUNDS": "Звукови"
+  }
+};

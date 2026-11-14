@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Iniciar execução", RESTART: "Reiniciar execução", STOP: "Parar execução", FULLSCREEN: "Entrar em ecrã inteiro", FULLSCREEN_EXIT: "Sair do ecrã inteiro", HELP: "Ajuda", ERROR: "Ocorreu um erro!", EXECUTION_OPTIONS: "Opções de execução", RESET_STAGE: "Repor o palco", SHORTCUTS: "Atalhos de teclado",
+ DIALOG: { CANCEL: "Cancelar", SAVE: "Guardar", NO: "Não", YES: "Sim", OK: "OK" }, ZOOM: { IN: "Ampliar", OUT: "Reduzir", RESET: "Repor o zoom" },
+ OPTIONS: { READONLY: "Só de leitura", READONLY_TOOLTIP: "Escolha se os blocos podem ser editados", STAGE: "Palco", STAGE_TOOLTIP: "Escolha o tipo de palco", STAGE_TYPES: { CODE: "Código", CANVAS: "Tela" }, AVAILABLE_BLOCKS: "Blocos disponíveis", AVAILABLE_BLOCKS_TOOLTIP: "Escolha os blocos disponíveis na caixa de ferramentas" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplicar", CROSS_TAB_COPY: "Copiar", CROSS_TAB_PASTE: "Colar", DELETE: "Eliminar" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "quando se clica em %1", WHEN_SPRITE_CLICKED: "quando se clica neste ator", WHEN_KEY_PRESSED: "quando se prime a tecla %1", KEY_ANY: "qualquer tecla", KEY_SPACE: "espaço", KEY_ARROW_UP: "seta para cima", KEY_ARROW_DOWN: "seta para baixo", KEY_ARROW_LEFT: "seta para a esquerda", KEY_ARROW_RIGHT: "seta para a direita",
+ WAIT: "espera %1 segundos", REPEAT: "repete %1 vezes", FOREVER: "para sempre", IF: "se %1, então", ELSE: "senão", STOP: "parar", RANDOM: "escolhe um número aleatório entre %1 e %2", AND: "%1 e %2", OR: "%1 ou %2", NOT: "não %1", JOIN: "junta %1 e %2", ABSOLUTE: "valor absoluto de %1",
+ SAY: "diz %1", SAY_FOR_SECONDS: "diz %1 durante %2 segundos", SET_COLOR: "define o efeito de cor como %1", SET_BACKGROUND_COLOR: "define a cor de fundo como %1", MOVE: "move %1 passos", ROTATE: "roda %1 graus", SET_ROTATION: "define a direção como %1 graus", SET_X: "define x como %1", SET_Y: "define y como %1", SET_XY: "define x como %1 e y como %2", GET_X: "posição x", GET_Y: "posição y", TIMER: "cronómetro", RESET_TIMER: "reinicia o cronómetro", PLAY_SOUND: "reproduz o som %1", PLAY_SOUND_UNTIL_DONE: "reproduz o som %1 até terminar", STOP_ALL_SOUNDS: "para todos os sons", SOUND_POP: "pop", SOUND_FAILURE: "falha", SOUND_SUCCESS: "sucesso"
+ }, CATEGORY: { CONTROLS: "Controlo", EVENTS: "Eventos", OPERATORS: "Operadores", LOOKS: "Aparência", MOTIONS: "Movimento", VARIABLES: "Variáveis", SENSING: "Sensores", SOUNDS: "Sons" }
+};

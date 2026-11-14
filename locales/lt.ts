@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Pradėti vykdymą", RESTART: "Paleisti iš naujo", STOP: "Stabdyti vykdymą", FULLSCREEN: "Įjungti viso ekrano režimą", FULLSCREEN_EXIT: "Išeiti iš viso ekrano režimo", HELP: "Pagalba", ERROR: "Įvyko klaida!", EXECUTION_OPTIONS: "Vykdymo parinktys", RESET_STAGE: "Iš naujo nustatyti sceną", SHORTCUTS: "Spartieji klavišai",
+ DIALOG: { CANCEL: "Atšaukti", SAVE: "Išsaugoti", NO: "Ne", YES: "Taip", OK: "Gerai" }, ZOOM: { IN: "Padidinti", OUT: "Sumažinti", RESET: "Atkurti mastelį" },
+ OPTIONS: { READONLY: "Tik skaityti", READONLY_TOOLTIP: "Pasirinkite, ar galima redaguoti blokus", STAGE: "Scena", STAGE_TOOLTIP: "Pasirinkite scenos tipą", STAGE_TYPES: { CODE: "Kodas", CANVAS: "Drobė" }, AVAILABLE_BLOCKS: "Galimi blokai", AVAILABLE_BLOCKS_TOOLTIP: "Pasirinkite, kurie blokai bus pasiekiami įrankių juostoje" },
+ CONTROLS: { DUPLICATE_BLOCK: "Dubliuoti", CROSS_TAB_COPY: "Kopijuoti", CROSS_TAB_PASTE: "Įklijuoti", DELETE: "Ištrinti" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "kai spustelima %1", WHEN_SPRITE_CLICKED: "kai spustelimas šis veikėjas", WHEN_KEY_PRESSED: "kai paspaudžiamas klavišas %1", KEY_ANY: "bet kuris klavišas", KEY_SPACE: "tarpas", KEY_ARROW_UP: "rodyklė aukštyn", KEY_ARROW_DOWN: "rodyklė žemyn", KEY_ARROW_LEFT: "rodyklė kairėn", KEY_ARROW_RIGHT: "rodyklė dešinėn",
+ WAIT: "laukti %1 sekundžių", REPEAT: "kartoti %1 kartų", FOREVER: "nuolat", IF: "jei %1, tada", ELSE: "kitaip", STOP: "sustabdyti", RANDOM: "atsitiktinis skaičius nuo %1 iki %2", AND: "%1 ir %2", OR: "%1 arba %2", NOT: "ne %1", JOIN: "sujungti %1 ir %2", ABSOLUTE: "%1 absoliuti reikšmė",
+ SAY: "sakyti %1", SAY_FOR_SECONDS: "sakyti %1 %2 sekundes", SET_COLOR: "nustatyti spalvos efektą į %1", SET_BACKGROUND_COLOR: "nustatyti fono spalvą į %1", MOVE: "judėti %1 žingsnių", ROTATE: "pasukti %1 laipsnių", SET_ROTATION: "nustatyti kryptį į %1 laipsnių", SET_X: "nustatyti x į %1", SET_Y: "nustatyti y į %1", SET_XY: "nustatyti x į %1 ir y į %2", GET_X: "x padėtis", GET_Y: "y padėtis", TIMER: "laikmatis", RESET_TIMER: "nustatyti laikmatį iš naujo", PLAY_SOUND: "groti garsą %1", PLAY_SOUND_UNTIL_DONE: "groti garsą %1 iki pabaigos", STOP_ALL_SOUNDS: "sustabdyti visus garsus", SOUND_POP: "pokšt", SOUND_FAILURE: "nesėkmė", SOUND_SUCCESS: "sėkmė"
+ }, CATEGORY: { CONTROLS: "Valdymas", EVENTS: "Įvykiai", OPERATORS: "Operatoriai", LOOKS: "Išvaizda", MOTIONS: "Judėjimas", VARIABLES: "Kintamieji", SENSING: "Jutimas", SOUNDS: "Garsai" }
+};

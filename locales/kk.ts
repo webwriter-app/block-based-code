@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Орындауды бастау", RESTART: "Орындауды қайта бастау", STOP: "Орындауды тоқтату", FULLSCREEN: "Толық экранға өту", FULLSCREEN_EXIT: "Толық экраннан шығу", HELP: "Анықтама", ERROR: "Қате орын алды!", EXECUTION_OPTIONS: "Орындау параметрлері", RESET_STAGE: "Сахнаны бастапқы күйге келтіру", SHORTCUTS: "Пернетақта тіркесімдері",
+ DIALOG: { CANCEL: "Болдырмау", SAVE: "Сақтау", NO: "Жоқ", YES: "Иә", OK: "Жарайды" }, ZOOM: { IN: "Үлкейту", OUT: "Кішірейту", RESET: "Масштабты қалпына келтіру" },
+ OPTIONS: { READONLY: "Тек оқу", READONLY_TOOLTIP: "Блоктарды өңдеуге болатынын таңдаңыз", STAGE: "Сахна", STAGE_TOOLTIP: "Сахна түрін таңдаңыз", STAGE_TYPES: { CODE: "Код", CANVAS: "Кенеп" }, AVAILABLE_BLOCKS: "Қолжетімді блоктар", AVAILABLE_BLOCKS_TOOLTIP: "Құралдар тақтасында қолжетімді блоктарды таңдаңыз" },
+ CONTROLS: { DUPLICATE_BLOCK: "Көшірмесін жасау", CROSS_TAB_COPY: "Көшіру", CROSS_TAB_PASTE: "Қою", DELETE: "Жою" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "%1 басылғанда", WHEN_SPRITE_CLICKED: "осы кейіпкер басылғанда", WHEN_KEY_PRESSED: "%1 пернесі басылғанда", KEY_ANY: "кез келген перне", KEY_SPACE: "бос орын", KEY_ARROW_UP: "жоғары көрсеткі", KEY_ARROW_DOWN: "төмен көрсеткі", KEY_ARROW_LEFT: "сол жақ көрсеткі", KEY_ARROW_RIGHT: "оң жақ көрсеткі",
+ WAIT: "%1 секунд күту", REPEAT: "%1 рет қайталау", FOREVER: "әрдайым", IF: "егер %1 болса, онда", ELSE: "әйтпесе", STOP: "тоқтату", RANDOM: "%1 мен %2 аралығындағы кездейсоқ санды таңдау", AND: "%1 және %2", OR: "%1 немесе %2", NOT: "%1 емес", JOIN: "%1 мен %2 біріктіру", ABSOLUTE: "%1 абсолют мәні",
+ SAY: "%1 деп айту", SAY_FOR_SECONDS: "%1 деп %2 секунд айту", SET_COLOR: "түс әсерін %1 етіп орнату", SET_BACKGROUND_COLOR: "фон түсін %1 етіп орнату", MOVE: "%1 қадам жылжу", ROTATE: "%1 градусқа бұрылу", SET_ROTATION: "бағытты %1 градус етіп орнату", SET_X: "x мәнін %1 етіп орнату", SET_Y: "y мәнін %1 етіп орнату", SET_XY: "x мәнін %1, y мәнін %2 етіп орнату", GET_X: "x орны", GET_Y: "y орны", TIMER: "таймер", RESET_TIMER: "таймерді қалпына келтіру", PLAY_SOUND: "%1 дыбысын ойнату", PLAY_SOUND_UNTIL_DONE: "%1 дыбысын аяқталғанша ойнату", STOP_ALL_SOUNDS: "барлық дыбысты тоқтату", SOUND_POP: "тарс", SOUND_FAILURE: "сәтсіздік", SOUND_SUCCESS: "сәттілік"
+ }, CATEGORY: { CONTROLS: "Басқару", EVENTS: "Оқиғалар", OPERATORS: "Амалдар", LOOKS: "Көрініс", MOTIONS: "Қозғалыс", VARIABLES: "Айнымалылар", SENSING: "Сезу", SOUNDS: "Дыбыстар" }
+};

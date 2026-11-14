@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "გაშვების დაწყება", RESTART: "გაშვების ხელახლა დაწყება", STOP: "გაშვების შეჩერება", FULLSCREEN: "სრულ ეკრანზე გადასვლა", FULLSCREEN_EXIT: "სრული ეკრანიდან გამოსვლა", HELP: "დახმარება", ERROR: "შეცდომა მოხდა!", EXECUTION_OPTIONS: "გაშვების პარამეტრები", RESET_STAGE: "სცენის განულება", SHORTCUTS: "კლავიატურის მალსახმობები",
+ DIALOG: { CANCEL: "გაუქმება", SAVE: "შენახვა", NO: "არა", YES: "დიახ", OK: "კარგი" }, ZOOM: { IN: "გადიდება", OUT: "შემცირება", RESET: "მასშტაბის განულება" },
+ OPTIONS: { READONLY: "მხოლოდ წაკითხვა", READONLY_TOOLTIP: "აირჩიეთ, შეიძლება თუ არა ბლოკების რედაქტირება", STAGE: "სცენა", STAGE_TOOLTIP: "აირჩიეთ სცენის ტიპი", STAGE_TYPES: { CODE: "კოდი", CANVAS: "ტილო" }, AVAILABLE_BLOCKS: "ხელმისაწვდომი ბლოკები", AVAILABLE_BLOCKS_TOOLTIP: "აირჩიეთ ხელსაწყოების ყუთში ხელმისაწვდომი ბლოკები" },
+ CONTROLS: { DUPLICATE_BLOCK: "დუბლირება", CROSS_TAB_COPY: "კოპირება", CROSS_TAB_PASTE: "ჩასმა", DELETE: "წაშლა" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "როცა %1-ზე დააწკაპუნებენ", WHEN_SPRITE_CLICKED: "როცა ამ პერსონაჟზე დააწკაპუნებენ", WHEN_KEY_PRESSED: "როცა %1 ღილაკს დააჭერენ", KEY_ANY: "ნებისმიერი ღილაკი", KEY_SPACE: "გამოტოვება", KEY_ARROW_UP: "ზედა ისარი", KEY_ARROW_DOWN: "ქვედა ისარი", KEY_ARROW_LEFT: "მარცხენა ისარი", KEY_ARROW_RIGHT: "მარჯვენა ისარი",
+ WAIT: "დაელოდე %1 წამს", REPEAT: "გაიმეორე %1-ჯერ", FOREVER: "სამუდამოდ", IF: "თუ %1, მაშინ", ELSE: "სხვა შემთხვევაში", STOP: "შეჩერება", RANDOM: "აირჩიე შემთხვევითი რიცხვი %1-დან %2-მდე", AND: "%1 და %2", OR: "%1 ან %2", NOT: "არა %1", JOIN: "შეაერთე %1 და %2", ABSOLUTE: "%1-ის აბსოლუტური მნიშვნელობა",
+ SAY: "თქვი %1", SAY_FOR_SECONDS: "თქვი %1 %2 წამის განმავლობაში", SET_COLOR: "ფერის ეფექტი დააყენე %1-ზე", SET_BACKGROUND_COLOR: "ფონის ფერი დააყენე %1-ზე", MOVE: "გადაიწიე %1 ნაბიჯით", ROTATE: "შემოტრიალდი %1 გრადუსით", SET_ROTATION: "მიმართულება დააყენე %1 გრადუსზე", SET_X: "x დააყენე %1-ზე", SET_Y: "y დააყენე %1-ზე", SET_XY: "x დააყენე %1-ზე და y — %2-ზე", GET_X: "x-პოზიცია", GET_Y: "y-პოზიცია", TIMER: "ტაიმერი", RESET_TIMER: "ტაიმერის განულება", PLAY_SOUND: "დაუკარი ხმა %1", PLAY_SOUND_UNTIL_DONE: "დაუკარი ხმა %1 დასრულებამდე", STOP_ALL_SOUNDS: "ყველა ხმის შეჩერება", SOUND_POP: "პოპ", SOUND_FAILURE: "წარუმატებლობა", SOUND_SUCCESS: "წარმატება"
+ }, CATEGORY: { CONTROLS: "მართვა", EVENTS: "მოვლენები", OPERATORS: "ოპერატორები", LOOKS: "გარეგნობა", MOTIONS: "მოძრაობა", VARIABLES: "ცვლადები", SENSING: "შეგრძნება", SOUNDS: "ხმები" }
+};

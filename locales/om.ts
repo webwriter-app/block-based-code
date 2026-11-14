@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Koodii hojjechiisi",
+  "RESTART": "Koodii irra deebi'ii hojjechiisi",
+  "STOP": "Koodii dhaabi",
+  "FULLSCREEN": "Iskiriinii guutuu bani",
+  "FULLSCREEN_EXIT": "Iskiriinii guutuu keessaa ba'i",
+  "HELP": "Gargaarsa",
+  "ERROR": "Dogoggorri uumame!",
+  "EXECUTION_OPTIONS": "Filannoowwan koodii hojjechiisuu",
+  "RESET_STAGE": "Waltajjii irra deebi'ii jalqabi",
+  "SHORTCUTS": "Karaalee gabaabaa",
+  "DIALOG": {
+    "CANCEL": "Dhiisi",
+    "SAVE": "Olkaa'i",
+    "NO": "Lakki",
+    "YES": "Eeyyee",
+    "OK": "Tole"
+  },
+  "ZOOM": {
+    "IN": "Guddisi",
+    "OUT": "Xiqqeessi",
+    "RESET": "Guddina deebisi"
+  },
+  "OPTIONS": {
+    "READONLY": "Dubbisa qofa",
+    "READONLY_TOOLTIP": "Bilookota gulaaluun danda'amu filadhu",
+    "STAGE": "Waltajjii",
+    "STAGE_TOOLTIP": "Gosa waltajjii filadhu",
+    "STAGE_TYPES": {
+      "CODE": "Koodii",
+      "CANVAS": "Dirree fakkii"
+    },
+    "AVAILABLE_BLOCKS": "Bilookota jiran",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Bilookota sanduuqa meeshaa keessa jiran filadhu"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Garagalcha uumi",
+    "CROSS_TAB_COPY": "Garagalchi",
+    "CROSS_TAB_PASTE": "Maxxansi",
+    "DELETE": "Haqi"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "yeroo %1 cuqaafamu",
+    "WHEN_SPRITE_CLICKED": "yeroo fakkiin kun cuqaafamu",
+    "WHEN_KEY_PRESSED": "yeroo furtuun %1 dhiibamu",
+    "KEY_ANY": "kamiyyuu",
+    "KEY_SPACE": "iddoo duwwaa",
+    "KEY_ARROW_UP": "xiyya ol",
+    "KEY_ARROW_DOWN": "xiyya gadi",
+    "KEY_ARROW_LEFT": "xiyya bitaa",
+    "KEY_ARROW_RIGHT": "xiyya mirgaa",
+    "WAIT": "sekondii %1 eegi",
+    "REPEAT": "yeroo %1 irra deebi'i",
+    "FOREVER": "yeroo hunda",
+    "IF": "yoo %1 ta'e",
+    "ELSE": "yoo kana hin taane",
+    "STOP": "dhaabi",
+    "RANDOM": "lakkoofsa tasaa %1 fi %2 gidduutti filadhu",
+    "AND": "%1 fi %2",
+    "OR": "%1 yookaan %2",
+    "NOT": "%1 miti",
+    "JOIN": "%1 fi %2 walitti qabi",
+    "ABSOLUTE": "gatii guutuu %1",
+    "SAY": "%1 jedhi",
+    "SAY_FOR_SECONDS": "%1 sekondii %2f jedhi",
+    "SET_COLOR": "bu'aa halluu gara %1tti jijjiiri",
+    "SET_BACKGROUND_COLOR": "halluu duubaa gara %1tti jijjiiri",
+    "MOVE": "tarkaanfii %1 socho'i",
+    "ROTATE": "digrii %1 naanna'i",
+    "SET_ROTATION": "naanna'ina gara digrii %1tti saagi",
+    "SET_X": "x gara %1tti saagi",
+    "SET_Y": "y gara %1tti saagi",
+    "SET_XY": "x gara %1tti fi y gara %2tti saagi",
+    "GET_X": "bakka x",
+    "GET_Y": "bakka y",
+    "TIMER": "lakkooftuu yeroo",
+    "RESET_TIMER": "lakkooftuu yeroo deebisi",
+    "PLAY_SOUND": "sagalee %1 taphachiisi",
+    "PLAY_SOUND_UNTIL_DONE": "sagalee %1 hanga dhumaatti taphachiisi",
+    "STOP_ALL_SOUNDS": "sagalee hunda dhaabi",
+    "SOUND_POP": "poop",
+    "SOUND_FAILURE": "kufaatii",
+    "SOUND_SUCCESS": "milkaa'ina"
+  },
+  "CATEGORY": {
+    "CONTROLS": "To'annoo",
+    "EVENTS": "Taateewwan",
+    "OPERATORS": "Hojjettoota",
+    "LOOKS": "Mul'ata",
+    "MOTIONS": "Sochii",
+    "VARIABLES": "Jijjiiramoota",
+    "SENSING": "Hubannoo",
+    "SOUNDS": "Sagaleewwan"
+  }
+};

@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Käynnistä suoritus", RESTART: "Käynnistä suoritus uudelleen", STOP: "Pysäytä suoritus", FULLSCREEN: "Siirry koko näytön tilaan", FULLSCREEN_EXIT: "Poistu koko näytön tilasta", HELP: "Ohje", ERROR: "Tapahtui virhe!", EXECUTION_OPTIONS: "Suoritusasetukset", RESET_STAGE: "Nollaa näyttämö", SHORTCUTS: "Pikanäppäimet",
+ DIALOG: { CANCEL: "Peruuta", SAVE: "Tallenna", NO: "Ei", YES: "Kyllä", OK: "OK" }, ZOOM: { IN: "Lähennä", OUT: "Loitonna", RESET: "Palauta zoomaus" },
+ OPTIONS: { READONLY: "Vain luku", READONLY_TOOLTIP: "Valitse, voiko lohkoja muokata", STAGE: "Näyttämö", STAGE_TOOLTIP: "Valitse näyttämön tyyppi", STAGE_TYPES: { CODE: "Koodi", CANVAS: "Piirtoalue" }, AVAILABLE_BLOCKS: "Käytettävissä olevat lohkot", AVAILABLE_BLOCKS_TOOLTIP: "Valitse työkalupakissa käytettävissä olevat lohkot" },
+ CONTROLS: { DUPLICATE_BLOCK: "Monista", CROSS_TAB_COPY: "Kopioi", CROSS_TAB_PASTE: "Liitä", DELETE: "Poista" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "kun kohdetta %1 napsautetaan", WHEN_SPRITE_CLICKED: "kun tätä hahmoa napsautetaan", WHEN_KEY_PRESSED: "kun näppäintä %1 painetaan", KEY_ANY: "mikä tahansa näppäin", KEY_SPACE: "välilyönti", KEY_ARROW_UP: "ylänuoli", KEY_ARROW_DOWN: "alanuoli", KEY_ARROW_LEFT: "vasen nuoli", KEY_ARROW_RIGHT: "oikea nuoli",
+ WAIT: "odota %1 sekuntia", REPEAT: "toista %1 kertaa", FOREVER: "ikuisesti", IF: "jos %1, niin", ELSE: "muuten", STOP: "pysäytä", RANDOM: "valitse satunnainen luku väliltä %1–%2", AND: "%1 ja %2", OR: "%1 tai %2", NOT: "ei %1", JOIN: "yhdistä %1 ja %2", ABSOLUTE: "%1 itseisarvo",
+ SAY: "sano %1", SAY_FOR_SECONDS: "sano %1 %2 sekunnin ajan", SET_COLOR: "aseta väritehosteeksi %1", SET_BACKGROUND_COLOR: "aseta taustaväriksi %1", MOVE: "liiku %1 askelta", ROTATE: "kierrä %1 astetta", SET_ROTATION: "aseta suunnaksi %1 astetta", SET_X: "aseta x arvoksi %1", SET_Y: "aseta y arvoksi %1", SET_XY: "aseta x arvoksi %1 ja y arvoksi %2", GET_X: "x-sijainti", GET_Y: "y-sijainti", TIMER: "ajastin", RESET_TIMER: "nollaa ajastin", PLAY_SOUND: "toista ääni %1", PLAY_SOUND_UNTIL_DONE: "toista ääni %1 loppuun asti", STOP_ALL_SOUNDS: "pysäytä kaikki äänet", SOUND_POP: "poksahdus", SOUND_FAILURE: "epäonnistuminen", SOUND_SUCCESS: "onnistuminen"
+ }, CATEGORY: { CONTROLS: "Ohjaus", EVENTS: "Tapahtumat", OPERATORS: "Operaattorit", LOOKS: "Ulkoasu", MOTIONS: "Liike", VARIABLES: "Muuttujat", SENSING: "Tunnistus", SOUNDS: "Äänet" }
+};

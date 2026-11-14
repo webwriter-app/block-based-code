@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "کوڈ چلائیں",
+  "RESTART": "کوڈ دوبارہ چلائیں",
+  "STOP": "کوڈ روکیں",
+  "FULLSCREEN": "پوری اسکرین کھولیں",
+  "FULLSCREEN_EXIT": "پوری اسکرین سے باہر نکلیں",
+  "HELP": "مدد",
+  "ERROR": "ایک خرابی ہوئی ہے!",
+  "EXECUTION_OPTIONS": "کوڈ چلانے کے اختیارات",
+  "RESET_STAGE": "اسٹیج ری سیٹ کریں",
+  "SHORTCUTS": "شارٹ کٹس",
+  "DIALOG": {
+    "CANCEL": "منسوخ کریں",
+    "SAVE": "محفوظ کریں",
+    "NO": "نہیں",
+    "YES": "ہاں",
+    "OK": "ٹھیک ہے"
+  },
+  "ZOOM": {
+    "IN": "بڑا کریں",
+    "OUT": "چھوٹا کریں",
+    "RESET": "اصل سائز بحال کریں"
+  },
+  "OPTIONS": {
+    "READONLY": "صرف پڑھنے کے لیے",
+    "READONLY_TOOLTIP": "منتخب کریں کہ بلاکس میں ترمیم کی جا سکے یا نہیں",
+    "STAGE": "اسٹیج",
+    "STAGE_TOOLTIP": "اسٹیج کی قسم منتخب کریں",
+    "STAGE_TYPES": {
+      "CODE": "کوڈ",
+      "CANVAS": "کینوس"
+    },
+    "AVAILABLE_BLOCKS": "دستیاب بلاکس",
+    "AVAILABLE_BLOCKS_TOOLTIP": "ٹول باکس میں نظر آنے والے بلاکس منتخب کریں"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "نقل بنائیں",
+    "CROSS_TAB_COPY": "کاپی کریں",
+    "CROSS_TAB_PASTE": "چسپاں کریں",
+    "DELETE": "حذف کریں"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "جب %1 پر کلک ہو",
+    "WHEN_SPRITE_CLICKED": "جب اس اسپرائٹ پر کلک ہو",
+    "WHEN_KEY_PRESSED": "جب %1 کلید دبے",
+    "KEY_ANY": "کوئی بھی",
+    "KEY_SPACE": "اسپیس",
+    "KEY_ARROW_UP": "اوپر کا تیر",
+    "KEY_ARROW_DOWN": "نیچے کا تیر",
+    "KEY_ARROW_LEFT": "بایاں تیر",
+    "KEY_ARROW_RIGHT": "دایاں تیر",
+    "WAIT": "%1 سیکنڈ انتظار کرو",
+    "REPEAT": "%1 بار دہراؤ",
+    "FOREVER": "ہمیشہ",
+    "IF": "اگر %1، تو",
+    "ELSE": "ورنہ",
+    "STOP": "رکو",
+    "RANDOM": "%1 سے %2 کے درمیان کوئی بے ترتیب عدد چنو",
+    "AND": "%1 اور %2",
+    "OR": "%1 یا %2",
+    "NOT": "%1 نہیں",
+    "JOIN": "%1 اور %2 جوڑو",
+    "ABSOLUTE": "%1 کی مطلق قدر",
+    "SAY": "%1 کہو",
+    "SAY_FOR_SECONDS": "%2 سیکنڈ تک %1 کہو",
+    "SET_COLOR": "رنگ کا اثر %1 پر رکھو",
+    "SET_BACKGROUND_COLOR": "پس منظر کا رنگ %1 پر رکھو",
+    "MOVE": "%1 قدم چلو",
+    "ROTATE": "%1 درجے گھومو",
+    "SET_ROTATION": "گردش %1 درجے پر رکھو",
+    "SET_X": "x کی قدر %1 رکھو",
+    "SET_Y": "y کی قدر %1 رکھو",
+    "SET_XY": "x کی قدر %1 اور y کی قدر %2 رکھو",
+    "GET_X": "x کی جگہ",
+    "GET_Y": "y کی جگہ",
+    "TIMER": "ٹائمر",
+    "RESET_TIMER": "ٹائمر ری سیٹ کرو",
+    "PLAY_SOUND": "آواز %1 بجاؤ",
+    "PLAY_SOUND_UNTIL_DONE": "آواز %1 ختم ہونے تک بجاؤ",
+    "STOP_ALL_SOUNDS": "تمام آوازیں روکو",
+    "SOUND_POP": "پاپ",
+    "SOUND_FAILURE": "ناکامی",
+    "SOUND_SUCCESS": "کامیابی"
+  },
+  "CATEGORY": {
+    "CONTROLS": "کنٹرولز",
+    "EVENTS": "واقعات",
+    "OPERATORS": "عامل",
+    "LOOKS": "ظاہری شکل",
+    "MOTIONS": "حرکت",
+    "VARIABLES": "متغیرات",
+    "SENSING": "احساس",
+    "SOUNDS": "آوازیں"
+  }
+};

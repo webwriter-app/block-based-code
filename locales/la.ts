@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Exsecutionem incipe",
+  "RESTART": "Exsecutionem denuo incipe",
+  "STOP": "Exsecutionem siste",
+  "FULLSCREEN": "Velum plenum aperi",
+  "FULLSCREEN_EXIT": "E velo pleno exi",
+  "HELP": "Auxilium",
+  "ERROR": "Error accidit!",
+  "EXECUTION_OPTIONS": "Optiones exsecutionis",
+  "RESET_STAGE": "Scaenam restitue",
+  "SHORTCUTS": "Compendia clavium",
+  "DIALOG": {
+    "CANCEL": "Rescinde",
+    "SAVE": "Serva",
+    "NO": "Non",
+    "YES": "Ita",
+    "OK": "Bene"
+  },
+  "ZOOM": {
+    "IN": "Amplifica",
+    "OUT": "Minue",
+    "RESET": "Amplificationem restitue"
+  },
+  "OPTIONS": {
+    "READONLY": "Ad legendum tantum",
+    "READONLY_TOOLTIP": "Elige an bloci mutari possint",
+    "STAGE": "Scaena",
+    "STAGE_TOOLTIP": "Genus scaenae elige",
+    "STAGE_TYPES": {
+      "CODE": "Codex",
+      "CANVAS": "Area graphica"
+    },
+    "AVAILABLE_BLOCKS": "Bloci praesto",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Elige blocos in capsa instrumentorum praesto"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Duplica",
+    "CROSS_TAB_COPY": "Exscribe",
+    "CROSS_TAB_PASTE": "Insere",
+    "DELETE": "Dele"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "cum %1 premitur",
+    "WHEN_SPRITE_CLICKED": "cum haec imago premitur",
+    "WHEN_KEY_PRESSED": "cum clavis %1 premitur",
+    "KEY_ANY": "quaelibet",
+    "KEY_SPACE": "spatium",
+    "KEY_ARROW_UP": "sagitta sursum",
+    "KEY_ARROW_DOWN": "sagitta deorsum",
+    "KEY_ARROW_LEFT": "sagitta sinistra",
+    "KEY_ARROW_RIGHT": "sagitta dextra",
+    "WAIT": "exspecta %1 secundas",
+    "REPEAT": "repete %1 vicibus",
+    "FOREVER": "in perpetuum",
+    "IF": "si %1, tum",
+    "ELSE": "aliter",
+    "STOP": "siste",
+    "RANDOM": "elige numerum fortuitum a %1 ad %2",
+    "AND": "%1 et %2",
+    "OR": "%1 aut %2",
+    "NOT": "non %1",
+    "JOIN": "coniunge %1 cum %2",
+    "ABSOLUTE": "valor absolutus de %1",
+    "SAY": "dic %1",
+    "SAY_FOR_SECONDS": "dic %1 per %2 secundas",
+    "SET_COLOR": "effectum coloris ad %1 pone",
+    "SET_BACKGROUND_COLOR": "colorem fundi ad %1 pone",
+    "MOVE": "move %1 gradibus",
+    "ROTATE": "rota %1 gradibus",
+    "SET_ROTATION": "rotationem ad %1 gradus pone",
+    "SET_X": "x ad %1 pone",
+    "SET_Y": "y ad %1 pone",
+    "SET_XY": "x ad %1 et y ad %2 pone",
+    "GET_X": "positio x",
+    "GET_Y": "positio y",
+    "TIMER": "chronometrum",
+    "RESET_TIMER": "chronometrum restitue",
+    "PLAY_SOUND": "sona %1",
+    "PLAY_SOUND_UNTIL_DONE": "sona %1 usque ad finem",
+    "STOP_ALL_SOUNDS": "siste omnes sonos",
+    "SOUND_POP": "crepitus",
+    "SOUND_FAILURE": "defectus",
+    "SOUND_SUCCESS": "successus"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Regimina",
+    "EVENTS": "Eventus",
+    "OPERATORS": "Operatores",
+    "LOOKS": "Species",
+    "MOTIONS": "Motus",
+    "VARIABLES": "Variabiles",
+    "SENSING": "Perceptio",
+    "SOUNDS": "Soni"
+  }
+};

@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Endesha msimbo",
+  "RESTART": "Endesha msimbo upya",
+  "STOP": "Simamisha msimbo",
+  "FULLSCREEN": "Ingia kwenye skrini nzima",
+  "FULLSCREEN_EXIT": "Toka kwenye skrini nzima",
+  "HELP": "Msaada",
+  "ERROR": "Hitilafu imetokea!",
+  "EXECUTION_OPTIONS": "Chaguo za kuendesha msimbo",
+  "RESET_STAGE": "Weka jukwaa upya",
+  "SHORTCUTS": "Njia za mkato",
+  "DIALOG": {
+    "CANCEL": "Ghairi",
+    "SAVE": "Hifadhi",
+    "NO": "Hapana",
+    "YES": "Ndiyo",
+    "OK": "Sawa"
+  },
+  "ZOOM": {
+    "IN": "Kuza",
+    "OUT": "Punguza",
+    "RESET": "Rudisha ukubwa"
+  },
+  "OPTIONS": {
+    "READONLY": "Kusoma tu",
+    "READONLY_TOOLTIP": "Chagua iwapo vitalu vinaweza kuhaririwa",
+    "STAGE": "Jukwaa",
+    "STAGE_TOOLTIP": "Chagua aina ya jukwaa",
+    "STAGE_TYPES": {
+      "CODE": "Msimbo",
+      "CANVAS": "Eneo la kuchorea"
+    },
+    "AVAILABLE_BLOCKS": "Vitalu vinavyopatikana",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Chagua vitalu vinavyoonekana kwenye kisanduku cha zana"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Unda nakala",
+    "CROSS_TAB_COPY": "Nakili",
+    "CROSS_TAB_PASTE": "Bandika",
+    "DELETE": "Futa"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 inapobofya",
+    "WHEN_SPRITE_CLICKED": "kielelezo hiki kinapobofywa",
+    "WHEN_KEY_PRESSED": "kitufe %1 kinapobonyezwa",
+    "KEY_ANY": "chochote",
+    "KEY_SPACE": "nafasi",
+    "KEY_ARROW_UP": "mshale wa juu",
+    "KEY_ARROW_DOWN": "mshale wa chini",
+    "KEY_ARROW_LEFT": "mshale wa kushoto",
+    "KEY_ARROW_RIGHT": "mshale wa kulia",
+    "WAIT": "subiri sekunde %1",
+    "REPEAT": "rudia mara %1",
+    "FOREVER": "daima",
+    "IF": "ikiwa %1, basi",
+    "ELSE": "vinginevyo",
+    "STOP": "simamisha",
+    "RANDOM": "chagua nambari nasibu kati ya %1 na %2",
+    "AND": "%1 na %2",
+    "OR": "%1 au %2",
+    "NOT": "si %1",
+    "JOIN": "unganisha %1 na %2",
+    "ABSOLUTE": "thamani kamili ya %1",
+    "SAY": "sema %1",
+    "SAY_FOR_SECONDS": "sema %1 kwa sekunde %2",
+    "SET_COLOR": "weka athari ya rangi kuwa %1",
+    "SET_BACKGROUND_COLOR": "weka rangi ya mandharinyuma kuwa %1",
+    "MOVE": "sogea hatua %1",
+    "ROTATE": "zunguka kwa digrii %1",
+    "SET_ROTATION": "weka mzunguko kuwa digrii %1",
+    "SET_X": "weka x kuwa %1",
+    "SET_Y": "weka y kuwa %1",
+    "SET_XY": "weka x kuwa %1 na y kuwa %2",
+    "GET_X": "nafasi ya x",
+    "GET_Y": "nafasi ya y",
+    "TIMER": "kipima muda",
+    "RESET_TIMER": "weka kipima muda upya",
+    "PLAY_SOUND": "cheza sauti %1",
+    "PLAY_SOUND_UNTIL_DONE": "cheza sauti %1 hadi imalizike",
+    "STOP_ALL_SOUNDS": "simamisha sauti zote",
+    "SOUND_POP": "mlio mfupi",
+    "SOUND_FAILURE": "kushindwa",
+    "SOUND_SUCCESS": "kufanikiwa"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Vidhibiti",
+    "EVENTS": "Matukio",
+    "OPERATORS": "Viendeshaji",
+    "LOOKS": "Mwonekano",
+    "MOTIONS": "Mwendo",
+    "VARIABLES": "Vigezo",
+    "SENSING": "Utambuzi",
+    "SOUNDS": "Sauti"
+  }
+};

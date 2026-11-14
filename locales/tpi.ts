@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "Ronim kod",
+  "RESTART": "Ronim kod gen",
+  "STOP": "Stopim kod",
+  "FULLSCREEN": "Opim ful skrin",
+  "FULLSCREEN_EXIT": "Lusim ful skrin",
+  "HELP": "Helpim",
+  "ERROR": "Wanpela hevi i kamap!",
+  "EXECUTION_OPTIONS": "Ol opsen bilong ronim kod",
+  "RESET_STAGE": "Statim ples soim gen",
+  "SHORTCUTS": "Sotpela rot",
+  "DIALOG": {
+    "CANCEL": "Kenselim",
+    "SAVE": "Seivim",
+    "NO": "Nogat",
+    "YES": "Yes",
+    "OK": "Orait"
+  },
+  "ZOOM": {
+    "IN": "Mekim bikpela",
+    "OUT": "Mekim liklik",
+    "RESET": "Putim sais bek"
+  },
+  "OPTIONS": {
+    "READONLY": "Ritim tasol",
+    "READONLY_TOOLTIP": "Makim sapos ol inap senisim ol blok",
+    "STAGE": "Ples soim",
+    "STAGE_TOOLTIP": "Makim kain ples soim",
+    "STAGE_TYPES": {
+      "CODE": "Kod",
+      "CANVAS": "Ples piksa"
+    },
+    "AVAILABLE_BLOCKS": "Ol blok i stap",
+    "AVAILABLE_BLOCKS_TOOLTIP": "Makim ol blok i stap long bokis tul"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "Mekim kopi",
+    "CROSS_TAB_COPY": "Kopi",
+    "CROSS_TAB_PASTE": "Peistim",
+    "DELETE": "Rausim"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "taim ol i klikim %1",
+    "WHEN_SPRITE_CLICKED": "taim ol i klikim dispela piksa",
+    "WHEN_KEY_PRESSED": "taim ol i presim ki %1",
+    "KEY_ANY": "wanem ki tasol",
+    "KEY_SPACE": "spes",
+    "KEY_ARROW_UP": "aro antap",
+    "KEY_ARROW_DOWN": "aro aninit",
+    "KEY_ARROW_LEFT": "aro left",
+    "KEY_ARROW_RIGHT": "aro rait",
+    "WAIT": "wet %1 seken",
+    "REPEAT": "mekim %1 taim",
+    "FOREVER": "oltaim",
+    "IF": "sapos %1, orait",
+    "ELSE": "sapos nogat",
+    "STOP": "stopim",
+    "RANDOM": "makim namba nating namel long %1 na %2",
+    "AND": "%1 na %2",
+    "OR": "%1 o %2",
+    "NOT": "i no %1",
+    "JOIN": "bungim %1 na %2",
+    "ABSOLUTE": "namba %1 wantaim sain positif",
+    "SAY": "tok %1",
+    "SAY_FOR_SECONDS": "tok %1 inap %2 seken",
+    "SET_COLOR": "setim kala efekt long %1",
+    "SET_BACKGROUND_COLOR": "setim kala bilong baksait long %1",
+    "MOVE": "go %1 step",
+    "ROTATE": "tanim %1 digri",
+    "SET_ROTATION": "setim tanim long %1 digri",
+    "SET_X": "setim x long %1",
+    "SET_Y": "setim y long %1",
+    "SET_XY": "setim x long %1 na y long %2",
+    "GET_X": "ples x",
+    "GET_Y": "ples y",
+    "TIMER": "taima",
+    "RESET_TIMER": "statim taima gen",
+    "PLAY_SOUND": "pilaim saun %1",
+    "PLAY_SOUND_UNTIL_DONE": "pilaim saun %1 inap em i pinis",
+    "STOP_ALL_SOUNDS": "stopim olgeta saun",
+    "SOUND_POP": "pop",
+    "SOUND_FAILURE": "pundaun",
+    "SOUND_SUCCESS": "win"
+  },
+  "CATEGORY": {
+    "CONTROLS": "Ol kontrol",
+    "EVENTS": "Ol samting i kamap",
+    "OPERATORS": "Ol opareta",
+    "LOOKS": "Lukluk",
+    "MOTIONS": "Muv",
+    "VARIABLES": "Ol variabel",
+    "SENSING": "Pilimgut",
+    "SOUNDS": "Ol saun"
+  }
+};

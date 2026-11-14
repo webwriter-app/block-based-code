@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "ਕੋਡ ਚਲਾਓ",
+  "RESTART": "ਕੋਡ ਮੁੜ ਚਲਾਓ",
+  "STOP": "ਕੋਡ ਰੋਕੋ",
+  "FULLSCREEN": "ਪੂਰੀ ਸਕ੍ਰੀਨ ਖੋਲ੍ਹੋ",
+  "FULLSCREEN_EXIT": "ਪੂਰੀ ਸਕ੍ਰੀਨ ਤੋਂ ਬਾਹਰ ਜਾਓ",
+  "HELP": "ਮਦਦ",
+  "ERROR": "ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ!",
+  "EXECUTION_OPTIONS": "ਕੋਡ ਚਲਾਉਣ ਦੀਆਂ ਚੋਣਾਂ",
+  "RESET_STAGE": "ਮੰਚ ਰੀਸੈੱਟ ਕਰੋ",
+  "SHORTCUTS": "ਸ਼ਾਰਟਕੱਟ",
+  "DIALOG": {
+    "CANCEL": "ਰੱਦ ਕਰੋ",
+    "SAVE": "ਸੰਭਾਲੋ",
+    "NO": "ਨਹੀਂ",
+    "YES": "ਹਾਂ",
+    "OK": "ਠੀਕ ਹੈ"
+  },
+  "ZOOM": {
+    "IN": "ਵੱਡਾ ਕਰੋ",
+    "OUT": "ਛੋਟਾ ਕਰੋ",
+    "RESET": "ਮੂਲ ਆਕਾਰ ਬਹਾਲ ਕਰੋ"
+  },
+  "OPTIONS": {
+    "READONLY": "ਸਿਰਫ਼ ਪੜ੍ਹਨ ਲਈ",
+    "READONLY_TOOLTIP": "ਚੁਣੋ ਕਿ ਬਲਾਕ ਸੋਧੇ ਜਾ ਸਕਦੇ ਹਨ ਜਾਂ ਨਹੀਂ",
+    "STAGE": "ਮੰਚ",
+    "STAGE_TOOLTIP": "ਮੰਚ ਦੀ ਕਿਸਮ ਚੁਣੋ",
+    "STAGE_TYPES": {
+      "CODE": "ਕੋਡ",
+      "CANVAS": "ਕੈਨਵਸ"
+    },
+    "AVAILABLE_BLOCKS": "ਉਪਲਬਧ ਬਲਾਕ",
+    "AVAILABLE_BLOCKS_TOOLTIP": "ਟੂਲਬਾਕਸ ਵਿੱਚ ਦਿੱਸਣ ਵਾਲੇ ਬਲਾਕ ਚੁਣੋ"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "ਨਕਲ ਬਣਾਓ",
+    "CROSS_TAB_COPY": "ਕਾਪੀ ਕਰੋ",
+    "CROSS_TAB_PASTE": "ਪੇਸਟ ਕਰੋ",
+    "DELETE": "ਮਿਟਾਓ"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "ਜਦੋਂ %1 ਦਬਾਇਆ ਜਾਵੇ",
+    "WHEN_SPRITE_CLICKED": "ਜਦੋਂ ਇਸ ਸਪ੍ਰਾਈਟ ’ਤੇ ਕਲਿੱਕ ਹੋਵੇ",
+    "WHEN_KEY_PRESSED": "ਜਦੋਂ %1 ਕੁੰਜੀ ਦਬਾਈ ਜਾਵੇ",
+    "KEY_ANY": "ਕੋਈ ਵੀ",
+    "KEY_SPACE": "ਸਪੇਸ",
+    "KEY_ARROW_UP": "ਉੱਪਰਲਾ ਤੀਰ",
+    "KEY_ARROW_DOWN": "ਹੇਠਲਾ ਤੀਰ",
+    "KEY_ARROW_LEFT": "ਖੱਬਾ ਤੀਰ",
+    "KEY_ARROW_RIGHT": "ਸੱਜਾ ਤੀਰ",
+    "WAIT": "%1 ਸਕਿੰਟ ਉਡੀਕੋ",
+    "REPEAT": "%1 ਵਾਰ ਦੁਹਰਾਓ",
+    "FOREVER": "ਹਮੇਸ਼ਾ",
+    "IF": "ਜੇ %1, ਤਾਂ",
+    "ELSE": "ਨਹੀਂ ਤਾਂ",
+    "STOP": "ਰੋਕੋ",
+    "RANDOM": "%1 ਅਤੇ %2 ਵਿਚਕਾਰ ਬੇਤਰਤੀਬ ਅੰਕ ਚੁਣੋ",
+    "AND": "%1 ਅਤੇ %2",
+    "OR": "%1 ਜਾਂ %2",
+    "NOT": "%1 ਨਹੀਂ",
+    "JOIN": "%1 ਅਤੇ %2 ਜੋੜੋ",
+    "ABSOLUTE": "%1 ਦਾ ਨਿਰਪੇਖ ਮੁੱਲ",
+    "SAY": "%1 ਕਹੋ",
+    "SAY_FOR_SECONDS": "%2 ਸਕਿੰਟ ਲਈ %1 ਕਹੋ",
+    "SET_COLOR": "ਰੰਗ ਦਾ ਪ੍ਰਭਾਵ %1 ਕਰੋ",
+    "SET_BACKGROUND_COLOR": "ਪਿਛੋਕੜ ਦਾ ਰੰਗ %1 ਕਰੋ",
+    "MOVE": "%1 ਕਦਮ ਚੱਲੋ",
+    "ROTATE": "%1 ਡਿਗਰੀ ਘੁੰਮੋ",
+    "SET_ROTATION": "ਘੁੰਮਾਅ %1 ਡਿਗਰੀ ਕਰੋ",
+    "SET_X": "x ਨੂੰ %1 ਕਰੋ",
+    "SET_Y": "y ਨੂੰ %1 ਕਰੋ",
+    "SET_XY": "x ਨੂੰ %1 ਅਤੇ y ਨੂੰ %2 ਕਰੋ",
+    "GET_X": "x ਦੀ ਸਥਿਤੀ",
+    "GET_Y": "y ਦੀ ਸਥਿਤੀ",
+    "TIMER": "ਟਾਈਮਰ",
+    "RESET_TIMER": "ਟਾਈਮਰ ਰੀਸੈੱਟ ਕਰੋ",
+    "PLAY_SOUND": "%1 ਧੁਨੀ ਚਲਾਓ",
+    "PLAY_SOUND_UNTIL_DONE": "%1 ਧੁਨੀ ਖ਼ਤਮ ਹੋਣ ਤੱਕ ਚਲਾਓ",
+    "STOP_ALL_SOUNDS": "ਸਾਰੀਆਂ ਧੁਨੀਆਂ ਰੋਕੋ",
+    "SOUND_POP": "ਪੌਪ",
+    "SOUND_FAILURE": "ਅਸਫਲਤਾ",
+    "SOUND_SUCCESS": "ਸਫਲਤਾ"
+  },
+  "CATEGORY": {
+    "CONTROLS": "ਨਿਯੰਤਰਣ",
+    "EVENTS": "ਘਟਨਾਵਾਂ",
+    "OPERATORS": "ਓਪਰੇਟਰ",
+    "LOOKS": "ਦਿੱਖ",
+    "MOTIONS": "ਹਿਲਜੁਲ",
+    "VARIABLES": "ਚਲ",
+    "SENSING": "ਪਛਾਣ",
+    "SOUNDS": "ਧੁਨੀਆਂ"
+  }
+};

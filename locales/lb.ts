@@ -1,0 +1,12 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+ START: "Ausféierung starten", RESTART: "Ausféierung nei starten", STOP: "Ausféierung stoppen", FULLSCREEN: "Vollbild opmaachen", FULLSCREEN_EXIT: "Vollbild zoumaachen", HELP: "Hëllef", ERROR: "Et ass e Feeler opgetrueden!", EXECUTION_OPTIONS: "Ausféierungsoptiounen", RESET_STAGE: "Bühn zerécksetzen", SHORTCUTS: "Tastaturofkierzungen",
+ DIALOG: { CANCEL: "Ofbriechen", SAVE: "Späicheren", NO: "Nee", YES: "Jo", OK: "OK" }, ZOOM: { IN: "Vergréisseren", OUT: "Verklengeren", RESET: "Zoom zerécksetzen" },
+ OPTIONS: { READONLY: "Nëmme liesen", READONLY_TOOLTIP: "Wielt, ob d'Bléck kënne geännert ginn", STAGE: "Bühn", STAGE_TOOLTIP: "Wielt den Typ vun der Bühn", STAGE_TYPES: { CODE: "Code", CANVAS: "Canvas" }, AVAILABLE_BLOCKS: "Verfügbar Bléck", AVAILABLE_BLOCKS_TOOLTIP: "Wielt, wéi eng Bléck an der Toolbox verfügbar sinn" },
+ CONTROLS: { DUPLICATE_BLOCK: "Duplizéieren", CROSS_TAB_COPY: "Kopéieren", CROSS_TAB_PASTE: "Asetzen", DELETE: "Läschen" },
+ BLOCKS: {
+ WHEN_START_CLICKED: "wann op %1 geklickt gëtt", WHEN_SPRITE_CLICKED: "wann op dës Figur geklickt gëtt", WHEN_KEY_PRESSED: "wann den Tast %1 gedréckt gëtt", KEY_ANY: "all Tast", KEY_SPACE: "Espace", KEY_ARROW_UP: "Pfeil erop", KEY_ARROW_DOWN: "Pfeil erof", KEY_ARROW_LEFT: "Pfeil no lénks", KEY_ARROW_RIGHT: "Pfeil no riets",
+ WAIT: "%1 Sekonne waarden", REPEAT: "%1-mol widderhuelen", FOREVER: "fir ëmmer", IF: "wann %1, dann", ELSE: "soss", STOP: "stoppen", RANDOM: "eng Zoufallszuel vun %1 bis %2 auswielen", AND: "%1 an %2", OR: "%1 oder %2", NOT: "net %1", JOIN: "%1 an %2 zesummesetzen", ABSOLUTE: "Absolutwäert vun %1",
+ SAY: "%1 soen", SAY_FOR_SECONDS: "%1 fir %2 Sekonne soen", SET_COLOR: "Faarfeffekt op %1 setzen", SET_BACKGROUND_COLOR: "Hannergrondfaarf op %1 setzen", MOVE: "%1 Schrëtt goen", ROTATE: "ëm %1 Grad dréien", SET_ROTATION: "Richtung op %1 Grad setzen", SET_X: "x op %1 setzen", SET_Y: "y op %1 setzen", SET_XY: "x op %1 an y op %2 setzen", GET_X: "x-Positioun", GET_Y: "y-Positioun", TIMER: "Timer", RESET_TIMER: "Timer zerécksetzen", PLAY_SOUND: "Toun %1 ofspillen", PLAY_SOUND_UNTIL_DONE: "Toun %1 bis zum Enn ofspillen", STOP_ALL_SOUNDS: "all Téin stoppen", SOUND_POP: "pop", SOUND_FAILURE: "Mësserfolleg", SOUND_SUCCESS: "Erfolleg"
+ }, CATEGORY: { CONTROLS: "Steierung", EVENTS: "Evenementer", OPERATORS: "Operatoren", LOOKS: "Ausgesinn", MOTIONS: "Beweegung", VARIABLES: "Variabelen", SENSING: "Erfaassung", SOUNDS: "Téin" }
+};

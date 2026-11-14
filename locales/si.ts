@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "කේතය ක්‍රියාත්මක කරන්න",
+  "RESTART": "කේතය නැවත ක්‍රියාත්මක කරන්න",
+  "STOP": "කේතය නවත්වන්න",
+  "FULLSCREEN": "සම්පූර්ණ තිරය විවෘත කරන්න",
+  "FULLSCREEN_EXIT": "සම්පූර්ණ තිරයෙන් පිටවන්න",
+  "HELP": "උදව්",
+  "ERROR": "දෝෂයක් සිදු විය!",
+  "EXECUTION_OPTIONS": "කේතය ක්‍රියාත්මක කිරීමේ විකල්ප",
+  "RESET_STAGE": "වේදිකාව යළි සකසන්න",
+  "SHORTCUTS": "කෙටිමං",
+  "DIALOG": {
+    "CANCEL": "අවලංගු කරන්න",
+    "SAVE": "සුරකින්න",
+    "NO": "නැහැ",
+    "YES": "ඔව්",
+    "OK": "හරි"
+  },
+  "ZOOM": {
+    "IN": "විශාල කරන්න",
+    "OUT": "කුඩා කරන්න",
+    "RESET": "මුල් ප්‍රමාණයට ගන්න"
+  },
+  "OPTIONS": {
+    "READONLY": "කියවීමට පමණයි",
+    "READONLY_TOOLTIP": "බ්ලොක් සංස්කරණය කළ හැකිදැයි තෝරන්න",
+    "STAGE": "වේදිකාව",
+    "STAGE_TOOLTIP": "වේදිකාවේ වර්ගය තෝරන්න",
+    "STAGE_TYPES": {
+      "CODE": "කේතය",
+      "CANVAS": "ඇඳීමේ පුවරුව"
+    },
+    "AVAILABLE_BLOCKS": "ලබාගත හැකි බ්ලොක්",
+    "AVAILABLE_BLOCKS_TOOLTIP": "මෙවලම් පෙට්ටියේ පෙනෙන බ්ලොක් තෝරන්න"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "පිටපතක් සාදන්න",
+    "CROSS_TAB_COPY": "පිටපත් කරන්න",
+    "CROSS_TAB_PASTE": "අලවන්න",
+    "DELETE": "මකන්න"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 ක්ලික් කළ විට",
+    "WHEN_SPRITE_CLICKED": "මෙම ස්ප්‍රයිට් එක ක්ලික් කළ විට",
+    "WHEN_KEY_PRESSED": "%1 යතුර එබූ විට",
+    "KEY_ANY": "ඕනෑම",
+    "KEY_SPACE": "හිස්තැන",
+    "KEY_ARROW_UP": "ඉහළ ඊතලය",
+    "KEY_ARROW_DOWN": "පහළ ඊතලය",
+    "KEY_ARROW_LEFT": "වම් ඊතලය",
+    "KEY_ARROW_RIGHT": "දකුණු ඊතලය",
+    "WAIT": "තත්පර %1 ක් රැඳී සිටින්න",
+    "REPEAT": "%1 වරක් නැවත කරන්න",
+    "FOREVER": "සැමවිටම",
+    "IF": "%1 නම්",
+    "ELSE": "නැත්නම්",
+    "STOP": "නවත්වන්න",
+    "RANDOM": "%1 සිට %2 දක්වා අහඹු අංකයක් තෝරන්න",
+    "AND": "%1 සහ %2",
+    "OR": "%1 හෝ %2",
+    "NOT": "%1 නොවේ",
+    "JOIN": "%1 හා %2 එක් කරන්න",
+    "ABSOLUTE": "%1 හි නිරපේක්ෂ අගය",
+    "SAY": "%1 කියන්න",
+    "SAY_FOR_SECONDS": "තත්පර %2 ක් %1 කියන්න",
+    "SET_COLOR": "වර්ණ බලපෑම %1 කරන්න",
+    "SET_BACKGROUND_COLOR": "පසුබිම් වර්ණය %1 කරන්න",
+    "MOVE": "පියවර %1 ක් යන්න",
+    "ROTATE": "අංශක %1 ක් හරවන්න",
+    "SET_ROTATION": "භ්‍රමණය අංශක %1 කරන්න",
+    "SET_X": "x අගය %1 කරන්න",
+    "SET_Y": "y අගය %1 කරන්න",
+    "SET_XY": "x අගය %1 හා y අගය %2 කරන්න",
+    "GET_X": "x පිහිටීම",
+    "GET_Y": "y පිහිටීම",
+    "TIMER": "කාලමාපකය",
+    "RESET_TIMER": "කාලමාපකය යළි සකසන්න",
+    "PLAY_SOUND": "%1 ශබ්දය වාදනය කරන්න",
+    "PLAY_SOUND_UNTIL_DONE": "%1 ශබ්දය අවසන් වන තුරු වාදනය කරන්න",
+    "STOP_ALL_SOUNDS": "සියලු ශබ්ද නවත්වන්න",
+    "SOUND_POP": "පොප්",
+    "SOUND_FAILURE": "අසාර්ථකත්වය",
+    "SOUND_SUCCESS": "සාර්ථකත්වය"
+  },
+  "CATEGORY": {
+    "CONTROLS": "පාලන",
+    "EVENTS": "සිදුවීම්",
+    "OPERATORS": "ක්‍රියාකාරක",
+    "LOOKS": "පෙනුම",
+    "MOTIONS": "චලන",
+    "VARIABLES": "විචල්‍ය",
+    "SENSING": "සංවේදනය",
+    "SOUNDS": "ශබ්ද"
+  }
+};

@@ -1,0 +1,96 @@
+import { Dictionary } from "../types";
+export const dictionary: Dictionary = {
+  "START": "కోడ్ అమలు చేయండి",
+  "RESTART": "కోడ్ మళ్లీ అమలు చేయండి",
+  "STOP": "కోడ్ ఆపండి",
+  "FULLSCREEN": "పూర్తి తెర తెరవండి",
+  "FULLSCREEN_EXIT": "పూర్తి తెర నుంచి బయటకు రండి",
+  "HELP": "సహాయం",
+  "ERROR": "లోపం జరిగింది!",
+  "EXECUTION_OPTIONS": "కోడ్ అమలు ఎంపికలు",
+  "RESET_STAGE": "వేదికను రీసెట్ చేయండి",
+  "SHORTCUTS": "షార్ట్‌కట్‌లు",
+  "DIALOG": {
+    "CANCEL": "రద్దు",
+    "SAVE": "సేవ్ చేయండి",
+    "NO": "కాదు",
+    "YES": "అవును",
+    "OK": "సరే"
+  },
+  "ZOOM": {
+    "IN": "పెంచండి",
+    "OUT": "తగ్గించండి",
+    "RESET": "అసలు పరిమాణానికి మార్చండి"
+  },
+  "OPTIONS": {
+    "READONLY": "చదవడానికి మాత్రమే",
+    "READONLY_TOOLTIP": "బ్లాక్‌లను సవరించవచ్చో ఎంచుకోండి",
+    "STAGE": "వేదిక",
+    "STAGE_TOOLTIP": "వేదిక రకాన్ని ఎంచుకోండి",
+    "STAGE_TYPES": {
+      "CODE": "కోడ్",
+      "CANVAS": "కాన్వాస్"
+    },
+    "AVAILABLE_BLOCKS": "అందుబాటులో ఉన్న బ్లాక్‌లు",
+    "AVAILABLE_BLOCKS_TOOLTIP": "టూల్‌బాక్స్‌లో కనిపించే బ్లాక్‌లను ఎంచుకోండి"
+  },
+  "CONTROLS": {
+    "DUPLICATE_BLOCK": "నకలు సృష్టించండి",
+    "CROSS_TAB_COPY": "కాపీ చేయండి",
+    "CROSS_TAB_PASTE": "అతికించండి",
+    "DELETE": "తొలగించండి"
+  },
+  "BLOCKS": {
+    "WHEN_START_CLICKED": "%1 క్లిక్ చేసినప్పుడు",
+    "WHEN_SPRITE_CLICKED": "ఈ స్ప్రైట్‌పై క్లిక్ చేసినప్పుడు",
+    "WHEN_KEY_PRESSED": "%1 కీ నొక్కినప్పుడు",
+    "KEY_ANY": "ఏదైనా",
+    "KEY_SPACE": "స్పేస్",
+    "KEY_ARROW_UP": "పై బాణం",
+    "KEY_ARROW_DOWN": "కింది బాణం",
+    "KEY_ARROW_LEFT": "ఎడమ బాణం",
+    "KEY_ARROW_RIGHT": "కుడి బాణం",
+    "WAIT": "%1 సెకన్లు వేచి ఉండు",
+    "REPEAT": "%1 సార్లు పునరావృతం చేయి",
+    "FOREVER": "ఎప్పటికీ",
+    "IF": "%1 అయితే",
+    "ELSE": "లేకపోతే",
+    "STOP": "ఆపు",
+    "RANDOM": "%1 నుంచి %2 మధ్య యాదృచ్ఛిక సంఖ్య ఎంచుకో",
+    "AND": "%1 మరియు %2",
+    "OR": "%1 లేదా %2",
+    "NOT": "%1 కాదు",
+    "JOIN": "%1, %2 కలుపు",
+    "ABSOLUTE": "%1 యొక్క నిరపేక్ష విలువ",
+    "SAY": "%1 అని చెప్పు",
+    "SAY_FOR_SECONDS": "%2 సెకన్ల పాటు %1 అని చెప్పు",
+    "SET_COLOR": "రంగు ప్రభావాన్ని %1కు మార్చు",
+    "SET_BACKGROUND_COLOR": "నేపథ్య రంగును %1కు మార్చు",
+    "MOVE": "%1 అడుగులు కదులు",
+    "ROTATE": "%1 డిగ్రీలు తిరుగు",
+    "SET_ROTATION": "భ్రమణాన్ని %1 డిగ్రీలకు మార్చు",
+    "SET_X": "xను %1కు మార్చు",
+    "SET_Y": "yను %1కు మార్చు",
+    "SET_XY": "xను %1కు, yను %2కు మార్చు",
+    "GET_X": "x స్థానం",
+    "GET_Y": "y స్థానం",
+    "TIMER": "టైమర్",
+    "RESET_TIMER": "టైమర్‌ను రీసెట్ చేయి",
+    "PLAY_SOUND": "%1 శబ్దాన్ని ప్లే చేయి",
+    "PLAY_SOUND_UNTIL_DONE": "%1 శబ్దాన్ని పూర్తయ్యేవరకు ప్లే చేయి",
+    "STOP_ALL_SOUNDS": "అన్ని శబ్దాలను ఆపు",
+    "SOUND_POP": "పాప్",
+    "SOUND_FAILURE": "వైఫల్యం",
+    "SOUND_SUCCESS": "విజయం"
+  },
+  "CATEGORY": {
+    "CONTROLS": "నియంత్రణలు",
+    "EVENTS": "ఘటనలు",
+    "OPERATORS": "ఆపరేటర్లు",
+    "LOOKS": "రూపం",
+    "MOTIONS": "కదలిక",
+    "VARIABLES": "చలరాశులు",
+    "SENSING": "గ్రహింపు",
+    "SOUNDS": "శబ్దాలు"
+  }
+};
