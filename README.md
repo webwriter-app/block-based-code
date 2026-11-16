@@ -1,28 +1,73 @@
-# WebWriter Blocks Widget
-The blocks Widget brings block based programming to [WebWriter](https://webwriter.app).
-The widget is based on the [Blockly](https://developers.google.com/blockly) library and is heavily inspired by the [Scratch](https://scratch.mit.edu/) project.
-Currently, the only available stage type is a simple canvas, but more stages can be added in the future.
-The stage is controlled by the blocks that are placed in the editor.
+# Block Based Code (`@webwriter/block-based-code@2.0.0`)
+[License: MIT](LICENSE) | Version: 2.0.0
 
-[<img alt="Built with Blockly" src="https://developers.google.com/static/blockly/images/logos/built-with-blockly-badge-white.png" height="48">](https://g.co/dev/blockly)
-&nbsp;&nbsp;&nbsp;&nbsp;
-[<img alt="Built with PixiJS" src="https://files.pixijs.download/branding/pixijs-logo-transparent-dark.png" height="48">](https://pixijs.com)
+Write block-based code (e.g. Scratch) and run it.
 
-## Installation
-This Widget needs to be installed through WebWriter.
-It should be available in the widget list.
+## Snippets
+[Snippets](https://webwriter.app/docs/snippets/snippets/) are examples and templates using the package's widgets.
 
-## Usage
-The widget offers an example exercise.
-Apart from that, the widget should be self-explanatory.
+| Name | Import Path |
+| :--: | :---------: |
+| Bouncing Dvd | `@webwriter/block-based-code/snippets/bouncing-dvd.html` |
 
-## Development
-The development of this widget should be done in WebWriter.
-Instead of installing the widget, you can use the development mode of WebWriter to import the Widget from your local drive.
 
-## Release
-To release a new version of the widget, run the following command:
-```bash
-npm run release
+
+## `WebwriterBlockBasedCode` (`<webwriter-block-based-code>`)
+Block-based programming on top of Blockly, inspired by Scratch. The blocks the author places in
+the editor control a stage; the only stage type so far is a canvas drawn with PixiJS.
+The program and the blocks offered to learners are kept in a JSON data block.
+
+### Usage
+
+Use with a CDN (e.g. [jsdelivr](https://jsdelivr.com)):
+```html
+<link href="https://cdn.jsdelivr.net/npm/@webwriter/block-based-code/widgets/webwriter-block-based-code.css" rel="stylesheet">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@webwriter/block-based-code/widgets/webwriter-block-based-code.js"></script>
+<webwriter-block-based-code></webwriter-block-based-code>
 ```
 
+Or use with a bundler (e.g. [Vite](https://vite.dev)):
+
+```
+npm install @webwriter/block-based-code
+```
+
+```html
+<link href="@webwriter/block-based-code/widgets/webwriter-block-based-code.css" rel="stylesheet">
+<script type="module" src="@webwriter/block-based-code/widgets/webwriter-block-based-code.js"></script>
+<webwriter-block-based-code></webwriter-block-based-code>
+```
+
+## Fields
+| Name (Attribute Name) | Type | Description | Default | Reflects |
+| :-------------------: | :--: | :---------: | :-----: | :------: |
+| `WebwriterBlockBasedCode.scopedElements` | `object` | - | `{ "webwriter-blocks-toolbar": Toolbar, "webwriter-blocks-toolbar-button": ToolbarButton, "webwriter-blocks-application": Application, "webwriter-blocks-editor": Editor, "webwriter-blocks-stage": Stage, "webwriter-blocks-help": Help, }` | ✗ |
+| `WebwriterBlockBasedCode.optionGroups` | `object` | - | `{ blocks: { label: (widget: { msg: MsgFn }) => widget.msg("Available Blocks"), collapsible: true }, }` | ✗ |
+| `WebwriterBlockBasedCode.shadowRootOptions` | `ShadowRootInit` | - | - | ✗ |
+| `msg` | `MsgFn` | - | - | ✗ |
+| `readOnly` (`read-only`) | `boolean` | - | `false` | ✓ |
+| `stageType` (`stage-type`) | `StageType` | - | - | ✓ |
+| `usableBlocks` | `SelectedBlocks` | - | - | ✗ |
+| `options` | - | The options depend on the blocks the stage offers, so they cannot be static. | - | ✗ |
+
+*Fields including [properties](https://developer.mozilla.org/en-US/docs/Glossary/Property/JavaScript) and [attributes](https://developer.mozilla.org/en-US/docs/Glossary/Attribute) define the current state of the widget and offer customization options.*
+
+## Events
+| Name | Description |
+| :--: | :---------: |
+| optionschange | The blocks the stage offers are known, or the language changed. |
+
+*[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
+
+## Editing config
+| Name | Value |
+| :--: | :---------: |
+| `label` | `[object Object]` |
+
+*The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
+
+*No public methods, slots, custom CSS properties, or CSS parts.*
+
+
+---
+*Generated with @webwriter/build@1.9.1*
