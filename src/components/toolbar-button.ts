@@ -1,7 +1,7 @@
 import { property } from "lit/decorators.js";
 import { LitElementWw } from "@webwriter/lit";
 import {
-  CSSResult, html, LitElement, TemplateResult,
+  CSSResult, html, TemplateResult,
 } from "lit";
 import { styles } from "./toolbar-button.styles";
 

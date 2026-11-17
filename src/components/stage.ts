@@ -2,7 +2,7 @@ import {
   property, query, state,
 } from "lit/decorators.js";
 import {
-  CSSResult, html, nothing, TemplateResult,
+  CSSResult, html, nothing, PropertyValues, TemplateResult,
 } from "lit";
 import { until } from "lit/directives/until.js";
 import { LitElementWw } from "@webwriter/lit";
@@ -35,6 +35,8 @@ import { StageType } from "../model/stage-type";
 import { Toolbar } from "./toolbar";
 import { ToolbarButton } from "./toolbar-button";
 
+hljs.registerLanguage("javascript", javascript);
+
 /**
  * The stage component.
  */
@@ -63,6 +65,9 @@ export class Stage extends LitElementWw {
    */
   @property({ type: String })
   public accessor executableCode: string;
+
+  /** The readable code as highlighted HTML. Rendering only reuses it; it changes with the code. */
+  private highlightedCode = "";
 
   /**
    * The stage element.
@@ -145,7 +150,6 @@ export class Stage extends LitElementWw {
 
   constructor() {
     super();
-    hljs.registerLanguage("javascript", javascript);
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
   }
 
@@ -167,6 +171,15 @@ export class Stage extends LitElementWw {
     super.disconnectedCallback();
 
     this.resizeObserver.disconnect();
+    // Stops the render loop and the workers of a stage that is no longer in a document.
+    this.stageApplication?.destroy();
+  }
+
+  protected willUpdate(changedProperties: PropertyValues): void {
+    super.willUpdate(changedProperties);
+    if (changedProperties.has("readableCode")) {
+      this.highlightedCode = hljs.highlight(this.readableCode, { language: "javascript" }).value;
+    }
   }
 
   /**
@@ -216,7 +229,7 @@ export class Stage extends LitElementWw {
                 ${stageState}
             </sl-tab-panel>
             <sl-tab-panel name="code" id="code">
-                <pre><code>${unsafeHTML(hljs.highlight(this.readableCode, { language: "javascript" }).value)}</code></pre>
+                <pre><code>${unsafeHTML(this.highlightedCode)}</code></pre>
             </sl-tab-panel>
         </sl-tab-group>
         <sl-dialog label="Execution Options" id="vm-options-dialog">

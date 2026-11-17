@@ -27,6 +27,9 @@ export class PixiApplication extends StageApplication {
   private declare application: Application;
   private destroyed = false;
 
+  /** Pauses Pixi's render loop while the stage cannot be seen. */
+  private visibilityObserver?: IntersectionObserver;
+
   /**
    * The keyboard event listener.
    * @private
@@ -45,6 +48,7 @@ export class PixiApplication extends StageApplication {
     if (this.destroyed) return;
     this.destroyed = true;
     this.removeKeyboardListener();
+    this.visibilityObserver?.disconnect();
     super.destroy();
     // Pixi installs its plugins asynchronously. Wait for their setup before
     // destroying a stage that was replaced while the renderer was starting.
@@ -63,6 +67,13 @@ export class PixiApplication extends StageApplication {
     this.container.appendChild(this.application.canvas);
     this.application.render();
     this.resize();
+    this.visibilityObserver?.disconnect();
+    this.visibilityObserver = new IntersectionObserver((entries) => {
+      if (this.destroyed) return;
+      if (entries[entries.length - 1].isIntersecting) this.application.ticker.start();
+      else this.application.ticker.stop();
+    });
+    this.visibilityObserver.observe(this.container);
   }
 
   /**

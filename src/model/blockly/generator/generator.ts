@@ -82,7 +82,7 @@ export class ExecutableGenerator extends JavascriptGenerator {
 /**
  * The custom code generator for Blockly. This generator is used to generate readable code.
  */
-export class ReadableGenerator extends JavascriptGenerator {
+class ReadableGenerator extends JavascriptGenerator {
   constructor() {
     super("readable");
     this.STATEMENT_PREFIX = "";

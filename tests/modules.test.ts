@@ -5,6 +5,7 @@ import { getMochaConfig } from "@webwriter/build/test";
 import "../src/widgets/webwriter-block-based-code";
 import type { WebwriterBlockBasedCode } from "../src/widgets/webwriter-block-based-code";
 import dvd from "../snippets/dvd.html";
+import { blocklyMessagesFor, loadBlocklyMessages } from "../src/model/blockly/locale";
 import { until } from "./helpers";
 
 mocha.setup(getMochaConfig());
@@ -105,6 +106,25 @@ describe("<webwriter-block-based-code>", function () {
     await widget.updateComplete;
     assert.isTrue(widget.hasAttribute("read-only") && widget.getAttribute("stage-type") === "canvas", "attributes: " + widget.getAttributeNames());
     assert.isTrue([...widget.children].every((child: Element) => child.localName === "script"), "children: " + [...widget.children].map((c: Element) => c.localName));
+  });
+
+  it("Blockly's texts for another language are loaded on demand", async function () {
+    assert.deepEqual(blocklyMessagesFor("de"), blocklyMessagesFor("en"), "English until the language is loaded");
+    assert.isTrue(await loadBlocklyMessages("de"), "first load");
+    assert.notEqual(blocklyMessagesFor("de").CLEAN_UP, blocklyMessagesFor("en").CLEAN_UP);
+    assert.isFalse(await loadBlocklyMessages("de"), "second load");
+  });
+
+  it("a removed widget stops its render loop", async function () {
+    const other = document.createElement("div");
+    other.style.width = "800px";
+    document.body.append(other);
+    other.innerHTML = dvd;
+    const stage = () => other.firstElementChild!.shadowRoot!.querySelector("#stage") as any;
+    await until(() => stage()?.stageApplication.application?.renderer && stage().stageApplication.application.ticker.started, "the stage to render");
+    const { application } = stage().stageApplication;
+    other.remove();
+    await until(() => !application.ticker?.started, "the ticker to stop");
   });
 });
 

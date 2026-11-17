@@ -22,7 +22,6 @@ export const blocks = [
 ] satisfies BlockDefinition[];
 
 export type BlockTypes = typeof blocks[number]["type"] | "variables";
-export type CategoryTypes = typeof blocks[number]["category"];
 
 type BlockArguments = NonNullable<BlockDefinition[`args${number}`]>;
 

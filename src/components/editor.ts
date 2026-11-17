@@ -1,10 +1,9 @@
 import { property, query } from "lit/decorators.js";
 import {
-  CSSResult, html, TemplateResult,
+  CSSResult, html, PropertyValues, TemplateResult,
 } from "lit";
 import { LitElementWw } from "@webwriter/lit";
 import { widgetMsg } from "@webwriter/lit/localize";
-import { PropertyValues } from "@lit/reactive-element";
 import { styles } from "./editor.styles";
 import { BlocklyApplication } from "./blockly/application";
 import { SelectedBlocks } from "./blockly/toolbox/toolbox";
@@ -133,10 +132,6 @@ export class Editor extends LitElementWw {
   protected firstUpdated(_changedProperties: PropertyValues): void {
     super.firstUpdated(_changedProperties);
     this.renderRoot.appendChild(this.editorApplication.container);
-  }
-
-  protected updated(_changedProperties: PropertyValues): void {
-    super.updated(_changedProperties);
   }
 
   private handleResize(): void {

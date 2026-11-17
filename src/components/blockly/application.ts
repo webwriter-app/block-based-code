@@ -12,7 +12,7 @@ import type { MsgFn } from "@lit/localize";
 import { Application } from "../base-application";
 import { WebWriterFlyout } from "./toolbox/flyout";
 import { ToolbarButton } from "../toolbar-button";
-import { blocklyMessagesFor, coreOverridesFor } from "../../model/blockly/locale";
+import { blocklyMessagesFor, coreOverridesFor, loadBlocklyMessages } from "../../model/blockly/locale";
 import { blockMessages, controlMessages } from "../messages";
 
 type BlockInfo = utils.toolbox.BlockInfo;
@@ -91,12 +91,14 @@ export class BlocklyApplication extends Application {
     BlocklyInitializer.activate(this);
     this.zoomGroup = this.generateZoomGroup();
     this.container.appendChild(this.zoomGroup);
+    void this.loadBlocklyMessages();
     for (const type of ["pointerdown", "contextmenu", "keydown", "focusin"]) {
       this.container.addEventListener(type, this.activateLocale, { capture: true });
     }
   }
 
   private zoomGroup: HTMLDivElement;
+  private disposed = false;
   private blockMessageSet: Record<string, string> = {};
 
   /** The texts of the blocks in the language of this workspace. */
@@ -123,10 +125,27 @@ export class BlocklyApplication extends Application {
     BlocklyInitializer.activate(this);
   };
 
+  /** Loads Blockly's own texts for the language of the workspace and shows the workspace again in them. */
+  private async loadBlocklyMessages() {
+    const locale = this.locale;
+    // Without the catalog chunk the workspace stays in English.
+    const loaded = await loadBlocklyMessages(locale).catch(() => false);
+    if (!loaded || this.disposed || locale !== this.locale) return;
+    this.reloadWorkspace();
+  }
+
   public setLocale(locale: string, catalog: string) {
     if (locale === this.locale && catalog === this.catalog) return false;
     this.catalog = catalog;
     this.updateBlockMessages();
+    this.locale = locale;
+    this.reloadWorkspace();
+    void this.loadBlocklyMessages();
+    return true;
+  }
+
+  /** Builds the workspace again from its saved state, so that every text is looked up in the current language. */
+  private reloadWorkspace() {
     const state = this.save();
     const scale = this.workspace.getScale();
     const scrollX = this.workspace.scrollX;
@@ -135,7 +154,6 @@ export class BlocklyApplication extends Application {
     const selectedId = selected?.workspace === this.workspace && typeof selected.id === "string"
       ? selected.id : undefined;
 
-    this.locale = locale;
     this.activateLocale();
     Events.disable();
     try {
@@ -153,7 +171,6 @@ export class BlocklyApplication extends Application {
 
     this.zoomGroup.replaceWith(this.zoomGroup = this.generateZoomGroup());
     this.updateToolbox(this.usableBlocks);
-    return true;
   }
 
   /** Workspace lookup used by Blockly's globally registered block definitions. */
@@ -238,23 +255,10 @@ export class BlocklyApplication extends Application {
   }
 
   /**
-   * Creates a variable with the given name inside the workspace.
-   */
-  public createVariable(name: string): void | never {
-    if (!name) {
-      throw new Error("Please enter a variable name");
-    }
-    const variables = this.workspace.getVariableMap();
-    if (variables.getVariable(name)) {
-      throw new Error("Variable already exists");
-    }
-    variables.createVariable(name);
-  }
-
-  /**
    * @inheritDoc
    */
   public override destroy(): void {
+    this.disposed = true;
     BlocklyInitializer.deactivate(this);
     this.workspace.dispose();
     super.destroy();
@@ -405,7 +409,6 @@ export class BlocklyApplication extends Application {
    * @private
    */
   private generateZoomGroup(): HTMLDivElement {
-    const msg = this.msg;
     const groupDiv = document.createElement("div");
     groupDiv.style.position = "absolute";
     groupDiv.style.top = "var(--sl-spacing-small)";

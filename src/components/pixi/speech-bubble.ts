@@ -180,13 +180,6 @@ export class SpeechBubble extends Container {
   }
 
   /**
-   * Hides the speech bubble
-   */
-  public hide(): void {
-    this.visible = false;
-  }
-
-  /**
    * Gets the current dimensions of the bubble
    */
   public getDimensions(): { width: number; height: number } {

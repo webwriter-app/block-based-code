@@ -128,10 +128,11 @@ export class WebwriterBlockBasedCode extends LitElementWw {
   /** The options depend on the blocks the stage offers, so they cannot be static. */
   get options() {
     const categories = new Map<string, { value: string; label: { _: string } }[]>();
+    const messages = blockMessages(this.msg);
     for (const value of this.availableBlocks) {
       const [category] = value.split(":");
       const children = categories.get(category) ?? [];
-      children.push({ value, label: { _: this.getBlockOptionLabel(value as BlockTypes) } });
+      children.push({ value, label: { _: this.getBlockOptionLabel(value as BlockTypes, messages) } });
       categories.set(category, children);
     }
     return {
@@ -199,7 +200,7 @@ export class WebwriterBlockBasedCode extends LitElementWw {
     return this.ownerDocument.fullscreenElement === this;
   }
 
-  private getBlockOptionLabel(type: BlockTypes): string {
+  private getBlockOptionLabel(type: BlockTypes, messages: Record<string, string>): string {
     if (type === "variables") return categoryName(this.msg, "variables");
     const symbols: Record<string, string> = {
       "operators:sum": "+", "operators:subtract": "-", "operators:multiply": "*", "operators:divide": "/",
@@ -208,7 +209,6 @@ export class WebwriterBlockBasedCode extends LitElementWw {
     if (symbols[type]) return symbols[type];
     const definition = blocks.find(block => block.type === type);
     if (!definition || typeof definition.message0 !== "string") return this.msg("Available Blocks");
-    const messages = blockMessages(this.msg);
     return definition.message0
       .replace(/%\{BKY_([A-Z0-9_]+)\}/g, (token, key: string) => messages[key] ?? token)
       .replace(/%\d+/g, "…")

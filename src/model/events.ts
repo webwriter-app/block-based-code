@@ -1,6 +1,3 @@
-import { StageType } from "./stage-type";
-import { BlockTypes } from "./blockly/blocks/blocks";
-
 /**
  * An event that is fired when the editor changes.
  */
@@ -12,23 +9,6 @@ export class EditorChangeEvent extends CustomEvent<{ state: object, readableCode
         readableCode,
         executableCode,
       },
-      bubbles: true,
-      composed: true,
-    });
-  }
-}
-
-/**
- * An event that is fired when the options change.
- */
-export class OptionsChangeEvent extends CustomEvent<{
-  readonly?: 0 | 1;
-  stageType?: StageType;
-  selectedBlocks?: BlockTypes[];
-}> {
-  constructor(options: OptionsChangeEvent["detail"]) {
-    super("change", {
-      detail: options,
       bubbles: true,
       composed: true,
     });
