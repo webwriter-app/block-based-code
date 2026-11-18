@@ -66,6 +66,12 @@ export class Stage extends LitElementWw {
   @property({ type: String })
   public accessor executableCode: string;
 
+  /** The stage as a picture, taken before printing, because a WebGL canvas can print blank. */
+  @state()
+  private accessor printImage = "";
+
+  private printAbort?: AbortController;
+
   /** The readable code as highlighted HTML. Rendering only reuses it; it changes with the code. */
   private highlightedCode = "";
 
@@ -161,6 +167,11 @@ export class Stage extends LitElementWw {
 
     this.resizeObserver.observe(this);
 
+    this.printAbort = new AbortController();
+    const { signal } = this.printAbort;
+    window.addEventListener("beforeprint", () => { this.printImage = this.stageApplication?.snapshot() ?? ""; }, { signal });
+    window.addEventListener("afterprint", () => { this.printImage = ""; }, { signal });
+
     this.applyStageType();
   }
 
@@ -171,6 +182,7 @@ export class Stage extends LitElementWw {
     super.disconnectedCallback();
 
     this.resizeObserver.disconnect();
+    this.printAbort?.abort();
     // Stops the render loop and the workers of a stage that is no longer in a document.
     this.stageApplication?.destroy();
   }
@@ -221,6 +233,7 @@ export class Stage extends LitElementWw {
                 </webwriter-blocks-toolbar-button>
             </div>
         </webwriter-blocks-toolbar>
+        ${this.printImage ? html`<img class="print-image" part="print-image" alt=${stageTypeName(this.msg, this.stageType)} src=${this.printImage}>` : nothing}
         <sl-tab-group placement="bottom" @sl-tab-show=${this.handleTabShow}>
             <sl-tab slot="nav" panel="stage" active>${stageTypeName(this.msg, this.stageType)}
             </sl-tab>
@@ -337,7 +350,11 @@ export class Stage extends LitElementWw {
    * @private
    */
   private handleExecutionStateChange(runningEventTypes: Set<string>): void {
-    this.isAnyEventRunning = runningEventTypes.size > 0;
+    const running = runningEventTypes.size > 0;
+    if (running !== this.isAnyEventRunning) {
+      this.dispatchEvent(new CustomEvent("executionchange", { detail: running, bubbles: true, composed: true }));
+    }
+    this.isAnyEventRunning = running;
     this.isWhenStartClickedRunning = runningEventTypes.has("whenStartClicked");
   }
 
@@ -400,6 +417,7 @@ export class Stage extends LitElementWw {
         application.setHostElement(hostElement);
       }
 
+      application.container.setAttribute("aria-label", stageTypeName(this.msg, this.stageType));
       application.show();
       return "ready";
     }, (error: unknown) => {

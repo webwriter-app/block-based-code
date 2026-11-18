@@ -6,14 +6,30 @@
     "webwriter-widget",
     "widget-simulational",
     "widget-conceptual",
-    "widget-lang-en",
-    "widget-lang-de",
-    "iscedf2013-06",
+    "isced2011-1",
     "isced2011-2",
     "isced2011-3",
+    "iscedf2013-0613",
+    "widget-editable",
+    "widget-allows-pointer-input",
+    "widget-allows-keyboard-input",
+    "widget-allows-touch-input",
+    "widget-convertible-to-text/javascript",
+    "widget-convertible-to-application/json",
+    "widget-convertible-from-application/json",
+    "widget-convertible-to-pre",
+    "widget-responsive",
+    "widget-themeable",
+    "widget-printable",
+    "widget-stateful",
+    "widget-configurable",
+    "widget-reactive",
+    "widget-testable",
     "code",
     "blocks",
     "JS",
+    "widget-lang-en",
+    "widget-lang-de",
     "widget-lang-en-US",
     "widget-lang-en-GB",
     "widget-lang-en-CA",
@@ -514,7 +530,14 @@
         "ckb-Arab": "کۆدنووسی بە بلۆک",
         "af-ZA": "Blokgebaseerde Kode",
         "af-NA": "Blokgebaseerde Kode"
-      }
+      },
+      "importFormats": [
+        "application/json"
+      ],
+      "exportFormats": [
+        "text/javascript",
+        "application/json"
+      ]
     },
     "./snippets/bouncing-dvd": {
       "label": {

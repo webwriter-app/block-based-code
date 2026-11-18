@@ -8,8 +8,26 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Block-based programming on top of Blockly, inspired by Scratch. The blocks the author places in\nthe editor control a stage; the only stage type so far is a canvas drawn with PixiJS.\nThe program and the blocks offered to learners are kept in a JSON data block.",
+          "description": "Block-based programming on top of Blockly, inspired by Scratch. The blocks the author places in\nthe editor control a stage; the only stage type so far is a canvas drawn with PixiJS.\nThe program and the blocks offered to learners are kept in a JSON data block.\n\nThe editor and the stage sit side by side; below 560px of width they are stacked.\nOn paper the program is scaled to fit the editor view, the current picture of the stage and the program text are printed, and controls are hidden.\n\nConversions: the program is exported as JavaScript (`text/javascript`, the readable program) and as\nJSON (`application/json`: the Blockly workspace and the blocks the toolbox offers); a JSON file of that shape is\nimported. A `pre` element can be exported with the program text. The JavaScript export drops the layout\nof the blocks and the toolbox selection; the JSON file keeps both.\n\nSignals: `running` (boolean) is true while any part of the program runs; `code` (string) is the\nreadable program. The widget accepts no effects.",
           "name": "WebwriterBlockBasedCode",
+          "cssParts": [
+            {
+              "description": "The split view that holds the editor and the stage.",
+              "name": "application"
+            },
+            {
+              "description": "The block editor.",
+              "name": "editor"
+            },
+            {
+              "description": "The stage that shows the result.",
+              "name": "stage"
+            },
+            {
+              "description": "The generated program, shown on paper.",
+              "name": "code"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -19,6 +37,33 @@
               },
               "static": true,
               "default": "{ \"webwriter-blocks-toolbar\": Toolbar, \"webwriter-blocks-toolbar-button\": ToolbarButton, \"webwriter-blocks-application\": Application, \"webwriter-blocks-editor\": Editor, \"webwriter-blocks-stage\": Stage, \"webwriter-blocks-help\": Help, }"
+            },
+            {
+              "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ \"application/json\": \"importJson\" }"
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ \"text/javascript\": \"exportJavaScript\", \"application/json\": \"exportJson\", pre: \"toPre\", }"
+            },
+            {
+              "kind": "field",
+              "name": "actions",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ clearProgram: { label: (widget: { msg: MsgFn }) => widget.msg(\"Clear program\"), confirm: (widget: { msg: MsgFn }) => widget.msg(\"Remove all blocks from the program?\"), intent: \"danger\" as const, }, }"
             },
             {
               "kind": "field",
@@ -65,6 +110,28 @@
               "privacy": "private",
               "readonly": true,
               "default": "new Permissions(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#running",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "#code",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "signals",
+              "type": {
+                "text": "object"
+              },
+              "readonly": true,
+              "default": "{ running: computed(() => this.#running.get()), code: computed(() => this.#code.get()), }",
+              "description": "Read-only values for other widgets: whether the program runs, and the readable program."
             },
             {
               "kind": "field",
@@ -178,8 +245,93 @@
                   "type": {
                     "text": "BlockTypes"
                   }
+                },
+                {
+                  "name": "messages",
+                  "type": {
+                    "text": "Record<string, string>"
+                  }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "currentProgram",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "{ editorState: object; usableBlocks: SelectedBlocks }"
+                }
+              },
+              "description": "The program as it is now: the editor state and the blocks the toolbox offers."
+            },
+            {
+              "kind": "method",
+              "name": "exportJavaScript",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "File | null"
+                }
+              },
+              "description": "The readable program as a JavaScript file; null while there are no blocks."
+            },
+            {
+              "kind": "method",
+              "name": "exportJson",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "File"
+                }
+              },
+              "description": "The workspace and the toolbox selection as a JSON file."
+            },
+            {
+              "kind": "method",
+              "name": "toPre",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "HTMLElement | null"
+                }
+              },
+              "description": "A `pre` element with the readable program; null while there are no blocks."
+            },
+            {
+              "kind": "method",
+              "name": "importJson",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "Promise<() => void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ],
+              "description": "Checks a whole file, then returns the function that replaces the program."
+            },
+            {
+              "kind": "method",
+              "name": "clearProgram",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Removes all blocks; the toolbox selection stays."
+            },
+            {
+              "kind": "field",
+              "name": "handleExecutionChange",
+              "privacy": "private"
             },
             {
               "kind": "field",

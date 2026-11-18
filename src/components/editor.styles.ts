@@ -24,7 +24,7 @@ export const styles = css`
         border-radius: var(--sl-border-radius-medium);
     }
 
-    .blocklyToolboxDiv {
+    .blocklyToolbox {
         padding: 0;
 
         background-color: var(--sl-color-neutral-0);
@@ -34,7 +34,7 @@ export const styles = css`
         overflow-x: hidden;
     }
 
-    .blocklyTreeRow {
+    .blocklyToolboxCategory {
         height: initial;
         margin-bottom: 0;
         padding: var(--sl-spacing-x-small) var(--sl-spacing-2x-small) !important;
@@ -44,30 +44,30 @@ export const styles = css`
         cursor: pointer;
     }
 
-    .blocklyTreeRowContentContainer {
+    .blocklyToolboxCategoryContainer {
         display: flex;
         flex-direction: column;
     }
     
-    .blocklyTreeLabel {
+    .blocklyToolboxCategoryLabel {
         margin: auto;
         color: var(--sl-color-gray-500);
     }
 
-    .blocklyTreeRow:first-child {
+    .blocklyToolboxCategory:first-child {
         border-top: none;
     }
 
-    .blocklyTreeLabel {
+    .blocklyToolboxCategoryLabel {
         margin-top: 4px;
         font-size: 12px;
     }
 
-    .blocklyTreeSelected {
+    .blocklyToolboxSelected {
         background-color: var(--sl-color-primary-100) !important;
     }
 
-    .blocklyTreeSelected .blocklyTreeLabel {
+    .blocklyToolboxSelected .blocklyToolboxCategoryLabel {
         color: black !important;
     }
 
@@ -107,5 +107,16 @@ export const styles = css`
     
     sl-dialog::part(footer) {
         padding-top: 0;
+    }
+
+    @media print {
+        :host {
+            overflow: visible;
+        }
+
+        .blocklyToolbox, .blocklyFlyout, .blocklyFlyoutBackground,
+        .blocklyScrollbarHorizontal, .blocklyScrollbarVertical, .zoom-group {
+            display: none !important;
+        }
     }
 `;

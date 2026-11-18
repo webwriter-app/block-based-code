@@ -6,8 +6,10 @@ export const styles = css`
         justify-content: space-between;
         
         width: 100%;
-        height: 34px;
+        min-height: 34px;
         flex: none;
+        flex-wrap: wrap;
+        gap: var(--sl-spacing-2x-small);
 
     }
     

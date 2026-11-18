@@ -31,6 +31,14 @@ export const styles = css`
         line-height: 1;
     }
 
+    @media (pointer: coarse) {
+        sl-button::part(base) {
+            min-width: 40px;
+            min-height: 40px;
+            padding: 11px;
+        }
+    }
+
     sl-icon {
         font-size: 18px;
     }

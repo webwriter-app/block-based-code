@@ -114,6 +114,13 @@ export abstract class StageApplication extends Application {
   }
 
   /**
+   * A picture of the stage as a data URL, for printing. Stages that cannot draw one return undefined.
+   */
+  public snapshot(): string | undefined {
+    return undefined;
+  }
+
+  /**
    * Shows the stage application. This method should be overridden in the child class.
    */
   public abstract show(): void;

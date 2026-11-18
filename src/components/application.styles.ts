@@ -20,9 +20,41 @@ export const styles = css`
         color: var(--sl-color-gray-500);
     }
     
+    sl-split-panel[vertical] {
+        --min: 120px;
+        --max: 70%;
+        --divider-width: 20px;
+    }
+
     .panel {
         display: flex;
         flex-direction: column;
         gap: var(--sl-spacing-x-small);
+    }
+
+    @media print {
+        :host {
+            display: block;
+        }
+
+        sl-split-panel {
+            display: block !important;
+            height: auto;
+        }
+
+        sl-split-panel::part(divider) {
+            display: none;
+        }
+
+        .panel {
+            display: block;
+            height: auto;
+            overflow: visible;
+        }
+
+        .panel[slot="start"] {
+            height: 480px;
+            margin-bottom: var(--sl-spacing-x-small);
+        }
     }
 `;

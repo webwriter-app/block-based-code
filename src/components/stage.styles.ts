@@ -59,6 +59,46 @@ export const styles = css`
     sl-tab::part(base) {
         padding-top: 0;
     }
+
+    sl-tab-group {
+        --indicator-color: var(--ww-theme-accent-1, var(--sl-color-primary-600));
+    }
+
+    sl-tab[active]::part(base) {
+        color: var(--ww-theme-accent-1, var(--sl-color-primary-600));
+    }
+
+    #stage > div:focus-visible {
+        outline: var(--sl-focus-ring);
+        outline-offset: calc(var(--sl-focus-ring-offset) * -1);
+    }
+
+    .print-image {
+        display: none;
+    }
+
+    @media print {
+        webwriter-blocks-toolbar, sl-dialog {
+            display: none;
+        }
+
+        .print-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--sl-color-gray-300);
+            box-sizing: border-box;
+            break-inside: avoid;
+        }
+
+        sl-tab-group {
+            display: none;
+        }
+
+        :host {
+            height: auto;
+        }
+    }
     
     sl-tab-panel {
         height: 100%;

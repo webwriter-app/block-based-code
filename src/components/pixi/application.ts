@@ -95,6 +95,12 @@ export class PixiApplication extends StageApplication {
     super.createContainer();
     this.container.style.height = "0";
     this.container.style.paddingTop = "calc(100% * 3 / 4)";
+    // The stage can be focused; Enter then clicks the sprite, as a tap does.
+    this.container.tabIndex = 0;
+    this.container.setAttribute("role", "button");
+    this.container.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && event.target === this.container) this.handleSpriteClick();
+    });
   }
 
   /**
@@ -197,6 +203,10 @@ export class PixiApplication extends StageApplication {
 
     // Ignore events from input elements (including Blockly fields)
     if (this.isInputElement(target)) return;
+    // Keys that move through the blocks or operate a dialog or the divider are not input for the program.
+    if (path.some((node) => node instanceof HTMLElement && this.isEditingSurface(node))) return;
+    // A focused button or tab keeps the keys that press it; arrows and letters still reach the program.
+    if ((event.key === " " || event.key === "Enter") && path.some((node) => node instanceof HTMLElement && this.isPressable(node))) return;
 
     const { key } = event;
     const normalizedKey = key === " " ? "space" : key;
@@ -210,6 +220,33 @@ export class PixiApplication extends StageApplication {
     this.virtualMachine.start(this.executableCode, this.vmDelay, "whenKeyPressed_any").catch(() => {
       // Ignore errors if the event handler doesn't exist
     });
+  }
+
+  /**
+   * Checks if the element is part of the block editor or a surface that arrow keys operate.
+   * @private
+   */
+  private isEditingSurface(element: HTMLElement): boolean {
+    const tag = element.localName;
+    return tag === "webwriter-blocks-editor" || tag === "sl-dialog" || element.getAttribute("role") === "separator";
+  }
+
+  /**
+   * Checks if the element is a control that Space and Enter press.
+   * @private
+   */
+  private isPressable(element: HTMLElement): boolean {
+    const tag = element.localName;
+    return tag === "button" || tag === "sl-button" || tag === "sl-tab";
+  }
+
+  /**
+   * A picture of the stage as it is now, for paper. Undefined while the renderer is not ready.
+   */
+  public override snapshot(): string | undefined {
+    if (!this.application?.renderer) return undefined;
+    this.application.render();
+    return this.application.canvas.toDataURL("image/png");
   }
 
   /**

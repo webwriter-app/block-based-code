@@ -79,10 +79,35 @@ export class Editor extends LitElementWw {
     this.editorApplication.addEventListener("CONFIRM", this.handleConfirm.bind(this));
     this.editorApplication.addEventListener("ALERT", this.handleAlert.bind(this));
     if (this.hasUpdated) this.renderRoot.appendChild(this.editorApplication.container);
+    this.printAbort = new AbortController();
+    window.addEventListener("beforeprint", this.fitForPrint, { signal: this.printAbort.signal });
+    window.addEventListener("afterprint", this.restoreAfterPrint, { signal: this.printAbort.signal });
   }
+
+  private printAbort?: AbortController;
+
+  private viewBeforePrint?: { scale: number; x: number; y: number };
+
+  /** On paper the workspace cannot scroll, so the whole program is scaled to fit its view. */
+  private fitForPrint = () => {
+    const workspace = this.editorApplication?.getWorkspace();
+    if (!workspace || workspace.getTopBlocks(false).length === 0) return;
+    this.viewBeforePrint = { scale: workspace.scale, x: workspace.scrollX, y: workspace.scrollY };
+    workspace.zoomToFit();
+  };
+
+  private restoreAfterPrint = () => {
+    const workspace = this.editorApplication?.getWorkspace();
+    const view = this.viewBeforePrint;
+    this.viewBeforePrint = undefined;
+    if (!workspace || !view) return;
+    workspace.setScale(view.scale);
+    workspace.scroll(view.x, view.y);
+  };
 
   public disconnectedCallback() {
     super.disconnectedCallback();
+    this.printAbort?.abort();
     this.resizeObserver.disconnect();
     this.editorApplication.destroy();
   }

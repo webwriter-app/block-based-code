@@ -381,18 +381,19 @@ export class BlocklyApplication extends Application {
   }
 
   /**
-   * Moves the Blockly style elements to the container.
+   * Copies the Blockly style elements into the container, so that they apply inside the shadow tree.
+   * Blockly adds them to the document head because the container is not in a shadow tree yet.
+   * The renderer style has no id; its rules start with the renderer and theme class selector.
    * @private
    */
   private moveStyleElementsToContainer(): void {
-    ["blockly-common-style", `blockly-renderer-style-${BlocklyApplication.renderer}-${BlocklyApplication.theme}`].forEach((styleElementId) => {
-      const styleElement = document.querySelector<HTMLStyleElement>(`#${styleElementId}`);
-      if (!styleElement) {
-        console.error(`Style element with id ${styleElementId} not found`);
-        return;
-      }
-      this.container.appendChild(styleElement.cloneNode(true));
-    });
+    const selector = `.${BlocklyApplication.renderer}-renderer.${BlocklyApplication.theme}-theme`;
+    const common = document.querySelector<HTMLStyleElement>("#blockly-common-style");
+    const renderer = Array.from(document.querySelectorAll<HTMLStyleElement>("style.blockly-renderer-style"))
+      .find((style) => style.textContent?.includes(selector));
+    for (const styleElement of [common, renderer]) {
+      if (styleElement) this.container.appendChild(styleElement.cloneNode(true));
+    }
   }
 
   /**
@@ -410,6 +411,7 @@ export class BlocklyApplication extends Application {
    */
   private generateZoomGroup(): HTMLDivElement {
     const groupDiv = document.createElement("div");
+    groupDiv.className = "zoom-group";
     groupDiv.style.position = "absolute";
     groupDiv.style.top = "var(--sl-spacing-small)";
     groupDiv.style.right = "var(--sl-spacing-large)";
