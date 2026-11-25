@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="hu" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s9fb1920f1e90623b">
+  <source>Reset Zoom</source>
+  <target>Nagyítás visszaállítása</target>
+</trans-unit>
+<trans-unit id="sb05582ce916894da">
+  <source>Zoom Out</source>
+  <target>Kicsinyítés</target>
+</trans-unit>
+<trans-unit id="s22fde937cb709859">
+  <source>Zoom In</source>
+  <target>Nagyítás</target>
+</trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+  <target>Mégse</target>
+</trans-unit>
+<trans-unit id="s33f85f24c0f5f008">
+  <source>Save</source>
+  <target>Mentés</target>
+</trans-unit>
+<trans-unit id="s09205907b5b56cda">
+  <source>No</source>
+  <target>Nem</target>
+</trans-unit>
+<trans-unit id="scb489a1a173ac3f0">
+  <source>Yes</source>
+  <target>Igen</target>
+</trans-unit>
+<trans-unit id="s091d3d07b5b3076f">
+  <source>OK</source>
+  <target>OK</target>
+</trans-unit>
+<trans-unit id="s352719d86112de9a">
+  <source>Help</source>
+  <target>Súgó</target>
+</trans-unit>
+<trans-unit id="s0bdca49248ba4820">
+  <source>Shortcuts</source>
+  <target>Billentyűparancsok</target>
+</trans-unit>
+<trans-unit id="s62e1adf70818769c">
+  <source>when %1 clicked</source>
+  <target>amikor a(z) %1 elemre kattintanak</target>
+</trans-unit>
+<trans-unit id="s5753316d08e2ed89">
+  <source>when this sprite clicked</source>
+  <target>amikor erre a szereplőre kattintanak</target>
+</trans-unit>
+<trans-unit id="sc9075a68b35564c4">
+  <source>when %1 key pressed</source>
+  <target>a(z) %1 billentyű lenyomásakor</target>
+</trans-unit>
+<trans-unit id="se6f7b419052023cd">
+  <source>any</source>
+  <target>bármely billentyű</target>
+</trans-unit>
+<trans-unit id="s436cf28ab247e3e5">
+  <source>space</source>
+  <target>szóköz</target>
+</trans-unit>
+<trans-unit id="s4b7f5b3ef776aff9">
+  <source>up arrow</source>
+  <target>felfelé nyíl</target>
+</trans-unit>
+<trans-unit id="s3bf9d7c6372d9aec">
+  <source>down arrow</source>
+  <target>lefelé nyíl</target>
+</trans-unit>
+<trans-unit id="s21ce5b62fb9cc909">
+  <source>left arrow</source>
+  <target>balra nyíl</target>
+</trans-unit>
+<trans-unit id="se837dabf23ff86fc">
+  <source>right arrow</source>
+  <target>jobbra nyíl</target>
+</trans-unit>
+<trans-unit id="sdcfdbecbc8f6e01b">
+  <source>wait %1 seconds</source>
+  <target>várj %1 másodpercet</target>
+</trans-unit>
+<trans-unit id="se062909512868b90">
+  <source>repeat %1</source>
+  <target>ismételd %1 alkalommal</target>
+</trans-unit>
+<trans-unit id="se94c75a08ca5fd78">
+  <source>forever</source>
+  <target>mindig</target>
+</trans-unit>
+<trans-unit id="s9da27599b2482baf">
+  <source>if %1, then</source>
+  <target>ha %1, akkor</target>
+</trans-unit>
+<trans-unit id="s7f2b6c605332dd30">
+  <source>else</source>
+  <target>különben</target>
+</trans-unit>
+<trans-unit id="saf1f52191db2bcc5">
+  <source>stop</source>
+  <target>állj le</target>
+</trans-unit>
+<trans-unit id="s89955cee957aa7e7">
+  <source>pick random %1 to %2</source>
+  <target>véletlen szám %1 és %2 között</target>
+</trans-unit>
+<trans-unit id="s248a3094ff54d8f1">
+  <source>%1 and %2</source>
+  <target>%1 és %2</target>
+</trans-unit>
+<trans-unit id="s9f6ed10a0da1ac07">
+  <source>%1 or %2</source>
+  <target>%1 vagy %2</target>
+</trans-unit>
+<trans-unit id="s1155bf3f1969b350">
+  <source>not %1</source>
+  <target>nem %1</target>
+</trans-unit>
+<trans-unit id="s969d19fdfd1292c0">
+  <source>join %1 %2</source>
+  <target>%1 és %2 összefűzése</target>
+</trans-unit>
+<trans-unit id="s1d322941d98b740d">
+  <source>absolute of %1</source>
+  <target>%1 abszolút értéke</target>
+</trans-unit>
+<trans-unit id="sffb792580d9535aa">
+  <source>say %1</source>
+  <target>mondd: %1</target>
+</trans-unit>
+<trans-unit id="s12a1c9644de1b891">
+  <source>say %1 for %2 seconds</source>
+  <target>mondd: %1 (%2 másodpercig)</target>
+</trans-unit>
+<trans-unit id="s4d7e66783dc82e08">
+  <source>set color effect to %1</source>
+  <target>színeffektus beállítása erre: %1</target>
+</trans-unit>
+<trans-unit id="s6ece8be61d1613ff">
+  <source>set background color to %1</source>
+  <target>háttérszín beállítása erre: %1</target>
+</trans-unit>
+<trans-unit id="s5adfc4065b570c51">
+  <source>move %1 steps</source>
+  <target>lépj %1 lépést</target>
+</trans-unit>
+<trans-unit id="see7fc4dce00fe5f2">
+  <source>rotate by %1 degrees</source>
+  <target>fordulj el %1 fokkal</target>
+</trans-unit>
+<trans-unit id="s14e890768a7f46d7">
+  <source>set rotation to %1 degrees</source>
+  <target>irány beállítása %1 fokra</target>
+</trans-unit>
+<trans-unit id="sfcd44a75051f0272">
+  <source>set x to %1</source>
+  <target>x beállítása erre: %1</target>
+</trans-unit>
+<trans-unit id="s5297c3e4ef28c9e1">
+  <source>set y to %1</source>
+  <target>y beállítása erre: %1</target>
+</trans-unit>
+<trans-unit id="s96dbff478859dd9c">
+  <source>set x to %1 and y to %2</source>
+  <target>x beállítása %1, y beállítása %2</target>
+</trans-unit>
+<trans-unit id="s260005f1619bc499">
+  <source>x-position</source>
+  <target>x pozíció</target>
+</trans-unit>
+<trans-unit id="sb0d47d2341d89ab8">
+  <source>y-position</source>
+  <target>y pozíció</target>
+</trans-unit>
+<trans-unit id="s29338b6c39286b02">
+  <source>timer</source>
+  <target>időzítő</target>
+</trans-unit>
+<trans-unit id="sf5de94ac6955cc71">
+  <source>reset timer</source>
+  <target>időzítő nullázása</target>
+</trans-unit>
+<trans-unit id="s0a975bb48876aeaa">
+  <source>play sound %1</source>
+  <target>%1 hang lejátszása</target>
+</trans-unit>
+<trans-unit id="s4b6a91575e323b12">
+  <source>play sound %1 until done</source>
+  <target>%1 hang lejátszása a végéig</target>
+</trans-unit>
+<trans-unit id="s97d71b48e04b1dca">
+  <source>stop all sounds</source>
+  <target>minden hang leállítása</target>
+</trans-unit>
+<trans-unit id="s779b5819564f2f50">
+  <source>pop</source>
+  <target>pukkanás</target>
+</trans-unit>
+<trans-unit id="s5ca15824688fca91">
+  <source>failure</source>
+  <target>sikertelenség</target>
+</trans-unit>
+<trans-unit id="s19fe06e3408e53d0">
+  <source>success</source>
+  <target>siker</target>
+</trans-unit>
+<trans-unit id="sfac15b89e0668996">
+  <source>Duplicate</source>
+  <target>Másolás</target>
+</trans-unit>
+<trans-unit id="s3687049d1af562c4">
+  <source>Copy</source>
+  <target>Másolás</target>
+</trans-unit>
+<trans-unit id="sd374c80e17e18808">
+  <source>Paste</source>
+  <target>Beillesztés</target>
+</trans-unit>
+<trans-unit id="sdc673e73b5c13aea">
+  <source>Delete</source>
+  <target>Törlés</target>
+</trans-unit>
+<trans-unit id="s83cd32b685ccc9b7">
+  <source>Controls</source>
+  <target>Vezérlés</target>
+</trans-unit>
+<trans-unit id="sc265a3e29e1206e4">
+  <source>Events</source>
+  <target>Események</target>
+</trans-unit>
+<trans-unit id="saa9c909a4c95098a">
+  <source>Operators</source>
+  <target>Operátorok</target>
+</trans-unit>
+<trans-unit id="s80d301c6f454a49f">
+  <source>Looks</source>
+  <target>Megjelenés</target>
+</trans-unit>
+<trans-unit id="s1849ee2b51259afc">
+  <source>Motions</source>
+  <target>Mozgás</target>
+</trans-unit>
+<trans-unit id="sb39940945f8f7122">
+  <source>Variables</source>
+  <target>Változók</target>
+</trans-unit>
+<trans-unit id="sd4da02562366340a">
+  <source>Sensing</source>
+  <target>Érzékelés</target>
+</trans-unit>
+<trans-unit id="sf67bc9362e1bfbe5">
+  <source>Sounds</source>
+  <target>Hangok</target>
+</trans-unit>
+<trans-unit id="s3643189d1abbb7f4">
+  <source>Code</source>
+  <target>Kód</target>
+</trans-unit>
+<trans-unit id="s9ffe1bbe64712bf1">
+  <source>Canvas</source>
+  <target>Vászon</target>
+</trans-unit>
+<trans-unit id="s63cd4e8a3489be77">
+  <source>Readonly</source>
+  <target>Csak olvasható</target>
+</trans-unit>
+<trans-unit id="sae827b4f3639159c">
+  <source>Choose whether the blocks can be edited</source>
+  <target>Válaszd ki, hogy szerkeszthetők-e a blokkok</target>
+</trans-unit>
+<trans-unit id="s8c4b9c645f39d5be">
+  <source>Available Blocks</source>
+  <target>Elérhető blokkok</target>
+</trans-unit>
+<trans-unit id="sc32ea8f7a9b87f0c">
+  <source>Choose the blocks that are available in the toolbox</source>
+  <target>Válaszd ki az eszköztárban elérhető blokkokat</target>
+</trans-unit>
+<trans-unit id="s65d8bb4cc2edc8fe">
+  <source>An error occurred!</source>
+  <target>Hiba történt!</target>
+</trans-unit>
+<trans-unit id="s37bc3ee79011f9ab">
+  <source>Execution Options</source>
+  <target>Futtatási beállítások</target>
+</trans-unit>
+<trans-unit id="s8870a0826d4ca8de">
+  <source>Reset Stage</source>
+  <target>Színpad visszaállítása</target>
+</trans-unit>
+<trans-unit id="s850705a256f709f7">
+  <source>Stop Execution</source>
+  <target>Futtatás leállítása</target>
+</trans-unit>
+<trans-unit id="sfaa15102d79e8fe2">
+  <source>Restart Execution</source>
+  <target>Futtatás újraindítása</target>
+</trans-unit>
+<trans-unit id="s93fd381ccee962ed">
+  <source>Start Execution</source>
+  <target>Futtatás indítása</target>
+</trans-unit>
+<trans-unit id="seaf40793a6b89011">
+  <source>Leave Fullscreen</source>
+  <target>Kilépés a teljes képernyőből</target>
+</trans-unit>
+<trans-unit id="sde5fec15bbbdc66e">
+  <source>Enter Fullscreen</source>
+  <target>Teljes képernyő</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>Program törlése</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>Eltávolítja a program összes blokkját?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>A fájl nem érvényes JSON.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>A fájl nem tartalmaz blokkprogramot.</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>Színpad</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>Válaszd ki a színpad típusát</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

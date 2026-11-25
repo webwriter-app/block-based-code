@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="jv" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s9fb1920f1e90623b">
+  <source>Reset Zoom</source>
+  <target>Balèkaké ukuran</target>
+</trans-unit>
+<trans-unit id="sb05582ce916894da">
+  <source>Zoom Out</source>
+  <target>Cilikaké</target>
+</trans-unit>
+<trans-unit id="s22fde937cb709859">
+  <source>Zoom In</source>
+  <target>Gedhèkaké</target>
+</trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+  <target>Batalaké</target>
+</trans-unit>
+<trans-unit id="s33f85f24c0f5f008">
+  <source>Save</source>
+  <target>Simpen</target>
+</trans-unit>
+<trans-unit id="s09205907b5b56cda">
+  <source>No</source>
+  <target>Ora</target>
+</trans-unit>
+<trans-unit id="scb489a1a173ac3f0">
+  <source>Yes</source>
+  <target>Ya</target>
+</trans-unit>
+<trans-unit id="s091d3d07b5b3076f">
+  <source>OK</source>
+  <target>OK</target>
+</trans-unit>
+<trans-unit id="s352719d86112de9a">
+  <source>Help</source>
+  <target>Pitulung</target>
+</trans-unit>
+<trans-unit id="s0bdca49248ba4820">
+  <source>Shortcuts</source>
+  <target>Dalan pintas</target>
+</trans-unit>
+<trans-unit id="s62e1adf70818769c">
+  <source>when %1 clicked</source>
+  <target>nalika %1 diklik</target>
+</trans-unit>
+<trans-unit id="s5753316d08e2ed89">
+  <source>when this sprite clicked</source>
+  <target>nalika gambar iki diklik</target>
+</trans-unit>
+<trans-unit id="sc9075a68b35564c4">
+  <source>when %1 key pressed</source>
+  <target>nalika tombol %1 dipencet</target>
+</trans-unit>
+<trans-unit id="se6f7b419052023cd">
+  <source>any</source>
+  <target>apa waé</target>
+</trans-unit>
+<trans-unit id="s436cf28ab247e3e5">
+  <source>space</source>
+  <target>spasi</target>
+</trans-unit>
+<trans-unit id="s4b7f5b3ef776aff9">
+  <source>up arrow</source>
+  <target>panah munggah</target>
+</trans-unit>
+<trans-unit id="s3bf9d7c6372d9aec">
+  <source>down arrow</source>
+  <target>panah mudhun</target>
+</trans-unit>
+<trans-unit id="s21ce5b62fb9cc909">
+  <source>left arrow</source>
+  <target>panah kiwa</target>
+</trans-unit>
+<trans-unit id="se837dabf23ff86fc">
+  <source>right arrow</source>
+  <target>panah tengen</target>
+</trans-unit>
+<trans-unit id="sdcfdbecbc8f6e01b">
+  <source>wait %1 seconds</source>
+  <target>entènana %1 detik</target>
+</trans-unit>
+<trans-unit id="se062909512868b90">
+  <source>repeat %1</source>
+  <target>balèni %1 kaping</target>
+</trans-unit>
+<trans-unit id="se94c75a08ca5fd78">
+  <source>forever</source>
+  <target>salawasé</target>
+</trans-unit>
+<trans-unit id="s9da27599b2482baf">
+  <source>if %1, then</source>
+  <target>yèn %1, banjur</target>
+</trans-unit>
+<trans-unit id="s7f2b6c605332dd30">
+  <source>else</source>
+  <target>yèn ora</target>
+</trans-unit>
+<trans-unit id="saf1f52191db2bcc5">
+  <source>stop</source>
+  <target>mandheg</target>
+</trans-unit>
+<trans-unit id="s89955cee957aa7e7">
+  <source>pick random %1 to %2</source>
+  <target>pilih angka acak saka %1 nganti %2</target>
+</trans-unit>
+<trans-unit id="s248a3094ff54d8f1">
+  <source>%1 and %2</source>
+  <target>%1 lan %2</target>
+</trans-unit>
+<trans-unit id="s9f6ed10a0da1ac07">
+  <source>%1 or %2</source>
+  <target>%1 utawa %2</target>
+</trans-unit>
+<trans-unit id="s1155bf3f1969b350">
+  <source>not %1</source>
+  <target>dudu %1</target>
+</trans-unit>
+<trans-unit id="s969d19fdfd1292c0">
+  <source>join %1 %2</source>
+  <target>gabungaké %1 lan %2</target>
+</trans-unit>
+<trans-unit id="s1d322941d98b740d">
+  <source>absolute of %1</source>
+  <target>nilai mutlak %1</target>
+</trans-unit>
+<trans-unit id="sffb792580d9535aa">
+  <source>say %1</source>
+  <target>omongna %1</target>
+</trans-unit>
+<trans-unit id="s12a1c9644de1b891">
+  <source>say %1 for %2 seconds</source>
+  <target>omongna %1 suwéné %2 detik</target>
+</trans-unit>
+<trans-unit id="s4d7e66783dc82e08">
+  <source>set color effect to %1</source>
+  <target>setèl èfèk warna dadi %1</target>
+</trans-unit>
+<trans-unit id="s6ece8be61d1613ff">
+  <source>set background color to %1</source>
+  <target>setèl warna latar dadi %1</target>
+</trans-unit>
+<trans-unit id="s5adfc4065b570c51">
+  <source>move %1 steps</source>
+  <target>obah %1 langkah</target>
+</trans-unit>
+<trans-unit id="see7fc4dce00fe5f2">
+  <source>rotate by %1 degrees</source>
+  <target>puter %1 drajat</target>
+</trans-unit>
+<trans-unit id="s14e890768a7f46d7">
+  <source>set rotation to %1 degrees</source>
+  <target>setèl puteran dadi %1 drajat</target>
+</trans-unit>
+<trans-unit id="sfcd44a75051f0272">
+  <source>set x to %1</source>
+  <target>setèl x dadi %1</target>
+</trans-unit>
+<trans-unit id="s5297c3e4ef28c9e1">
+  <source>set y to %1</source>
+  <target>setèl y dadi %1</target>
+</trans-unit>
+<trans-unit id="s96dbff478859dd9c">
+  <source>set x to %1 and y to %2</source>
+  <target>setèl x dadi %1 lan y dadi %2</target>
+</trans-unit>
+<trans-unit id="s260005f1619bc499">
+  <source>x-position</source>
+  <target>posisi x</target>
+</trans-unit>
+<trans-unit id="sb0d47d2341d89ab8">
+  <source>y-position</source>
+  <target>posisi y</target>
+</trans-unit>
+<trans-unit id="s29338b6c39286b02">
+  <source>timer</source>
+  <target>pangétung wektu</target>
+</trans-unit>
+<trans-unit id="sf5de94ac6955cc71">
+  <source>reset timer</source>
+  <target>wiwiti pangétung wektu manèh</target>
+</trans-unit>
+<trans-unit id="s0a975bb48876aeaa">
+  <source>play sound %1</source>
+  <target>puter swara %1</target>
+</trans-unit>
+<trans-unit id="s4b6a91575e323b12">
+  <source>play sound %1 until done</source>
+  <target>puter swara %1 nganti rampung</target>
+</trans-unit>
+<trans-unit id="s97d71b48e04b1dca">
+  <source>stop all sounds</source>
+  <target>mandhegaké kabèh swara</target>
+</trans-unit>
+<trans-unit id="s779b5819564f2f50">
+  <source>pop</source>
+  <target>pop</target>
+</trans-unit>
+<trans-unit id="s5ca15824688fca91">
+  <source>failure</source>
+  <target>gagal</target>
+</trans-unit>
+<trans-unit id="s19fe06e3408e53d0">
+  <source>success</source>
+  <target>kasiling</target>
+</trans-unit>
+<trans-unit id="sfac15b89e0668996">
+  <source>Duplicate</source>
+  <target>Gawé salinan</target>
+</trans-unit>
+<trans-unit id="s3687049d1af562c4">
+  <source>Copy</source>
+  <target>Salin</target>
+</trans-unit>
+<trans-unit id="sd374c80e17e18808">
+  <source>Paste</source>
+  <target>Tèmpèl</target>
+</trans-unit>
+<trans-unit id="sdc673e73b5c13aea">
+  <source>Delete</source>
+  <target>Busak</target>
+</trans-unit>
+<trans-unit id="s83cd32b685ccc9b7">
+  <source>Controls</source>
+  <target>Kontrol</target>
+</trans-unit>
+<trans-unit id="sc265a3e29e1206e4">
+  <source>Events</source>
+  <target>Kedadéan</target>
+</trans-unit>
+<trans-unit id="saa9c909a4c95098a">
+  <source>Operators</source>
+  <target>Operator</target>
+</trans-unit>
+<trans-unit id="s80d301c6f454a49f">
+  <source>Looks</source>
+  <target>Tampilan</target>
+</trans-unit>
+<trans-unit id="s1849ee2b51259afc">
+  <source>Motions</source>
+  <target>Obah</target>
+</trans-unit>
+<trans-unit id="sb39940945f8f7122">
+  <source>Variables</source>
+  <target>Variabel</target>
+</trans-unit>
+<trans-unit id="sd4da02562366340a">
+  <source>Sensing</source>
+  <target>Pangindra</target>
+</trans-unit>
+<trans-unit id="sf67bc9362e1bfbe5">
+  <source>Sounds</source>
+  <target>Swara</target>
+</trans-unit>
+<trans-unit id="s3643189d1abbb7f4">
+  <source>Code</source>
+  <target>Kodhe</target>
+</trans-unit>
+<trans-unit id="s9ffe1bbe64712bf1">
+  <source>Canvas</source>
+  <target>Kanvas</target>
+</trans-unit>
+<trans-unit id="s63cd4e8a3489be77">
+  <source>Readonly</source>
+  <target>Mung diwaca</target>
+</trans-unit>
+<trans-unit id="sae827b4f3639159c">
+  <source>Choose whether the blocks can be edited</source>
+  <target>Pilih apa blok bisa disunting</target>
+</trans-unit>
+<trans-unit id="s8c4b9c645f39d5be">
+  <source>Available Blocks</source>
+  <target>Blok sing kasedhiya</target>
+</trans-unit>
+<trans-unit id="sc32ea8f7a9b87f0c">
+  <source>Choose the blocks that are available in the toolbox</source>
+  <target>Pilih blok sing ditampilaké ing kothak piranti</target>
+</trans-unit>
+<trans-unit id="s65d8bb4cc2edc8fe">
+  <source>An error occurred!</source>
+  <target>Ana kaluputan!</target>
+</trans-unit>
+<trans-unit id="s37bc3ee79011f9ab">
+  <source>Execution Options</source>
+  <target>Pilihan kanggo nglakokaké kodhe</target>
+</trans-unit>
+<trans-unit id="s8870a0826d4ca8de">
+  <source>Reset Stage</source>
+  <target>Wiwiti panggung manèh</target>
+</trans-unit>
+<trans-unit id="s850705a256f709f7">
+  <source>Stop Execution</source>
+  <target>Mandhegaké kodhe</target>
+</trans-unit>
+<trans-unit id="sfaa15102d79e8fe2">
+  <source>Restart Execution</source>
+  <target>Lakokaké kodhe manèh</target>
+</trans-unit>
+<trans-unit id="s93fd381ccee962ed">
+  <source>Start Execution</source>
+  <target>Lakokaké kodhe</target>
+</trans-unit>
+<trans-unit id="seaf40793a6b89011">
+  <source>Leave Fullscreen</source>
+  <target>Metu saka layar wutuh</target>
+</trans-unit>
+<trans-unit id="sde5fec15bbbdc66e">
+  <source>Enter Fullscreen</source>
+  <target>Bukak layar wutuh</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>Busak program</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>Busak kabeh blok saka program?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>Berkas iki dudu JSON sing valid.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>Berkas iki ora ngemot program blok.</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>Panggung</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>Pilih jinis panggung</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

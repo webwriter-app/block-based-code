@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="ko" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s9fb1920f1e90623b">
+  <source>Reset Zoom</source>
+  <target>확대/축소 초기화</target>
+</trans-unit>
+<trans-unit id="sb05582ce916894da">
+  <source>Zoom Out</source>
+  <target>축소</target>
+</trans-unit>
+<trans-unit id="s22fde937cb709859">
+  <source>Zoom In</source>
+  <target>확대</target>
+</trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+  <target>취소</target>
+</trans-unit>
+<trans-unit id="s33f85f24c0f5f008">
+  <source>Save</source>
+  <target>저장</target>
+</trans-unit>
+<trans-unit id="s09205907b5b56cda">
+  <source>No</source>
+  <target>아니요</target>
+</trans-unit>
+<trans-unit id="scb489a1a173ac3f0">
+  <source>Yes</source>
+  <target>예</target>
+</trans-unit>
+<trans-unit id="s091d3d07b5b3076f">
+  <source>OK</source>
+  <target>확인</target>
+</trans-unit>
+<trans-unit id="s352719d86112de9a">
+  <source>Help</source>
+  <target>도움말</target>
+</trans-unit>
+<trans-unit id="s0bdca49248ba4820">
+  <source>Shortcuts</source>
+  <target>키보드 단축키</target>
+</trans-unit>
+<trans-unit id="s62e1adf70818769c">
+  <source>when %1 clicked</source>
+  <target>%1을(를) 클릭했을 때</target>
+</trans-unit>
+<trans-unit id="s5753316d08e2ed89">
+  <source>when this sprite clicked</source>
+  <target>이 스프라이트를 클릭했을 때</target>
+</trans-unit>
+<trans-unit id="sc9075a68b35564c4">
+  <source>when %1 key pressed</source>
+  <target>%1 키를 눌렀을 때</target>
+</trans-unit>
+<trans-unit id="se6f7b419052023cd">
+  <source>any</source>
+  <target>아무 키</target>
+</trans-unit>
+<trans-unit id="s436cf28ab247e3e5">
+  <source>space</source>
+  <target>스페이스</target>
+</trans-unit>
+<trans-unit id="s4b7f5b3ef776aff9">
+  <source>up arrow</source>
+  <target>위쪽 화살표</target>
+</trans-unit>
+<trans-unit id="s3bf9d7c6372d9aec">
+  <source>down arrow</source>
+  <target>아래쪽 화살표</target>
+</trans-unit>
+<trans-unit id="s21ce5b62fb9cc909">
+  <source>left arrow</source>
+  <target>왼쪽 화살표</target>
+</trans-unit>
+<trans-unit id="se837dabf23ff86fc">
+  <source>right arrow</source>
+  <target>오른쪽 화살표</target>
+</trans-unit>
+<trans-unit id="sdcfdbecbc8f6e01b">
+  <source>wait %1 seconds</source>
+  <target>%1초 기다리기</target>
+</trans-unit>
+<trans-unit id="se062909512868b90">
+  <source>repeat %1</source>
+  <target>%1번 반복</target>
+</trans-unit>
+<trans-unit id="se94c75a08ca5fd78">
+  <source>forever</source>
+  <target>계속 반복</target>
+</trans-unit>
+<trans-unit id="s9da27599b2482baf">
+  <source>if %1, then</source>
+  <target>만약 %1이라면</target>
+</trans-unit>
+<trans-unit id="s7f2b6c605332dd30">
+  <source>else</source>
+  <target>아니면</target>
+</trans-unit>
+<trans-unit id="saf1f52191db2bcc5">
+  <source>stop</source>
+  <target>중지</target>
+</trans-unit>
+<trans-unit id="s89955cee957aa7e7">
+  <source>pick random %1 to %2</source>
+  <target>%1부터 %2 사이의 임의의 수 선택</target>
+</trans-unit>
+<trans-unit id="s248a3094ff54d8f1">
+  <source>%1 and %2</source>
+  <target>%1 그리고 %2</target>
+</trans-unit>
+<trans-unit id="s9f6ed10a0da1ac07">
+  <source>%1 or %2</source>
+  <target>%1 또는 %2</target>
+</trans-unit>
+<trans-unit id="s1155bf3f1969b350">
+  <source>not %1</source>
+  <target>%1이(가) 아님</target>
+</trans-unit>
+<trans-unit id="s969d19fdfd1292c0">
+  <source>join %1 %2</source>
+  <target>%1과 %2 연결</target>
+</trans-unit>
+<trans-unit id="s1d322941d98b740d">
+  <source>absolute of %1</source>
+  <target>%1의 절댓값</target>
+</trans-unit>
+<trans-unit id="sffb792580d9535aa">
+  <source>say %1</source>
+  <target>%1 말하기</target>
+</trans-unit>
+<trans-unit id="s12a1c9644de1b891">
+  <source>say %1 for %2 seconds</source>
+  <target>%1을(를) %2초 동안 말하기</target>
+</trans-unit>
+<trans-unit id="s4d7e66783dc82e08">
+  <source>set color effect to %1</source>
+  <target>색상 효과를 %1로 설정</target>
+</trans-unit>
+<trans-unit id="s6ece8be61d1613ff">
+  <source>set background color to %1</source>
+  <target>배경색을 %1로 설정</target>
+</trans-unit>
+<trans-unit id="s5adfc4065b570c51">
+  <source>move %1 steps</source>
+  <target>%1만큼 이동</target>
+</trans-unit>
+<trans-unit id="see7fc4dce00fe5f2">
+  <source>rotate by %1 degrees</source>
+  <target>%1도 회전</target>
+</trans-unit>
+<trans-unit id="s14e890768a7f46d7">
+  <source>set rotation to %1 degrees</source>
+  <target>방향을 %1도로 설정</target>
+</trans-unit>
+<trans-unit id="sfcd44a75051f0272">
+  <source>set x to %1</source>
+  <target>x를 %1로 설정</target>
+</trans-unit>
+<trans-unit id="s5297c3e4ef28c9e1">
+  <source>set y to %1</source>
+  <target>y를 %1로 설정</target>
+</trans-unit>
+<trans-unit id="s96dbff478859dd9c">
+  <source>set x to %1 and y to %2</source>
+  <target>x를 %1, y를 %2로 설정</target>
+</trans-unit>
+<trans-unit id="s260005f1619bc499">
+  <source>x-position</source>
+  <target>x 위치</target>
+</trans-unit>
+<trans-unit id="sb0d47d2341d89ab8">
+  <source>y-position</source>
+  <target>y 위치</target>
+</trans-unit>
+<trans-unit id="s29338b6c39286b02">
+  <source>timer</source>
+  <target>타이머</target>
+</trans-unit>
+<trans-unit id="sf5de94ac6955cc71">
+  <source>reset timer</source>
+  <target>타이머 초기화</target>
+</trans-unit>
+<trans-unit id="s0a975bb48876aeaa">
+  <source>play sound %1</source>
+  <target>%1 소리 재생</target>
+</trans-unit>
+<trans-unit id="s4b6a91575e323b12">
+  <source>play sound %1 until done</source>
+  <target>%1 소리가 끝날 때까지 재생</target>
+</trans-unit>
+<trans-unit id="s97d71b48e04b1dca">
+  <source>stop all sounds</source>
+  <target>모든 소리 중지</target>
+</trans-unit>
+<trans-unit id="s779b5819564f2f50">
+  <source>pop</source>
+  <target>팝</target>
+</trans-unit>
+<trans-unit id="s5ca15824688fca91">
+  <source>failure</source>
+  <target>실패</target>
+</trans-unit>
+<trans-unit id="s19fe06e3408e53d0">
+  <source>success</source>
+  <target>성공</target>
+</trans-unit>
+<trans-unit id="sfac15b89e0668996">
+  <source>Duplicate</source>
+  <target>복제</target>
+</trans-unit>
+<trans-unit id="s3687049d1af562c4">
+  <source>Copy</source>
+  <target>복사</target>
+</trans-unit>
+<trans-unit id="sd374c80e17e18808">
+  <source>Paste</source>
+  <target>붙여넣기</target>
+</trans-unit>
+<trans-unit id="sdc673e73b5c13aea">
+  <source>Delete</source>
+  <target>삭제</target>
+</trans-unit>
+<trans-unit id="s83cd32b685ccc9b7">
+  <source>Controls</source>
+  <target>제어</target>
+</trans-unit>
+<trans-unit id="sc265a3e29e1206e4">
+  <source>Events</source>
+  <target>이벤트</target>
+</trans-unit>
+<trans-unit id="saa9c909a4c95098a">
+  <source>Operators</source>
+  <target>연산</target>
+</trans-unit>
+<trans-unit id="s80d301c6f454a49f">
+  <source>Looks</source>
+  <target>모양</target>
+</trans-unit>
+<trans-unit id="s1849ee2b51259afc">
+  <source>Motions</source>
+  <target>동작</target>
+</trans-unit>
+<trans-unit id="sb39940945f8f7122">
+  <source>Variables</source>
+  <target>변수</target>
+</trans-unit>
+<trans-unit id="sd4da02562366340a">
+  <source>Sensing</source>
+  <target>감지</target>
+</trans-unit>
+<trans-unit id="sf67bc9362e1bfbe5">
+  <source>Sounds</source>
+  <target>소리</target>
+</trans-unit>
+<trans-unit id="s3643189d1abbb7f4">
+  <source>Code</source>
+  <target>코드</target>
+</trans-unit>
+<trans-unit id="s9ffe1bbe64712bf1">
+  <source>Canvas</source>
+  <target>캔버스</target>
+</trans-unit>
+<trans-unit id="s63cd4e8a3489be77">
+  <source>Readonly</source>
+  <target>읽기 전용</target>
+</trans-unit>
+<trans-unit id="sae827b4f3639159c">
+  <source>Choose whether the blocks can be edited</source>
+  <target>블록을 편집할 수 있는지 선택하세요</target>
+</trans-unit>
+<trans-unit id="s8c4b9c645f39d5be">
+  <source>Available Blocks</source>
+  <target>사용 가능한 블록</target>
+</trans-unit>
+<trans-unit id="sc32ea8f7a9b87f0c">
+  <source>Choose the blocks that are available in the toolbox</source>
+  <target>도구 상자에서 사용할 블록을 선택하세요</target>
+</trans-unit>
+<trans-unit id="s65d8bb4cc2edc8fe">
+  <source>An error occurred!</source>
+  <target>오류가 발생했습니다!</target>
+</trans-unit>
+<trans-unit id="s37bc3ee79011f9ab">
+  <source>Execution Options</source>
+  <target>실행 옵션</target>
+</trans-unit>
+<trans-unit id="s8870a0826d4ca8de">
+  <source>Reset Stage</source>
+  <target>무대 초기화</target>
+</trans-unit>
+<trans-unit id="s850705a256f709f7">
+  <source>Stop Execution</source>
+  <target>실행 중지</target>
+</trans-unit>
+<trans-unit id="sfaa15102d79e8fe2">
+  <source>Restart Execution</source>
+  <target>다시 실행</target>
+</trans-unit>
+<trans-unit id="s93fd381ccee962ed">
+  <source>Start Execution</source>
+  <target>실행</target>
+</trans-unit>
+<trans-unit id="seaf40793a6b89011">
+  <source>Leave Fullscreen</source>
+  <target>전체 화면 종료</target>
+</trans-unit>
+<trans-unit id="sde5fec15bbbdc66e">
+  <source>Enter Fullscreen</source>
+  <target>전체 화면</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>프로그램 지우기</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>프로그램의 블록을 모두 삭제할까요?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>파일이 올바른 JSON이 아닙니다.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>파일에 블록 프로그램이 없습니다.</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>무대</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>무대 유형을 선택하세요</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

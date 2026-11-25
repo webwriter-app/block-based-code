@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="th" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s9fb1920f1e90623b">
+  <source>Reset Zoom</source>
+  <target>รีเซ็ตการซูม</target>
+</trans-unit>
+<trans-unit id="sb05582ce916894da">
+  <source>Zoom Out</source>
+  <target>ย่อ</target>
+</trans-unit>
+<trans-unit id="s22fde937cb709859">
+  <source>Zoom In</source>
+  <target>ขยาย</target>
+</trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+  <target>ยกเลิก</target>
+</trans-unit>
+<trans-unit id="s33f85f24c0f5f008">
+  <source>Save</source>
+  <target>บันทึก</target>
+</trans-unit>
+<trans-unit id="s09205907b5b56cda">
+  <source>No</source>
+  <target>ไม่ใช่</target>
+</trans-unit>
+<trans-unit id="scb489a1a173ac3f0">
+  <source>Yes</source>
+  <target>ใช่</target>
+</trans-unit>
+<trans-unit id="s091d3d07b5b3076f">
+  <source>OK</source>
+  <target>ตกลง</target>
+</trans-unit>
+<trans-unit id="s352719d86112de9a">
+  <source>Help</source>
+  <target>ช่วยเหลือ</target>
+</trans-unit>
+<trans-unit id="s0bdca49248ba4820">
+  <source>Shortcuts</source>
+  <target>แป้นพิมพ์ลัด</target>
+</trans-unit>
+<trans-unit id="s62e1adf70818769c">
+  <source>when %1 clicked</source>
+  <target>เมื่อคลิก %1</target>
+</trans-unit>
+<trans-unit id="s5753316d08e2ed89">
+  <source>when this sprite clicked</source>
+  <target>เมื่อคลิกตัวละครนี้</target>
+</trans-unit>
+<trans-unit id="sc9075a68b35564c4">
+  <source>when %1 key pressed</source>
+  <target>เมื่อกดปุ่ม %1</target>
+</trans-unit>
+<trans-unit id="se6f7b419052023cd">
+  <source>any</source>
+  <target>ปุ่มใดก็ได้</target>
+</trans-unit>
+<trans-unit id="s436cf28ab247e3e5">
+  <source>space</source>
+  <target>เว้นวรรค</target>
+</trans-unit>
+<trans-unit id="s4b7f5b3ef776aff9">
+  <source>up arrow</source>
+  <target>ลูกศรขึ้น</target>
+</trans-unit>
+<trans-unit id="s3bf9d7c6372d9aec">
+  <source>down arrow</source>
+  <target>ลูกศรลง</target>
+</trans-unit>
+<trans-unit id="s21ce5b62fb9cc909">
+  <source>left arrow</source>
+  <target>ลูกศรซ้าย</target>
+</trans-unit>
+<trans-unit id="se837dabf23ff86fc">
+  <source>right arrow</source>
+  <target>ลูกศรขวา</target>
+</trans-unit>
+<trans-unit id="sdcfdbecbc8f6e01b">
+  <source>wait %1 seconds</source>
+  <target>รอ %1 วินาที</target>
+</trans-unit>
+<trans-unit id="se062909512868b90">
+  <source>repeat %1</source>
+  <target>ทำซ้ำ %1 ครั้ง</target>
+</trans-unit>
+<trans-unit id="se94c75a08ca5fd78">
+  <source>forever</source>
+  <target>ตลอดไป</target>
+</trans-unit>
+<trans-unit id="s9da27599b2482baf">
+  <source>if %1, then</source>
+  <target>ถ้า %1 แล้ว</target>
+</trans-unit>
+<trans-unit id="s7f2b6c605332dd30">
+  <source>else</source>
+  <target>มิฉะนั้น</target>
+</trans-unit>
+<trans-unit id="saf1f52191db2bcc5">
+  <source>stop</source>
+  <target>หยุด</target>
+</trans-unit>
+<trans-unit id="s89955cee957aa7e7">
+  <source>pick random %1 to %2</source>
+  <target>สุ่มตัวเลขตั้งแต่ %1 ถึง %2</target>
+</trans-unit>
+<trans-unit id="s248a3094ff54d8f1">
+  <source>%1 and %2</source>
+  <target>%1 และ %2</target>
+</trans-unit>
+<trans-unit id="s9f6ed10a0da1ac07">
+  <source>%1 or %2</source>
+  <target>%1 หรือ %2</target>
+</trans-unit>
+<trans-unit id="s1155bf3f1969b350">
+  <source>not %1</source>
+  <target>ไม่ใช่ %1</target>
+</trans-unit>
+<trans-unit id="s969d19fdfd1292c0">
+  <source>join %1 %2</source>
+  <target>รวม %1 กับ %2</target>
+</trans-unit>
+<trans-unit id="s1d322941d98b740d">
+  <source>absolute of %1</source>
+  <target>ค่าสัมบูรณ์ของ %1</target>
+</trans-unit>
+<trans-unit id="sffb792580d9535aa">
+  <source>say %1</source>
+  <target>พูด %1</target>
+</trans-unit>
+<trans-unit id="s12a1c9644de1b891">
+  <source>say %1 for %2 seconds</source>
+  <target>พูด %1 เป็นเวลา %2 วินาที</target>
+</trans-unit>
+<trans-unit id="s4d7e66783dc82e08">
+  <source>set color effect to %1</source>
+  <target>ตั้งค่าเอฟเฟกต์สีเป็น %1</target>
+</trans-unit>
+<trans-unit id="s6ece8be61d1613ff">
+  <source>set background color to %1</source>
+  <target>ตั้งค่าสีพื้นหลังเป็น %1</target>
+</trans-unit>
+<trans-unit id="s5adfc4065b570c51">
+  <source>move %1 steps</source>
+  <target>เคลื่อนที่ %1 ก้าว</target>
+</trans-unit>
+<trans-unit id="see7fc4dce00fe5f2">
+  <source>rotate by %1 degrees</source>
+  <target>หมุน %1 องศา</target>
+</trans-unit>
+<trans-unit id="s14e890768a7f46d7">
+  <source>set rotation to %1 degrees</source>
+  <target>ตั้งทิศทางเป็น %1 องศา</target>
+</trans-unit>
+<trans-unit id="sfcd44a75051f0272">
+  <source>set x to %1</source>
+  <target>ตั้งค่า x เป็น %1</target>
+</trans-unit>
+<trans-unit id="s5297c3e4ef28c9e1">
+  <source>set y to %1</source>
+  <target>ตั้งค่า y เป็น %1</target>
+</trans-unit>
+<trans-unit id="s96dbff478859dd9c">
+  <source>set x to %1 and y to %2</source>
+  <target>ตั้งค่า x เป็น %1 และ y เป็น %2</target>
+</trans-unit>
+<trans-unit id="s260005f1619bc499">
+  <source>x-position</source>
+  <target>ตำแหน่ง x</target>
+</trans-unit>
+<trans-unit id="sb0d47d2341d89ab8">
+  <source>y-position</source>
+  <target>ตำแหน่ง y</target>
+</trans-unit>
+<trans-unit id="s29338b6c39286b02">
+  <source>timer</source>
+  <target>ตัวจับเวลา</target>
+</trans-unit>
+<trans-unit id="sf5de94ac6955cc71">
+  <source>reset timer</source>
+  <target>รีเซ็ตตัวจับเวลา</target>
+</trans-unit>
+<trans-unit id="s0a975bb48876aeaa">
+  <source>play sound %1</source>
+  <target>เล่นเสียง %1</target>
+</trans-unit>
+<trans-unit id="s4b6a91575e323b12">
+  <source>play sound %1 until done</source>
+  <target>เล่นเสียง %1 จนจบ</target>
+</trans-unit>
+<trans-unit id="s97d71b48e04b1dca">
+  <source>stop all sounds</source>
+  <target>หยุดเสียงทั้งหมด</target>
+</trans-unit>
+<trans-unit id="s779b5819564f2f50">
+  <source>pop</source>
+  <target>ป๊อป</target>
+</trans-unit>
+<trans-unit id="s5ca15824688fca91">
+  <source>failure</source>
+  <target>ล้มเหลว</target>
+</trans-unit>
+<trans-unit id="s19fe06e3408e53d0">
+  <source>success</source>
+  <target>สำเร็จ</target>
+</trans-unit>
+<trans-unit id="sfac15b89e0668996">
+  <source>Duplicate</source>
+  <target>ทำซ้ำ</target>
+</trans-unit>
+<trans-unit id="s3687049d1af562c4">
+  <source>Copy</source>
+  <target>คัดลอก</target>
+</trans-unit>
+<trans-unit id="sd374c80e17e18808">
+  <source>Paste</source>
+  <target>วาง</target>
+</trans-unit>
+<trans-unit id="sdc673e73b5c13aea">
+  <source>Delete</source>
+  <target>ลบ</target>
+</trans-unit>
+<trans-unit id="s83cd32b685ccc9b7">
+  <source>Controls</source>
+  <target>การควบคุม</target>
+</trans-unit>
+<trans-unit id="sc265a3e29e1206e4">
+  <source>Events</source>
+  <target>เหตุการณ์</target>
+</trans-unit>
+<trans-unit id="saa9c909a4c95098a">
+  <source>Operators</source>
+  <target>ตัวดำเนินการ</target>
+</trans-unit>
+<trans-unit id="s80d301c6f454a49f">
+  <source>Looks</source>
+  <target>รูปลักษณ์</target>
+</trans-unit>
+<trans-unit id="s1849ee2b51259afc">
+  <source>Motions</source>
+  <target>การเคลื่อนไหว</target>
+</trans-unit>
+<trans-unit id="sb39940945f8f7122">
+  <source>Variables</source>
+  <target>ตัวแปร</target>
+</trans-unit>
+<trans-unit id="sd4da02562366340a">
+  <source>Sensing</source>
+  <target>การตรวจจับ</target>
+</trans-unit>
+<trans-unit id="sf67bc9362e1bfbe5">
+  <source>Sounds</source>
+  <target>เสียง</target>
+</trans-unit>
+<trans-unit id="s3643189d1abbb7f4">
+  <source>Code</source>
+  <target>โค้ด</target>
+</trans-unit>
+<trans-unit id="s9ffe1bbe64712bf1">
+  <source>Canvas</source>
+  <target>แคนวาส</target>
+</trans-unit>
+<trans-unit id="s63cd4e8a3489be77">
+  <source>Readonly</source>
+  <target>อ่านอย่างเดียว</target>
+</trans-unit>
+<trans-unit id="sae827b4f3639159c">
+  <source>Choose whether the blocks can be edited</source>
+  <target>เลือกว่าจะอนุญาตให้แก้ไขบล็อกหรือไม่</target>
+</trans-unit>
+<trans-unit id="s8c4b9c645f39d5be">
+  <source>Available Blocks</source>
+  <target>บล็อกที่ใช้ได้</target>
+</trans-unit>
+<trans-unit id="sc32ea8f7a9b87f0c">
+  <source>Choose the blocks that are available in the toolbox</source>
+  <target>เลือกบล็อกที่ใช้ได้ในกล่องเครื่องมือ</target>
+</trans-unit>
+<trans-unit id="s65d8bb4cc2edc8fe">
+  <source>An error occurred!</source>
+  <target>เกิดข้อผิดพลาด!</target>
+</trans-unit>
+<trans-unit id="s37bc3ee79011f9ab">
+  <source>Execution Options</source>
+  <target>ตัวเลือกการทำงาน</target>
+</trans-unit>
+<trans-unit id="s8870a0826d4ca8de">
+  <source>Reset Stage</source>
+  <target>รีเซ็ตเวที</target>
+</trans-unit>
+<trans-unit id="s850705a256f709f7">
+  <source>Stop Execution</source>
+  <target>หยุดทำงาน</target>
+</trans-unit>
+<trans-unit id="sfaa15102d79e8fe2">
+  <source>Restart Execution</source>
+  <target>เริ่มทำงานอีกครั้ง</target>
+</trans-unit>
+<trans-unit id="s93fd381ccee962ed">
+  <source>Start Execution</source>
+  <target>เริ่มทำงาน</target>
+</trans-unit>
+<trans-unit id="seaf40793a6b89011">
+  <source>Leave Fullscreen</source>
+  <target>ออกจากโหมดเต็มหน้าจอ</target>
+</trans-unit>
+<trans-unit id="sde5fec15bbbdc66e">
+  <source>Enter Fullscreen</source>
+  <target>แสดงเต็มหน้าจอ</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>ล้างโปรแกรม</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>นำบล็อกทั้งหมดออกจากโปรแกรมหรือไม่</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>ไฟล์ไม่ใช่ JSON ที่ถูกต้อง</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>ไฟล์ไม่มีโปรแกรมบล็อก</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>เวที</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>เลือกประเภทของเวที</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

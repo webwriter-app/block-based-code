@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="zh-Hans" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s9fb1920f1e90623b">
+  <source>Reset Zoom</source>
+  <target>重置缩放</target>
+</trans-unit>
+<trans-unit id="sb05582ce916894da">
+  <source>Zoom Out</source>
+  <target>缩小</target>
+</trans-unit>
+<trans-unit id="s22fde937cb709859">
+  <source>Zoom In</source>
+  <target>放大</target>
+</trans-unit>
+<trans-unit id="s2ceb11be2290bb1b">
+  <source>Cancel</source>
+  <target>取消</target>
+</trans-unit>
+<trans-unit id="s33f85f24c0f5f008">
+  <source>Save</source>
+  <target>保存</target>
+</trans-unit>
+<trans-unit id="s09205907b5b56cda">
+  <source>No</source>
+  <target>否</target>
+</trans-unit>
+<trans-unit id="scb489a1a173ac3f0">
+  <source>Yes</source>
+  <target>是</target>
+</trans-unit>
+<trans-unit id="s091d3d07b5b3076f">
+  <source>OK</source>
+  <target>确定</target>
+</trans-unit>
+<trans-unit id="s352719d86112de9a">
+  <source>Help</source>
+  <target>帮助</target>
+</trans-unit>
+<trans-unit id="s0bdca49248ba4820">
+  <source>Shortcuts</source>
+  <target>键盘快捷键</target>
+</trans-unit>
+<trans-unit id="s62e1adf70818769c">
+  <source>when %1 clicked</source>
+  <target>当点击 %1 时</target>
+</trans-unit>
+<trans-unit id="s5753316d08e2ed89">
+  <source>when this sprite clicked</source>
+  <target>当点击这个角色时</target>
+</trans-unit>
+<trans-unit id="sc9075a68b35564c4">
+  <source>when %1 key pressed</source>
+  <target>当按下 %1 键时</target>
+</trans-unit>
+<trans-unit id="se6f7b419052023cd">
+  <source>any</source>
+  <target>任意键</target>
+</trans-unit>
+<trans-unit id="s436cf28ab247e3e5">
+  <source>space</source>
+  <target>空格</target>
+</trans-unit>
+<trans-unit id="s4b7f5b3ef776aff9">
+  <source>up arrow</source>
+  <target>上箭头</target>
+</trans-unit>
+<trans-unit id="s3bf9d7c6372d9aec">
+  <source>down arrow</source>
+  <target>下箭头</target>
+</trans-unit>
+<trans-unit id="s21ce5b62fb9cc909">
+  <source>left arrow</source>
+  <target>左箭头</target>
+</trans-unit>
+<trans-unit id="se837dabf23ff86fc">
+  <source>right arrow</source>
+  <target>右箭头</target>
+</trans-unit>
+<trans-unit id="sdcfdbecbc8f6e01b">
+  <source>wait %1 seconds</source>
+  <target>等待 %1 秒</target>
+</trans-unit>
+<trans-unit id="se062909512868b90">
+  <source>repeat %1</source>
+  <target>重复 %1 次</target>
+</trans-unit>
+<trans-unit id="se94c75a08ca5fd78">
+  <source>forever</source>
+  <target>重复执行</target>
+</trans-unit>
+<trans-unit id="s9da27599b2482baf">
+  <source>if %1, then</source>
+  <target>如果 %1，那么</target>
+</trans-unit>
+<trans-unit id="s7f2b6c605332dd30">
+  <source>else</source>
+  <target>否则</target>
+</trans-unit>
+<trans-unit id="saf1f52191db2bcc5">
+  <source>stop</source>
+  <target>停止</target>
+</trans-unit>
+<trans-unit id="s89955cee957aa7e7">
+  <source>pick random %1 to %2</source>
+  <target>从 %1 到 %2 中随机取数</target>
+</trans-unit>
+<trans-unit id="s248a3094ff54d8f1">
+  <source>%1 and %2</source>
+  <target>%1 且 %2</target>
+</trans-unit>
+<trans-unit id="s9f6ed10a0da1ac07">
+  <source>%1 or %2</source>
+  <target>%1 或 %2</target>
+</trans-unit>
+<trans-unit id="s1155bf3f1969b350">
+  <source>not %1</source>
+  <target>非 %1</target>
+</trans-unit>
+<trans-unit id="s969d19fdfd1292c0">
+  <source>join %1 %2</source>
+  <target>连接 %1 和 %2</target>
+</trans-unit>
+<trans-unit id="s1d322941d98b740d">
+  <source>absolute of %1</source>
+  <target>%1 的绝对值</target>
+</trans-unit>
+<trans-unit id="sffb792580d9535aa">
+  <source>say %1</source>
+  <target>说 %1</target>
+</trans-unit>
+<trans-unit id="s12a1c9644de1b891">
+  <source>say %1 for %2 seconds</source>
+  <target>说 %1 持续 %2 秒</target>
+</trans-unit>
+<trans-unit id="s4d7e66783dc82e08">
+  <source>set color effect to %1</source>
+  <target>将颜色效果设为 %1</target>
+</trans-unit>
+<trans-unit id="s6ece8be61d1613ff">
+  <source>set background color to %1</source>
+  <target>将背景颜色设为 %1</target>
+</trans-unit>
+<trans-unit id="s5adfc4065b570c51">
+  <source>move %1 steps</source>
+  <target>移动 %1 步</target>
+</trans-unit>
+<trans-unit id="see7fc4dce00fe5f2">
+  <source>rotate by %1 degrees</source>
+  <target>旋转 %1 度</target>
+</trans-unit>
+<trans-unit id="s14e890768a7f46d7">
+  <source>set rotation to %1 degrees</source>
+  <target>将方向设为 %1 度</target>
+</trans-unit>
+<trans-unit id="sfcd44a75051f0272">
+  <source>set x to %1</source>
+  <target>将 x 设为 %1</target>
+</trans-unit>
+<trans-unit id="s5297c3e4ef28c9e1">
+  <source>set y to %1</source>
+  <target>将 y 设为 %1</target>
+</trans-unit>
+<trans-unit id="s96dbff478859dd9c">
+  <source>set x to %1 and y to %2</source>
+  <target>将 x 设为 %1，y 设为 %2</target>
+</trans-unit>
+<trans-unit id="s260005f1619bc499">
+  <source>x-position</source>
+  <target>x 坐标</target>
+</trans-unit>
+<trans-unit id="sb0d47d2341d89ab8">
+  <source>y-position</source>
+  <target>y 坐标</target>
+</trans-unit>
+<trans-unit id="s29338b6c39286b02">
+  <source>timer</source>
+  <target>计时器</target>
+</trans-unit>
+<trans-unit id="sf5de94ac6955cc71">
+  <source>reset timer</source>
+  <target>重置计时器</target>
+</trans-unit>
+<trans-unit id="s0a975bb48876aeaa">
+  <source>play sound %1</source>
+  <target>播放声音 %1</target>
+</trans-unit>
+<trans-unit id="s4b6a91575e323b12">
+  <source>play sound %1 until done</source>
+  <target>播放声音 %1 直到结束</target>
+</trans-unit>
+<trans-unit id="s97d71b48e04b1dca">
+  <source>stop all sounds</source>
+  <target>停止所有声音</target>
+</trans-unit>
+<trans-unit id="s779b5819564f2f50">
+  <source>pop</source>
+  <target>啵</target>
+</trans-unit>
+<trans-unit id="s5ca15824688fca91">
+  <source>failure</source>
+  <target>失败</target>
+</trans-unit>
+<trans-unit id="s19fe06e3408e53d0">
+  <source>success</source>
+  <target>成功</target>
+</trans-unit>
+<trans-unit id="sfac15b89e0668996">
+  <source>Duplicate</source>
+  <target>复制</target>
+</trans-unit>
+<trans-unit id="s3687049d1af562c4">
+  <source>Copy</source>
+  <target>复制</target>
+</trans-unit>
+<trans-unit id="sd374c80e17e18808">
+  <source>Paste</source>
+  <target>粘贴</target>
+</trans-unit>
+<trans-unit id="sdc673e73b5c13aea">
+  <source>Delete</source>
+  <target>删除</target>
+</trans-unit>
+<trans-unit id="s83cd32b685ccc9b7">
+  <source>Controls</source>
+  <target>控制</target>
+</trans-unit>
+<trans-unit id="sc265a3e29e1206e4">
+  <source>Events</source>
+  <target>事件</target>
+</trans-unit>
+<trans-unit id="saa9c909a4c95098a">
+  <source>Operators</source>
+  <target>运算</target>
+</trans-unit>
+<trans-unit id="s80d301c6f454a49f">
+  <source>Looks</source>
+  <target>外观</target>
+</trans-unit>
+<trans-unit id="s1849ee2b51259afc">
+  <source>Motions</source>
+  <target>动作</target>
+</trans-unit>
+<trans-unit id="sb39940945f8f7122">
+  <source>Variables</source>
+  <target>变量</target>
+</trans-unit>
+<trans-unit id="sd4da02562366340a">
+  <source>Sensing</source>
+  <target>侦测</target>
+</trans-unit>
+<trans-unit id="sf67bc9362e1bfbe5">
+  <source>Sounds</source>
+  <target>声音</target>
+</trans-unit>
+<trans-unit id="s3643189d1abbb7f4">
+  <source>Code</source>
+  <target>代码</target>
+</trans-unit>
+<trans-unit id="s9ffe1bbe64712bf1">
+  <source>Canvas</source>
+  <target>画布</target>
+</trans-unit>
+<trans-unit id="s63cd4e8a3489be77">
+  <source>Readonly</source>
+  <target>只读</target>
+</trans-unit>
+<trans-unit id="sae827b4f3639159c">
+  <source>Choose whether the blocks can be edited</source>
+  <target>选择是否允许编辑积木</target>
+</trans-unit>
+<trans-unit id="s8c4b9c645f39d5be">
+  <source>Available Blocks</source>
+  <target>可用积木</target>
+</trans-unit>
+<trans-unit id="sc32ea8f7a9b87f0c">
+  <source>Choose the blocks that are available in the toolbox</source>
+  <target>选择工具箱中可用的积木</target>
+</trans-unit>
+<trans-unit id="s65d8bb4cc2edc8fe">
+  <source>An error occurred!</source>
+  <target>发生错误！</target>
+</trans-unit>
+<trans-unit id="s37bc3ee79011f9ab">
+  <source>Execution Options</source>
+  <target>运行选项</target>
+</trans-unit>
+<trans-unit id="s8870a0826d4ca8de">
+  <source>Reset Stage</source>
+  <target>重置舞台</target>
+</trans-unit>
+<trans-unit id="s850705a256f709f7">
+  <source>Stop Execution</source>
+  <target>停止运行</target>
+</trans-unit>
+<trans-unit id="sfaa15102d79e8fe2">
+  <source>Restart Execution</source>
+  <target>重新运行</target>
+</trans-unit>
+<trans-unit id="s93fd381ccee962ed">
+  <source>Start Execution</source>
+  <target>开始运行</target>
+</trans-unit>
+<trans-unit id="seaf40793a6b89011">
+  <source>Leave Fullscreen</source>
+  <target>退出全屏</target>
+</trans-unit>
+<trans-unit id="sde5fec15bbbdc66e">
+  <source>Enter Fullscreen</source>
+  <target>进入全屏</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>清除程序</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>要移除程序中的所有积木吗？</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>文件不是有效的 JSON。</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>文件不包含积木程序。</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>舞台</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>选择舞台类型</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

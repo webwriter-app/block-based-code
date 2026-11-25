@@ -1,0 +1,92 @@
+import { Order } from "blockly/javascript";
+import { BlockTypes } from "../blocks/blocks";
+import type { GeneratorFunction } from "../generator-types";
+
+export const generators = {
+  "operators:sum": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.ADDITION);
+    const right = generator.valueToCode(block, "B", Order.ADDITION);
+
+    return [`${left} + ${right}`, Order.ADDITION];
+  },
+  "operators:subtract": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.SUBTRACTION);
+    const right = generator.valueToCode(block, "B", Order.SUBTRACTION);
+
+    return [`${left} - ${right}`, Order.ADDITION];
+  },
+  "operators:multiply": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.MULTIPLICATION);
+    const right = generator.valueToCode(block, "B", Order.MULTIPLICATION);
+
+    return [`${left} * ${right}`, Order.ADDITION];
+  },
+  "operators:divide": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.DIVISION);
+    const right = generator.valueToCode(block, "B", Order.DIVISION);
+
+    return [`${left} / ${right}`, Order.ADDITION];
+  },
+  "operators:random": (block, generator) => {
+    const from = generator.valueToCode(block, "FROM", Order.NONE);
+    const to = generator.valueToCode(block, "TO", Order.NONE);
+
+    return [`random(${from}, ${to})`, Order.NONE];
+  },
+  "operators:greater": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.RELATIONAL);
+    const right = generator.valueToCode(block, "B", Order.RELATIONAL);
+
+    return [`${left} > ${right}`, Order.RELATIONAL];
+  },
+  "operators:smaller": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.RELATIONAL);
+    const right = generator.valueToCode(block, "B", Order.RELATIONAL);
+
+    return [`${left} < ${right}`, Order.RELATIONAL];
+  },
+  "operators:equal": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.EQUALITY);
+    const right = generator.valueToCode(block, "B", Order.EQUALITY);
+
+    return [`${left} == ${right}`, Order.EQUALITY];
+  },
+  "operators:and": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.LOGICAL_AND) || false;
+    const right = generator.valueToCode(block, "B", Order.LOGICAL_AND) || false;
+
+    return [`${left} && ${right}`, Order.LOGICAL_AND];
+  },
+  "operators:or": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.LOGICAL_OR) || false;
+    const right = generator.valueToCode(block, "B", Order.LOGICAL_OR) || false;
+
+    return [`${left} || ${right}`, Order.LOGICAL_OR];
+  },
+  "operators:not": (block, generator) => {
+    const value = generator.valueToCode(block, "A", Order.LOGICAL_NOT) || false;
+
+    return [`!${value}`, Order.LOGICAL_NOT];
+  },
+  "operators:join": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.NONE) || "''";
+    const right = generator.valueToCode(block, "B", Order.NONE) || "''";
+
+    return [`String(${left}) + String(${right})`, Order.NONE];
+  },
+  "operators:absolute": (block, generator) => {
+    const value = generator.valueToCode(block, "VALUE", Order.NONE);
+
+    return [`Math.abs(${value})`, Order.NONE];
+  },
+} satisfies Partial<Record<BlockTypes, GeneratorFunction>>;
+
+export const readableGenerators = {
+  ...generators,
+  "operators:join": (block, generator) => {
+    const left = generator.valueToCode(block, "A", Order.NONE) || "''";
+    const right = generator.valueToCode(block, "B", Order.NONE) || "''";
+
+    return [`join(${left}, ${right})`, Order.NONE];
+  },
+} satisfies Partial<Record<BlockTypes, GeneratorFunction>>;

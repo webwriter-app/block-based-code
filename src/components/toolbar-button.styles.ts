@@ -1,0 +1,45 @@
+import { css } from "lit";
+
+export const styles = css`
+    :host {
+        transition: var(--sl-transition-medium);
+    }
+    
+    :host(:hover) {
+        background-color: var(--sl-color-gray-100);
+    }
+    
+    sl-button {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    sl-button::part(base) {
+        min-height: unset;
+
+        padding-inline-start: 0;
+        padding: 6px;
+
+        box-sizing: border-box;
+
+        color: var(--sl-color-gray-700);
+    }
+
+    sl-button::part(label) {
+        padding: 0;
+        line-height: 1;
+    }
+
+    @media (pointer: coarse) {
+        sl-button::part(base) {
+            min-width: 40px;
+            min-height: 40px;
+            padding: 11px;
+        }
+    }
+
+    sl-icon {
+        font-size: 18px;
+    }
+`;
