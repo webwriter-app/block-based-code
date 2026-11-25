@@ -1,322 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-<file target-language="ckb" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<file target-language="en-US" source-language="en" original="lit-localize-inputs" datatype="plaintext">
 <body>
 <trans-unit id="s9fb1920f1e90623b">
   <source>Reset Zoom</source>
-  <target>گەورایی ڕێک بخەوە</target>
 </trans-unit>
 <trans-unit id="sb05582ce916894da">
   <source>Zoom Out</source>
-  <target>بچووک بکە</target>
 </trans-unit>
 <trans-unit id="s22fde937cb709859">
   <source>Zoom In</source>
-  <target>گەورە بکە</target>
 </trans-unit>
 <trans-unit id="s2ceb11be2290bb1b">
   <source>Cancel</source>
-  <target>پاشگەزبوونەوە</target>
 </trans-unit>
 <trans-unit id="s33f85f24c0f5f008">
   <source>Save</source>
-  <target>پاشەکەوت بکە</target>
 </trans-unit>
 <trans-unit id="s09205907b5b56cda">
   <source>No</source>
-  <target>نەخێر</target>
 </trans-unit>
 <trans-unit id="scb489a1a173ac3f0">
   <source>Yes</source>
-  <target>بەڵێ</target>
 </trans-unit>
 <trans-unit id="s091d3d07b5b3076f">
   <source>OK</source>
-  <target>باشە</target>
 </trans-unit>
 <trans-unit id="s352719d86112de9a">
   <source>Help</source>
-  <target>یارمەتی</target>
 </trans-unit>
 <trans-unit id="s0bdca49248ba4820">
   <source>Shortcuts</source>
-  <target>کورتکراوەکان</target>
 </trans-unit>
 <trans-unit id="s62e1adf70818769c">
   <source>when %1 clicked</source>
-  <target>کاتێک %1 کرتەی لێ دەکرێت</target>
 </trans-unit>
 <trans-unit id="s5753316d08e2ed89">
   <source>when this sprite clicked</source>
-  <target>کاتێک لەم سپرایتە کرتە دەکرێت</target>
 </trans-unit>
 <trans-unit id="sc9075a68b35564c4">
   <source>when %1 key pressed</source>
-  <target>کاتێک کلیلی %1 دەپەسترێت</target>
 </trans-unit>
 <trans-unit id="se6f7b419052023cd">
   <source>any</source>
-  <target>هەر کلیک</target>
 </trans-unit>
 <trans-unit id="s436cf28ab247e3e5">
   <source>space</source>
-  <target>بۆشایی</target>
 </trans-unit>
 <trans-unit id="s4b7f5b3ef776aff9">
   <source>up arrow</source>
-  <target>تیری سەرەوە</target>
 </trans-unit>
 <trans-unit id="s3bf9d7c6372d9aec">
   <source>down arrow</source>
-  <target>تیری خوارەوە</target>
 </trans-unit>
 <trans-unit id="s21ce5b62fb9cc909">
   <source>left arrow</source>
-  <target>تیری چەپ</target>
 </trans-unit>
 <trans-unit id="se837dabf23ff86fc">
   <source>right arrow</source>
-  <target>تیری ڕاست</target>
 </trans-unit>
 <trans-unit id="sdcfdbecbc8f6e01b">
   <source>wait %1 seconds</source>
-  <target>%1 چرکە چاوەڕێ بکە</target>
 </trans-unit>
 <trans-unit id="se062909512868b90">
   <source>repeat %1</source>
-  <target>%1 جار دووبارە بکەرەوە</target>
 </trans-unit>
 <trans-unit id="se94c75a08ca5fd78">
   <source>forever</source>
-  <target>بەردەوام</target>
 </trans-unit>
 <trans-unit id="s9da27599b2482baf">
   <source>if %1, then</source>
-  <target>ئەگەر %1، ئەوا</target>
 </trans-unit>
 <trans-unit id="s7f2b6c605332dd30">
   <source>else</source>
-  <target>ئەگینا</target>
 </trans-unit>
 <trans-unit id="saf1f52191db2bcc5">
   <source>stop</source>
-  <target>بوەستە</target>
 </trans-unit>
 <trans-unit id="s89955cee957aa7e7">
   <source>pick random %1 to %2</source>
-  <target>هەڕەمەکی هەڵبژێرە لە %1 بۆ %2</target>
 </trans-unit>
 <trans-unit id="s248a3094ff54d8f1">
   <source>%1 and %2</source>
-  <target>%1 و %2</target>
 </trans-unit>
 <trans-unit id="s9f6ed10a0da1ac07">
   <source>%1 or %2</source>
-  <target>%1 یان %2</target>
 </trans-unit>
 <trans-unit id="s1155bf3f1969b350">
   <source>not %1</source>
-  <target>%1 نا</target>
 </trans-unit>
 <trans-unit id="s969d19fdfd1292c0">
   <source>join %1 %2</source>
-  <target>%1 و %2 پێکەوە بلکێنە</target>
 </trans-unit>
 <trans-unit id="s1d322941d98b740d">
   <source>absolute of %1</source>
-  <target>ڕەهای %1</target>
 </trans-unit>
 <trans-unit id="sffb792580d9535aa">
   <source>say %1</source>
-  <target>%1 بڵێ</target>
 </trans-unit>
 <trans-unit id="s12a1c9644de1b891">
   <source>say %1 for %2 seconds</source>
-  <target>%1 بڵێ بۆ ماوەی %2 چرکە</target>
 </trans-unit>
 <trans-unit id="s4d7e66783dc82e08">
   <source>set color effect to %1</source>
-  <target>کاریگەریی ڕەنگ بگۆڕە بۆ %1</target>
 </trans-unit>
 <trans-unit id="s6ece8be61d1613ff">
   <source>set background color to %1</source>
-  <target>ڕەنگی پاشبنەما بگۆڕە بۆ %1</target>
 </trans-unit>
 <trans-unit id="s5adfc4065b570c51">
   <source>move %1 steps</source>
-  <target>%1 هەنگاو بجوڵێ</target>
 </trans-unit>
 <trans-unit id="see7fc4dce00fe5f2">
   <source>rotate by %1 degrees</source>
-  <target>بە %1 پلەیی بسووڕێنە</target>
 </trans-unit>
 <trans-unit id="s14e890768a7f46d7">
   <source>set rotation to %1 degrees</source>
-  <target>سووڕانەوە دابنێ بۆ %1 پلە</target>
 </trans-unit>
 <trans-unit id="sfcd44a75051f0272">
   <source>set x to %1</source>
-  <target>x دابنێ بۆ %1</target>
 </trans-unit>
 <trans-unit id="s5297c3e4ef28c9e1">
   <source>set y to %1</source>
-  <target>y دابنێ بۆ %1</target>
 </trans-unit>
 <trans-unit id="s96dbff478859dd9c">
   <source>set x to %1 and y to %2</source>
-  <target>x دابنێ بۆ %1 و y بۆ %2</target>
 </trans-unit>
 <trans-unit id="s260005f1619bc499">
   <source>x-position</source>
-  <target>شوێنی x</target>
 </trans-unit>
 <trans-unit id="sb0d47d2341d89ab8">
   <source>y-position</source>
-  <target>شوێنی y</target>
 </trans-unit>
 <trans-unit id="s29338b6c39286b02">
   <source>timer</source>
-  <target>کاتژمێر</target>
 </trans-unit>
 <trans-unit id="sf5de94ac6955cc71">
   <source>reset timer</source>
-  <target>کاتژمێر ڕێک بخەوە</target>
 </trans-unit>
 <trans-unit id="s0a975bb48876aeaa">
   <source>play sound %1</source>
-  <target>دەنگی %1 لێ بدە</target>
 </trans-unit>
 <trans-unit id="s4b6a91575e323b12">
   <source>play sound %1 until done</source>
-  <target>دەنگی %1 لێ بدە هەتا تەواو دەبێت</target>
 </trans-unit>
 <trans-unit id="s97d71b48e04b1dca">
   <source>stop all sounds</source>
-  <target>هەموو دەنگەکان بوەستێنە</target>
 </trans-unit>
 <trans-unit id="s779b5819564f2f50">
   <source>pop</source>
-  <target>پۆپ</target>
 </trans-unit>
 <trans-unit id="s5ca15824688fca91">
   <source>failure</source>
-  <target>شکست</target>
 </trans-unit>
 <trans-unit id="s19fe06e3408e53d0">
   <source>success</source>
-  <target>سەرکەوتن</target>
 </trans-unit>
 <trans-unit id="sfac15b89e0668996">
   <source>Duplicate</source>
-  <target>دووبارە بکەرەوە</target>
 </trans-unit>
 <trans-unit id="s3687049d1af562c4">
   <source>Copy</source>
-  <target>لەبەرگرتنەوە</target>
 </trans-unit>
 <trans-unit id="sd374c80e17e18808">
   <source>Paste</source>
-  <target>لکاندن</target>
 </trans-unit>
 <trans-unit id="sdc673e73b5c13aea">
   <source>Delete</source>
-  <target>بسڕەوە</target>
 </trans-unit>
 <trans-unit id="s83cd32b685ccc9b7">
   <source>Controls</source>
-  <target>کۆنترۆڵەکان</target>
 </trans-unit>
 <trans-unit id="sc265a3e29e1206e4">
   <source>Events</source>
-  <target>ڕووداوەکان</target>
 </trans-unit>
 <trans-unit id="saa9c909a4c95098a">
   <source>Operators</source>
-  <target>ئۆپەراتۆرەکان</target>
 </trans-unit>
 <trans-unit id="s80d301c6f454a49f">
   <source>Looks</source>
-  <target>ڕووکار</target>
 </trans-unit>
 <trans-unit id="s1849ee2b51259afc">
   <source>Motions</source>
-  <target>جووڵەکان</target>
 </trans-unit>
 <trans-unit id="sb39940945f8f7122">
   <source>Variables</source>
-  <target>گۆڕاوەکان</target>
 </trans-unit>
 <trans-unit id="sd4da02562366340a">
   <source>Sensing</source>
-  <target>هەستکردن</target>
 </trans-unit>
 <trans-unit id="sf67bc9362e1bfbe5">
   <source>Sounds</source>
-  <target>دەنگەکان</target>
 </trans-unit>
 <trans-unit id="s3643189d1abbb7f4">
   <source>Code</source>
-  <target>کۆد</target>
 </trans-unit>
 <trans-unit id="s9ffe1bbe64712bf1">
   <source>Canvas</source>
-  <target>کەنڤاس</target>
-</trans-unit>
-<trans-unit id="s63cd4e8a3489be77">
-  <source>Readonly</source>
-  <target>تەنها خوێندنەوە</target>
-</trans-unit>
-<trans-unit id="sae827b4f3639159c">
-  <source>Choose whether the blocks can be edited</source>
-  <target>هەڵبژێرە ئایا دەتوانرێت دەستکاریی بلۆکەکان بکرێت</target>
-</trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>شانۆ</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>جۆری شانۆ هەڵبژێرە</target>
-</trans-unit>
-<trans-unit id="s8c4b9c645f39d5be">
-  <source>Available Blocks</source>
-  <target>بلۆکە بەردەستەکان</target>
-</trans-unit>
-<trans-unit id="sc32ea8f7a9b87f0c">
-  <source>Choose the blocks that are available in the toolbox</source>
-  <target>بلۆکە بەردەستەکان لە تووڵبۆکس هەڵبژێرە</target>
 </trans-unit>
 <trans-unit id="s65d8bb4cc2edc8fe">
   <source>An error occurred!</source>
-  <target>هەڵەیەک ڕوویدا!</target>
 </trans-unit>
 <trans-unit id="s37bc3ee79011f9ab">
   <source>Execution Options</source>
-  <target>هەڵبژاردەکانی جێبەجێکردن</target>
 </trans-unit>
 <trans-unit id="s8870a0826d4ca8de">
   <source>Reset Stage</source>
-  <target>شانۆ ڕێک بخەوە</target>
 </trans-unit>
 <trans-unit id="s850705a256f709f7">
   <source>Stop Execution</source>
-  <target>جێبەجێکردن بوەستێنە</target>
 </trans-unit>
 <trans-unit id="sfaa15102d79e8fe2">
   <source>Restart Execution</source>
-  <target>جێبەجێکردن دووبارە دەست پێ بکە</target>
 </trans-unit>
 <trans-unit id="s93fd381ccee962ed">
   <source>Start Execution</source>
-  <target>جێبەجێکردن دەست پێ بکە</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+</trans-unit>
+<trans-unit id="s8c4b9c645f39d5be">
+  <source>Available Blocks</source>
+</trans-unit>
+<trans-unit id="s63cd4e8a3489be77">
+  <source>Readonly</source>
+</trans-unit>
+<trans-unit id="sae827b4f3639159c">
+  <source>Choose whether the blocks can be edited</source>
+</trans-unit>
+<trans-unit id="sc32ea8f7a9b87f0c">
+  <source>Choose the blocks that are available in the toolbox</source>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
 </trans-unit>
 <trans-unit id="seaf40793a6b89011">
   <source>Leave Fullscreen</source>
-  <target>دۆخی پڕشاشە جێبهێڵە</target>
 </trans-unit>
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
-  <target>بچۆ بۆ دۆخی پڕشاشە</target>
 </trans-unit>
 </body>
 </file>

@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `gosod cyfeiriad i %1 gradd`,
 's1849ee2b51259afc': `Symudiad`,
 's19fe06e3408e53d0': `llwyddiant`,
-'s1b70c81c0add3714': `Dewiswch fath y llwyfan`,
 's1d322941d98b740d': `gwerth absoliwt %1`,
 's21ce5b62fb9cc909': `saeth i'r chwith`,
 's22fde937cb709859': `Chwyddo i mewn`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Digwyddodd gwall!`,
 's6ece8be61d1613ff': `gosod lliw'r cefndir i %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Clirio’r rhaglen`,
 's7f2b6c605332dd30': `fel arall`,
 's80d301c6f454a49f': `Golwg`,
 's83cd32b685ccc9b7': `Rheoli`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blociau sydd ar gael`,
 's93fd381ccee962ed': `Dechrau rhedeg`,
 's969d19fdfd1292c0': `uno %1 a %2`,
+'s969ecb4ea9ad0288': `Dileu pob bloc o’r rhaglen?`,
 's96dbff478859dd9c': `gosod x i %1 ac y i %2`,
 's97d71b48e04b1dca': `stopio pob sain`,
 's9da27599b2482baf': `os %1, yna`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Ailosod y chwyddo`,
 's9ffe1bbe64712bf1': `Canfas`,
 'saa9c909a4c95098a': `Gweithredwyr`,
-'sae5da213b7f896ed': `Llwyfan`,
 'sae827b4f3639159c': `Dewiswch a oes modd golygu'r blociau`,
 'saf1f52191db2bcc5': `stopio`,
 'sb05582ce916894da': `Chwyddo allan`,
 'sb0d47d2341d89ab8': `safle y`,
 'sb39940945f8f7122': `Newidynnau`,
+'sb505e2da1a1b9ab2': `Nid yw’r ffeil yn cynnwys rhaglen flociau.`,
+'sb8c878135ee917b1': `Nid yw’r ffeil yn JSON dilys.`,
 'sc265a3e29e1206e4': `Digwyddiadau`,
 'sc32ea8f7a9b87f0c': `Dewiswch y blociau sydd ar gael yn y blwch offer`,
 'sc9075a68b35564c4': `pan wasgir y fysell %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `gosod x i %1`,
 'sffb792580d9535aa': `dweud %1`,
     };
-  

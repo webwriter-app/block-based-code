@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `weka mzunguko kuwa digrii %1`,
 's1849ee2b51259afc': `Mwendo`,
 's19fe06e3408e53d0': `kufanikiwa`,
-'s1b70c81c0add3714': `Chagua aina ya jukwaa`,
 's1d322941d98b740d': `thamani kamili ya %1`,
 's21ce5b62fb9cc909': `mshale wa kushoto`,
 's22fde937cb709859': `Kuza`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Hitilafu imetokea!`,
 's6ece8be61d1613ff': `weka rangi ya mandharinyuma kuwa %1`,
 's779b5819564f2f50': `mlio mfupi`,
+'s7d55412336204af6': `Futa programu`,
 's7f2b6c605332dd30': `vinginevyo`,
 's80d301c6f454a49f': `Mwonekano`,
 's83cd32b685ccc9b7': `Vidhibiti`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Vitalu vinavyopatikana`,
 's93fd381ccee962ed': `Endesha msimbo`,
 's969d19fdfd1292c0': `unganisha %1 na %2`,
+'s969ecb4ea9ad0288': `Ondoa vizuizi vyote kwenye programu?`,
 's96dbff478859dd9c': `weka x kuwa %1 na y kuwa %2`,
 's97d71b48e04b1dca': `simamisha sauti zote`,
 's9da27599b2482baf': `ikiwa %1, basi`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Rudisha ukubwa`,
 's9ffe1bbe64712bf1': `Eneo la kuchorea`,
 'saa9c909a4c95098a': `Viendeshaji`,
-'sae5da213b7f896ed': `Jukwaa`,
 'sae827b4f3639159c': `Chagua iwapo vitalu vinaweza kuhaririwa`,
 'saf1f52191db2bcc5': `simamisha`,
 'sb05582ce916894da': `Punguza`,
 'sb0d47d2341d89ab8': `nafasi ya y`,
 'sb39940945f8f7122': `Vigezo`,
+'sb505e2da1a1b9ab2': `Faili hii haina programu ya vizuizi.`,
+'sb8c878135ee917b1': `Faili hii si JSON halali.`,
 'sc265a3e29e1206e4': `Matukio`,
 'sc32ea8f7a9b87f0c': `Chagua vitalu vinavyoonekana kwenye kisanduku cha zana`,
 'sc9075a68b35564c4': `kitufe %1 kinapobonyezwa`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `weka x kuwa %1`,
 'sffb792580d9535aa': `sema %1`,
     };
-  

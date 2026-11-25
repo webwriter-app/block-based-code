@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `imposta la rotazione a %1 gradi`,
 's1849ee2b51259afc': `Movimento`,
 's19fe06e3408e53d0': `successo`,
-'s1b70c81c0add3714': `Scegli il tipo di scena`,
 's1d322941d98b740d': `valore assoluto di %1`,
 's21ce5b62fb9cc909': `freccia sinistra`,
 's22fde937cb709859': `Ingrandisci`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Si è verificato un errore!`,
 's6ece8be61d1613ff': `imposta il colore dello sfondo a %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Cancella programma`,
 's7f2b6c605332dd30': `altrimenti`,
 's80d301c6f454a49f': `Aspetto`,
 's83cd32b685ccc9b7': `Controllo`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blocchi disponibili`,
 's93fd381ccee962ed': `Avvia l'esecuzione`,
 's969d19fdfd1292c0': `unisci %1 e %2`,
+'s969ecb4ea9ad0288': `Vuoi rimuovere tutti i blocchi dal programma?`,
 's96dbff478859dd9c': `imposta x a %1 e y a %2`,
 's97d71b48e04b1dca': `interrompi tutti i suoni`,
 's9da27599b2482baf': `se %1, allora`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Reimposta lo zoom`,
 's9ffe1bbe64712bf1': `Area di disegno`,
 'saa9c909a4c95098a': `Operatori`,
-'sae5da213b7f896ed': `Scena`,
 'sae827b4f3639159c': `Scegli se i blocchi possono essere modificati`,
 'saf1f52191db2bcc5': `ferma`,
 'sb05582ce916894da': `Riduci`,
 'sb0d47d2341d89ab8': `posizione y`,
 'sb39940945f8f7122': `Variabili`,
+'sb505e2da1a1b9ab2': `Il file non contiene un programma a blocchi.`,
+'sb8c878135ee917b1': `Il file non è un JSON valido.`,
 'sc265a3e29e1206e4': `Eventi`,
 'sc32ea8f7a9b87f0c': `Scegli quali blocchi sono disponibili nella casella degli strumenti`,
 'sc9075a68b35564c4': `quando si preme il tasto %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `imposta x a %1`,
 'sffb792580d9535aa': `dì %1`,
     };
-  

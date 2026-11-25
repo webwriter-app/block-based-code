@@ -1,110 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-<file target-language="sr-Latn" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<file target-language="ca-valencia" source-language="en" original="lit-localize-inputs" datatype="plaintext">
 <body>
 <trans-unit id="s9fb1920f1e90623b">
   <source>Reset Zoom</source>
-  <target>Resetuj zum</target>
+  <target>Restableix el zoom</target>
 </trans-unit>
 <trans-unit id="sb05582ce916894da">
   <source>Zoom Out</source>
-  <target>Umanji</target>
+  <target>Redueix</target>
 </trans-unit>
 <trans-unit id="s22fde937cb709859">
   <source>Zoom In</source>
-  <target>Uvećaj</target>
+  <target>Amplia</target>
 </trans-unit>
 <trans-unit id="s2ceb11be2290bb1b">
   <source>Cancel</source>
-  <target>Otkaži</target>
+  <target>Cancel·la</target>
 </trans-unit>
 <trans-unit id="s33f85f24c0f5f008">
   <source>Save</source>
-  <target>Sačuvaj</target>
+  <target>Desa</target>
 </trans-unit>
 <trans-unit id="s09205907b5b56cda">
   <source>No</source>
-  <target>Ne</target>
+  <target>No</target>
 </trans-unit>
 <trans-unit id="scb489a1a173ac3f0">
   <source>Yes</source>
-  <target>Da</target>
+  <target>Sí</target>
 </trans-unit>
 <trans-unit id="s091d3d07b5b3076f">
   <source>OK</source>
-  <target>U redu</target>
+  <target>D'acord</target>
 </trans-unit>
 <trans-unit id="s352719d86112de9a">
   <source>Help</source>
-  <target>Pomoć</target>
+  <target>Ajuda</target>
 </trans-unit>
 <trans-unit id="s0bdca49248ba4820">
   <source>Shortcuts</source>
-  <target>Prečice na tastaturi</target>
+  <target>Dreceres de teclat</target>
 </trans-unit>
 <trans-unit id="s62e1adf70818769c">
   <source>when %1 clicked</source>
-  <target>kada se klikne na %1</target>
+  <target>quan es faci clic a %1</target>
 </trans-unit>
 <trans-unit id="s5753316d08e2ed89">
   <source>when this sprite clicked</source>
-  <target>kada se klikne na ovaj lik</target>
+  <target>quan es faci clic en aquest personatge</target>
 </trans-unit>
 <trans-unit id="sc9075a68b35564c4">
   <source>when %1 key pressed</source>
-  <target>kada se pritisne taster %1</target>
+  <target>quan es premi la tecla %1</target>
 </trans-unit>
 <trans-unit id="se6f7b419052023cd">
   <source>any</source>
-  <target>bilo koji taster</target>
+  <target>qualsevol tecla</target>
 </trans-unit>
 <trans-unit id="s436cf28ab247e3e5">
   <source>space</source>
-  <target>razmak</target>
+  <target>espai</target>
 </trans-unit>
 <trans-unit id="s4b7f5b3ef776aff9">
   <source>up arrow</source>
-  <target>strelica nagore</target>
+  <target>fletxa amunt</target>
 </trans-unit>
 <trans-unit id="s3bf9d7c6372d9aec">
   <source>down arrow</source>
-  <target>strelica nadole</target>
+  <target>fletxa avall</target>
 </trans-unit>
 <trans-unit id="s21ce5b62fb9cc909">
   <source>left arrow</source>
-  <target>strelica nalevo</target>
+  <target>fletxa esquerra</target>
 </trans-unit>
 <trans-unit id="se837dabf23ff86fc">
   <source>right arrow</source>
-  <target>strelica nadesno</target>
+  <target>fletxa dreta</target>
 </trans-unit>
 <trans-unit id="sdcfdbecbc8f6e01b">
   <source>wait %1 seconds</source>
-  <target>čekaj %1 sekundi</target>
+  <target>espera %1 segons</target>
 </trans-unit>
 <trans-unit id="se062909512868b90">
   <source>repeat %1</source>
-  <target>ponovi %1 puta</target>
+  <target>repeteix %1 vegades</target>
 </trans-unit>
 <trans-unit id="se94c75a08ca5fd78">
   <source>forever</source>
-  <target>zauvek</target>
+  <target>per sempre</target>
 </trans-unit>
 <trans-unit id="s9da27599b2482baf">
   <source>if %1, then</source>
-  <target>ako je %1, onda</target>
+  <target>si %1, llavors</target>
 </trans-unit>
 <trans-unit id="s7f2b6c605332dd30">
   <source>else</source>
-  <target>u suprotnom</target>
+  <target>si no</target>
 </trans-unit>
 <trans-unit id="saf1f52191db2bcc5">
   <source>stop</source>
-  <target>zaustavi</target>
+  <target>atura</target>
 </trans-unit>
 <trans-unit id="s89955cee957aa7e7">
   <source>pick random %1 to %2</source>
-  <target>izaberi slučajan broj od %1 do %2</target>
+  <target>tria un nombre aleatori entre %1 i %2</target>
 </trans-unit>
 <trans-unit id="s248a3094ff54d8f1">
   <source>%1 and %2</source>
@@ -112,211 +112,219 @@
 </trans-unit>
 <trans-unit id="s9f6ed10a0da1ac07">
   <source>%1 or %2</source>
-  <target>%1 ili %2</target>
+  <target>%1 o %2</target>
 </trans-unit>
 <trans-unit id="s1155bf3f1969b350">
   <source>not %1</source>
-  <target>nije %1</target>
+  <target>no %1</target>
 </trans-unit>
 <trans-unit id="s969d19fdfd1292c0">
   <source>join %1 %2</source>
-  <target>spoji %1 i %2</target>
+  <target>uneix %1 i %2</target>
 </trans-unit>
 <trans-unit id="s1d322941d98b740d">
   <source>absolute of %1</source>
-  <target>apsolutna vrednost broja %1</target>
+  <target>valor absolut de %1</target>
 </trans-unit>
 <trans-unit id="sffb792580d9535aa">
   <source>say %1</source>
-  <target>reci %1</target>
+  <target>digues %1</target>
 </trans-unit>
 <trans-unit id="s12a1c9644de1b891">
   <source>say %1 for %2 seconds</source>
-  <target>reci %1 tokom %2 sekundi</target>
+  <target>digues %1 durant %2 segons</target>
 </trans-unit>
 <trans-unit id="s4d7e66783dc82e08">
   <source>set color effect to %1</source>
-  <target>postavi efekat boje na %1</target>
+  <target>estableix l'efecte de color a %1</target>
 </trans-unit>
 <trans-unit id="s6ece8be61d1613ff">
   <source>set background color to %1</source>
-  <target>postavi boju pozadine na %1</target>
+  <target>estableix el color del fons a %1</target>
 </trans-unit>
 <trans-unit id="s5adfc4065b570c51">
   <source>move %1 steps</source>
-  <target>pomeri se za %1 koraka</target>
+  <target>mou-te %1 passos</target>
 </trans-unit>
 <trans-unit id="see7fc4dce00fe5f2">
   <source>rotate by %1 degrees</source>
-  <target>rotiraj za %1 stepeni</target>
+  <target>gira %1 graus</target>
 </trans-unit>
 <trans-unit id="s14e890768a7f46d7">
   <source>set rotation to %1 degrees</source>
-  <target>postavi smer na %1 stepeni</target>
+  <target>estableix la direcció a %1 graus</target>
 </trans-unit>
 <trans-unit id="sfcd44a75051f0272">
   <source>set x to %1</source>
-  <target>postavi x na %1</target>
+  <target>estableix x a %1</target>
 </trans-unit>
 <trans-unit id="s5297c3e4ef28c9e1">
   <source>set y to %1</source>
-  <target>postavi y na %1</target>
+  <target>estableix y a %1</target>
 </trans-unit>
 <trans-unit id="s96dbff478859dd9c">
   <source>set x to %1 and y to %2</source>
-  <target>postavi x na %1 i y na %2</target>
+  <target>estableix x a %1 i y a %2</target>
 </trans-unit>
 <trans-unit id="s260005f1619bc499">
   <source>x-position</source>
-  <target>x-pozicija</target>
+  <target>posició x</target>
 </trans-unit>
 <trans-unit id="sb0d47d2341d89ab8">
   <source>y-position</source>
-  <target>y-pozicija</target>
+  <target>posició y</target>
 </trans-unit>
 <trans-unit id="s29338b6c39286b02">
   <source>timer</source>
-  <target>štoperica</target>
+  <target>temporitzador</target>
 </trans-unit>
 <trans-unit id="sf5de94ac6955cc71">
   <source>reset timer</source>
-  <target>resetuj štopericu</target>
+  <target>reinicia el temporitzador</target>
 </trans-unit>
 <trans-unit id="s0a975bb48876aeaa">
   <source>play sound %1</source>
-  <target>pusti zvuk %1</target>
+  <target>reprodueix el so %1</target>
 </trans-unit>
 <trans-unit id="s4b6a91575e323b12">
   <source>play sound %1 until done</source>
-  <target>puštaj zvuk %1 do kraja</target>
+  <target>reprodueix el so %1 fins que acabi</target>
 </trans-unit>
 <trans-unit id="s97d71b48e04b1dca">
   <source>stop all sounds</source>
-  <target>zaustavi sve zvukove</target>
+  <target>atura tots els sons</target>
 </trans-unit>
 <trans-unit id="s779b5819564f2f50">
   <source>pop</source>
-  <target>puc</target>
+  <target>pop</target>
 </trans-unit>
 <trans-unit id="s5ca15824688fca91">
   <source>failure</source>
-  <target>neuspeh</target>
+  <target>fracàs</target>
 </trans-unit>
 <trans-unit id="s19fe06e3408e53d0">
   <source>success</source>
-  <target>uspeh</target>
+  <target>èxit</target>
 </trans-unit>
 <trans-unit id="sfac15b89e0668996">
   <source>Duplicate</source>
-  <target>Dupliraj</target>
+  <target>Duplica</target>
 </trans-unit>
 <trans-unit id="s3687049d1af562c4">
   <source>Copy</source>
-  <target>Kopiraj</target>
+  <target>Copia</target>
 </trans-unit>
 <trans-unit id="sd374c80e17e18808">
   <source>Paste</source>
-  <target>Nalepi</target>
+  <target>Enganxa</target>
 </trans-unit>
 <trans-unit id="sdc673e73b5c13aea">
   <source>Delete</source>
-  <target>Obriši</target>
+  <target>Suprimeix</target>
 </trans-unit>
 <trans-unit id="s83cd32b685ccc9b7">
   <source>Controls</source>
-  <target>Upravljanje</target>
+  <target>Control</target>
 </trans-unit>
 <trans-unit id="sc265a3e29e1206e4">
   <source>Events</source>
-  <target>Događaji</target>
+  <target>Esdeveniments</target>
 </trans-unit>
 <trans-unit id="saa9c909a4c95098a">
   <source>Operators</source>
-  <target>Operatori</target>
+  <target>Operadors</target>
 </trans-unit>
 <trans-unit id="s80d301c6f454a49f">
   <source>Looks</source>
-  <target>Izgled</target>
+  <target>Aspecte</target>
 </trans-unit>
 <trans-unit id="s1849ee2b51259afc">
   <source>Motions</source>
-  <target>Kretanje</target>
+  <target>Moviment</target>
 </trans-unit>
 <trans-unit id="sb39940945f8f7122">
   <source>Variables</source>
-  <target>Promenljive</target>
+  <target>Variables</target>
 </trans-unit>
 <trans-unit id="sd4da02562366340a">
   <source>Sensing</source>
-  <target>Opažanje</target>
+  <target>Sensors</target>
 </trans-unit>
 <trans-unit id="sf67bc9362e1bfbe5">
   <source>Sounds</source>
-  <target>Zvukovi</target>
+  <target>Sons</target>
 </trans-unit>
 <trans-unit id="s3643189d1abbb7f4">
   <source>Code</source>
-  <target>Kôd</target>
+  <target>Codi</target>
 </trans-unit>
 <trans-unit id="s9ffe1bbe64712bf1">
   <source>Canvas</source>
-  <target>Platno</target>
+  <target>Llenç</target>
 </trans-unit>
 <trans-unit id="s63cd4e8a3489be77">
   <source>Readonly</source>
-  <target>Samo za čitanje</target>
+  <target>Només lectura</target>
 </trans-unit>
 <trans-unit id="sae827b4f3639159c">
   <source>Choose whether the blocks can be edited</source>
-  <target>Izaberite da li blokovi mogu da se uređuju</target>
-</trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>Scena</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>Izaberite tip scene</target>
+  <target>Tria si es poden editar els blocs</target>
 </trans-unit>
 <trans-unit id="s8c4b9c645f39d5be">
   <source>Available Blocks</source>
-  <target>Dostupni blokovi</target>
+  <target>Blocs disponibles</target>
 </trans-unit>
 <trans-unit id="sc32ea8f7a9b87f0c">
   <source>Choose the blocks that are available in the toolbox</source>
-  <target>Izaberite koji blokovi su dostupni u kutiji sa alatkama</target>
+  <target>Tria quins blocs estan disponibles a la caixa d'eines</target>
 </trans-unit>
 <trans-unit id="s65d8bb4cc2edc8fe">
   <source>An error occurred!</source>
-  <target>Došlo je do greške!</target>
+  <target>S'ha produït un error!</target>
 </trans-unit>
 <trans-unit id="s37bc3ee79011f9ab">
   <source>Execution Options</source>
-  <target>Opcije izvršavanja</target>
+  <target>Opcions d'execució</target>
 </trans-unit>
 <trans-unit id="s8870a0826d4ca8de">
   <source>Reset Stage</source>
-  <target>Resetuj scenu</target>
+  <target>Reinicia l'escenari</target>
 </trans-unit>
 <trans-unit id="s850705a256f709f7">
   <source>Stop Execution</source>
-  <target>Zaustavi izvršavanje</target>
+  <target>Atura l'execució</target>
 </trans-unit>
 <trans-unit id="sfaa15102d79e8fe2">
   <source>Restart Execution</source>
-  <target>Ponovo pokreni izvršavanje</target>
+  <target>Reinicia l'execució</target>
 </trans-unit>
 <trans-unit id="s93fd381ccee962ed">
   <source>Start Execution</source>
-  <target>Pokreni izvršavanje</target>
+  <target>Inicia l'execució</target>
 </trans-unit>
 <trans-unit id="seaf40793a6b89011">
   <source>Leave Fullscreen</source>
-  <target>Izađi iz prikaza preko celog ekrana</target>
+  <target>Surt del mode de pantalla completa</target>
 </trans-unit>
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
-  <target>Prikaži preko celog ekrana</target>
+  <target>Entra al mode de pantalla completa</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>Esborra el programa</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>Vols eliminar tots els blocs del programa?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>El fitxer no és un JSON vàlid.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>El fitxer no conté un programa de blocs.</target>
 </trans-unit>
 </body>
 </file>

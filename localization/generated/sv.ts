@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `ställ in riktningen på %1 grader`,
 's1849ee2b51259afc': `Rörelse`,
 's19fe06e3408e53d0': `lyckat`,
-'s1b70c81c0add3714': `Välj typ av scen`,
 's1d322941d98b740d': `absolutvärdet av %1`,
 's21ce5b62fb9cc909': `vänsterpil`,
 's22fde937cb709859': `Zooma in`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Ett fel inträffade!`,
 's6ece8be61d1613ff': `ställ in bakgrundsfärgen på %1`,
 's779b5819564f2f50': `popp`,
+'s7d55412336204af6': `Rensa programmet`,
 's7f2b6c605332dd30': `annars`,
 's80d301c6f454a49f': `Utseende`,
 's83cd32b685ccc9b7': `Styrning`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Tillgängliga block`,
 's93fd381ccee962ed': `Starta körningen`,
 's969d19fdfd1292c0': `slå ihop %1 och %2`,
+'s969ecb4ea9ad0288': `Vill du ta bort alla block från programmet?`,
 's96dbff478859dd9c': `ställ in x på %1 och y på %2`,
 's97d71b48e04b1dca': `stoppa alla ljud`,
 's9da27599b2482baf': `om %1, då`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Återställ zoom`,
 's9ffe1bbe64712bf1': `Rityta`,
 'saa9c909a4c95098a': `Operatorer`,
-'sae5da213b7f896ed': `Scen`,
 'sae827b4f3639159c': `Välj om blocken kan redigeras`,
 'saf1f52191db2bcc5': `stoppa`,
 'sb05582ce916894da': `Zooma ut`,
 'sb0d47d2341d89ab8': `y-position`,
 'sb39940945f8f7122': `Variabler`,
+'sb505e2da1a1b9ab2': `Filen innehåller inget blockprogram.`,
+'sb8c878135ee917b1': `Filen är inte giltig JSON.`,
 'sc265a3e29e1206e4': `Händelser`,
 'sc32ea8f7a9b87f0c': `Välj vilka block som är tillgängliga i verktygslådan`,
 'sc9075a68b35564c4': `när tangenten %1 trycks ned`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `ställ in x på %1`,
 'sffb792580d9535aa': `säg %1`,
     };
-  

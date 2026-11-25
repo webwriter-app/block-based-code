@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `ezarri norabidea %1 gradu`,
 's1849ee2b51259afc': `Mugimendua`,
 's19fe06e3408e53d0': `arrakasta`,
-'s1b70c81c0add3714': `Aukeratu eszenatoki mota`,
 's1d322941d98b740d': `%1 balio absolutua`,
 's21ce5b62fb9cc909': `ezkerreko gezia`,
 's22fde937cb709859': `Handiagotu`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Errore bat gertatu da!`,
 's6ece8be61d1613ff': `ezarri atzeko planoaren kolorea %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Garbitu programa`,
 's7f2b6c605332dd30': `bestela`,
 's80d301c6f454a49f': `Itxura`,
 's83cd32b685ccc9b7': `Kontrola`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Bloke erabilgarriak`,
 's93fd381ccee962ed': `Exekuzioa hasi`,
 's969d19fdfd1292c0': `elkartu %1 eta %2`,
+'s969ecb4ea9ad0288': `Programako bloke guztiak kendu nahi dituzu?`,
 's96dbff478859dd9c': `ezarri x %1 eta y %2`,
 's97d71b48e04b1dca': `gelditu soinu guztiak`,
 's9da27599b2482baf': `%1 bada, orduan`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Zooma berrezarri`,
 's9ffe1bbe64712bf1': `Mihisea`,
 'saa9c909a4c95098a': `Eragileak`,
-'sae5da213b7f896ed': `Eszenatokia`,
 'sae827b4f3639159c': `Aukeratu blokeak edita daitezkeen ala ez`,
 'saf1f52191db2bcc5': `gelditu`,
 'sb05582ce916894da': `Txikiagotu`,
 'sb0d47d2341d89ab8': `y posizioa`,
 'sb39940945f8f7122': `Aldagaiak`,
+'sb505e2da1a1b9ab2': `Fitxategiak ez du bloke-programarik.`,
+'sb8c878135ee917b1': `Fitxategia ez da baliozko JSONa.`,
 'sc265a3e29e1206e4': `Gertaerak`,
 'sc32ea8f7a9b87f0c': `Aukeratu tresna-kutxan erabilgarri egongo diren blokeak`,
 'sc9075a68b35564c4': `%1 tekla sakatzean`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `ezarri x %1`,
 'sffb792580d9535aa': `esan %1`,
     };
-  

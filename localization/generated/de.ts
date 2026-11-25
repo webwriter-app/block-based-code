@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `setze Rotation auf %1 Grad`,
 's1849ee2b51259afc': `Bewegungen`,
 's19fe06e3408e53d0': `Erfolg`,
-'s1b70c81c0add3714': `Wähle die Art der Bühne aus`,
 's1d322941d98b740d': `Betrag von %1`,
 's21ce5b62fb9cc909': `Pfeil nach links`,
 's22fde937cb709859': `Vergrößern`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Es ist ein Fehler aufgetreten!`,
 's6ece8be61d1613ff': `setze Hintergrundfarbe auf %1`,
 's779b5819564f2f50': `Ploppen`,
+'s7d55412336204af6': `Programm löschen`,
 's7f2b6c605332dd30': `sonst`,
 's80d301c6f454a49f': `Aussehen`,
 's83cd32b685ccc9b7': `Steuerung`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Verfügbare Bausteine`,
 's93fd381ccee962ed': `Starte Ausführung`,
 's969d19fdfd1292c0': `verbinde %1 und %2`,
+'s969ecb4ea9ad0288': `Möchtest du alle Blöcke aus dem Programm entfernen?`,
 's96dbff478859dd9c': `setze x auf %1 und y auf %2`,
 's97d71b48e04b1dca': `stoppe alle Klänge`,
 's9da27599b2482baf': `falls %1, dann`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Zurücksetzen`,
 's9ffe1bbe64712bf1': `Leinwand`,
 'saa9c909a4c95098a': `Operatoren`,
-'sae5da213b7f896ed': `Bühne`,
 'sae827b4f3639159c': `Wähle aus, ob die Blöcke bearbeitet werden können`,
 'saf1f52191db2bcc5': `stoppe`,
 'sb05582ce916894da': `Verkleinern`,
 'sb0d47d2341d89ab8': `y-Position`,
 'sb39940945f8f7122': `Variablen`,
+'sb505e2da1a1b9ab2': `Die Datei enthält kein Blockprogramm.`,
+'sb8c878135ee917b1': `Die Datei ist kein gültiges JSON.`,
 'sc265a3e29e1206e4': `Ereignisse`,
 'sc32ea8f7a9b87f0c': `Wähle die Bausteine aus, die im Werkzeugkasten verfügbar sind`,
 'sc9075a68b35564c4': `Wenn Taste %1 gedrückt wird`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `setze x auf %1`,
 'sffb792580d9535aa': `sage %1`,
     };
-  

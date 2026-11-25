@@ -270,14 +270,6 @@
   <source>Choose whether the blocks can be edited</source>
   <target>Zaɓi ko ana iya gyara tubalan</target>
 </trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>Dandali</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>Zaɓi nau'in dandali</target>
-</trans-unit>
 <trans-unit id="s8c4b9c645f39d5be">
   <source>Available Blocks</source>
   <target>Tubalan da ake da su</target>
@@ -317,6 +309,30 @@
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
   <target>Buɗe cikakken allo</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>Share shirin</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>A cire dukkan tubalan daga shirin?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>Fayil ɗin ba ingantaccen JSON ba ne.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>Fayil ɗin bai ƙunshi shirin tubalan ba.</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>Dandali</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>Zaɓi nau'in dandali</target>
 </trans-unit>
 </body>
 </file>

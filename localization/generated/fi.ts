@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `aseta suunnaksi %1 astetta`,
 's1849ee2b51259afc': `Liike`,
 's19fe06e3408e53d0': `onnistuminen`,
-'s1b70c81c0add3714': `Valitse näyttämön tyyppi`,
 's1d322941d98b740d': `%1 itseisarvo`,
 's21ce5b62fb9cc909': `vasen nuoli`,
 's22fde937cb709859': `Lähennä`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Tapahtui virhe!`,
 's6ece8be61d1613ff': `aseta taustaväriksi %1`,
 's779b5819564f2f50': `poksahdus`,
+'s7d55412336204af6': `Tyhjennä ohjelma`,
 's7f2b6c605332dd30': `muuten`,
 's80d301c6f454a49f': `Ulkoasu`,
 's83cd32b685ccc9b7': `Ohjaus`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Käytettävissä olevat lohkot`,
 's93fd381ccee962ed': `Käynnistä suoritus`,
 's969d19fdfd1292c0': `yhdistä %1 ja %2`,
+'s969ecb4ea9ad0288': `Poistetaanko kaikki lohkot ohjelmasta?`,
 's96dbff478859dd9c': `aseta x arvoksi %1 ja y arvoksi %2`,
 's97d71b48e04b1dca': `pysäytä kaikki äänet`,
 's9da27599b2482baf': `jos %1, niin`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Palauta zoomaus`,
 's9ffe1bbe64712bf1': `Piirtoalue`,
 'saa9c909a4c95098a': `Operaattorit`,
-'sae5da213b7f896ed': `Näyttämö`,
 'sae827b4f3639159c': `Valitse, voiko lohkoja muokata`,
 'saf1f52191db2bcc5': `pysäytä`,
 'sb05582ce916894da': `Loitonna`,
 'sb0d47d2341d89ab8': `y-sijainti`,
 'sb39940945f8f7122': `Muuttujat`,
+'sb505e2da1a1b9ab2': `Tiedosto ei sisällä lohko-ohjelmaa.`,
+'sb8c878135ee917b1': `Tiedosto ei ole kelvollista JSON-muotoa.`,
 'sc265a3e29e1206e4': `Tapahtumat`,
 'sc32ea8f7a9b87f0c': `Valitse työkalupakissa käytettävissä olevat lohkot`,
 'sc9075a68b35564c4': `kun näppäintä %1 painetaan`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `aseta x arvoksi %1`,
 'sffb792580d9535aa': `sano %1`,
     };
-  

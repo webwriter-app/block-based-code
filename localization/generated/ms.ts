@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `tetapkan arah kepada %1 darjah`,
 's1849ee2b51259afc': `Pergerakan`,
 's19fe06e3408e53d0': `berjaya`,
-'s1b70c81c0add3714': `Pilih jenis pentas`,
 's1d322941d98b740d': `nilai mutlak bagi %1`,
 's21ce5b62fb9cc909': `anak panah kiri`,
 's22fde937cb709859': `Zum masuk`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Ralat telah berlaku!`,
 's6ece8be61d1613ff': `tetapkan warna latar belakang kepada %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Kosongkan program`,
 's7f2b6c605332dd30': `jika tidak`,
 's80d301c6f454a49f': `Rupa`,
 's83cd32b685ccc9b7': `Kawalan`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blok tersedia`,
 's93fd381ccee962ed': `Mulakan pelaksanaan`,
 's969d19fdfd1292c0': `cantumkan %1 dan %2`,
+'s969ecb4ea9ad0288': `Alih keluar semua blok daripada program?`,
 's96dbff478859dd9c': `tetapkan x kepada %1 dan y kepada %2`,
 's97d71b48e04b1dca': `hentikan semua bunyi`,
 's9da27599b2482baf': `jika %1, maka`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Tetapkan semula zum`,
 's9ffe1bbe64712bf1': `Kanvas`,
 'saa9c909a4c95098a': `Operator`,
-'sae5da213b7f896ed': `Pentas`,
 'sae827b4f3639159c': `Pilih sama ada blok boleh disunting`,
 'saf1f52191db2bcc5': `henti`,
 'sb05582ce916894da': `Zum keluar`,
 'sb0d47d2341d89ab8': `kedudukan y`,
 'sb39940945f8f7122': `Pemboleh ubah`,
+'sb505e2da1a1b9ab2': `Fail ini tidak mengandungi program blok.`,
+'sb8c878135ee917b1': `Fail ini bukan JSON yang sah.`,
 'sc265a3e29e1206e4': `Peristiwa`,
 'sc32ea8f7a9b87f0c': `Pilih blok yang tersedia dalam kotak alat`,
 'sc9075a68b35564c4': `apabila kekunci %1 ditekan`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `tetapkan x kepada %1`,
 'sffb792580d9535aa': `sebut %1`,
     };
-  

@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `ustaw kierunek na %1 stopni`,
 's1849ee2b51259afc': `Ruch`,
 's19fe06e3408e53d0': `sukces`,
-'s1b70c81c0add3714': `Wybierz typ sceny`,
 's1d322941d98b740d': `wartość bezwzględna z %1`,
 's21ce5b62fb9cc909': `strzałka w lewo`,
 's22fde937cb709859': `Powiększ`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Wystąpił błąd!`,
 's6ece8be61d1613ff': `ustaw kolor tła na %1`,
 's779b5819564f2f50': `pyk`,
+'s7d55412336204af6': `Wyczyść program`,
 's7f2b6c605332dd30': `w przeciwnym razie`,
 's80d301c6f454a49f': `Wygląd`,
 's83cd32b685ccc9b7': `Sterowanie`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Dostępne bloki`,
 's93fd381ccee962ed': `Uruchom`,
 's969d19fdfd1292c0': `połącz %1 i %2`,
+'s969ecb4ea9ad0288': `Czy usunąć wszystkie bloki z programu?`,
 's96dbff478859dd9c': `ustaw x na %1 i y na %2`,
 's97d71b48e04b1dca': `zatrzymaj wszystkie dźwięki`,
 's9da27599b2482baf': `jeżeli %1, to`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Resetuj powiększenie`,
 's9ffe1bbe64712bf1': `Obszar roboczy`,
 'saa9c909a4c95098a': `Operatory`,
-'sae5da213b7f896ed': `Scena`,
 'sae827b4f3639159c': `Wybierz, czy bloki można edytować`,
 'saf1f52191db2bcc5': `zatrzymaj`,
 'sb05582ce916894da': `Pomniejsz`,
 'sb0d47d2341d89ab8': `pozycja y`,
 'sb39940945f8f7122': `Zmienne`,
+'sb505e2da1a1b9ab2': `Plik nie zawiera programu z bloków.`,
+'sb8c878135ee917b1': `Plik nie jest prawidłowym plikiem JSON.`,
 'sc265a3e29e1206e4': `Zdarzenia`,
 'sc32ea8f7a9b87f0c': `Wybierz, które bloki będą dostępne w przyborniku`,
 'sc9075a68b35564c4': `po naciśnięciu klawisza %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `ustaw x na %1`,
 'sffb792580d9535aa': `powiedz %1`,
     };
-  

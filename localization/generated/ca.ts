@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `estableix la direcció a %1 graus`,
 's1849ee2b51259afc': `Moviment`,
 's19fe06e3408e53d0': `èxit`,
-'s1b70c81c0add3714': `Tria el tipus d'escenari`,
 's1d322941d98b740d': `valor absolut de %1`,
 's21ce5b62fb9cc909': `fletxa esquerra`,
 's22fde937cb709859': `Amplia`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `S'ha produït un error!`,
 's6ece8be61d1613ff': `estableix el color del fons a %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Esborra el programa`,
 's7f2b6c605332dd30': `si no`,
 's80d301c6f454a49f': `Aspecte`,
 's83cd32b685ccc9b7': `Control`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blocs disponibles`,
 's93fd381ccee962ed': `Inicia l'execució`,
 's969d19fdfd1292c0': `uneix %1 i %2`,
+'s969ecb4ea9ad0288': `Vols eliminar tots els blocs del programa?`,
 's96dbff478859dd9c': `estableix x a %1 i y a %2`,
 's97d71b48e04b1dca': `atura tots els sons`,
 's9da27599b2482baf': `si %1, llavors`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Restableix el zoom`,
 's9ffe1bbe64712bf1': `Llenç`,
 'saa9c909a4c95098a': `Operadors`,
-'sae5da213b7f896ed': `Escenari`,
 'sae827b4f3639159c': `Tria si es poden editar els blocs`,
 'saf1f52191db2bcc5': `atura`,
 'sb05582ce916894da': `Redueix`,
 'sb0d47d2341d89ab8': `posició y`,
 'sb39940945f8f7122': `Variables`,
+'sb505e2da1a1b9ab2': `El fitxer no conté un programa de blocs.`,
+'sb8c878135ee917b1': `El fitxer no és un JSON vàlid.`,
 'sc265a3e29e1206e4': `Esdeveniments`,
 'sc32ea8f7a9b87f0c': `Tria quins blocs estan disponibles a la caixa d'eines`,
 'sc9075a68b35564c4': `quan es premi la tecla %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `estableix x a %1`,
 'sffb792580d9535aa': `digues %1`,
     };
-  

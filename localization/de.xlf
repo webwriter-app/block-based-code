@@ -270,14 +270,6 @@
   <source>Choose whether the blocks can be edited</source>
   <target>Wähle aus, ob die Blöcke bearbeitet werden können</target>
 </trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>Bühne</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>Wähle die Art der Bühne aus</target>
-</trans-unit>
 <trans-unit id="s8c4b9c645f39d5be">
   <source>Available Blocks</source>
   <target>Verfügbare Bausteine</target>
@@ -317,6 +309,30 @@
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
   <target>Vollbildmodus</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>Programm löschen</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>Möchtest du alle Blöcke aus dem Programm entfernen?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>Die Datei ist kein gültiges JSON.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>Die Datei enthält kein Blockprogramm.</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>Bühne</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>Wähle die Art der Bühne aus</target>
 </trans-unit>
 </body>
 </file>

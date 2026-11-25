@@ -270,14 +270,6 @@
   <source>Choose whether the blocks can be edited</source>
   <target>ব্লকগুলো সম্পাদনা করা যাবে কি না বেছে নিন</target>
 </trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>মঞ্চ</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>মঞ্চের ধরন বেছে নিন</target>
-</trans-unit>
 <trans-unit id="s8c4b9c645f39d5be">
   <source>Available Blocks</source>
   <target>উপলভ্য ব্লক</target>
@@ -317,6 +309,30 @@
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
   <target>পূর্ণ পর্দা খুলুন</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>প্রোগ্রাম মুছুন</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>প্রোগ্রাম থেকে সব ব্লক সরিয়ে ফেলবেন?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>ফাইলটি বৈধ JSON নয়।</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>ফাইলটিতে ব্লক প্রোগ্রাম নেই।</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>মঞ্চ</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>মঞ্চের ধরন বেছে নিন</target>
 </trans-unit>
 </body>
 </file>

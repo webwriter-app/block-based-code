@@ -434,9 +434,7 @@
             "package": "@webwriter/lit"
           },
           "tagName": "webwriter-block-based-code",
-          "customElement": true,
-          "modulePath": "src/widgets/webwriter-block-based-code.ts",
-          "definitionPath": "src/widgets/webwriter-block-based-code.ts"
+          "customElement": true
         }
       ],
       "exports": [

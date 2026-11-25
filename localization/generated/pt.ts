@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `define a direção como %1 graus`,
 's1849ee2b51259afc': `Movimento`,
 's19fe06e3408e53d0': `sucesso`,
-'s1b70c81c0add3714': `Escolha o tipo de palco`,
 's1d322941d98b740d': `valor absoluto de %1`,
 's21ce5b62fb9cc909': `seta para a esquerda`,
 's22fde937cb709859': `Ampliar`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Ocorreu um erro!`,
 's6ece8be61d1613ff': `define a cor de fundo como %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Limpar programa`,
 's7f2b6c605332dd30': `senão`,
 's80d301c6f454a49f': `Aparência`,
 's83cd32b685ccc9b7': `Controlo`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blocos disponíveis`,
 's93fd381ccee962ed': `Iniciar execução`,
 's969d19fdfd1292c0': `junta %1 e %2`,
+'s969ecb4ea9ad0288': `Remover todos os blocos do programa?`,
 's96dbff478859dd9c': `define x como %1 e y como %2`,
 's97d71b48e04b1dca': `para todos os sons`,
 's9da27599b2482baf': `se %1, então`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Repor o zoom`,
 's9ffe1bbe64712bf1': `Tela`,
 'saa9c909a4c95098a': `Operadores`,
-'sae5da213b7f896ed': `Palco`,
 'sae827b4f3639159c': `Escolha se os blocos podem ser editados`,
 'saf1f52191db2bcc5': `parar`,
 'sb05582ce916894da': `Reduzir`,
 'sb0d47d2341d89ab8': `posição y`,
 'sb39940945f8f7122': `Variáveis`,
+'sb505e2da1a1b9ab2': `O ficheiro não contém um programa de blocos.`,
+'sb8c878135ee917b1': `O ficheiro não é um JSON válido.`,
 'sc265a3e29e1206e4': `Eventos`,
 'sc32ea8f7a9b87f0c': `Escolha os blocos disponíveis na caixa de ferramentas`,
 'sc9075a68b35564c4': `quando se prime a tecla %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `define x como %1`,
 'sffb792580d9535aa': `diz %1`,
     };
-  

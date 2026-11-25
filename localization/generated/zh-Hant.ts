@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `將方向設為 %1 度`,
 's1849ee2b51259afc': `動作`,
 's19fe06e3408e53d0': `成功`,
-'s1b70c81c0add3714': `選擇舞台類型`,
 's1d322941d98b740d': `%1 的絕對值`,
 's21ce5b62fb9cc909': `向左鍵`,
 's22fde937cb709859': `放大`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `發生錯誤！`,
 's6ece8be61d1613ff': `將背景顏色設為 %1`,
 's779b5819564f2f50': `啵`,
+'s7d55412336204af6': `清除程式`,
 's7f2b6c605332dd30': `否則`,
 's80d301c6f454a49f': `外觀`,
 's83cd32b685ccc9b7': `控制`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `可用積木`,
 's93fd381ccee962ed': `開始執行`,
 's969d19fdfd1292c0': `連接 %1 和 %2`,
+'s969ecb4ea9ad0288': `要移除程式中的所有積木嗎？`,
 's96dbff478859dd9c': `將 x 設為 %1，y 設為 %2`,
 's97d71b48e04b1dca': `停止所有音效`,
 's9da27599b2482baf': `如果 %1，那麼`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `重設縮放`,
 's9ffe1bbe64712bf1': `畫布`,
 'saa9c909a4c95098a': `運算`,
-'sae5da213b7f896ed': `舞台`,
 'sae827b4f3639159c': `選擇是否允許編輯積木`,
 'saf1f52191db2bcc5': `停止`,
 'sb05582ce916894da': `縮小`,
 'sb0d47d2341d89ab8': `y 座標`,
 'sb39940945f8f7122': `變數`,
+'sb505e2da1a1b9ab2': `檔案不包含積木程式。`,
+'sb8c878135ee917b1': `檔案不是有效的 JSON。`,
 'sc265a3e29e1206e4': `事件`,
 'sc32ea8f7a9b87f0c': `選擇工具箱中可用的積木`,
 'sc9075a68b35564c4': `當按下 %1 鍵時`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `將 x 設為 %1`,
 'sffb792580d9535aa': `說 %1`,
     };
-  

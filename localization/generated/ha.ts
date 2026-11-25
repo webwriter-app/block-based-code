@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `saita juyawa zuwa digiri %1`,
 's1849ee2b51259afc': `Motsi`,
 's19fe06e3408e53d0': `nasara`,
-'s1b70c81c0add3714': `Zaɓi nau'in dandali`,
 's1d322941d98b740d': `ƙimar %1 ba tare da alamar korau ba`,
 's21ce5b62fb9cc909': `kibiya hagu`,
 's22fde937cb709859': `Ƙara girma`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `An sami kuskure!`,
 's6ece8be61d1613ff': `saita launin baya zuwa %1`,
 's779b5819564f2f50': `ƙarar fashewa`,
+'s7d55412336204af6': `Share shirin`,
 's7f2b6c605332dd30': `in ba haka ba`,
 's80d301c6f454a49f': `Kama`,
 's83cd32b685ccc9b7': `Masu sarrafawa`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Tubalan da ake da su`,
 's93fd381ccee962ed': `Gudanar da lamba`,
 's969d19fdfd1292c0': `haɗa %1 da %2`,
+'s969ecb4ea9ad0288': `A cire dukkan tubalan daga shirin?`,
 's96dbff478859dd9c': `saita x zuwa %1 da y zuwa %2`,
 's97d71b48e04b1dca': `tsayar da dukkan sautuka`,
 's9da27599b2482baf': `idan %1, sai`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Mayar da girma`,
 's9ffe1bbe64712bf1': `Filin zane`,
 'saa9c909a4c95098a': `Masu aiwatarwa`,
-'sae5da213b7f896ed': `Dandali`,
 'sae827b4f3639159c': `Zaɓi ko ana iya gyara tubalan`,
 'saf1f52191db2bcc5': `tsaya`,
 'sb05582ce916894da': `Rage girma`,
 'sb0d47d2341d89ab8': `matsayin y`,
 'sb39940945f8f7122': `Masu canzawa`,
+'sb505e2da1a1b9ab2': `Fayil ɗin bai ƙunshi shirin tubalan ba.`,
+'sb8c878135ee917b1': `Fayil ɗin ba ingantaccen JSON ba ne.`,
 'sc265a3e29e1206e4': `Abubuwan da suka faru`,
 'sc32ea8f7a9b87f0c': `Zaɓi tubalan da za su bayyana a akwatin kayan aiki`,
 'sc9075a68b35564c4': `idan an danna maɓallin %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `saita x zuwa %1`,
 'sffb792580d9535aa': `faɗi %1`,
     };
-  

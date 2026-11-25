@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `nastavi smer na %1 stopinj`,
 's1849ee2b51259afc': `Gibanje`,
 's19fe06e3408e53d0': `uspeh`,
-'s1b70c81c0add3714': `Izberite vrsto odra`,
 's1d322941d98b740d': `absolutna vrednost %1`,
 's21ce5b62fb9cc909': `puščica levo`,
 's22fde937cb709859': `Povečaj`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Prišlo je do napake!`,
 's6ece8be61d1613ff': `nastavi barvo ozadja na %1`,
 's779b5819564f2f50': `pok`,
+'s7d55412336204af6': `Počisti program`,
 's7f2b6c605332dd30': `sicer`,
 's80d301c6f454a49f': `Videz`,
 's83cd32b685ccc9b7': `Upravljanje`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Razpoložljivi bloki`,
 's93fd381ccee962ed': `Začni izvajanje`,
 's969d19fdfd1292c0': `združi %1 in %2`,
+'s969ecb4ea9ad0288': `Ali želite odstraniti vse bloke iz programa?`,
 's96dbff478859dd9c': `nastavi x na %1 in y na %2`,
 's97d71b48e04b1dca': `ustavi vse zvoke`,
 's9da27599b2482baf': `če %1, potem`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Ponastavi povečavo`,
 's9ffe1bbe64712bf1': `Platno`,
 'saa9c909a4c95098a': `Operatorji`,
-'sae5da213b7f896ed': `Oder`,
 'sae827b4f3639159c': `Izberite, ali je bloke mogoče urejati`,
 'saf1f52191db2bcc5': `ustavi`,
 'sb05582ce916894da': `Pomanjšaj`,
 'sb0d47d2341d89ab8': `položaj y`,
 'sb39940945f8f7122': `Spremenljivke`,
+'sb505e2da1a1b9ab2': `Datoteka ne vsebuje programa iz blokov.`,
+'sb8c878135ee917b1': `Datoteka ni veljaven JSON.`,
 'sc265a3e29e1206e4': `Dogodki`,
 'sc32ea8f7a9b87f0c': `Izberite, kateri bloki so na voljo v orodjarni`,
 'sc9075a68b35564c4': `ko pritisneš tipko %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `nastavi x na %1`,
 'sffb792580d9535aa': `reci %1`,
     };
-  

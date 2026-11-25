@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `u deji wareegga %1 darajo`,
 's1849ee2b51259afc': `Dhaqdhaqaaq`,
 's19fe06e3408e53d0': `guul`,
-'s1b70c81c0add3714': `Dooro nooca masraxa`,
 's1d322941d98b740d': `qiimaha mutlaq ee %1`,
 's21ce5b62fb9cc909': `fallaadha bidix`,
 's22fde937cb709859': `Weynee`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Khalad ayaa dhacay!`,
 's6ece8be61d1613ff': `u deji midabka gadaasha %1`,
 's779b5819564f2f50': `qarax yar`,
+'s7d55412336204af6': `Nadiifi barnaamijka`,
 's7f2b6c605332dd30': `haddii kale`,
 's80d301c6f454a49f': `Muuqaal`,
 's83cd32b685ccc9b7': `Kontaroollo`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Baloogyada la heli karo`,
 's93fd381ccee962ed': `Socodsii koodhka`,
 's969d19fdfd1292c0': `isku xidh %1 iyo %2`,
+'s969ecb4ea9ad0288': `Ma laga saaraa dhammaan baloogyada barnaamijka?`,
 's96dbff478859dd9c': `u deji x %1 iyo y %2`,
 's97d71b48e04b1dca': `jooji codadka oo dhan`,
 's9da27599b2482baf': `haddii %1, markaa`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Dib u deji cabbirka`,
 's9ffe1bbe64712bf1': `Goobta sawirka`,
 'saa9c909a4c95098a': `Hawlwadeenno`,
-'sae5da213b7f896ed': `Masrax`,
 'sae827b4f3639159c': `Dooro in baloogyada wax laga beddeli karo`,
 'saf1f52191db2bcc5': `jooji`,
 'sb05582ce916894da': `Yaree`,
 'sb0d47d2341d89ab8': `booska y`,
 'sb39940945f8f7122': `Doorsoomayaal`,
+'sb505e2da1a1b9ab2': `Faylku ma hayo barnaamij baloogyo ah.`,
+'sb8c878135ee917b1': `Faylku ma aha JSON sax ah.`,
 'sc265a3e29e1206e4': `Dhacdooyin`,
 'sc32ea8f7a9b87f0c': `Dooro baloogyada ka muuqda sanduuqa qalabka`,
 'sc9075a68b35564c4': `marka furaha %1 la riixo`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `u deji x %1`,
 'sffb792580d9535aa': `dheh %1`,
     };
-  

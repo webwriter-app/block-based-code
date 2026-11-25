@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `stilla stefnu á %1 gráður`,
 's1849ee2b51259afc': `Hreyfing`,
 's19fe06e3408e53d0': `tókst`,
-'s1b70c81c0add3714': `Veldu tegund sviðs`,
 's1d322941d98b740d': `algildi %1`,
 's21ce5b62fb9cc909': `ör til vinstri`,
 's22fde937cb709859': `Stækka`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Villa kom upp!`,
 's6ece8be61d1613ff': `stilla bakgrunnslit á %1`,
 's779b5819564f2f50': `popp`,
+'s7d55412336204af6': `Hreinsa forrit`,
 's7f2b6c605332dd30': `annars`,
 's80d301c6f454a49f': `Útlit`,
 's83cd32b685ccc9b7': `Stýringar`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Tiltækir kubbar`,
 's93fd381ccee962ed': `Hefja keyrslu`,
 's969d19fdfd1292c0': `sameina %1 og %2`,
+'s969ecb4ea9ad0288': `Viltu fjarlægja alla kubba úr forritinu?`,
 's96dbff478859dd9c': `stilla x á %1 og y á %2`,
 's97d71b48e04b1dca': `stöðva öll hljóð`,
 's9da27599b2482baf': `ef %1, þá`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Endurstilla aðdrátt`,
 's9ffe1bbe64712bf1': `Strigi`,
 'saa9c909a4c95098a': `Virkjar`,
-'sae5da213b7f896ed': `Svið`,
 'sae827b4f3639159c': `Veldu hvort hægt sé að breyta kubbunum`,
 'saf1f52191db2bcc5': `stöðva`,
 'sb05582ce916894da': `Minnka`,
 'sb0d47d2341d89ab8': `y-staðsetning`,
 'sb39940945f8f7122': `Breyturnar`,
+'sb505e2da1a1b9ab2': `Skráin inniheldur ekki kubbaforrit.`,
+'sb8c878135ee917b1': `Skráin er ekki gilt JSON.`,
 'sc265a3e29e1206e4': `Atburðir`,
 'sc32ea8f7a9b87f0c': `Veldu hvaða kubbar eru tiltækir í verkfærakistunni`,
 'sc9075a68b35564c4': `þegar ýtt er á %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `stilla x á %1`,
 'sffb792580d9535aa': `segja %1`,
     };
-  

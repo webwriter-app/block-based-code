@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `set retninga til %1 gradar`,
 's1849ee2b51259afc': `Rørsle`,
 's19fe06e3408e53d0': `vellykka`,
-'s1b70c81c0add3714': `Vel scenetype`,
 's1d322941d98b740d': `absoluttverdien av %1`,
 's21ce5b62fb9cc909': `pil venstre`,
 's22fde937cb709859': `Zoom inn`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Det oppstod ein feil!`,
 's6ece8be61d1613ff': `set bakgrunnsfargen til %1`,
 's779b5819564f2f50': `plopp`,
+'s7d55412336204af6': `Tøm programmet`,
 's7f2b6c605332dd30': `elles`,
 's80d301c6f454a49f': `Utsjånad`,
 's83cd32b685ccc9b7': `Styring`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Tilgjengelege blokker`,
 's93fd381ccee962ed': `Start køyring`,
 's969d19fdfd1292c0': `set saman %1 og %2`,
+'s969ecb4ea9ad0288': `Vil du fjerne alle blokkane frå programmet?`,
 's96dbff478859dd9c': `set x til %1 og y til %2`,
 's97d71b48e04b1dca': `stopp alle lydar`,
 's9da27599b2482baf': `viss %1, så`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Nullstill zoom`,
 's9ffe1bbe64712bf1': `Lerret`,
 'saa9c909a4c95098a': `Operatorar`,
-'sae5da213b7f896ed': `Scene`,
 'sae827b4f3639159c': `Vel om blokkene kan redigerast`,
 'saf1f52191db2bcc5': `stopp`,
 'sb05582ce916894da': `Zoom ut`,
 'sb0d47d2341d89ab8': `y-posisjon`,
 'sb39940945f8f7122': `Variablar`,
+'sb505e2da1a1b9ab2': `Fila inneheld ikkje eit blokkprogram.`,
+'sb8c878135ee917b1': `Fila er ikkje gyldig JSON.`,
 'sc265a3e29e1206e4': `Hendingar`,
 'sc32ea8f7a9b87f0c': `Vel kva for blokker som er tilgjengelege i verktøykassa`,
 'sc9075a68b35564c4': `når tasten %1 vert trykt`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `set x til %1`,
 'sffb792580d9535aa': `sei %1`,
     };
-  

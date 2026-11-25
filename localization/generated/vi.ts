@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `đặt hướng thành %1 độ`,
 's1849ee2b51259afc': `Chuyển động`,
 's19fe06e3408e53d0': `thành công`,
-'s1b70c81c0add3714': `Chọn loại sân khấu`,
 's1d322941d98b740d': `giá trị tuyệt đối của %1`,
 's21ce5b62fb9cc909': `mũi tên trái`,
 's22fde937cb709859': `Phóng to`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Đã xảy ra lỗi!`,
 's6ece8be61d1613ff': `đặt màu nền thành %1`,
 's779b5819564f2f50': `bốp`,
+'s7d55412336204af6': `Xóa chương trình`,
 's7f2b6c605332dd30': `nếu không`,
 's80d301c6f454a49f': `Giao diện`,
 's83cd32b685ccc9b7': `Điều khiển`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Khối có sẵn`,
 's93fd381ccee962ed': `Bắt đầu chạy`,
 's969d19fdfd1292c0': `nối %1 và %2`,
+'s969ecb4ea9ad0288': `Xóa tất cả khối khỏi chương trình?`,
 's96dbff478859dd9c': `đặt x thành %1 và y thành %2`,
 's97d71b48e04b1dca': `dừng tất cả âm thanh`,
 's9da27599b2482baf': `nếu %1 thì`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Đặt lại thu phóng`,
 's9ffe1bbe64712bf1': `Khung vẽ`,
 'saa9c909a4c95098a': `Toán tử`,
-'sae5da213b7f896ed': `Sân khấu`,
 'sae827b4f3639159c': `Chọn xem có thể chỉnh sửa các khối hay không`,
 'saf1f52191db2bcc5': `dừng`,
 'sb05582ce916894da': `Thu nhỏ`,
 'sb0d47d2341d89ab8': `vị trí y`,
 'sb39940945f8f7122': `Biến`,
+'sb505e2da1a1b9ab2': `Tệp không chứa chương trình khối.`,
+'sb8c878135ee917b1': `Tệp không phải JSON hợp lệ.`,
 'sc265a3e29e1206e4': `Sự kiện`,
 'sc32ea8f7a9b87f0c': `Chọn các khối có trong hộp công cụ`,
 'sc9075a68b35564c4': `khi nhấn phím %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `đặt x thành %1`,
 'sffb792580d9535aa': `nói %1`,
     };
-  

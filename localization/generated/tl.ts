@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `itakda ang direksiyon sa %1 degree`,
 's1849ee2b51259afc': `Galaw`,
 's19fe06e3408e53d0': `tagumpay`,
-'s1b70c81c0add3714': `Piliin ang uri ng entablado`,
 's1d322941d98b740d': `absolute value ng %1`,
 's21ce5b62fb9cc909': `kaliwang arrow`,
 's22fde937cb709859': `Palakihin`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `May naganap na error!`,
 's6ece8be61d1613ff': `itakda ang kulay ng background sa %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `I-clear ang programa`,
 's7f2b6c605332dd30': `kung hindi`,
 's80d301c6f454a49f': `Hitsura`,
 's83cd32b685ccc9b7': `Kontrol`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Mga magagamit na bloke`,
 's93fd381ccee962ed': `Simulan ang pagpapatakbo`,
 's969d19fdfd1292c0': `pagsamahin ang %1 at %2`,
+'s969ecb4ea9ad0288': `Alisin ang lahat ng block sa programa?`,
 's96dbff478859dd9c': `itakda ang x sa %1 at y sa %2`,
 's97d71b48e04b1dca': `ihinto ang lahat ng tunog`,
 's9da27599b2482baf': `kung %1, kung gayon`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `I-reset ang zoom`,
 's9ffe1bbe64712bf1': `Canvas`,
 'saa9c909a4c95098a': `Mga operator`,
-'sae5da213b7f896ed': `Entablado`,
 'sae827b4f3639159c': `Piliin kung maaaring i-edit ang mga bloke`,
 'saf1f52191db2bcc5': `ihinto`,
 'sb05582ce916894da': `Paliitin`,
 'sb0d47d2341d89ab8': `posisyon ng y`,
 'sb39940945f8f7122': `Mga variable`,
+'sb505e2da1a1b9ab2': `Walang block program sa file.`,
+'sb8c878135ee917b1': `Hindi wastong JSON ang file.`,
 'sc265a3e29e1206e4': `Mga kaganapan`,
 'sc32ea8f7a9b87f0c': `Piliin kung aling mga bloke ang magagamit sa toolbox`,
 'sc9075a68b35564c4': `kapag pinindot ang %1 key`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `itakda ang x sa %1`,
 'sffb792580d9535aa': `sabihin ang %1`,
     };
-  

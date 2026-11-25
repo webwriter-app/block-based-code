@@ -270,14 +270,6 @@
   <source>Choose whether the blocks can be edited</source>
   <target>බ්ලොක් සංස්කරණය කළ හැකිදැයි තෝරන්න</target>
 </trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>වේදිකාව</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>වේදිකාවේ වර්ගය තෝරන්න</target>
-</trans-unit>
 <trans-unit id="s8c4b9c645f39d5be">
   <source>Available Blocks</source>
   <target>ලබාගත හැකි බ්ලොක්</target>
@@ -317,6 +309,30 @@
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
   <target>සම්පූර්ණ තිරය විවෘත කරන්න</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>වැඩසටහන හිස් කරන්න</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>වැඩසටහනේ සියලුම බ්ලොක් ඉවත් කරන්නද?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>ගොනුව වලංගු JSON නොවේ.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>ගොනුවේ බ්ලොක් වැඩසටහනක් නැත.</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>වේදිකාව</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>වේදිකාවේ වර්ගය තෝරන්න</target>
 </trans-unit>
 </body>
 </file>

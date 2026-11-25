@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `stel draaiing op %1 grade`,
 's1849ee2b51259afc': `Bewegings`,
 's19fe06e3408e53d0': `sukses`,
-'s1b70c81c0add3714': `Kies die tipe verhoog`,
 's1d322941d98b740d': `absolute waarde van %1`,
 's21ce5b62fb9cc909': `links-pyltjie`,
 's22fde937cb709859': `Zoem in`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Daar het 'n fout voorgekom!`,
 's6ece8be61d1613ff': `stel agtergrondkleur op %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Maak program skoon`,
 's7f2b6c605332dd30': `anders`,
 's80d301c6f454a49f': `Voorkoms`,
 's83cd32b685ccc9b7': `Kontroles`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Beskikbare blokke`,
 's93fd381ccee962ed': `Begin uitvoering`,
 's969d19fdfd1292c0': `voeg %1 en %2 saam`,
+'s969ecb4ea9ad0288': `Alle blokke uit die program verwyder?`,
 's96dbff478859dd9c': `stel x op %1 en y op %2`,
 's97d71b48e04b1dca': `stop alle klanke`,
 's9da27599b2482baf': `as %1, doen dan`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Stel zoem terug`,
 's9ffe1bbe64712bf1': `Doek`,
 'saa9c909a4c95098a': `Operatore`,
-'sae5da213b7f896ed': `Verhoog`,
 'sae827b4f3639159c': `Kies of die blokke geredigeer kan word`,
 'saf1f52191db2bcc5': `stop`,
 'sb05582ce916894da': `Zoem uit`,
 'sb0d47d2341d89ab8': `y-posisie`,
 'sb39940945f8f7122': `Veranderlikes`,
+'sb505e2da1a1b9ab2': `Die lêer bevat nie ’n blokprogram nie.`,
+'sb8c878135ee917b1': `Die lêer is nie geldige JSON nie.`,
 'sc265a3e29e1206e4': `Gebeurtenisse`,
 'sc32ea8f7a9b87f0c': `Kies watter blokke in die gereedskapkas beskikbaar is`,
 'sc9075a68b35564c4': `wanneer %1-sleutel gedruk word`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `stel x op %1`,
 'sffb792580d9535aa': `sê %1`,
     };
-  

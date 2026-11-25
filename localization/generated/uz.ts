@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `yo‘nalishni %1 darajaga o‘rnatish`,
 's1849ee2b51259afc': `Harakat`,
 's19fe06e3408e53d0': `muvaffaqiyatli`,
-'s1b70c81c0add3714': `Sahna turini tanlang`,
 's1d322941d98b740d': `%1 ning mutlaq qiymati`,
 's21ce5b62fb9cc909': `chapga strelka`,
 's22fde937cb709859': `Kattalashtirish`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Xatolik yuz berdi!`,
 's6ece8be61d1613ff': `fon rangini %1 ga o‘rnatish`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Dasturni tozalash`,
 's7f2b6c605332dd30': `aks holda`,
 's80d301c6f454a49f': `Ko‘rinish`,
 's83cd32b685ccc9b7': `Boshqaruv`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Mavjud bloklar`,
 's93fd381ccee962ed': `Ishga tushirish`,
 's969d19fdfd1292c0': `%1 va %2 ni birlashtirish`,
+'s969ecb4ea9ad0288': `Dasturdagi barcha bloklar olib tashlansinmi?`,
 's96dbff478859dd9c': `x ni %1 ga va y ni %2 ga o‘rnatish`,
 's97d71b48e04b1dca': `barcha tovushlarni to‘xtatish`,
 's9da27599b2482baf': `agar %1 bo‘lsa, unda`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Masshtabni tiklash`,
 's9ffe1bbe64712bf1': `Chizma maydoni`,
 'saa9c909a4c95098a': `Operatorlar`,
-'sae5da213b7f896ed': `Sahna`,
 'sae827b4f3639159c': `Bloklarni tahrirlash mumkinligini tanlang`,
 'saf1f52191db2bcc5': `to‘xtatish`,
 'sb05582ce916894da': `Kichraytirish`,
 'sb0d47d2341d89ab8': `y joylashuvi`,
 'sb39940945f8f7122': `O‘zgaruvchilar`,
+'sb505e2da1a1b9ab2': `Faylda blokli dastur mavjud emas.`,
+'sb8c878135ee917b1': `Fayl yaroqli JSON emas.`,
 'sc265a3e29e1206e4': `Hodisalar`,
 'sc32ea8f7a9b87f0c': `Asboblar qutisida mavjud bo‘ladigan bloklarni tanlang`,
 'sc9075a68b35564c4': `%1 tugmasi bosilganda`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `x ni %1 ga o‘rnatish`,
 'sffb792580d9535aa': `%1 deyish`,
     };
-  

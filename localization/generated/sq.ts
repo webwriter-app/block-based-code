@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `cakto drejtimin në %1 gradë`,
 's1849ee2b51259afc': `Lëvizja`,
 's19fe06e3408e53d0': `sukses`,
-'s1b70c81c0add3714': `Zgjidh llojin e skenës`,
 's1d322941d98b740d': `vlera absolute e %1`,
 's21ce5b62fb9cc909': `shigjeta majtas`,
 's22fde937cb709859': `Zmadho`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Ndodhi një gabim!`,
 's6ece8be61d1613ff': `cakto ngjyrën e sfondit në %1`,
 's779b5819564f2f50': `plasje`,
+'s7d55412336204af6': `Pastro programin`,
 's7f2b6c605332dd30': `përndryshe`,
 's80d301c6f454a49f': `Pamja`,
 's83cd32b685ccc9b7': `Kontrolli`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blloqet e disponueshme`,
 's93fd381ccee962ed': `Nis ekzekutimin`,
 's969d19fdfd1292c0': `bashko %1 dhe %2`,
+'s969ecb4ea9ad0288': `Të hiqen të gjitha blloqet nga programi?`,
 's96dbff478859dd9c': `cakto x në %1 dhe y në %2`,
 's97d71b48e04b1dca': `ndalo të gjithë tingujt`,
 's9da27599b2482baf': `nëse %1, atëherë`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Rivendos zmadhimin`,
 's9ffe1bbe64712bf1': `Kanavacë`,
 'saa9c909a4c95098a': `Operatorët`,
-'sae5da213b7f896ed': `Skena`,
 'sae827b4f3639159c': `Zgjidh nëse blloqet mund të redaktohen`,
 'saf1f52191db2bcc5': `ndalo`,
 'sb05582ce916894da': `Zvogëlo`,
 'sb0d47d2341d89ab8': `pozicioni y`,
 'sb39940945f8f7122': `Variablat`,
+'sb505e2da1a1b9ab2': `Skedari nuk përmban program me blloqe.`,
+'sb8c878135ee917b1': `Skedari nuk është JSON i vlefshëm.`,
 'sc265a3e29e1206e4': `Ngjarjet`,
 'sc32ea8f7a9b87f0c': `Zgjidh blloqet që janë të disponueshme në kutinë e mjeteve`,
 'sc9075a68b35564c4': `kur shtypet tasti %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `cakto x në %1`,
 'sffb792580d9535aa': `thuaj %1`,
     };
-  

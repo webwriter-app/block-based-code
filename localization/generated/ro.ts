@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `setează direcția la %1 grade`,
 's1849ee2b51259afc': `Mișcare`,
 's19fe06e3408e53d0': `succes`,
-'s1b70c81c0add3714': `Alege tipul scenei`,
 's1d322941d98b740d': `valoarea absolută a lui %1`,
 's21ce5b62fb9cc909': `săgeată la stânga`,
 's22fde937cb709859': `Mărește`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `A apărut o eroare!`,
 's6ece8be61d1613ff': `setează culoarea de fundal la %1`,
 's779b5819564f2f50': `poc`,
+'s7d55412336204af6': `Șterge programul`,
 's7f2b6c605332dd30': `altfel`,
 's80d301c6f454a49f': `Aspect`,
 's83cd32b685ccc9b7': `Control`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blocuri disponibile`,
 's93fd381ccee962ed': `Pornește execuția`,
 's969d19fdfd1292c0': `unește %1 și %2`,
+'s969ecb4ea9ad0288': `Eliminați toate blocurile din program?`,
 's96dbff478859dd9c': `setează x la %1 și y la %2`,
 's97d71b48e04b1dca': `oprește toate sunetele`,
 's9da27599b2482baf': `dacă %1, atunci`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Resetează zoomul`,
 's9ffe1bbe64712bf1': `Pânză`,
 'saa9c909a4c95098a': `Operatori`,
-'sae5da213b7f896ed': `Scenă`,
 'sae827b4f3639159c': `Alege dacă blocurile pot fi editate`,
 'saf1f52191db2bcc5': `oprește`,
 'sb05582ce916894da': `Micșorează`,
 'sb0d47d2341d89ab8': `poziția y`,
 'sb39940945f8f7122': `Variabile`,
+'sb505e2da1a1b9ab2': `Fișierul nu conține un program cu blocuri.`,
+'sb8c878135ee917b1': `Fișierul nu este JSON valid.`,
 'sc265a3e29e1206e4': `Evenimente`,
 'sc32ea8f7a9b87f0c': `Alege ce blocuri sunt disponibile în caseta de instrumente`,
 'sc9075a68b35564c4': `când se apasă tasta %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `setează x la %1`,
 'sffb792580d9535aa': `spune %1`,
     };
-  

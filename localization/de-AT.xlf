@@ -1,322 +1,330 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-<file target-language="tk" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<file target-language="de-AT" source-language="en" original="lit-localize-inputs" datatype="plaintext">
 <body>
 <trans-unit id="s9fb1920f1e90623b">
   <source>Reset Zoom</source>
-  <target>Masştaby täzeden düz</target>
+  <target>Zurücksetzen</target>
 </trans-unit>
 <trans-unit id="sb05582ce916894da">
   <source>Zoom Out</source>
-  <target>Kiçelt</target>
+  <target>Verkleinern</target>
 </trans-unit>
 <trans-unit id="s22fde937cb709859">
   <source>Zoom In</source>
-  <target>Ulalt</target>
+  <target>Vergrößern</target>
 </trans-unit>
 <trans-unit id="s2ceb11be2290bb1b">
   <source>Cancel</source>
-  <target>Ýatyr</target>
+  <target>Abbrechen</target>
 </trans-unit>
 <trans-unit id="s33f85f24c0f5f008">
   <source>Save</source>
-  <target>Ýatda sakla</target>
+  <target>Speichern</target>
 </trans-unit>
 <trans-unit id="s09205907b5b56cda">
   <source>No</source>
-  <target>Ýok</target>
+  <target>Nein</target>
 </trans-unit>
 <trans-unit id="scb489a1a173ac3f0">
   <source>Yes</source>
-  <target>Hawa</target>
+  <target>Ja</target>
 </trans-unit>
 <trans-unit id="s091d3d07b5b3076f">
   <source>OK</source>
-  <target>Bolýar</target>
+  <target>OK</target>
 </trans-unit>
 <trans-unit id="s352719d86112de9a">
   <source>Help</source>
-  <target>Kömek</target>
+  <target>Hilfe</target>
 </trans-unit>
 <trans-unit id="s0bdca49248ba4820">
   <source>Shortcuts</source>
-  <target>Klawiatura gysga ýollary</target>
+  <target>Tastenkürzel</target>
 </trans-unit>
 <trans-unit id="s62e1adf70818769c">
   <source>when %1 clicked</source>
-  <target>%1 basylanda</target>
+  <target>Wenn %1 angeklickt wird</target>
 </trans-unit>
 <trans-unit id="s5753316d08e2ed89">
   <source>when this sprite clicked</source>
-  <target>şu keşbe basylanda</target>
+  <target>Wenn diese Figur angeklickt wird</target>
 </trans-unit>
 <trans-unit id="sc9075a68b35564c4">
   <source>when %1 key pressed</source>
-  <target>%1 düwmesi basylanda</target>
+  <target>Wenn Taste %1 gedrückt wird</target>
 </trans-unit>
 <trans-unit id="se6f7b419052023cd">
   <source>any</source>
-  <target>islendik düwme</target>
+  <target>beliebiges</target>
 </trans-unit>
 <trans-unit id="s436cf28ab247e3e5">
   <source>space</source>
-  <target>boşluk</target>
+  <target>Leertaste</target>
 </trans-unit>
 <trans-unit id="s4b7f5b3ef776aff9">
   <source>up arrow</source>
-  <target>ýokary ok</target>
+  <target>Pfeil nach oben</target>
 </trans-unit>
 <trans-unit id="s3bf9d7c6372d9aec">
   <source>down arrow</source>
-  <target>aşak ok</target>
+  <target>Pfeil nach unten</target>
 </trans-unit>
 <trans-unit id="s21ce5b62fb9cc909">
   <source>left arrow</source>
-  <target>çep ok</target>
+  <target>Pfeil nach links</target>
 </trans-unit>
 <trans-unit id="se837dabf23ff86fc">
   <source>right arrow</source>
-  <target>sag ok</target>
+  <target>Pfeil nach rechts</target>
 </trans-unit>
 <trans-unit id="sdcfdbecbc8f6e01b">
   <source>wait %1 seconds</source>
-  <target>%1 sekunt garaş</target>
+  <target>warte %1 Sekunden</target>
 </trans-unit>
 <trans-unit id="se062909512868b90">
   <source>repeat %1</source>
-  <target>%1 gezek gaýtala</target>
+  <target>wiederhole %1 mal</target>
 </trans-unit>
 <trans-unit id="se94c75a08ca5fd78">
   <source>forever</source>
-  <target>hemişe</target>
+  <target>wiederhole fortlaufend</target>
 </trans-unit>
 <trans-unit id="s9da27599b2482baf">
   <source>if %1, then</source>
-  <target>eger %1 bolsa, onda</target>
+  <target>falls %1, dann</target>
 </trans-unit>
 <trans-unit id="s7f2b6c605332dd30">
   <source>else</source>
-  <target>bolmasa</target>
+  <target>sonst</target>
 </trans-unit>
 <trans-unit id="saf1f52191db2bcc5">
   <source>stop</source>
-  <target>duruz</target>
+  <target>stoppe</target>
 </trans-unit>
 <trans-unit id="s89955cee957aa7e7">
   <source>pick random %1 to %2</source>
-  <target>%1 bilen %2 aralygynda tötänleýin san saýla</target>
+  <target>Zufallszahl von %1 bis %2</target>
 </trans-unit>
 <trans-unit id="s248a3094ff54d8f1">
   <source>%1 and %2</source>
-  <target>%1 we %2</target>
+  <target>%1 und %2</target>
 </trans-unit>
 <trans-unit id="s9f6ed10a0da1ac07">
   <source>%1 or %2</source>
-  <target>%1 ýa-da %2</target>
+  <target>%1 oder %2</target>
 </trans-unit>
 <trans-unit id="s1155bf3f1969b350">
   <source>not %1</source>
-  <target>%1 däl</target>
+  <target>nicht %1</target>
 </trans-unit>
 <trans-unit id="s969d19fdfd1292c0">
   <source>join %1 %2</source>
-  <target>%1 bilen %2-ni birleşdir</target>
+  <target>verbinde %1 und %2</target>
 </trans-unit>
 <trans-unit id="s1d322941d98b740d">
   <source>absolute of %1</source>
-  <target>%1-iň absolýut bahasy</target>
+  <target>Betrag von %1</target>
 </trans-unit>
 <trans-unit id="sffb792580d9535aa">
   <source>say %1</source>
-  <target>%1 diý</target>
+  <target>sage %1</target>
 </trans-unit>
 <trans-unit id="s12a1c9644de1b891">
   <source>say %1 for %2 seconds</source>
-  <target>%1-i %2 sekuntlap diý</target>
+  <target>sage %1 für %2 Sekunden</target>
 </trans-unit>
 <trans-unit id="s4d7e66783dc82e08">
   <source>set color effect to %1</source>
-  <target>reňk täsirini %1 edip sazla</target>
+  <target>setze Farbeffekt auf %1</target>
 </trans-unit>
 <trans-unit id="s6ece8be61d1613ff">
   <source>set background color to %1</source>
-  <target>arka fon reňkini %1 edip sazla</target>
+  <target>setze Hintergrundfarbe auf %1</target>
 </trans-unit>
 <trans-unit id="s5adfc4065b570c51">
   <source>move %1 steps</source>
-  <target>%1 ädim hereket et</target>
+  <target>gehe %1 Schritte</target>
 </trans-unit>
 <trans-unit id="see7fc4dce00fe5f2">
   <source>rotate by %1 degrees</source>
-  <target>%1 gradus öwrül</target>
+  <target>drehe um %1 Grad</target>
 </trans-unit>
 <trans-unit id="s14e890768a7f46d7">
   <source>set rotation to %1 degrees</source>
-  <target>ugry %1 gradus edip sazla</target>
+  <target>setze Rotation auf %1 Grad</target>
 </trans-unit>
 <trans-unit id="sfcd44a75051f0272">
   <source>set x to %1</source>
-  <target>x-i %1 edip sazla</target>
+  <target>setze x auf %1</target>
 </trans-unit>
 <trans-unit id="s5297c3e4ef28c9e1">
   <source>set y to %1</source>
-  <target>y-ni %1 edip sazla</target>
+  <target>setze y auf %1</target>
 </trans-unit>
 <trans-unit id="s96dbff478859dd9c">
   <source>set x to %1 and y to %2</source>
-  <target>x-i %1, y-ni %2 edip sazla</target>
+  <target>setze x auf %1 und y auf %2</target>
 </trans-unit>
 <trans-unit id="s260005f1619bc499">
   <source>x-position</source>
-  <target>x ýagdaýy</target>
+  <target>x-Position</target>
 </trans-unit>
 <trans-unit id="sb0d47d2341d89ab8">
   <source>y-position</source>
-  <target>y ýagdaýy</target>
+  <target>y-Position</target>
 </trans-unit>
 <trans-unit id="s29338b6c39286b02">
   <source>timer</source>
-  <target>taymer</target>
+  <target>Stoppuhr</target>
 </trans-unit>
 <trans-unit id="sf5de94ac6955cc71">
   <source>reset timer</source>
-  <target>taymeri täzeden düz</target>
+  <target>setze Stoppuhr zurück</target>
 </trans-unit>
 <trans-unit id="s0a975bb48876aeaa">
   <source>play sound %1</source>
-  <target>%1 sesini çal</target>
+  <target>spiele Klang %1</target>
 </trans-unit>
 <trans-unit id="s4b6a91575e323b12">
   <source>play sound %1 until done</source>
-  <target>%1 sesini gutarýança çal</target>
+  <target>spiele Klang %1 ganz</target>
 </trans-unit>
 <trans-unit id="s97d71b48e04b1dca">
   <source>stop all sounds</source>
-  <target>ähli sesleri duruz</target>
+  <target>stoppe alle Klänge</target>
 </trans-unit>
 <trans-unit id="s779b5819564f2f50">
   <source>pop</source>
-  <target>pop</target>
+  <target>Ploppen</target>
 </trans-unit>
 <trans-unit id="s5ca15824688fca91">
   <source>failure</source>
-  <target>şowsuzlyk</target>
+  <target>Fehler</target>
 </trans-unit>
 <trans-unit id="s19fe06e3408e53d0">
   <source>success</source>
-  <target>üstünlik</target>
+  <target>Erfolg</target>
 </trans-unit>
 <trans-unit id="sfac15b89e0668996">
   <source>Duplicate</source>
-  <target>Göçür</target>
+  <target>Duplizieren</target>
 </trans-unit>
 <trans-unit id="s3687049d1af562c4">
   <source>Copy</source>
-  <target>Göçür</target>
+  <target>Kopieren</target>
 </trans-unit>
 <trans-unit id="sd374c80e17e18808">
   <source>Paste</source>
-  <target>Goý</target>
+  <target>Einfügen</target>
 </trans-unit>
 <trans-unit id="sdc673e73b5c13aea">
   <source>Delete</source>
-  <target>Poz</target>
+  <target>Löschen</target>
 </trans-unit>
 <trans-unit id="s83cd32b685ccc9b7">
   <source>Controls</source>
-  <target>Dolandyryş</target>
+  <target>Steuerung</target>
 </trans-unit>
 <trans-unit id="sc265a3e29e1206e4">
   <source>Events</source>
-  <target>Wakalar</target>
+  <target>Ereignisse</target>
 </trans-unit>
 <trans-unit id="saa9c909a4c95098a">
   <source>Operators</source>
-  <target>Operatorlar</target>
+  <target>Operatoren</target>
 </trans-unit>
 <trans-unit id="s80d301c6f454a49f">
   <source>Looks</source>
-  <target>Daşky görnüş</target>
+  <target>Aussehen</target>
 </trans-unit>
 <trans-unit id="s1849ee2b51259afc">
   <source>Motions</source>
-  <target>Hereket</target>
+  <target>Bewegungen</target>
 </trans-unit>
 <trans-unit id="sb39940945f8f7122">
   <source>Variables</source>
-  <target>Üýtgeýänler</target>
+  <target>Variablen</target>
 </trans-unit>
 <trans-unit id="sd4da02562366340a">
   <source>Sensing</source>
-  <target>Duýmak</target>
+  <target>Fühlen</target>
 </trans-unit>
 <trans-unit id="sf67bc9362e1bfbe5">
   <source>Sounds</source>
-  <target>Sesler</target>
+  <target>Klang</target>
 </trans-unit>
 <trans-unit id="s3643189d1abbb7f4">
   <source>Code</source>
-  <target>Kod</target>
+  <target>Code</target>
 </trans-unit>
 <trans-unit id="s9ffe1bbe64712bf1">
   <source>Canvas</source>
-  <target>Çyzgy meýdany</target>
+  <target>Leinwand</target>
 </trans-unit>
 <trans-unit id="s63cd4e8a3489be77">
   <source>Readonly</source>
-  <target>Diňe okamak</target>
+  <target>Schreibgeschützt</target>
 </trans-unit>
 <trans-unit id="sae827b4f3639159c">
   <source>Choose whether the blocks can be edited</source>
-  <target>Bloklary redaktirläp bolýandygyny saýlaň</target>
-</trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>Sahna</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>Sahnanyň görnüşini saýlaň</target>
+  <target>Wähle aus, ob die Blöcke bearbeitet werden können</target>
 </trans-unit>
 <trans-unit id="s8c4b9c645f39d5be">
   <source>Available Blocks</source>
-  <target>Elýeterli bloklar</target>
+  <target>Verfügbare Bausteine</target>
 </trans-unit>
 <trans-unit id="sc32ea8f7a9b87f0c">
   <source>Choose the blocks that are available in the toolbox</source>
-  <target>Gurallar gutusynda elýeterli boljak bloklary saýlaň</target>
+  <target>Wähle die Bausteine aus, die im Werkzeugkasten verfügbar sind</target>
 </trans-unit>
 <trans-unit id="s65d8bb4cc2edc8fe">
   <source>An error occurred!</source>
-  <target>Ýalňyşlyk ýüze çykdy!</target>
+  <target>Es ist ein Fehler aufgetreten!</target>
 </trans-unit>
 <trans-unit id="s37bc3ee79011f9ab">
   <source>Execution Options</source>
-  <target>Ýerine ýetiriş sazlamalary</target>
+  <target>Ausführungsoptionen</target>
 </trans-unit>
 <trans-unit id="s8870a0826d4ca8de">
   <source>Reset Stage</source>
-  <target>Sahnany täzeden düz</target>
+  <target>Bühne zurücksetzen</target>
 </trans-unit>
 <trans-unit id="s850705a256f709f7">
   <source>Stop Execution</source>
-  <target>Ýerine ýetirmegi duruz</target>
+  <target>Stoppe Ausführung</target>
 </trans-unit>
 <trans-unit id="sfaa15102d79e8fe2">
   <source>Restart Execution</source>
-  <target>Ýerine ýetirmegi täzeden başla</target>
+  <target>Ausführung neu starten</target>
 </trans-unit>
 <trans-unit id="s93fd381ccee962ed">
   <source>Start Execution</source>
-  <target>Ýerine ýetirmäge başla</target>
+  <target>Starte Ausführung</target>
 </trans-unit>
 <trans-unit id="seaf40793a6b89011">
   <source>Leave Fullscreen</source>
-  <target>Doly ekrandan çyk</target>
+  <target>Vollbildmodus verlassen</target>
 </trans-unit>
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
-  <target>Doly ekrana geç</target>
+  <target>Vollbildmodus</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>Programm löschen</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>Möchtest du alle Blöcke aus dem Programm entfernen?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>Die Datei ist kein gültiges JSON.</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>Die Datei enthält kein Blockprogramm.</target>
 </trans-unit>
 </body>
 </file>

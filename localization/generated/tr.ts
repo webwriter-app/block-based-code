@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `yönü %1 derece olarak ayarla`,
 's1849ee2b51259afc': `Hareket`,
 's19fe06e3408e53d0': `başarı`,
-'s1b70c81c0add3714': `Sahne türünü seçin`,
 's1d322941d98b740d': `%1 sayısının mutlak değeri`,
 's21ce5b62fb9cc909': `sol oku`,
 's22fde937cb709859': `Yakınlaştır`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Bir hata oluştu!`,
 's6ece8be61d1613ff': `arka plan rengini %1 olarak ayarla`,
 's779b5819564f2f50': `pat`,
+'s7d55412336204af6': `Programı temizle`,
 's7f2b6c605332dd30': `değilse`,
 's80d301c6f454a49f': `Görünüm`,
 's83cd32b685ccc9b7': `Kontrol`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Kullanılabilir bloklar`,
 's93fd381ccee962ed': `Çalıştır`,
 's969d19fdfd1292c0': `%1 ile %2'yi birleştir`,
+'s969ecb4ea9ad0288': `Programdaki tüm bloklar kaldırılsın mı?`,
 's96dbff478859dd9c': `x değerini %1, y değerini %2 olarak ayarla`,
 's97d71b48e04b1dca': `tüm sesleri durdur`,
 's9da27599b2482baf': `eğer %1 ise`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Yakınlaştırmayı sıfırla`,
 's9ffe1bbe64712bf1': `Tuval`,
 'saa9c909a4c95098a': `İşleçler`,
-'sae5da213b7f896ed': `Sahne`,
 'sae827b4f3639159c': `Blokların düzenlenip düzenlenemeyeceğini seçin`,
 'saf1f52191db2bcc5': `durdur`,
 'sb05582ce916894da': `Uzaklaştır`,
 'sb0d47d2341d89ab8': `y konumu`,
 'sb39940945f8f7122': `Değişkenler`,
+'sb505e2da1a1b9ab2': `Dosyada bir blok programı yok.`,
+'sb8c878135ee917b1': `Dosya geçerli JSON değil.`,
 'sc265a3e29e1206e4': `Olaylar`,
 'sc32ea8f7a9b87f0c': `Araç kutusunda kullanılabilir blokları seçin`,
 'sc9075a68b35564c4': `%1 tuşuna basıldığında`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `x değerini %1 olarak ayarla`,
 'sffb792580d9535aa': `%1 de`,
     };
-  

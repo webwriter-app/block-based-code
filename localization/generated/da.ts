@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `sæt retningen til %1 grader`,
 's1849ee2b51259afc': `Bevægelse`,
 's19fe06e3408e53d0': `succes`,
-'s1b70c81c0add3714': `Vælg scenetypen`,
 's1d322941d98b740d': `absolutværdien af %1`,
 's21ce5b62fb9cc909': `pil venstre`,
 's22fde937cb709859': `Zoom ind`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Der opstod en fejl!`,
 's6ece8be61d1613ff': `sæt baggrundsfarven til %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Ryd program`,
 's7f2b6c605332dd30': `ellers`,
 's80d301c6f454a49f': `Udseende`,
 's83cd32b685ccc9b7': `Styring`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Tilgængelige blokke`,
 's93fd381ccee962ed': `Start kørsel`,
 's969d19fdfd1292c0': `sæt %1 og %2 sammen`,
+'s969ecb4ea9ad0288': `Vil du fjerne alle blokke fra programmet?`,
 's96dbff478859dd9c': `sæt x til %1 og y til %2`,
 's97d71b48e04b1dca': `stop alle lyde`,
 's9da27599b2482baf': `hvis %1, så`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Nulstil zoom`,
 's9ffe1bbe64712bf1': `Lærred`,
 'saa9c909a4c95098a': `Operatorer`,
-'sae5da213b7f896ed': `Scene`,
 'sae827b4f3639159c': `Vælg, om blokkene kan redigeres`,
 'saf1f52191db2bcc5': `stop`,
 'sb05582ce916894da': `Zoom ud`,
 'sb0d47d2341d89ab8': `y-position`,
 'sb39940945f8f7122': `Variabler`,
+'sb505e2da1a1b9ab2': `Filen indeholder ikke et blokprogram.`,
+'sb8c878135ee917b1': `Filen er ikke gyldig JSON.`,
 'sc265a3e29e1206e4': `Hændelser`,
 'sc32ea8f7a9b87f0c': `Vælg, hvilke blokke der er tilgængelige i værktøjskassen`,
 'sc9075a68b35564c4': `når der trykkes på %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `sæt x til %1`,
 'sffb792580d9535aa': `sig %1`,
     };
-  

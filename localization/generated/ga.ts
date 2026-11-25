@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `socraigh an treo go %1 céim`,
 's1849ee2b51259afc': `Gluaiseacht`,
 's19fe06e3408e53d0': `rath`,
-'s1b70c81c0add3714': `Roghnaigh cineál an stáitse`,
 's1d322941d98b740d': `luach absalóideach %1`,
 's21ce5b62fb9cc909': `saighead ar chlé`,
 's22fde937cb709859': `Súmáil isteach`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Tharla earráid!`,
 's6ece8be61d1613ff': `socraigh dath an chúlra go %1`,
 's779b5819564f2f50': `pop`,
+'s7d55412336204af6': `Glan an ríomhchlár`,
 's7f2b6c605332dd30': `seachas sin`,
 's80d301c6f454a49f': `Cuma`,
 's83cd32b685ccc9b7': `Rialú`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Bloic atá ar fáil`,
 's93fd381ccee962ed': `Tosaigh an rith`,
 's969d19fdfd1292c0': `ceangail %1 agus %2`,
+'s969ecb4ea9ad0288': `An mbainfear na bloic ar fad den ríomhchlár?`,
 's96dbff478859dd9c': `socraigh x go %1 agus y go %2`,
 's97d71b48e04b1dca': `stop gach fuaim`,
 's9da27599b2482baf': `má tá %1, ansin`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Athshocraigh an súmáil`,
 's9ffe1bbe64712bf1': `Canbhás`,
 'saa9c909a4c95098a': `Oibreoirí`,
-'sae5da213b7f896ed': `Stáitse`,
 'sae827b4f3639159c': `Roghnaigh an féidir na bloic a chur in eagar`,
 'saf1f52191db2bcc5': `stop`,
 'sb05582ce916894da': `Súmáil amach`,
 'sb0d47d2341d89ab8': `suíomh y`,
 'sb39940945f8f7122': `Athróga`,
+'sb505e2da1a1b9ab2': `Níl ríomhchlár blocanna sa chomhad.`,
+'sb8c878135ee917b1': `Ní JSON bailí é an comhad.`,
 'sc265a3e29e1206e4': `Imeachtaí`,
 'sc32ea8f7a9b87f0c': `Roghnaigh na bloic a bheidh ar fáil sa bhosca uirlisí`,
 'sc9075a68b35564c4': `nuair a bhrúitear an eochair %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `socraigh x go %1`,
 'sffb792580d9535aa': `abair %1`,
     };
-  

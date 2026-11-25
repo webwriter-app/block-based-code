@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `rotationem ad %1 gradus pone`,
 's1849ee2b51259afc': `Motus`,
 's19fe06e3408e53d0': `successus`,
-'s1b70c81c0add3714': `Genus scaenae elige`,
 's1d322941d98b740d': `valor absolutus de %1`,
 's21ce5b62fb9cc909': `sagitta sinistra`,
 's22fde937cb709859': `Amplifica`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Error accidit!`,
 's6ece8be61d1613ff': `colorem fundi ad %1 pone`,
 's779b5819564f2f50': `crepitus`,
+'s7d55412336204af6': `Programma purga`,
 's7f2b6c605332dd30': `aliter`,
 's80d301c6f454a49f': `Species`,
 's83cd32b685ccc9b7': `Regimina`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Bloci praesto`,
 's93fd381ccee962ed': `Exsecutionem incipe`,
 's969d19fdfd1292c0': `coniunge %1 cum %2`,
+'s969ecb4ea9ad0288': `Omnes segmenta e programmate removere?`,
 's96dbff478859dd9c': `x ad %1 et y ad %2 pone`,
 's97d71b48e04b1dca': `siste omnes sonos`,
 's9da27599b2482baf': `si %1, tum`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Amplificationem restitue`,
 's9ffe1bbe64712bf1': `Area graphica`,
 'saa9c909a4c95098a': `Operatores`,
-'sae5da213b7f896ed': `Scaena`,
 'sae827b4f3639159c': `Elige an bloci mutari possint`,
 'saf1f52191db2bcc5': `siste`,
 'sb05582ce916894da': `Minue`,
 'sb0d47d2341d89ab8': `positio y`,
 'sb39940945f8f7122': `Variabiles`,
+'sb505e2da1a1b9ab2': `Fasciculus programma segmentorum non continet.`,
+'sb8c878135ee917b1': `Fasciculus JSON validus non est.`,
 'sc265a3e29e1206e4': `Eventus`,
 'sc32ea8f7a9b87f0c': `Elige blocos in capsa instrumentorum praesto`,
 'sc9075a68b35564c4': `cum clavis %1 premitur`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `x ad %1 pone`,
 'sffb792580d9535aa': `dic %1`,
     };
-  

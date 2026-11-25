@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `iestatīt virzienu uz %1 grādiem`,
 's1849ee2b51259afc': `Kustība`,
 's19fe06e3408e53d0': `izdošanās`,
-'s1b70c81c0add3714': `Izvēlieties skatuves veidu`,
 's1d322941d98b740d': `%1 absolūtā vērtība`,
 's21ce5b62fb9cc909': `kreisā bultiņa`,
 's22fde937cb709859': `Tuvināt`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Radās kļūda!`,
 's6ece8be61d1613ff': `iestatīt fona krāsu uz %1`,
 's779b5819564f2f50': `plaukšķis`,
+'s7d55412336204af6': `Notīrīt programmu`,
 's7f2b6c605332dd30': `citādi`,
 's80d301c6f454a49f': `Izskats`,
 's83cd32b685ccc9b7': `Vadība`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Pieejamie bloki`,
 's93fd381ccee962ed': `Sākt izpildi`,
 's969d19fdfd1292c0': `savienot %1 un %2`,
+'s969ecb4ea9ad0288': `Vai no programmas noņemt visus blokus?`,
 's96dbff478859dd9c': `iestatīt x uz %1 un y uz %2`,
 's97d71b48e04b1dca': `apturēt visas skaņas`,
 's9da27599b2482baf': `ja %1, tad`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Atiestatīt mērogu`,
 's9ffe1bbe64712bf1': `Audekls`,
 'saa9c909a4c95098a': `Operatori`,
-'sae5da213b7f896ed': `Skatuve`,
 'sae827b4f3639159c': `Izvēlieties, vai blokus var rediģēt`,
 'saf1f52191db2bcc5': `apturēt`,
 'sb05582ce916894da': `Tālināt`,
 'sb0d47d2341d89ab8': `y pozīcija`,
 'sb39940945f8f7122': `Mainīgie`,
+'sb505e2da1a1b9ab2': `Failā nav bloku programmas.`,
+'sb8c878135ee917b1': `Fails nav derīgs JSON.`,
 'sc265a3e29e1206e4': `Notikumi`,
 'sc32ea8f7a9b87f0c': `Izvēlieties, kuri bloki ir pieejami rīku komplektā`,
 'sc9075a68b35564c4': `kad nospiests taustiņš %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `iestatīt x uz %1`,
 'sffb792580d9535aa': `saki %1`,
     };
-  

@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `määra suunaks %1 kraadi`,
 's1849ee2b51259afc': `Liikumine`,
 's19fe06e3408e53d0': `õnnestumine`,
-'s1b70c81c0add3714': `Vali lava tüüp`,
 's1d322941d98b740d': `%1 absoluutväärtus`,
 's21ce5b62fb9cc909': `vasaknool`,
 's22fde937cb709859': `Suurenda`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Tekkis viga!`,
 's6ece8be61d1613ff': `määra taustavärviks %1`,
 's779b5819564f2f50': `pops`,
+'s7d55412336204af6': `Tühjenda programm`,
 's7f2b6c605332dd30': `muidu`,
 's80d301c6f454a49f': `Välimus`,
 's83cd32b685ccc9b7': `Juhtimine`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Saadaolevad plokid`,
 's93fd381ccee962ed': `Käivita`,
 's969d19fdfd1292c0': `ühenda %1 ja %2`,
+'s969ecb4ea9ad0288': `Kas eemaldada programmist kõik plokid?`,
 's96dbff478859dd9c': `määra x väärtuseks %1 ja y väärtuseks %2`,
 's97d71b48e04b1dca': `peata kõik helid`,
 's9da27599b2482baf': `kui %1, siis`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Lähtesta suurendus`,
 's9ffe1bbe64712bf1': `Lõuend`,
 'saa9c909a4c95098a': `Tehted`,
-'sae5da213b7f896ed': `Lava`,
 'sae827b4f3639159c': `Vali, kas plokke saab muuta`,
 'saf1f52191db2bcc5': `peata`,
 'sb05582ce916894da': `Vähenda`,
 'sb0d47d2341d89ab8': `y-asukoht`,
 'sb39940945f8f7122': `Muutujad`,
+'sb505e2da1a1b9ab2': `Fail ei sisalda plokkprogrammi.`,
+'sb8c878135ee917b1': `Fail ei ole kehtiv JSON.`,
 'sc265a3e29e1206e4': `Sündmused`,
 'sc32ea8f7a9b87f0c': `Vali tööriistakastis saadaolevad plokid`,
 'sc9075a68b35564c4': `kui vajutatakse klahvi %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `määra x väärtuseks %1`,
 'sffb792580d9535aa': `ütle %1`,
     };
-  

@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `nastav smer na %1 stupňov`,
 's1849ee2b51259afc': `Pohyb`,
 's19fe06e3408e53d0': `úspech`,
-'s1b70c81c0add3714': `Vyberte typ scény`,
 's1d322941d98b740d': `absolútna hodnota %1`,
 's21ce5b62fb9cc909': `šípka doľava`,
 's22fde937cb709859': `Priblížiť`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Vyskytla sa chyba!`,
 's6ece8be61d1613ff': `nastav farbu pozadia na %1`,
 's779b5819564f2f50': `prask`,
+'s7d55412336204af6': `Vymazať program`,
 's7f2b6c605332dd30': `inak`,
 's80d301c6f454a49f': `Vzhľad`,
 's83cd32b685ccc9b7': `Ovládanie`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Dostupné bloky`,
 's93fd381ccee962ed': `Spustiť vykonávanie`,
 's969d19fdfd1292c0': `spoj %1 a %2`,
+'s969ecb4ea9ad0288': `Odstrániť z programu všetky bloky?`,
 's96dbff478859dd9c': `nastav x na %1 a y na %2`,
 's97d71b48e04b1dca': `zastav všetky zvuky`,
 's9da27599b2482baf': `ak %1, potom`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Obnoviť priblíženie`,
 's9ffe1bbe64712bf1': `Plátno`,
 'saa9c909a4c95098a': `Operátory`,
-'sae5da213b7f896ed': `Scéna`,
 'sae827b4f3639159c': `Vyberte, či možno bloky upravovať`,
 'saf1f52191db2bcc5': `zastaviť`,
 'sb05582ce916894da': `Oddialiť`,
 'sb0d47d2341d89ab8': `poloha y`,
 'sb39940945f8f7122': `Premenné`,
+'sb505e2da1a1b9ab2': `Súbor neobsahuje blokový program.`,
+'sb8c878135ee917b1': `Súbor nie je platný JSON.`,
 'sc265a3e29e1206e4': `Udalosti`,
 'sc32ea8f7a9b87f0c': `Vyberte, ktoré bloky budú dostupné v paneli nástrojov`,
 'sc9075a68b35564c4': `po stlačení klávesu %1`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `nastav x na %1`,
 'sffb792580d9535aa': `povedz %1`,
     };
-  

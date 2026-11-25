@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `atur arah ke %1 derajat`,
 's1849ee2b51259afc': `Gerakan`,
 's19fe06e3408e53d0': `berhasil`,
-'s1b70c81c0add3714': `Pilih jenis panggung`,
 's1d322941d98b740d': `nilai absolut dari %1`,
 's21ce5b62fb9cc909': `panah kiri`,
 's22fde937cb709859': `Perbesar`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Terjadi kesalahan!`,
 's6ece8be61d1613ff': `atur warna latar ke %1`,
 's779b5819564f2f50': `letup`,
+'s7d55412336204af6': `Hapus program`,
 's7f2b6c605332dd30': `jika tidak`,
 's80d301c6f454a49f': `Tampilan`,
 's83cd32b685ccc9b7': `Kontrol`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Blok yang tersedia`,
 's93fd381ccee962ed': `Mulai eksekusi`,
 's969d19fdfd1292c0': `gabungkan %1 dan %2`,
+'s969ecb4ea9ad0288': `Hapus semua blok dari program?`,
 's96dbff478859dd9c': `atur x ke %1 dan y ke %2`,
 's97d71b48e04b1dca': `hentikan semua suara`,
 's9da27599b2482baf': `jika %1, maka`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Atur ulang zoom`,
 's9ffe1bbe64712bf1': `Kanvas`,
 'saa9c909a4c95098a': `Operator`,
-'sae5da213b7f896ed': `Panggung`,
 'sae827b4f3639159c': `Pilih apakah blok dapat diedit`,
 'saf1f52191db2bcc5': `hentikan`,
 'sb05582ce916894da': `Perkecil`,
 'sb0d47d2341d89ab8': `posisi y`,
 'sb39940945f8f7122': `Variabel`,
+'sb505e2da1a1b9ab2': `File tidak berisi program blok.`,
+'sb8c878135ee917b1': `File bukan JSON yang valid.`,
 'sc265a3e29e1206e4': `Peristiwa`,
 'sc32ea8f7a9b87f0c': `Pilih blok yang tersedia di kotak alat`,
 'sc9075a68b35564c4': `ketika tombol %1 ditekan`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `atur x ke %1`,
 'sffb792580d9535aa': `katakan %1`,
     };
-  

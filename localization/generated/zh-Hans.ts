@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `将方向设为 %1 度`,
 's1849ee2b51259afc': `动作`,
 's19fe06e3408e53d0': `成功`,
-'s1b70c81c0add3714': `选择舞台类型`,
 's1d322941d98b740d': `%1 的绝对值`,
 's21ce5b62fb9cc909': `左箭头`,
 's22fde937cb709859': `放大`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `发生错误！`,
 's6ece8be61d1613ff': `将背景颜色设为 %1`,
 's779b5819564f2f50': `啵`,
+'s7d55412336204af6': `清除程序`,
 's7f2b6c605332dd30': `否则`,
 's80d301c6f454a49f': `外观`,
 's83cd32b685ccc9b7': `控制`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `可用积木`,
 's93fd381ccee962ed': `开始运行`,
 's969d19fdfd1292c0': `连接 %1 和 %2`,
+'s969ecb4ea9ad0288': `要移除程序中的所有积木吗？`,
 's96dbff478859dd9c': `将 x 设为 %1，y 设为 %2`,
 's97d71b48e04b1dca': `停止所有声音`,
 's9da27599b2482baf': `如果 %1，那么`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `重置缩放`,
 's9ffe1bbe64712bf1': `画布`,
 'saa9c909a4c95098a': `运算`,
-'sae5da213b7f896ed': `舞台`,
 'sae827b4f3639159c': `选择是否允许编辑积木`,
 'saf1f52191db2bcc5': `停止`,
 'sb05582ce916894da': `缩小`,
 'sb0d47d2341d89ab8': `y 坐标`,
 'sb39940945f8f7122': `变量`,
+'sb505e2da1a1b9ab2': `文件不包含积木程序。`,
+'sb8c878135ee917b1': `文件不是有效的 JSON。`,
 'sc265a3e29e1206e4': `事件`,
 'sc32ea8f7a9b87f0c': `选择工具箱中可用的积木`,
 'sc9075a68b35564c4': `当按下 %1 键时`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `将 x 设为 %1`,
 'sffb792580d9535aa': `说 %1`,
     };
-  

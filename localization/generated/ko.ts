@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `방향을 %1도로 설정`,
 's1849ee2b51259afc': `동작`,
 's19fe06e3408e53d0': `성공`,
-'s1b70c81c0add3714': `무대 유형을 선택하세요`,
 's1d322941d98b740d': `%1의 절댓값`,
 's21ce5b62fb9cc909': `왼쪽 화살표`,
 's22fde937cb709859': `확대`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `오류가 발생했습니다!`,
 's6ece8be61d1613ff': `배경색을 %1로 설정`,
 's779b5819564f2f50': `팝`,
+'s7d55412336204af6': `프로그램 지우기`,
 's7f2b6c605332dd30': `아니면`,
 's80d301c6f454a49f': `모양`,
 's83cd32b685ccc9b7': `제어`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `사용 가능한 블록`,
 's93fd381ccee962ed': `실행`,
 's969d19fdfd1292c0': `%1과 %2 연결`,
+'s969ecb4ea9ad0288': `프로그램의 블록을 모두 삭제할까요?`,
 's96dbff478859dd9c': `x를 %1, y를 %2로 설정`,
 's97d71b48e04b1dca': `모든 소리 중지`,
 's9da27599b2482baf': `만약 %1이라면`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `확대/축소 초기화`,
 's9ffe1bbe64712bf1': `캔버스`,
 'saa9c909a4c95098a': `연산`,
-'sae5da213b7f896ed': `무대`,
 'sae827b4f3639159c': `블록을 편집할 수 있는지 선택하세요`,
 'saf1f52191db2bcc5': `중지`,
 'sb05582ce916894da': `축소`,
 'sb0d47d2341d89ab8': `y 위치`,
 'sb39940945f8f7122': `변수`,
+'sb505e2da1a1b9ab2': `파일에 블록 프로그램이 없습니다.`,
+'sb8c878135ee917b1': `파일이 올바른 JSON이 아닙니다.`,
 'sc265a3e29e1206e4': `이벤트`,
 'sc32ea8f7a9b87f0c': `도구 상자에서 사용할 블록을 선택하세요`,
 'sc9075a68b35564c4': `%1 키를 눌렀을 때`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `x를 %1로 설정`,
 'sffb792580d9535aa': `%1 말하기`,
     };
-  

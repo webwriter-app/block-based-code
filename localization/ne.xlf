@@ -270,14 +270,6 @@
   <source>Choose whether the blocks can be edited</source>
   <target>ब्लक सम्पादन गर्न मिल्ने हो वा होइन छान्नुहोस्</target>
 </trans-unit>
-<trans-unit id="sae5da213b7f896ed">
-  <source>Stage</source>
-  <target>मञ्च</target>
-</trans-unit>
-<trans-unit id="s1b70c81c0add3714">
-  <source>Choose the type of stage</source>
-  <target>मञ्चको प्रकार छान्नुहोस्</target>
-</trans-unit>
 <trans-unit id="s8c4b9c645f39d5be">
   <source>Available Blocks</source>
   <target>उपलब्ध ब्लकहरू</target>
@@ -317,6 +309,30 @@
 <trans-unit id="sde5fec15bbbdc66e">
   <source>Enter Fullscreen</source>
   <target>पूरा पर्दा खोल्नुहोस्</target>
+</trans-unit>
+<trans-unit id="s7d55412336204af6">
+  <source>Clear program</source>
+        <target>प्रोग्राम खाली गर्नुहोस्</target>
+</trans-unit>
+<trans-unit id="s969ecb4ea9ad0288">
+  <source>Remove all blocks from the program?</source>
+        <target>कार्यक्रमका सबै ब्लकहरू हटाउने?</target>
+</trans-unit>
+<trans-unit id="sb8c878135ee917b1">
+  <source>The file is not valid JSON.</source>
+        <target>फाइल मान्य JSON होइन।</target>
+</trans-unit>
+<trans-unit id="sb505e2da1a1b9ab2">
+  <source>The file does not contain a block program.</source>
+        <target>फाइलमा ब्लक कार्यक्रम छैन।</target>
+</trans-unit>
+<trans-unit id="sae5da213b7f896ed">
+  <source>Stage</source>
+  <target>मञ्च</target>
+</trans-unit>
+<trans-unit id="s1b70c81c0add3714">
+  <source>Choose the type of stage</source>
+  <target>मञ्चको प्रकार छान्नुहोस्</target>
 </trans-unit>
 </body>
 </file>

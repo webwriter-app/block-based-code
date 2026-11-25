@@ -2,8 +2,8 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -18,7 +18,6 @@
 's14e890768a7f46d7': `stel richting in op %1 graden`,
 's1849ee2b51259afc': `Beweging`,
 's19fe06e3408e53d0': `gelukt`,
-'s1b70c81c0add3714': `Kies het type speelveld`,
 's1d322941d98b740d': `absolute waarde van %1`,
 's21ce5b62fb9cc909': `pijl naar links`,
 's22fde937cb709859': `Inzoomen`,
@@ -45,6 +44,7 @@
 's65d8bb4cc2edc8fe': `Er is een fout opgetreden!`,
 's6ece8be61d1613ff': `stel achtergrondkleur in op %1`,
 's779b5819564f2f50': `plop`,
+'s7d55412336204af6': `Programma wissen`,
 's7f2b6c605332dd30': `anders`,
 's80d301c6f454a49f': `Uiterlijk`,
 's83cd32b685ccc9b7': `Besturing`,
@@ -54,6 +54,7 @@
 's8c4b9c645f39d5be': `Beschikbare blokken`,
 's93fd381ccee962ed': `Uitvoering starten`,
 's969d19fdfd1292c0': `voeg %1 en %2 samen`,
+'s969ecb4ea9ad0288': `Wil je alle blokken uit het programma verwijderen?`,
 's96dbff478859dd9c': `stel x in op %1 en y op %2`,
 's97d71b48e04b1dca': `stop alle geluiden`,
 's9da27599b2482baf': `als %1, dan`,
@@ -61,12 +62,13 @@
 's9fb1920f1e90623b': `Zoom herstellen`,
 's9ffe1bbe64712bf1': `Canvas`,
 'saa9c909a4c95098a': `Operatoren`,
-'sae5da213b7f896ed': `Speelveld`,
 'sae827b4f3639159c': `Kies of de blokken kunnen worden bewerkt`,
 'saf1f52191db2bcc5': `stop`,
 'sb05582ce916894da': `Uitzoomen`,
 'sb0d47d2341d89ab8': `y-positie`,
 'sb39940945f8f7122': `Variabelen`,
+'sb505e2da1a1b9ab2': `Het bestand bevat geen blokprogramma.`,
+'sb8c878135ee917b1': `Het bestand is geen geldige JSON.`,
 'sc265a3e29e1206e4': `Gebeurtenissen`,
 'sc32ea8f7a9b87f0c': `Kies welke blokken beschikbaar zijn in de gereedschapskist`,
 'sc9075a68b35564c4': `wanneer toets %1 wordt ingedrukt`,
@@ -89,4 +91,3 @@
 'sfcd44a75051f0272': `stel x in op %1`,
 'sffb792580d9535aa': `zeg %1`,
     };
-  
