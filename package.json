@@ -1,6 +1,6 @@
 {
   "name": "@webwriter/block-based-code",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Build programs with visual blocks and run them in the browser.",
   "keywords": [
     "webwriter-widget",
@@ -169,6 +169,7 @@
     "./package.json": "./package.json",
     "./icon": "./icon.svg",
     "./preview": "./assets/preview.mp4",
+    "./preview/de": "./assets/preview-de.mp4",
     "./custom-elements.json": "./custom-elements.json"
   },
   "editingConfig": {
