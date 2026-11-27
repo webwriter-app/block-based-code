@@ -1,5 +1,5 @@
-# Block Based Code (`@webwriter/block-based-code@2.1.1`)
-[License: MIT](LICENSE) | Version: 2.1.1
+# Block Based Code (`@webwriter/block-based-code@2.1.2`)
+[License: MIT](LICENSE) | Version: 2.1.2
 
 Build programs with visual blocks and run them in the browser.
 
